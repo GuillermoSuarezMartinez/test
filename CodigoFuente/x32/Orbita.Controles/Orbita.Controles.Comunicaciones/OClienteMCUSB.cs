@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Orbita.Controles.Comunicaciones
 {
-    public partial class OClienteMCUSB : UserControl
+    public partial class OClienteMCUSB : OClienteComs
     {
         public OClienteMCUSB()
         {
