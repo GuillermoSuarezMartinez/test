@@ -71,22 +71,27 @@
             // 
             // TimerUpdateAutoScrollPosition
             // 
+            this.TimerUpdateAutoScrollPosition.Interval = 200;
             this.TimerUpdateAutoScrollPosition.Tick += new System.EventHandler(this.TimerUpdateAutoScrollPosition_Tick);
             // 
             // TimerUpdateCursorPosition
             // 
+            this.TimerUpdateCursorPosition.Interval = 200;
             this.TimerUpdateCursorPosition.Tick += new System.EventHandler(this.TimerUpdateCursorPosition_Tick);
             // 
             // TimerUpdateZoomLevel
             // 
+            this.TimerUpdateZoomLevel.Interval = 200;
             this.TimerUpdateZoomLevel.Tick += new System.EventHandler(this.TimerUpdateZoomLevel_Tick);
             // 
             // TimerUpdateViewSize
             // 
+            this.TimerUpdateViewSize.Interval = 200;
             this.TimerUpdateViewSize.Tick += new System.EventHandler(this.TimerUpdateViewSize_Tick);
             // 
             // TimerUpdateSelecction
             // 
+            this.TimerUpdateSelecction.Interval = 200;
             this.TimerUpdateSelecction.Tick += new System.EventHandler(this.TimerUpdateSelecction_Tick);
             // 
             // VisorImagenes
@@ -375,6 +380,7 @@
             // 
             // TimerUpdateFps
             // 
+            this.TimerUpdateFps.Interval = 200;
             this.TimerUpdateFps.Tick += new System.EventHandler(this.TimerUpdateFps_Tick);
             // 
             // ODisplayBitmap

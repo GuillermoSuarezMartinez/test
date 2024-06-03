@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Segoe UI" Size="9" />
+  <Class Name="Orbita.VAFunciones.VisionRuntime">
+    <Position X="0.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>VisionFunction.cs</FileName>
+      <NewMemberFileName>VisionRuntime.cs</NewMemberFileName>
+      <HashCode>AgACAEQAAAAAAAAAAAAAAAAAAQAAABAgAAAYAAAAIAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="ListaFuncionesVision" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Orbita.VAFunciones.VisionFunctionBase">
+    <Position X="3.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>VisionFunction.cs</FileName>
+      <HashCode>AgACEAAAAQABAAAwAAAAgAATAQRgAYAkAAAIhCIAIBA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TipoFuncionVision" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="_CodCamara" Hidden="true" />
+      <Field Name="_Codigo" Hidden="true" />
+      <Field Name="_Descripcion" Hidden="true" />
+      <Field Name="_Nombre" Hidden="true" />
+      <Field Name="_RutaFichero" Hidden="true" />
+      <Field Name="_TipoFuncionVision" Hidden="true" />
+      <Field Name="_Valido" Hidden="true" />
+      <Method Name="GetSalidas" Hidden="true" />
+      <Method Name="IniciarEjecucionAsincrona" Hidden="true" />
+      <Method Name="IniciarEjecucionSincrona" Hidden="true" />
+      <Method Name="SetEntradasFijas" Hidden="true" />
+      <Method Name="SetEntradasVariables" Hidden="true" />
+      <Method Name="VisionFunctionBase" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="Orbita.VAFunciones.VisionProFunction">
+    <Position X="6.25" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>VisionProFunction.cs</FileName>
+      <HashCode>AgACAAEAAAAAAAAAAAIAAAAAAAAAAAAgAAAAgAAAIAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="ToolBlock" Hidden="true" />
+      <Method Name="VisionProFunction" Hidden="true" />
+    </Members>
+    <InheritanceLine Type="Orbita.VAFunciones.VisionFunctionBase" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="1.975" />
+        <Point X="6.25" Y="1.975" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="Orbita.VAFunciones.CidarFunction">
+    <Position X="6.25" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>CidarFunction.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Orbita.VAFunciones.TipoFuncionVision" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>VisionFunction.cs</FileName>
+      <HashCode>AAAAAAAABKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

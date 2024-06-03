@@ -1068,33 +1068,39 @@ namespace Orbita.Controles.VA
         {
             Rectangle viewPort;
 
-            if (this.Image != null)
+            try
             {
-                Rectangle innerRectangle;
-                Point offset;
-
-                innerRectangle = this.GetInsideViewPort();
-
-                if (!this.HScroll && !this.VScroll) // if no scrolling is present, tinker the view port so that the image and any applicable borders all fit inside
-                    innerRectangle.Inflate(-this.GetImageBorderOffset(), -this.GetImageBorderOffset());
-
-                if (this.AutoCenter)
+                if (this.Image != null)
                 {
-                    int x;
-                    int y;
+                    Rectangle innerRectangle;
+                    Point offset;
 
-                    x = !this.HScroll ? (innerRectangle.Width - (this.ScaledImageWidth + this.Padding.Horizontal)) / 2 : 0;
-                    y = !this.VScroll ? (innerRectangle.Height - (this.ScaledImageHeight + this.Padding.Vertical)) / 2 : 0;
+                    innerRectangle = this.GetInsideViewPort();
 
-                    offset = new Point(x, y);
+                    if (!this.HScroll && !this.VScroll) // if no scrolling is present, tinker the view port so that the image and any applicable borders all fit inside
+                        innerRectangle.Inflate(-this.GetImageBorderOffset(), -this.GetImageBorderOffset());
+
+                    if (this.AutoCenter)
+                    {
+                        int x;
+                        int y;
+
+                        x = !this.HScroll ? (innerRectangle.Width - (this.ScaledImageWidth + this.Padding.Horizontal)) / 2 : 0;
+                        y = !this.VScroll ? (innerRectangle.Height - (this.ScaledImageHeight + this.Padding.Vertical)) / 2 : 0;
+
+                        offset = new Point(x, y);
+                    }
+                    else
+                        offset = Point.Empty;
+
+                    viewPort = new Rectangle(offset.X + innerRectangle.Left + this.Padding.Left, offset.Y + innerRectangle.Top + this.Padding.Top, innerRectangle.Width - (this.Padding.Horizontal + (offset.X * 2)), innerRectangle.Height - (this.Padding.Vertical + (offset.Y * 2)));
                 }
                 else
-                    offset = Point.Empty;
-
-                viewPort = new Rectangle(offset.X + innerRectangle.Left + this.Padding.Left, offset.Y + innerRectangle.Top + this.Padding.Top, innerRectangle.Width - (this.Padding.Horizontal + (offset.X * 2)), innerRectangle.Height - (this.Padding.Vertical + (offset.Y * 2)));
+                    viewPort = Rectangle.Empty;
             }
-            else
-                viewPort = Rectangle.Empty;
+            catch
+            {
+            }
 
             return viewPort;
         }
@@ -1578,8 +1584,14 @@ namespace Orbita.Controles.VA
         /// <param name="g">The g.</param>
         protected virtual void DrawImage(Graphics g)
         {
-            g.InterpolationMode = this.InterpolationMode;
-            g.DrawImage(this.Image, this.GetImageViewPort(), this.GetSourceImageRegion(), GraphicsUnit.Pixel);
+            try
+            {
+                g.InterpolationMode = this.InterpolationMode;
+                g.DrawImage(this.Image, this.GetImageViewPort(), this.GetSourceImageRegion(), GraphicsUnit.Pixel);
+            }
+            catch
+            {
+            }
         }
         /// <summary>
         ///  Draws a border around the image.
@@ -2265,13 +2277,13 @@ namespace Orbita.Controles.VA
         /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
         protected override void OnBackColorChanged(EventArgs e)
         {
-            //try
+            try
             {
                 base.OnBackColorChanged(e);
 
                 this.Invalidate();
             }
-            //catch
+            catch
             {
             }
         }
@@ -2281,13 +2293,13 @@ namespace Orbita.Controles.VA
         /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         protected override void OnBorderStyleChanged(EventArgs e)
         {
-            //try
+            try
             {
                 base.OnBorderStyleChanged(e);
 
                 this.AdjustLayout();
             }
-            //catch
+            catch
             {
             }
         }
@@ -2297,14 +2309,14 @@ namespace Orbita.Controles.VA
         /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
         protected override void OnDockChanged(EventArgs e)
         {
-            //try
+            try
             {
                 base.OnDockChanged(e);
 
                 if (this.Dock != DockStyle.None)
                     this.AutoSize = false;
             }
-            //catch
+            catch
             {
             }
         }
@@ -2314,7 +2326,7 @@ namespace Orbita.Controles.VA
         /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            //try
+            try
             {
                 base.OnMouseDown(e);
 
@@ -2335,7 +2347,7 @@ namespace Orbita.Controles.VA
                 //if (e.Button == MouseButtons.Right && this.SelectionMode != VisorImagenesSelectionMode.None)
                 //    this.SelectionRegion = Rectangle.Empty;
             }
-            //catch
+            catch
             {
             }
         }
@@ -2345,7 +2357,7 @@ namespace Orbita.Controles.VA
         /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            //try
+            try
             {
                 base.OnMouseMove(e);
 
@@ -2382,7 +2394,7 @@ namespace Orbita.Controles.VA
                 //    this.ProcessSelection(e);
                 //}
             }
-            //catch
+            catch
             {
             }
 
@@ -2393,7 +2405,7 @@ namespace Orbita.Controles.VA
         /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            //try
+            try
             {
                 bool doNotProcessClick;
 
@@ -2451,7 +2463,7 @@ namespace Orbita.Controles.VA
                     //    this.ZoomToFit();
                 }
             }
-            //catch
+            catch
             {
             }
         }
@@ -2461,14 +2473,14 @@ namespace Orbita.Controles.VA
         /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         protected override void OnMouseWheel(MouseEventArgs e)
         {
-            //try
+            try
             {
                 base.OnMouseWheel(e);
 
                 if (this.AllowZoom && !this.SizeToFit)
                     this.ProcessMouseZoom(e.Delta > 0, e.Location);
             }
-            //catch
+            catch
             {
             }
         }
@@ -2478,12 +2490,12 @@ namespace Orbita.Controles.VA
         /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
         protected override void OnPaddingChanged(System.EventArgs e)
         {
-            //try
+            try
             {
                 base.OnPaddingChanged(e);
                 this.AdjustLayout();
             }
-            //catch
+            catch
             {
             }
         }
@@ -2493,7 +2505,7 @@ namespace Orbita.Controles.VA
         /// <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
-            //try
+            try
             {
                 if (this.AllowPainting)
                 {
@@ -2542,7 +2554,7 @@ namespace Orbita.Controles.VA
                     base.OnPaint(e);
                 }
             }
-            //catch
+            catch
             {
             }
         }
@@ -2552,12 +2564,12 @@ namespace Orbita.Controles.VA
         /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
         protected override void OnParentChanged(System.EventArgs e)
         {
-            //try
+            try
             {
                 base.OnParentChanged(e);
                 this.AdjustLayout();
             }
-            //catch
+            catch
             {
             }
         }
@@ -2567,13 +2579,13 @@ namespace Orbita.Controles.VA
         /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
         protected override void OnResize(EventArgs e)
         {
-            //try
+            try
             {
                 this.AdjustLayout();
 
                 base.OnResize(e);
             }
-            //catch
+            catch
             {
             }
         }
@@ -2583,13 +2595,13 @@ namespace Orbita.Controles.VA
         /// <param name="se">A <see cref="T:System.Windows.Forms.ScrollEventArgs"/> that contains the event data.</param>
         protected override void OnScroll(ScrollEventArgs se)
         {
-            //try
+            try
             {
                 this.Invalidate();
 
                 base.OnScroll(se);
             }
-            //catch
+            catch
             {
             }
         }
@@ -2599,7 +2611,7 @@ namespace Orbita.Controles.VA
         /// <param name="e">A <see cref="T:System.Windows.Forms.KeyEventArgs"/> that contains the event data.</param>
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            //try
+            try
             {
                 base.OnKeyDown(e);
 
@@ -2608,7 +2620,7 @@ namespace Orbita.Controles.VA
                 if (this.ShortcutsEnabled)
                     this.ProcessImageShortcuts(e);
             }
-            //catch
+            catch
             {
             }
         } 

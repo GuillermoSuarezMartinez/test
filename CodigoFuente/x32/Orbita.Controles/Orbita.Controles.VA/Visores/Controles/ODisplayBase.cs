@@ -4,6 +4,11 @@
 // Created          : 06-09-2012
 //
 // Last Modified By : aibañez
+// Last Modified On : 12-12-2012
+// Description      : Se muestra información sobre los nuevos estado de conexión
+//                    Conectando, Desconectando y Reconectando
+//
+// Last Modified By : aibañez
 // Last Modified On : 16-11-2012
 // Description      : Movido al proyecto Orbita.Controles.VA
 //
@@ -47,6 +52,11 @@ namespace Orbita.Controles.VA
         /// Indica que se ha de visualizar en vivo la imagen de la cámara
         /// </summary>
         protected bool VisualizarEnVivo;
+
+        /// <summary>
+        /// Indica que se trata de la primera foto después de la conexión de la cámara;
+        /// </summary>
+        protected bool PrimerFoto;
         #endregion
 
         #region Propiedad(es)
@@ -716,6 +726,11 @@ namespace Orbita.Controles.VA
             {
                 this.Visualizar(imagen);
                 this.MostrarFps(velocidadAdquisicion);
+                if (!this.PrimerFoto)
+                {
+                    this.PrimerFoto = true;
+                    this.ZoomFit();
+                }
             }
             catch (Exception exception)
             {
@@ -738,25 +753,35 @@ namespace Orbita.Controles.VA
                 {
                     case EstadoConexion.Desconectado:
                     default:
+                        this.MostrarMensaje("Cámara desconectada");
+                        break;
+                    case EstadoConexion.Desconectando:
                         this.ImagenActual = this.NuevaImagen();
                         this.ImagenActual.ConvertFromBitmap(global::Orbita.Controles.VA.Properties.Resources.CamaraDesConectada);
                         this.Visualizar(this.ImagenActual);
                         this.ZoomFit();
-                        this.MostrarMensaje("Cámara desconectada");
+                        this.MostrarMensaje("Cámara en proceso de desconexión");
                         break;
                     case EstadoConexion.Conectado:
+                        this.MostrarMensaje("Cámara conectada");
+                        this.PrimerFoto = false;
+                        break;
+                    case EstadoConexion.Conectando:
                         this.ImagenActual = this.NuevaImagen();
                         this.ImagenActual.ConvertFromBitmap(global::Orbita.Controles.VA.Properties.Resources.CamaraConectada);
                         this.Visualizar(this.ImagenActual);
                         this.ZoomFit();
-                        this.MostrarMensaje("Cámara conectada");
+                        this.MostrarMensaje("Cámara en proceso de conexión");
                         break;
                     case EstadoConexion.ErrorConexion:
+                        this.MostrarMensaje("Error de conexión");
+                        break;
+                    case EstadoConexion.Reconectando:
                         this.ImagenActual = this.NuevaImagen();
                         this.ImagenActual.ConvertFromBitmap(global::Orbita.Controles.VA.Properties.Resources.CamaraDesConectada);
                         this.Visualizar(this.ImagenActual);
                         this.ZoomFit();
-                        this.MostrarMensaje("Error de conexión");
+                        this.MostrarMensaje("Intentando reconexión");
                         break;
                 }
             }

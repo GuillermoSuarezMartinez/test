@@ -4,6 +4,10 @@
 // Created          : 06-09-2012
 //
 // Last Modified By : aibañez
+// Last Modified On : 12-12-2012
+// Description      : No se muestran los visores de las cámaras no habilitadas
+//
+// Last Modified By : aibañez
 // Last Modified On : 16-11-2012
 // Description      : Movido al proyecto Orbita.Controles.VA
 //
@@ -272,28 +276,31 @@ namespace Orbita.Controles.VA
             {
                 foreach (CamaraBase camara in CamaraRuntime.ListaCamaras)
                 {
-                    string titulo = camara.Nombre + " [" + camara.Fabricante + "]";
-                    object objetoImplementado;
-                    if (App.ConstruirClase(camara.EnsambladoClaseImplementadora, camara.ClaseImplementadoraDisplay, out objetoImplementado, titulo, camara.Codigo, camara.MaxFrameIntervalVisualizacion, this._ControlCamara, this._VisualizacionEnVivo))
+                    if (camara.Habilitado)
                     {
-                        ODisplayBase display = (ODisplayBase)objetoImplementado;
-                        this.AddDisplay(display);
+                        string titulo = camara.Nombre + " [" + camara.Fabricante + "]";
+                        object objetoImplementado;
+                        if (App.ConstruirClase(camara.EnsambladoClaseImplementadoraDisplay, camara.ClaseImplementadoraDisplay, out objetoImplementado, titulo, camara.Codigo, camara.MaxFrameIntervalVisualizacion, this._ControlCamara, this._VisualizacionEnVivo))
+                        {
+                            ODisplayBase display = (ODisplayBase)objetoImplementado;
+                            this.AddDisplay(display);
 
-                        // Añado propiedades especificas a los displays para su visualización
-                        display.MostrarBtnAbrir = false;
-                        display.MostrarBtnGuardar = true;
-                        display.MostrarBtnReproduccion = this._ControlCamara;
-                        display.MostrarBtnSnap = this._ControlCamara;
-                        display.MostrarBtnInfo = true;
-                        display.MostrarBtnMaximinzar = true;
-                        display.MostrarBtnSiguienteAnterior = CamaraRuntime.ListaCamaras.Count > 0;
-                        display.OnInfoDemandada += this.OnInfoDemandada;
-                        display.MostrarLblTitulo = true;
-                        display.MostrarStatusBar = true;
-                        display.MostrarStatusFps = this._VisualizacionEnVivo;
-                        display.MostrarStatusMensaje = true;
-                        display.MostrarToolStrip = true;
-                        display.Inicializar();
+                            // Añado propiedades especificas a los displays para su visualización
+                            display.MostrarBtnAbrir = false;
+                            display.MostrarBtnGuardar = true;
+                            display.MostrarBtnReproduccion = this._ControlCamara;
+                            display.MostrarBtnSnap = this._ControlCamara;
+                            display.MostrarBtnInfo = true;
+                            display.MostrarBtnMaximinzar = true;
+                            display.MostrarBtnSiguienteAnterior = CamaraRuntime.ListaCamaras.Count > 0;
+                            display.OnInfoDemandada += this.OnInfoDemandada;
+                            display.MostrarLblTitulo = true;
+                            display.MostrarStatusBar = true;
+                            display.MostrarStatusFps = this._VisualizacionEnVivo;
+                            display.MostrarStatusMensaje = true;
+                            display.MostrarToolStrip = true;
+                            display.Inicializar();
+                        }
                     }
                 }
             }

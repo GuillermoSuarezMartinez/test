@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B336255B-92F8-4DAE-9051-C930269AA460}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Orbita.VAHardware</RootNamespace>
+    <AssemblyName>Orbita.VAHardware</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAHardware.XML</DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAHardware.XML</DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Forzar32|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAHardware.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAHardware.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Comun\Orbita\Orbita.VAHardware.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Forzar32|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAHardware.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ofuscado|AnyCPU'">
+    <OutputPath>bin\Ofuscado\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>..\Bin\Orbita.VAHardware.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\Bin\Orbita.VAHardware.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ofuscado|x86'">
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\Comun\Orbita\Orbita.VAHardware.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge.Video.FFMPEG, Version=2.2.4.0, Culture=neutral, PublicKeyToken=03563089b1be05dd, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Comun\VA\AForge\AForge.Video.FFMPEG.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.VisionPro, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=MSIL">
+      <HintPath>..\Comun\VA\Cognex\Cognex.VisionPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.Core, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=x86">
+      <HintPath>..\Comun\VA\Cognex\Cognex.VisionPro.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.FGGigE, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=x86">
+      <HintPath>..\Comun\VA\Cognex\Cognex.VisionPro.FGGigE.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Cognex.VisionPro.ImageFile, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=x86">
+      <HintPath>..\Comun\VA\Cognex\Cognex.VisionPro.ImageFile.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MccDaq, Version=2.1.0.0, Culture=neutral, PublicKeyToken=a37eefcf5c6ca10a, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Comunicaciones\MccDaq.dll</HintPath>
+    </Reference>
+    <Reference Include="Orbita.BBDD, Version=12.260.5.1, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\Comun\Orbita\Orbita.BBDD.dll</HintPath>
+    </Reference>
+    <Reference Include="Orbita.Comunicaciones, Version=12.243.3.2, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\Comun\Orbita\Orbita.Comunicaciones.dll</HintPath>
+    </Reference>
+    <Reference Include="Orbita.Trazabilidad, Version=12.220.3.1, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\Comun\Orbita\Orbita.Trazabilidad.dll</HintPath>
+    </Reference>
+    <Reference Include="Orbita.Utiles, Version=12.226.3.1, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\Comun\Orbita\Orbita.Utiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\AppBD.cs" />
+    <Compile Include="Clases\OCamaraAxisCGI.cs" />
+    <Compile Include="Clases\OCamaraBaslerVPro.cs" />
+    <Compile Include="Clases\OCamaraBitmap.cs" />
+    <Compile Include="Clases\OCamaras.cs" />
+    <Compile Include="Clases\OCamaraIP.cs" />
+    <Compile Include="Clases\OCamaraWDM.cs" />
+    <Compile Include="Clases\OConectividad.cs" />
+    <Compile Include="Clases\OConectividadBaslerVPro.cs" />
+    <Compile Include="Clases\OConectividadIP.cs" />
+    <Compile Include="Clases\OPTZAxis.cs" />
+    <Compile Include="Clases\OPTZBase.cs" />
+    <Compile Include="Clases\DirectShow\Filter.cs" />
+    <Compile Include="Clases\DirectShow\FilterCollection.cs" />
+    <Compile Include="Clases\DirectShow\Tools.cs" />
+    <Compile Include="Clases\OIO_MeasurementComputing.cs" />
+    <Compile Include="Clases\OExtensionLogs.cs" />
+    <Compile Include="Clases\OHardware.cs" />
+    <Compile Include="Clases\OIO_SCED.cs" />
+    <Compile Include="Clases\OVideoFile.cs" />
+    <Compile Include="Clases\VideoSource\ByteArrayUtils.cs" />
+    <Compile Include="Clases\VideoSource\CaptureDevice.cs" />
+    <Compile Include="Clases\VideoSource\Events.cs" />
+    <Compile Include="Clases\DirectShow\IBaseFilter.cs" />
+    <Compile Include="Clases\DirectShow\IBasicVideo.cs" />
+    <Compile Include="Clases\DirectShow\ICreateDevEnum.cs" />
+    <Compile Include="Clases\DirectShow\IEnumPins.cs" />
+    <Compile Include="Clases\DirectShow\IFileSourceFilter.cs" />
+    <Compile Include="Clases\DirectShow\IFilterGraph.cs" />
+    <Compile Include="Clases\DirectShow\IGraphBuilder.cs" />
+    <Compile Include="Clases\DirectShow\IMediaControl.cs" />
+    <Compile Include="Clases\DirectShow\IMediaEvent.cs" />
+    <Compile Include="Clases\DirectShow\IMediaPosition.cs" />
+    <Compile Include="Clases\DirectShow\IMediaSeeking.cs" />
+    <Compile Include="Clases\DirectShow\IPin.cs" />
+    <Compile Include="Clases\DirectShow\IPropertyBag.cs" />
+    <Compile Include="Clases\DirectShow\ISampleGrabber.cs" />
+    <Compile Include="Clases\DirectShow\IVideoFrameStep.cs" />
+    <Compile Include="Clases\DirectShow\IVideoWindow.cs" />
+    <Compile Include="Clases\VideoSource\JPGSource.cs" />
+    <Compile Include="Clases\VideoSource\MJPEGSource.cs" />
+    <Compile Include="Clases\DirectShow\Structures.cs" />
+    <Compile Include="Clases\DirectShow\Uuids.cs" />
+    <Compile Include="Clases\VideoSource\VideoSource.cs" />
+    <Compile Include="Clases\OImagenVisionPro.cs" />
+    <Compile Include="Clases\OIO_AXIS.cs" />
+    <Compile Include="Clases\OIOBase.cs" />
+    <Compile Include="Clases\Win32Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagramas\CamerasDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\CommonLibrary.EnumeracionCombo.datasource" />
+    <None Include="Properties\DataSources\SimulacionCamara.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orbita.VAComun\Orbita.VAComun.csproj">
+      <Project>{CC36FE63-3F16-4355-A11D-F0926DFBC977}</Project>
+      <Name>Orbita.VAComun</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Orbita.VAControl\Orbita.VAControl.csproj">
+      <Project>{1CA30AAB-0DA9-4947-B5C5-E81E9A2D9C18}</Project>
+      <Name>Orbita.VAControl</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>..\Bin\Orbita.VAHardware.bat $(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
