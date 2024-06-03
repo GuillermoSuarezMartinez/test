@@ -28,758 +28,727 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbES = new System.Windows.Forms.GroupBox();
-            this.gbLecturasES = new System.Windows.Forms.GroupBox();
-            this.dataGridViewES = new System.Windows.Forms.DataGridView();
-            this.pnlLecturasES = new System.Windows.Forms.Panel();
-            this.btnLeerVariablesES = new System.Windows.Forms.Button();
-            this.btnLeerAlarmasES = new System.Windows.Forms.Button();
-            this.pnlLateral = new System.Windows.Forms.Panel();
-            this.pnlSSiemens2 = new System.Windows.Forms.Panel();
-            this.SiemensE16 = new System.Windows.Forms.TextBox();
-            this.SiemensE15 = new System.Windows.Forms.TextBox();
-            this.SiemensE14 = new System.Windows.Forms.TextBox();
-            this.SiemensE13 = new System.Windows.Forms.TextBox();
-            this.SiemensE12 = new System.Windows.Forms.TextBox();
-            this.SiemensE11 = new System.Windows.Forms.TextBox();
-            this.SiemensE08 = new System.Windows.Forms.TextBox();
-            this.SiemensE07 = new System.Windows.Forms.TextBox();
-            this.SiemensE06 = new System.Windows.Forms.TextBox();
-            this.SiemensE05 = new System.Windows.Forms.TextBox();
-            this.SiemensE04 = new System.Windows.Forms.TextBox();
-            this.SiemensE03 = new System.Windows.Forms.TextBox();
-            this.SiemensE02 = new System.Windows.Forms.TextBox();
-            this.lblInputSiemens = new System.Windows.Forms.Label();
-            this.SiemensE01 = new System.Windows.Forms.TextBox();
-            this.pnlSSiemens1 = new System.Windows.Forms.Panel();
-            this.SiemensS12 = new System.Windows.Forms.TextBox();
-            this.SiemensS11 = new System.Windows.Forms.TextBox();
-            this.SiemensS08 = new System.Windows.Forms.TextBox();
-            this.SiemensS07 = new System.Windows.Forms.TextBox();
-            this.SiemensS06 = new System.Windows.Forms.TextBox();
-            this.SiemensS05 = new System.Windows.Forms.TextBox();
-            this.SiemensS04 = new System.Windows.Forms.TextBox();
-            this.SiemensS03 = new System.Windows.Forms.TextBox();
-            this.SiemensS02 = new System.Windows.Forms.TextBox();
-            this.lblOutputSiemens = new System.Windows.Forms.Label();
-            this.SiemensS01 = new System.Windows.Forms.TextBox();
-            this.gbCdatoES = new System.Windows.Forms.GroupBox();
-            this.listViewES = new System.Windows.Forms.ListView();
-            this.pnlOrbitaInf = new System.Windows.Forms.Panel();
-            this.lblSiemens = new System.Windows.Forms.Label();
-            this.lblEscrituraSiemens = new System.Windows.Forms.Label();
-            this.txtValEscribirSiemens = new System.Windows.Forms.TextBox();
-            this.txtSiemens = new System.Windows.Forms.TextBox();
-            this.txtVarEscribirSiemens = new System.Windows.Forms.TextBox();
-            this.lblLecturaSiemens = new System.Windows.Forms.Label();
-            this.btnEscrituraSiemens = new System.Windows.Forms.Button();
-            this.btnLecturaSiemens = new System.Windows.Forms.Button();
-            this.txtVaLeerSiemens = new System.Windows.Forms.TextBox();
-            this.txtVarLeerSiemens = new System.Windows.Forms.TextBox();
-            this.gbConfig = new System.Windows.Forms.GroupBox();
-            this.txtServidorRemoting = new System.Windows.Forms.TextBox();
-            this.lblServidorRemoting = new System.Windows.Forms.Label();
-            this.txtIdDispositivo = new System.Windows.Forms.TextBox();
-            this.lblIdDispositivo = new System.Windows.Forms.Label();
-            this.btnConectar = new System.Windows.Forms.Button();
-            this.txtPuertoRemoting = new System.Windows.Forms.TextBox();
-            this.lblPuertoRemoting = new System.Windows.Forms.Label();
-            this.gbES.SuspendLayout();
-            this.gbLecturasES.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewES)).BeginInit();
-            this.pnlLecturasES.SuspendLayout();
-            this.pnlLateral.SuspendLayout();
-            this.pnlSSiemens2.SuspendLayout();
-            this.pnlSSiemens1.SuspendLayout();
-            this.gbCdatoES.SuspendLayout();
-            this.pnlOrbitaInf.SuspendLayout();
-            this.gbConfig.SuspendLayout();
+            this.pnlCanalA = new System.Windows.Forms.Panel();
+            this.EB06 = new System.Windows.Forms.TextBox();
+            this.EB05 = new System.Windows.Forms.TextBox();
+            this.EB04 = new System.Windows.Forms.TextBox();
+            this.EB03 = new System.Windows.Forms.TextBox();
+            this.EB02 = new System.Windows.Forms.TextBox();
+            this.EB01 = new System.Windows.Forms.TextBox();
+            this.EB00 = new System.Windows.Forms.TextBox();
+            this.lblB00 = new System.Windows.Forms.Label();
+            this.gbB0 = new System.Windows.Forms.GroupBox();
+            this.lblB01 = new System.Windows.Forms.Label();
+            this.lblB02 = new System.Windows.Forms.Label();
+            this.lblB03 = new System.Windows.Forms.Label();
+            this.lblB04 = new System.Windows.Forms.Label();
+            this.lblB05 = new System.Windows.Forms.Label();
+            this.lblB06 = new System.Windows.Forms.Label();
+            this.gbB1 = new System.Windows.Forms.GroupBox();
+            this.lblB16 = new System.Windows.Forms.Label();
+            this.lblB15 = new System.Windows.Forms.Label();
+            this.lblB14 = new System.Windows.Forms.Label();
+            this.lblB13 = new System.Windows.Forms.Label();
+            this.lblB12 = new System.Windows.Forms.Label();
+            this.lblB11 = new System.Windows.Forms.Label();
+            this.lblB10 = new System.Windows.Forms.Label();
+            this.EB10 = new System.Windows.Forms.TextBox();
+            this.EB11 = new System.Windows.Forms.TextBox();
+            this.EB16 = new System.Windows.Forms.TextBox();
+            this.EB12 = new System.Windows.Forms.TextBox();
+            this.EB15 = new System.Windows.Forms.TextBox();
+            this.EB13 = new System.Windows.Forms.TextBox();
+            this.EB14 = new System.Windows.Forms.TextBox();
+            this.gbB2 = new System.Windows.Forms.GroupBox();
+            this.lblB20 = new System.Windows.Forms.Label();
+            this.EB20 = new System.Windows.Forms.TextBox();
+            this.gbB3 = new System.Windows.Forms.GroupBox();
+            this.lblB30 = new System.Windows.Forms.Label();
+            this.EB30 = new System.Windows.Forms.TextBox();
+            this.gbS0 = new System.Windows.Forms.GroupBox();
+            this.lblS05 = new System.Windows.Forms.Label();
+            this.lblS04 = new System.Windows.Forms.Label();
+            this.lblS03 = new System.Windows.Forms.Label();
+            this.lblS02 = new System.Windows.Forms.Label();
+            this.lblS01 = new System.Windows.Forms.Label();
+            this.lblS00 = new System.Windows.Forms.Label();
+            this.SB00 = new System.Windows.Forms.TextBox();
+            this.SB01 = new System.Windows.Forms.TextBox();
+            this.SB02 = new System.Windows.Forms.TextBox();
+            this.SB05 = new System.Windows.Forms.TextBox();
+            this.SB03 = new System.Windows.Forms.TextBox();
+            this.SB04 = new System.Windows.Forms.TextBox();
+            this.pnlBytes = new System.Windows.Forms.Panel();
+            this.gbDispositivo.SuspendLayout();
+            this.pnlDispSup.SuspendLayout();
+            this.pnlCanalA.SuspendLayout();
+            this.gbB0.SuspendLayout();
+            this.gbB1.SuspendLayout();
+            this.gbB2.SuspendLayout();
+            this.gbB3.SuspendLayout();
+            this.gbS0.SuspendLayout();
+            this.pnlBytes.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbES
+            // gbDispositivo
             // 
-            this.gbES.Controls.Add(this.gbLecturasES);
-            this.gbES.Controls.Add(this.pnlLateral);
-            this.gbES.Controls.Add(this.gbCdatoES);
-            this.gbES.Controls.Add(this.pnlOrbitaInf);
-            this.gbES.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbES.Location = new System.Drawing.Point(0, 100);
-            this.gbES.Name = "gbES";
-            this.gbES.Size = new System.Drawing.Size(1151, 310);
-            this.gbES.TabIndex = 31;
-            this.gbES.TabStop = false;
-            this.gbES.Text = "Dispositivo ES";
-            // 
-            // gbLecturasES
-            // 
-            this.gbLecturasES.Controls.Add(this.dataGridViewES);
-            this.gbLecturasES.Controls.Add(this.pnlLecturasES);
-            this.gbLecturasES.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbLecturasES.Location = new System.Drawing.Point(368, 93);
-            this.gbLecturasES.Name = "gbLecturasES";
-            this.gbLecturasES.Padding = new System.Windows.Forms.Padding(10);
-            this.gbLecturasES.Size = new System.Drawing.Size(375, 214);
-            this.gbLecturasES.TabIndex = 49;
-            this.gbLecturasES.TabStop = false;
-            this.gbLecturasES.Text = "Lecturas";
-            // 
-            // dataGridViewES
-            // 
-            this.dataGridViewES.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewES.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewES.Location = new System.Drawing.Point(10, 68);
-            this.dataGridViewES.Name = "dataGridViewES";
-            this.dataGridViewES.Size = new System.Drawing.Size(355, 136);
-            this.dataGridViewES.TabIndex = 12;
-            // 
-            // pnlLecturasES
-            // 
-            this.pnlLecturasES.Controls.Add(this.btnLeerVariablesES);
-            this.pnlLecturasES.Controls.Add(this.btnLeerAlarmasES);
-            this.pnlLecturasES.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLecturasES.Location = new System.Drawing.Point(10, 23);
-            this.pnlLecturasES.Name = "pnlLecturasES";
-            this.pnlLecturasES.Size = new System.Drawing.Size(355, 45);
-            this.pnlLecturasES.TabIndex = 28;
-            // 
-            // btnLeerVariablesES
-            // 
-            this.btnLeerVariablesES.Location = new System.Drawing.Point(15, 14);
-            this.btnLeerVariablesES.Name = "btnLeerVariablesES";
-            this.btnLeerVariablesES.Size = new System.Drawing.Size(92, 23);
-            this.btnLeerVariablesES.TabIndex = 14;
-            this.btnLeerVariablesES.Text = "Leer Variables";
-            this.btnLeerVariablesES.UseVisualStyleBackColor = true;
-            // 
-            // btnLeerAlarmasES
-            // 
-            this.btnLeerAlarmasES.Location = new System.Drawing.Point(113, 14);
-            this.btnLeerAlarmasES.Name = "btnLeerAlarmasES";
-            this.btnLeerAlarmasES.Size = new System.Drawing.Size(92, 23);
-            this.btnLeerAlarmasES.TabIndex = 25;
-            this.btnLeerAlarmasES.Text = "Leer Alarmas";
-            this.btnLeerAlarmasES.UseVisualStyleBackColor = true;
-            // 
-            // pnlLateral
-            // 
-            this.pnlLateral.Controls.Add(this.pnlSSiemens2);
-            this.pnlLateral.Controls.Add(this.pnlSSiemens1);
-            this.pnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLateral.Location = new System.Drawing.Point(3, 93);
-            this.pnlLateral.Name = "pnlLateral";
-            this.pnlLateral.Size = new System.Drawing.Size(365, 214);
-            this.pnlLateral.TabIndex = 48;
-            // 
-            // pnlSSiemens2
-            // 
-            this.pnlSSiemens2.BackColor = System.Drawing.Color.Gainsboro;
-            this.pnlSSiemens2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSSiemens2.Controls.Add(this.SiemensE16);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE15);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE14);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE13);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE12);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE11);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE08);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE07);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE06);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE05);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE04);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE03);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE02);
-            this.pnlSSiemens2.Controls.Add(this.lblInputSiemens);
-            this.pnlSSiemens2.Controls.Add(this.SiemensE01);
-            this.pnlSSiemens2.Location = new System.Drawing.Point(20, 73);
-            this.pnlSSiemens2.Name = "pnlSSiemens2";
-            this.pnlSSiemens2.Size = new System.Drawing.Size(320, 40);
-            this.pnlSSiemens2.TabIndex = 49;
-            // 
-            // SiemensE16
-            // 
-            this.SiemensE16.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE16.Location = new System.Drawing.Point(273, 7);
-            this.SiemensE16.Name = "SiemensE16";
-            this.SiemensE16.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE16.TabIndex = 52;
-            this.SiemensE16.Tag = "1";
-            this.SiemensE16.Text = "6";
-            // 
-            // SiemensE15
-            // 
-            this.SiemensE15.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE15.Location = new System.Drawing.Point(257, 7);
-            this.SiemensE15.Name = "SiemensE15";
-            this.SiemensE15.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE15.TabIndex = 51;
-            this.SiemensE15.Tag = "1";
-            this.SiemensE15.Text = "5";
-            // 
-            // SiemensE14
-            // 
-            this.SiemensE14.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE14.Location = new System.Drawing.Point(241, 7);
-            this.SiemensE14.Name = "SiemensE14";
-            this.SiemensE14.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE14.TabIndex = 50;
-            this.SiemensE14.Tag = "1";
-            this.SiemensE14.Text = "4";
-            // 
-            // SiemensE13
-            // 
-            this.SiemensE13.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE13.Location = new System.Drawing.Point(225, 7);
-            this.SiemensE13.Name = "SiemensE13";
-            this.SiemensE13.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE13.TabIndex = 49;
-            this.SiemensE13.Tag = "1";
-            this.SiemensE13.Text = "3";
-            // 
-            // SiemensE12
-            // 
-            this.SiemensE12.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE12.Location = new System.Drawing.Point(207, 7);
-            this.SiemensE12.Name = "SiemensE12";
-            this.SiemensE12.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE12.TabIndex = 48;
-            this.SiemensE12.Tag = "1";
-            this.SiemensE12.Text = "2";
-            // 
-            // SiemensE11
-            // 
-            this.SiemensE11.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE11.Location = new System.Drawing.Point(191, 7);
-            this.SiemensE11.Name = "SiemensE11";
-            this.SiemensE11.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE11.TabIndex = 47;
-            this.SiemensE11.Tag = "1";
-            this.SiemensE11.Text = "1";
-            // 
-            // SiemensE08
-            // 
-            this.SiemensE08.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE08.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE08.Location = new System.Drawing.Point(163, 7);
-            this.SiemensE08.Name = "SiemensE08";
-            this.SiemensE08.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE08.TabIndex = 46;
-            this.SiemensE08.Tag = "8";
-            this.SiemensE08.Text = "8";
-            // 
-            // SiemensE07
-            // 
-            this.SiemensE07.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE07.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE07.Location = new System.Drawing.Point(145, 7);
-            this.SiemensE07.Name = "SiemensE07";
-            this.SiemensE07.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE07.TabIndex = 45;
-            this.SiemensE07.Tag = "7";
-            this.SiemensE07.Text = "7";
-            // 
-            // SiemensE06
-            // 
-            this.SiemensE06.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE06.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE06.Location = new System.Drawing.Point(127, 7);
-            this.SiemensE06.Name = "SiemensE06";
-            this.SiemensE06.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE06.TabIndex = 44;
-            this.SiemensE06.Tag = "6";
-            this.SiemensE06.Text = "6";
-            // 
-            // SiemensE05
-            // 
-            this.SiemensE05.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE05.Location = new System.Drawing.Point(109, 7);
-            this.SiemensE05.Name = "SiemensE05";
-            this.SiemensE05.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE05.TabIndex = 43;
-            this.SiemensE05.Tag = "5";
-            this.SiemensE05.Text = "5";
-            // 
-            // SiemensE04
-            // 
-            this.SiemensE04.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE04.Location = new System.Drawing.Point(91, 7);
-            this.SiemensE04.Name = "SiemensE04";
-            this.SiemensE04.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE04.TabIndex = 42;
-            this.SiemensE04.Tag = "4";
-            this.SiemensE04.Text = "4";
-            // 
-            // SiemensE03
-            // 
-            this.SiemensE03.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE03.Location = new System.Drawing.Point(72, 7);
-            this.SiemensE03.Name = "SiemensE03";
-            this.SiemensE03.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE03.TabIndex = 41;
-            this.SiemensE03.Tag = "3";
-            this.SiemensE03.Text = "3";
-            // 
-            // SiemensE02
-            // 
-            this.SiemensE02.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE02.Location = new System.Drawing.Point(54, 7);
-            this.SiemensE02.Name = "SiemensE02";
-            this.SiemensE02.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE02.TabIndex = 40;
-            this.SiemensE02.Tag = "2";
-            this.SiemensE02.Text = "2";
-            // 
-            // lblInputSiemens
-            // 
-            this.lblInputSiemens.AutoSize = true;
-            this.lblInputSiemens.Location = new System.Drawing.Point(4, 7);
-            this.lblInputSiemens.Name = "lblInputSiemens";
-            this.lblInputSiemens.Size = new System.Drawing.Size(10, 13);
-            this.lblInputSiemens.TabIndex = 39;
-            this.lblInputSiemens.Text = "I";
-            // 
-            // SiemensE01
-            // 
-            this.SiemensE01.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensE01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensE01.Location = new System.Drawing.Point(36, 7);
-            this.SiemensE01.Name = "SiemensE01";
-            this.SiemensE01.Size = new System.Drawing.Size(12, 20);
-            this.SiemensE01.TabIndex = 39;
-            this.SiemensE01.Tag = "1";
-            this.SiemensE01.Text = "1";
-            // 
-            // pnlSSiemens1
-            // 
-            this.pnlSSiemens1.BackColor = System.Drawing.Color.Gainsboro;
-            this.pnlSSiemens1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSSiemens1.Controls.Add(this.SiemensS12);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS11);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS08);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS07);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS06);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS05);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS04);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS03);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS02);
-            this.pnlSSiemens1.Controls.Add(this.lblOutputSiemens);
-            this.pnlSSiemens1.Controls.Add(this.SiemensS01);
-            this.pnlSSiemens1.Location = new System.Drawing.Point(20, 27);
-            this.pnlSSiemens1.Name = "pnlSSiemens1";
-            this.pnlSSiemens1.Size = new System.Drawing.Size(320, 40);
-            this.pnlSSiemens1.TabIndex = 48;
-            // 
-            // SiemensS12
-            // 
-            this.SiemensS12.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS12.Location = new System.Drawing.Point(207, 7);
-            this.SiemensS12.Name = "SiemensS12";
-            this.SiemensS12.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS12.TabIndex = 48;
-            this.SiemensS12.Tag = "1";
-            this.SiemensS12.Text = "2";
-            // 
-            // SiemensS11
-            // 
-            this.SiemensS11.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS11.Location = new System.Drawing.Point(191, 7);
-            this.SiemensS11.Name = "SiemensS11";
-            this.SiemensS11.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS11.TabIndex = 47;
-            this.SiemensS11.Tag = "1";
-            this.SiemensS11.Text = "1";
-            // 
-            // SiemensS08
-            // 
-            this.SiemensS08.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS08.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS08.Location = new System.Drawing.Point(163, 7);
-            this.SiemensS08.Name = "SiemensS08";
-            this.SiemensS08.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS08.TabIndex = 46;
-            this.SiemensS08.Tag = "8";
-            this.SiemensS08.Text = "8";
-            // 
-            // SiemensS07
-            // 
-            this.SiemensS07.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS07.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS07.Location = new System.Drawing.Point(145, 7);
-            this.SiemensS07.Name = "SiemensS07";
-            this.SiemensS07.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS07.TabIndex = 45;
-            this.SiemensS07.Tag = "7";
-            this.SiemensS07.Text = "7";
-            // 
-            // SiemensS06
-            // 
-            this.SiemensS06.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS06.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS06.Location = new System.Drawing.Point(127, 7);
-            this.SiemensS06.Name = "SiemensS06";
-            this.SiemensS06.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS06.TabIndex = 44;
-            this.SiemensS06.Tag = "6";
-            this.SiemensS06.Text = "6";
-            // 
-            // SiemensS05
-            // 
-            this.SiemensS05.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS05.Location = new System.Drawing.Point(109, 7);
-            this.SiemensS05.Name = "SiemensS05";
-            this.SiemensS05.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS05.TabIndex = 43;
-            this.SiemensS05.Tag = "5";
-            this.SiemensS05.Text = "5";
-            // 
-            // SiemensS04
-            // 
-            this.SiemensS04.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS04.Location = new System.Drawing.Point(91, 7);
-            this.SiemensS04.Name = "SiemensS04";
-            this.SiemensS04.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS04.TabIndex = 42;
-            this.SiemensS04.Tag = "4";
-            this.SiemensS04.Text = "4";
-            // 
-            // SiemensS03
-            // 
-            this.SiemensS03.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS03.Location = new System.Drawing.Point(72, 7);
-            this.SiemensS03.Name = "SiemensS03";
-            this.SiemensS03.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS03.TabIndex = 41;
-            this.SiemensS03.Tag = "3";
-            this.SiemensS03.Text = "3";
-            // 
-            // SiemensS02
-            // 
-            this.SiemensS02.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS02.Location = new System.Drawing.Point(54, 7);
-            this.SiemensS02.Name = "SiemensS02";
-            this.SiemensS02.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS02.TabIndex = 40;
-            this.SiemensS02.Tag = "2";
-            this.SiemensS02.Text = "2";
-            // 
-            // lblOutputSiemens
-            // 
-            this.lblOutputSiemens.AutoSize = true;
-            this.lblOutputSiemens.Location = new System.Drawing.Point(4, 7);
-            this.lblOutputSiemens.Name = "lblOutputSiemens";
-            this.lblOutputSiemens.Size = new System.Drawing.Size(15, 13);
-            this.lblOutputSiemens.TabIndex = 39;
-            this.lblOutputSiemens.Text = "O";
-            // 
-            // SiemensS01
-            // 
-            this.SiemensS01.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SiemensS01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SiemensS01.Location = new System.Drawing.Point(36, 7);
-            this.SiemensS01.Name = "SiemensS01";
-            this.SiemensS01.Size = new System.Drawing.Size(12, 20);
-            this.SiemensS01.TabIndex = 39;
-            this.SiemensS01.Tag = "1";
-            this.SiemensS01.Text = "1";
-            // 
-            // gbCdatoES
-            // 
-            this.gbCdatoES.Controls.Add(this.listViewES);
-            this.gbCdatoES.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbCdatoES.Location = new System.Drawing.Point(743, 93);
-            this.gbCdatoES.Name = "gbCdatoES";
-            this.gbCdatoES.Padding = new System.Windows.Forms.Padding(10);
-            this.gbCdatoES.Size = new System.Drawing.Size(405, 214);
-            this.gbCdatoES.TabIndex = 50;
-            this.gbCdatoES.TabStop = false;
-            this.gbCdatoES.Text = "Cambio Dato";
-            // 
-            // listViewES
-            // 
-            this.listViewES.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewES.GridLines = true;
-            this.listViewES.Location = new System.Drawing.Point(10, 23);
-            this.listViewES.MultiSelect = false;
-            this.listViewES.Name = "listViewES";
-            this.listViewES.Size = new System.Drawing.Size(385, 181);
-            this.listViewES.TabIndex = 13;
-            this.listViewES.UseCompatibleStateImageBehavior = false;
-            this.listViewES.View = System.Windows.Forms.View.List;
-            // 
-            // pnlOrbitaInf
-            // 
-            this.pnlOrbitaInf.Controls.Add(this.lblSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.lblEscrituraSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtValEscribirSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtVarEscribirSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.lblLecturaSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.btnEscrituraSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.btnLecturaSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtVaLeerSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtVarLeerSiemens);
-            this.pnlOrbitaInf.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlOrbitaInf.Location = new System.Drawing.Point(3, 16);
-            this.pnlOrbitaInf.Name = "pnlOrbitaInf";
-            this.pnlOrbitaInf.Size = new System.Drawing.Size(1145, 77);
-            this.pnlOrbitaInf.TabIndex = 47;
-            // 
-            // lblSiemens
-            // 
-            this.lblSiemens.AutoSize = true;
-            this.lblSiemens.Location = new System.Drawing.Point(24, 19);
-            this.lblSiemens.Name = "lblSiemens";
-            this.lblSiemens.Size = new System.Drawing.Size(47, 13);
-            this.lblSiemens.TabIndex = 26;
-            this.lblSiemens.Text = "Siemens";
-            // 
-            // lblEscrituraSiemens
-            // 
-            this.lblEscrituraSiemens.AutoSize = true;
-            this.lblEscrituraSiemens.Location = new System.Drawing.Point(195, 45);
-            this.lblEscrituraSiemens.Name = "lblEscrituraSiemens";
-            this.lblEscrituraSiemens.Size = new System.Drawing.Size(85, 13);
-            this.lblEscrituraSiemens.TabIndex = 24;
-            this.lblEscrituraSiemens.Text = "Prueba Escritura";
-            // 
-            // txtValEscribirSiemens
-            // 
-            this.txtValEscribirSiemens.Location = new System.Drawing.Point(500, 42);
-            this.txtValEscribirSiemens.Name = "txtValEscribirSiemens";
-            this.txtValEscribirSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtValEscribirSiemens.TabIndex = 22;
-            // 
-            // txtSiemens
-            // 
-            this.txtSiemens.Location = new System.Drawing.Point(73, 16);
-            this.txtSiemens.Name = "txtSiemens";
-            this.txtSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtSiemens.TabIndex = 25;
-            // 
-            // txtVarEscribirSiemens
-            // 
-            this.txtVarEscribirSiemens.Location = new System.Drawing.Point(288, 42);
-            this.txtVarEscribirSiemens.Name = "txtVarEscribirSiemens";
-            this.txtVarEscribirSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtVarEscribirSiemens.TabIndex = 21;
-            this.txtVarEscribirSiemens.Text = "S01";
-            // 
-            // lblLecturaSiemens
-            // 
-            this.lblLecturaSiemens.AutoSize = true;
-            this.lblLecturaSiemens.Location = new System.Drawing.Point(195, 19);
-            this.lblLecturaSiemens.Name = "lblLecturaSiemens";
-            this.lblLecturaSiemens.Size = new System.Drawing.Size(80, 13);
-            this.lblLecturaSiemens.TabIndex = 23;
-            this.lblLecturaSiemens.Text = "Prueba Lectura";
-            // 
-            // btnEscrituraSiemens
-            // 
-            this.btnEscrituraSiemens.Location = new System.Drawing.Point(412, 40);
-            this.btnEscrituraSiemens.Name = "btnEscrituraSiemens";
-            this.btnEscrituraSiemens.Size = new System.Drawing.Size(75, 23);
-            this.btnEscrituraSiemens.TabIndex = 20;
-            this.btnEscrituraSiemens.Text = "escribir";
-            this.btnEscrituraSiemens.UseVisualStyleBackColor = true;
-            // 
-            // btnLecturaSiemens
-            // 
-            this.btnLecturaSiemens.Location = new System.Drawing.Point(412, 14);
-            this.btnLecturaSiemens.Name = "btnLecturaSiemens";
-            this.btnLecturaSiemens.Size = new System.Drawing.Size(75, 23);
-            this.btnLecturaSiemens.TabIndex = 17;
-            this.btnLecturaSiemens.Text = "leer";
-            this.btnLecturaSiemens.UseVisualStyleBackColor = true;
-            // 
-            // txtVaLeerSiemens
-            // 
-            this.txtVaLeerSiemens.Location = new System.Drawing.Point(500, 16);
-            this.txtVaLeerSiemens.Name = "txtVaLeerSiemens";
-            this.txtVaLeerSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtVaLeerSiemens.TabIndex = 19;
-            // 
-            // txtVarLeerSiemens
-            // 
-            this.txtVarLeerSiemens.Location = new System.Drawing.Point(288, 16);
-            this.txtVarLeerSiemens.Name = "txtVarLeerSiemens";
-            this.txtVarLeerSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtVarLeerSiemens.TabIndex = 18;
-            this.txtVarLeerSiemens.Text = "E01";
+            this.gbDispositivo.Size = new System.Drawing.Size(899, 616);
             // 
             // gbConfig
             // 
-            this.gbConfig.Controls.Add(this.txtServidorRemoting);
-            this.gbConfig.Controls.Add(this.lblServidorRemoting);
-            this.gbConfig.Controls.Add(this.txtIdDispositivo);
-            this.gbConfig.Controls.Add(this.lblIdDispositivo);
-            this.gbConfig.Controls.Add(this.btnConectar);
-            this.gbConfig.Controls.Add(this.txtPuertoRemoting);
-            this.gbConfig.Controls.Add(this.lblPuertoRemoting);
-            this.gbConfig.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbConfig.Location = new System.Drawing.Point(0, 0);
-            this.gbConfig.Name = "gbConfig";
-            this.gbConfig.Size = new System.Drawing.Size(1151, 100);
-            this.gbConfig.TabIndex = 33;
-            this.gbConfig.TabStop = false;
-            this.gbConfig.Text = "Configuración";
+            this.gbConfig.Size = new System.Drawing.Size(899, 65);
             // 
-            // txtServidorRemoting
+            // pnlDispSup
             // 
-            this.txtServidorRemoting.Location = new System.Drawing.Point(116, 67);
-            this.txtServidorRemoting.Name = "txtServidorRemoting";
-            this.txtServidorRemoting.Size = new System.Drawing.Size(100, 20);
-            this.txtServidorRemoting.TabIndex = 25;
-            this.txtServidorRemoting.Text = "localhost";
+            this.pnlDispSup.Controls.Add(this.pnlCanalA);
+            this.pnlDispSup.Size = new System.Drawing.Size(879, 306);
+            this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
+            this.pnlDispSup.Controls.SetChildIndex(this.txtVarEscribir, 0);
+            this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
+            this.pnlDispSup.Controls.SetChildIndex(this.lblCom, 0);
+            this.pnlDispSup.Controls.SetChildIndex(this.pnlCanalA, 0);
             // 
-            // lblServidorRemoting
+            // gbVariables
             // 
-            this.lblServidorRemoting.AutoSize = true;
-            this.lblServidorRemoting.Location = new System.Drawing.Point(20, 71);
-            this.lblServidorRemoting.Name = "lblServidorRemoting";
-            this.lblServidorRemoting.Size = new System.Drawing.Size(97, 13);
-            this.lblServidorRemoting.TabIndex = 24;
-            this.lblServidorRemoting.Text = "Servidor Remoting:";
+            this.gbVariables.Location = new System.Drawing.Point(10, 329);
+            this.gbVariables.Size = new System.Drawing.Size(879, 131);
             // 
-            // txtIdDispositivo
+            // gbCDato
             // 
-            this.txtIdDispositivo.Location = new System.Drawing.Point(313, 40);
-            this.txtIdDispositivo.Name = "txtIdDispositivo";
-            this.txtIdDispositivo.Size = new System.Drawing.Size(100, 20);
-            this.txtIdDispositivo.TabIndex = 23;
-            this.txtIdDispositivo.Text = "1";
+            this.gbCDato.Location = new System.Drawing.Point(10, 460);
+            this.gbCDato.Size = new System.Drawing.Size(879, 146);
             // 
-            // lblIdDispositivo
+            // pnlCanalA
             // 
-            this.lblIdDispositivo.AutoSize = true;
-            this.lblIdDispositivo.Location = new System.Drawing.Point(236, 44);
-            this.lblIdDispositivo.Name = "lblIdDispositivo";
-            this.lblIdDispositivo.Size = new System.Drawing.Size(75, 13);
-            this.lblIdDispositivo.TabIndex = 22;
-            this.lblIdDispositivo.Text = "ID Dispositivo:";
+            this.pnlCanalA.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pnlCanalA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCanalA.Controls.Add(this.gbS0);
+            this.pnlCanalA.Controls.Add(this.gbB0);
+            this.pnlCanalA.Controls.Add(this.pnlBytes);
+            this.pnlCanalA.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlCanalA.Location = new System.Drawing.Point(0, 72);
+            this.pnlCanalA.Name = "pnlCanalA";
+            this.pnlCanalA.Size = new System.Drawing.Size(879, 234);
+            this.pnlCanalA.TabIndex = 53;
             // 
-            // btnConectar
+            // EB06
             // 
-            this.btnConectar.Location = new System.Drawing.Point(513, 39);
-            this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(75, 23);
-            this.btnConectar.TabIndex = 19;
-            this.btnConectar.Text = "Conectar";
-            this.btnConectar.UseVisualStyleBackColor = true;
+            this.EB06.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB06.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB06.Location = new System.Drawing.Point(18, 175);
+            this.EB06.Name = "EB06";
+            this.EB06.Size = new System.Drawing.Size(12, 20);
+            this.EB06.TabIndex = 45;
+            this.EB06.Tag = "3";
+            this.EB06.Text = "6";
             // 
-            // txtPuertoRemoting
+            // EB05
             // 
-            this.txtPuertoRemoting.Location = new System.Drawing.Point(116, 40);
-            this.txtPuertoRemoting.Name = "txtPuertoRemoting";
-            this.txtPuertoRemoting.Size = new System.Drawing.Size(100, 20);
-            this.txtPuertoRemoting.TabIndex = 1;
-            this.txtPuertoRemoting.Text = "1852";
+            this.EB05.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB05.Location = new System.Drawing.Point(18, 150);
+            this.EB05.Name = "EB05";
+            this.EB05.Size = new System.Drawing.Size(12, 20);
+            this.EB05.TabIndex = 44;
+            this.EB05.Tag = "2";
+            this.EB05.Text = "5";
             // 
-            // lblPuertoRemoting
+            // EB04
             // 
-            this.lblPuertoRemoting.AutoSize = true;
-            this.lblPuertoRemoting.Location = new System.Drawing.Point(20, 44);
-            this.lblPuertoRemoting.Name = "lblPuertoRemoting";
-            this.lblPuertoRemoting.Size = new System.Drawing.Size(89, 13);
-            this.lblPuertoRemoting.TabIndex = 0;
-            this.lblPuertoRemoting.Text = "Puerto Remoting:";
+            this.EB04.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB04.Location = new System.Drawing.Point(18, 124);
+            this.EB04.Name = "EB04";
+            this.EB04.Size = new System.Drawing.Size(12, 20);
+            this.EB04.TabIndex = 43;
+            this.EB04.Tag = "1";
+            this.EB04.Text = "4";
+            // 
+            // EB03
+            // 
+            this.EB03.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB03.Location = new System.Drawing.Point(18, 98);
+            this.EB03.Name = "EB03";
+            this.EB03.Size = new System.Drawing.Size(12, 20);
+            this.EB03.TabIndex = 42;
+            this.EB03.Tag = "4";
+            this.EB03.Text = "3";
+            // 
+            // EB02
+            // 
+            this.EB02.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB02.Location = new System.Drawing.Point(18, 72);
+            this.EB02.Name = "EB02";
+            this.EB02.Size = new System.Drawing.Size(12, 20);
+            this.EB02.TabIndex = 41;
+            this.EB02.Tag = "3";
+            this.EB02.Text = "2";
+            // 
+            // EB01
+            // 
+            this.EB01.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB01.Location = new System.Drawing.Point(18, 48);
+            this.EB01.Name = "EB01";
+            this.EB01.Size = new System.Drawing.Size(12, 20);
+            this.EB01.TabIndex = 40;
+            this.EB01.Tag = "2";
+            this.EB01.Text = "1";
+            // 
+            // EB00
+            // 
+            this.EB00.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB00.Location = new System.Drawing.Point(18, 23);
+            this.EB00.Name = "EB00";
+            this.EB00.Size = new System.Drawing.Size(12, 20);
+            this.EB00.TabIndex = 39;
+            this.EB00.Tag = "1";
+            this.EB00.Text = "0";
+            // 
+            // lblB00
+            // 
+            this.lblB00.AutoSize = true;
+            this.lblB00.Location = new System.Drawing.Point(36, 25);
+            this.lblB00.Name = "lblB00";
+            this.lblB00.Size = new System.Drawing.Size(62, 13);
+            this.lblB00.TabIndex = 47;
+            this.lblB00.Text = "ESPIRA E0";
+            // 
+            // gbB0
+            // 
+            this.gbB0.Controls.Add(this.lblB06);
+            this.gbB0.Controls.Add(this.lblB05);
+            this.gbB0.Controls.Add(this.lblB04);
+            this.gbB0.Controls.Add(this.lblB03);
+            this.gbB0.Controls.Add(this.lblB02);
+            this.gbB0.Controls.Add(this.lblB01);
+            this.gbB0.Controls.Add(this.lblB00);
+            this.gbB0.Controls.Add(this.EB00);
+            this.gbB0.Controls.Add(this.EB01);
+            this.gbB0.Controls.Add(this.EB06);
+            this.gbB0.Controls.Add(this.EB02);
+            this.gbB0.Controls.Add(this.EB05);
+            this.gbB0.Controls.Add(this.EB03);
+            this.gbB0.Controls.Add(this.EB04);
+            this.gbB0.Location = new System.Drawing.Point(3, 3);
+            this.gbB0.Name = "gbB0";
+            this.gbB0.Size = new System.Drawing.Size(153, 230);
+            this.gbB0.TabIndex = 48;
+            this.gbB0.TabStop = false;
+            this.gbB0.Text = "EstadoB0";
+            // 
+            // lblB01
+            // 
+            this.lblB01.AutoSize = true;
+            this.lblB01.Location = new System.Drawing.Point(36, 50);
+            this.lblB01.Name = "lblB01";
+            this.lblB01.Size = new System.Drawing.Size(62, 13);
+            this.lblB01.TabIndex = 48;
+            this.lblB01.Text = "ESPIRA E1";
+            // 
+            // lblB02
+            // 
+            this.lblB02.AutoSize = true;
+            this.lblB02.Location = new System.Drawing.Point(36, 74);
+            this.lblB02.Name = "lblB02";
+            this.lblB02.Size = new System.Drawing.Size(62, 13);
+            this.lblB02.TabIndex = 49;
+            this.lblB02.Text = "ESPIRA E2";
+            // 
+            // lblB03
+            // 
+            this.lblB03.AutoSize = true;
+            this.lblB03.Location = new System.Drawing.Point(36, 100);
+            this.lblB03.Name = "lblB03";
+            this.lblB03.Size = new System.Drawing.Size(74, 13);
+            this.lblB03.TabIndex = 50;
+            this.lblB03.Text = "FOT_01_DET";
+            // 
+            // lblB04
+            // 
+            this.lblB04.AutoSize = true;
+            this.lblB04.Location = new System.Drawing.Point(36, 126);
+            this.lblB04.Name = "lblB04";
+            this.lblB04.Size = new System.Drawing.Size(74, 13);
+            this.lblB04.TabIndex = 51;
+            this.lblB04.Text = "FOT_02_DET";
+            // 
+            // lblB05
+            // 
+            this.lblB05.AutoSize = true;
+            this.lblB05.Location = new System.Drawing.Point(36, 152);
+            this.lblB05.Name = "lblB05";
+            this.lblB05.Size = new System.Drawing.Size(99, 13);
+            this.lblB05.TabIndex = 52;
+            this.lblB05.Text = "FOT_01_DET HAB";
+            // 
+            // lblB06
+            // 
+            this.lblB06.AutoSize = true;
+            this.lblB06.Location = new System.Drawing.Point(36, 177);
+            this.lblB06.Name = "lblB06";
+            this.lblB06.Size = new System.Drawing.Size(99, 13);
+            this.lblB06.TabIndex = 53;
+            this.lblB06.Text = "FOT_02_DET HAB";
+            // 
+            // gbB1
+            // 
+            this.gbB1.Controls.Add(this.lblB16);
+            this.gbB1.Controls.Add(this.lblB15);
+            this.gbB1.Controls.Add(this.lblB14);
+            this.gbB1.Controls.Add(this.lblB13);
+            this.gbB1.Controls.Add(this.lblB12);
+            this.gbB1.Controls.Add(this.lblB11);
+            this.gbB1.Controls.Add(this.lblB10);
+            this.gbB1.Controls.Add(this.EB10);
+            this.gbB1.Controls.Add(this.EB11);
+            this.gbB1.Controls.Add(this.EB16);
+            this.gbB1.Controls.Add(this.EB12);
+            this.gbB1.Controls.Add(this.EB15);
+            this.gbB1.Controls.Add(this.EB13);
+            this.gbB1.Controls.Add(this.EB14);
+            this.gbB1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbB1.Location = new System.Drawing.Point(0, 0);
+            this.gbB1.Name = "gbB1";
+            this.gbB1.Size = new System.Drawing.Size(193, 230);
+            this.gbB1.TabIndex = 55;
+            this.gbB1.TabStop = false;
+            this.gbB1.Text = "EstadoB1";
+            // 
+            // lblB16
+            // 
+            this.lblB16.AutoSize = true;
+            this.lblB16.Location = new System.Drawing.Point(36, 177);
+            this.lblB16.Name = "lblB16";
+            this.lblB16.Size = new System.Drawing.Size(90, 13);
+            this.lblB16.TabIndex = 53;
+            this.lblB16.Text = "CONT PLANCHA";
+            // 
+            // lblB15
+            // 
+            this.lblB15.AutoSize = true;
+            this.lblB15.Location = new System.Drawing.Point(36, 152);
+            this.lblB15.Name = "lblB15";
+            this.lblB15.Size = new System.Drawing.Size(73, 13);
+            this.lblB15.TabIndex = 52;
+            this.lblB15.Text = "CONT JAULA";
+            // 
+            // lblB14
+            // 
+            this.lblB14.AutoSize = true;
+            this.lblB14.Location = new System.Drawing.Point(36, 126);
+            this.lblB14.Name = "lblB14";
+            this.lblB14.Size = new System.Drawing.Size(76, 13);
+            this.lblB14.TabIndex = 51;
+            this.lblB14.Text = "CONT DOBLE";
+            // 
+            // lblB13
+            // 
+            this.lblB13.AutoSize = true;
+            this.lblB13.Location = new System.Drawing.Point(36, 100);
+            this.lblB13.Name = "lblB13";
+            this.lblB13.Size = new System.Drawing.Size(79, 13);
+            this.lblB13.TabIndex = 50;
+            this.lblB13.Text = "CONT SIMPLE";
+            // 
+            // lblB12
+            // 
+            this.lblB12.AutoSize = true;
+            this.lblB12.Location = new System.Drawing.Point(36, 74);
+            this.lblB12.Name = "lblB12";
+            this.lblB12.Size = new System.Drawing.Size(110, 13);
+            this.lblB12.TabIndex = 49;
+            this.lblB12.Text = "FOT OCR 2  SELECC";
+            // 
+            // lblB11
+            // 
+            this.lblB11.AutoSize = true;
+            this.lblB11.Location = new System.Drawing.Point(36, 50);
+            this.lblB11.Name = "lblB11";
+            this.lblB11.Size = new System.Drawing.Size(110, 13);
+            this.lblB11.TabIndex = 48;
+            this.lblB11.Text = "FOT OCR 1  SELECC";
+            // 
+            // lblB10
+            // 
+            this.lblB10.AutoSize = true;
+            this.lblB10.Location = new System.Drawing.Point(36, 25);
+            this.lblB10.Name = "lblB10";
+            this.lblB10.Size = new System.Drawing.Size(141, 13);
+            this.lblB10.TabIndex = 47;
+            this.lblB10.Text = "CAPTURA CLASIFICADOR ";
+            // 
+            // EB10
+            // 
+            this.EB10.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB10.Location = new System.Drawing.Point(18, 23);
+            this.EB10.Name = "EB10";
+            this.EB10.Size = new System.Drawing.Size(12, 20);
+            this.EB10.TabIndex = 39;
+            this.EB10.Tag = "1";
+            this.EB10.Text = "0";
+            // 
+            // EB11
+            // 
+            this.EB11.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB11.Location = new System.Drawing.Point(18, 48);
+            this.EB11.Name = "EB11";
+            this.EB11.Size = new System.Drawing.Size(12, 20);
+            this.EB11.TabIndex = 40;
+            this.EB11.Tag = "2";
+            this.EB11.Text = "1";
+            // 
+            // EB16
+            // 
+            this.EB16.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB16.Location = new System.Drawing.Point(18, 175);
+            this.EB16.Name = "EB16";
+            this.EB16.Size = new System.Drawing.Size(12, 20);
+            this.EB16.TabIndex = 45;
+            this.EB16.Tag = "3";
+            this.EB16.Text = "6";
+            // 
+            // EB12
+            // 
+            this.EB12.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB12.Location = new System.Drawing.Point(18, 72);
+            this.EB12.Name = "EB12";
+            this.EB12.Size = new System.Drawing.Size(12, 20);
+            this.EB12.TabIndex = 41;
+            this.EB12.Tag = "3";
+            this.EB12.Text = "2";
+            // 
+            // EB15
+            // 
+            this.EB15.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB15.Location = new System.Drawing.Point(18, 150);
+            this.EB15.Name = "EB15";
+            this.EB15.Size = new System.Drawing.Size(12, 20);
+            this.EB15.TabIndex = 44;
+            this.EB15.Tag = "2";
+            this.EB15.Text = "5";
+            // 
+            // EB13
+            // 
+            this.EB13.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB13.Location = new System.Drawing.Point(18, 98);
+            this.EB13.Name = "EB13";
+            this.EB13.Size = new System.Drawing.Size(12, 20);
+            this.EB13.TabIndex = 42;
+            this.EB13.Tag = "4";
+            this.EB13.Text = "3";
+            // 
+            // EB14
+            // 
+            this.EB14.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB14.Location = new System.Drawing.Point(18, 124);
+            this.EB14.Name = "EB14";
+            this.EB14.Size = new System.Drawing.Size(12, 20);
+            this.EB14.TabIndex = 43;
+            this.EB14.Tag = "1";
+            this.EB14.Text = "4";
+            // 
+            // gbB2
+            // 
+            this.gbB2.Controls.Add(this.lblB20);
+            this.gbB2.Controls.Add(this.EB20);
+            this.gbB2.Location = new System.Drawing.Point(199, 3);
+            this.gbB2.Name = "gbB2";
+            this.gbB2.Size = new System.Drawing.Size(193, 101);
+            this.gbB2.TabIndex = 56;
+            this.gbB2.TabStop = false;
+            this.gbB2.Text = "EstadoB2";
+            // 
+            // lblB20
+            // 
+            this.lblB20.AutoSize = true;
+            this.lblB20.Location = new System.Drawing.Point(15, 50);
+            this.lblB20.Name = "lblB20";
+            this.lblB20.Size = new System.Drawing.Size(146, 13);
+            this.lblB20.TabIndex = 47;
+            this.lblB20.Text = "CONT FOT. OCR FILTRADO";
+            // 
+            // EB20
+            // 
+            this.EB20.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB20.Location = new System.Drawing.Point(18, 23);
+            this.EB20.Name = "EB20";
+            this.EB20.Size = new System.Drawing.Size(39, 20);
+            this.EB20.TabIndex = 39;
+            this.EB20.Tag = "1";
+            this.EB20.Text = "0";
+            // 
+            // gbB3
+            // 
+            this.gbB3.Controls.Add(this.lblB30);
+            this.gbB3.Controls.Add(this.EB30);
+            this.gbB3.Location = new System.Drawing.Point(199, 110);
+            this.gbB3.Name = "gbB3";
+            this.gbB3.Size = new System.Drawing.Size(193, 101);
+            this.gbB3.TabIndex = 57;
+            this.gbB3.TabStop = false;
+            this.gbB3.Text = "EstadoB3";
+            // 
+            // lblB30
+            // 
+            this.lblB30.AutoSize = true;
+            this.lblB30.Location = new System.Drawing.Point(15, 50);
+            this.lblB30.Name = "lblB30";
+            this.lblB30.Size = new System.Drawing.Size(159, 13);
+            this.lblB30.TabIndex = 47;
+            this.lblB30.Text = "CONT FOT. OCR SIN FILTRAR";
+            // 
+            // EB30
+            // 
+            this.EB30.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB30.Location = new System.Drawing.Point(18, 23);
+            this.EB30.Name = "EB30";
+            this.EB30.Size = new System.Drawing.Size(39, 20);
+            this.EB30.TabIndex = 39;
+            this.EB30.Tag = "1";
+            this.EB30.Text = "0";
+            // 
+            // gbS0
+            // 
+            this.gbS0.Controls.Add(this.lblS05);
+            this.gbS0.Controls.Add(this.lblS04);
+            this.gbS0.Controls.Add(this.lblS03);
+            this.gbS0.Controls.Add(this.lblS02);
+            this.gbS0.Controls.Add(this.lblS01);
+            this.gbS0.Controls.Add(this.lblS00);
+            this.gbS0.Controls.Add(this.SB00);
+            this.gbS0.Controls.Add(this.SB01);
+            this.gbS0.Controls.Add(this.SB02);
+            this.gbS0.Controls.Add(this.SB05);
+            this.gbS0.Controls.Add(this.SB03);
+            this.gbS0.Controls.Add(this.SB04);
+            this.gbS0.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gbS0.Location = new System.Drawing.Point(684, 0);
+            this.gbS0.Name = "gbS0";
+            this.gbS0.Size = new System.Drawing.Size(193, 232);
+            this.gbS0.TabIndex = 56;
+            this.gbS0.TabStop = false;
+            this.gbS0.Text = "OrdenB0";
+            // 
+            // lblS05
+            // 
+            this.lblS05.AutoSize = true;
+            this.lblS05.Location = new System.Drawing.Point(36, 152);
+            this.lblS05.Name = "lblS05";
+            this.lblS05.Size = new System.Drawing.Size(91, 13);
+            this.lblS05.TabIndex = 52;
+            this.lblS05.Text = "FOT. OCR2 HAB.";
+            // 
+            // lblS04
+            // 
+            this.lblS04.AutoSize = true;
+            this.lblS04.Location = new System.Drawing.Point(36, 126);
+            this.lblS04.Name = "lblS04";
+            this.lblS04.Size = new System.Drawing.Size(91, 13);
+            this.lblS04.TabIndex = 51;
+            this.lblS04.Text = "FOT. OCR1 HAB.";
+            // 
+            // lblS03
+            // 
+            this.lblS03.AutoSize = true;
+            this.lblS03.Location = new System.Drawing.Point(36, 100);
+            this.lblS03.Name = "lblS03";
+            this.lblS03.Size = new System.Drawing.Size(101, 13);
+            this.lblS03.TabIndex = 50;
+            this.lblS03.Text = "ILUMINACIÓN LPR";
+            // 
+            // lblS02
+            // 
+            this.lblS02.AutoSize = true;
+            this.lblS02.Location = new System.Drawing.Point(36, 74);
+            this.lblS02.Name = "lblS02";
+            this.lblS02.Size = new System.Drawing.Size(131, 13);
+            this.lblS02.TabIndex = 49;
+            this.lblS02.Text = "ILUMINACIÓN TRASERA";
+            // 
+            // lblS01
+            // 
+            this.lblS01.AutoSize = true;
+            this.lblS01.Location = new System.Drawing.Point(36, 50);
+            this.lblS01.Name = "lblS01";
+            this.lblS01.Size = new System.Drawing.Size(103, 13);
+            this.lblS01.TabIndex = 48;
+            this.lblS01.Text = "ILUMINACIÓN OCR";
+            // 
+            // lblS00
+            // 
+            this.lblS00.AutoSize = true;
+            this.lblS00.Location = new System.Drawing.Point(36, 25);
+            this.lblS00.Name = "lblS00";
+            this.lblS00.Size = new System.Drawing.Size(123, 13);
+            this.lblS00.TabIndex = 47;
+            this.lblS00.Text = "RESET CLASIFICADOR";
+            // 
+            // SB00
+            // 
+            this.SB00.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB00.Location = new System.Drawing.Point(18, 23);
+            this.SB00.Name = "SB00";
+            this.SB00.Size = new System.Drawing.Size(12, 20);
+            this.SB00.TabIndex = 39;
+            this.SB00.Tag = "1";
+            this.SB00.Text = "0";
+            // 
+            // SB01
+            // 
+            this.SB01.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB01.Location = new System.Drawing.Point(18, 48);
+            this.SB01.Name = "SB01";
+            this.SB01.Size = new System.Drawing.Size(12, 20);
+            this.SB01.TabIndex = 40;
+            this.SB01.Tag = "2";
+            this.SB01.Text = "1";
+            // 
+            // SB02
+            // 
+            this.SB02.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB02.Location = new System.Drawing.Point(18, 72);
+            this.SB02.Name = "SB02";
+            this.SB02.Size = new System.Drawing.Size(12, 20);
+            this.SB02.TabIndex = 41;
+            this.SB02.Tag = "3";
+            this.SB02.Text = "2";
+            // 
+            // SB05
+            // 
+            this.SB05.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB05.Location = new System.Drawing.Point(18, 150);
+            this.SB05.Name = "SB05";
+            this.SB05.Size = new System.Drawing.Size(12, 20);
+            this.SB05.TabIndex = 44;
+            this.SB05.Tag = "2";
+            this.SB05.Text = "5";
+            // 
+            // SB03
+            // 
+            this.SB03.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB03.Location = new System.Drawing.Point(18, 98);
+            this.SB03.Name = "SB03";
+            this.SB03.Size = new System.Drawing.Size(12, 20);
+            this.SB03.TabIndex = 42;
+            this.SB03.Tag = "4";
+            this.SB03.Text = "3";
+            // 
+            // SB04
+            // 
+            this.SB04.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB04.Location = new System.Drawing.Point(18, 124);
+            this.SB04.Name = "SB04";
+            this.SB04.Size = new System.Drawing.Size(12, 20);
+            this.SB04.TabIndex = 43;
+            this.SB04.Tag = "1";
+            this.SB04.Text = "4";
+            // 
+            // pnlBytes
+            // 
+            this.pnlBytes.Controls.Add(this.gbB1);
+            this.pnlBytes.Controls.Add(this.gbB2);
+            this.pnlBytes.Controls.Add(this.gbB3);
+            this.pnlBytes.Location = new System.Drawing.Point(162, 3);
+            this.pnlBytes.Name = "pnlBytes";
+            this.pnlBytes.Size = new System.Drawing.Size(488, 230);
+            this.pnlBytes.TabIndex = 58;
             // 
             // OClienteESSiemens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gbES);
-            this.Controls.Add(this.gbConfig);
             this.Name = "OClienteESSiemens";
-            this.Size = new System.Drawing.Size(1151, 410);
-            this.gbES.ResumeLayout(false);
-            this.gbLecturasES.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewES)).EndInit();
-            this.pnlLecturasES.ResumeLayout(false);
-            this.pnlLateral.ResumeLayout(false);
-            this.pnlSSiemens2.ResumeLayout(false);
-            this.pnlSSiemens2.PerformLayout();
-            this.pnlSSiemens1.ResumeLayout(false);
-            this.pnlSSiemens1.PerformLayout();
-            this.gbCdatoES.ResumeLayout(false);
-            this.pnlOrbitaInf.ResumeLayout(false);
-            this.pnlOrbitaInf.PerformLayout();
-            this.gbConfig.ResumeLayout(false);
-            this.gbConfig.PerformLayout();
+            this.Size = new System.Drawing.Size(899, 681);
+            this.gbDispositivo.ResumeLayout(false);
+            this.pnlDispSup.ResumeLayout(false);
+            this.pnlDispSup.PerformLayout();
+            this.pnlCanalA.ResumeLayout(false);
+            this.gbB0.ResumeLayout(false);
+            this.gbB0.PerformLayout();
+            this.gbB1.ResumeLayout(false);
+            this.gbB1.PerformLayout();
+            this.gbB2.ResumeLayout(false);
+            this.gbB2.PerformLayout();
+            this.gbB3.ResumeLayout(false);
+            this.gbB3.PerformLayout();
+            this.gbS0.ResumeLayout(false);
+            this.gbS0.PerformLayout();
+            this.pnlBytes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbES;
-        private System.Windows.Forms.GroupBox gbLecturasES;
-        private System.Windows.Forms.DataGridView dataGridViewES;
-        private System.Windows.Forms.Panel pnlLecturasES;
-        private System.Windows.Forms.Button btnLeerVariablesES;
-        private System.Windows.Forms.Button btnLeerAlarmasES;
-        private System.Windows.Forms.Panel pnlLateral;
-        private System.Windows.Forms.Panel pnlSSiemens2;
-        private System.Windows.Forms.TextBox SiemensE16;
-        private System.Windows.Forms.TextBox SiemensE15;
-        private System.Windows.Forms.TextBox SiemensE14;
-        private System.Windows.Forms.TextBox SiemensE13;
-        private System.Windows.Forms.TextBox SiemensE12;
-        private System.Windows.Forms.TextBox SiemensE11;
-        private System.Windows.Forms.TextBox SiemensE08;
-        private System.Windows.Forms.TextBox SiemensE07;
-        private System.Windows.Forms.TextBox SiemensE06;
-        private System.Windows.Forms.TextBox SiemensE05;
-        private System.Windows.Forms.TextBox SiemensE04;
-        private System.Windows.Forms.TextBox SiemensE03;
-        private System.Windows.Forms.TextBox SiemensE02;
-        private System.Windows.Forms.Label lblInputSiemens;
-        private System.Windows.Forms.TextBox SiemensE01;
-        private System.Windows.Forms.Panel pnlSSiemens1;
-        private System.Windows.Forms.TextBox SiemensS12;
-        private System.Windows.Forms.TextBox SiemensS11;
-        private System.Windows.Forms.TextBox SiemensS08;
-        private System.Windows.Forms.TextBox SiemensS07;
-        private System.Windows.Forms.TextBox SiemensS06;
-        private System.Windows.Forms.TextBox SiemensS05;
-        private System.Windows.Forms.TextBox SiemensS04;
-        private System.Windows.Forms.TextBox SiemensS03;
-        private System.Windows.Forms.TextBox SiemensS02;
-        private System.Windows.Forms.Label lblOutputSiemens;
-        private System.Windows.Forms.TextBox SiemensS01;
-        private System.Windows.Forms.GroupBox gbCdatoES;
-        private System.Windows.Forms.ListView listViewES;
-        private System.Windows.Forms.Panel pnlOrbitaInf;
-        private System.Windows.Forms.Label lblSiemens;
-        private System.Windows.Forms.Label lblEscrituraSiemens;
-        private System.Windows.Forms.TextBox txtValEscribirSiemens;
-        private System.Windows.Forms.TextBox txtSiemens;
-        private System.Windows.Forms.TextBox txtVarEscribirSiemens;
-        private System.Windows.Forms.Label lblLecturaSiemens;
-        private System.Windows.Forms.Button btnEscrituraSiemens;
-        private System.Windows.Forms.Button btnLecturaSiemens;
-        private System.Windows.Forms.TextBox txtVaLeerSiemens;
-        private System.Windows.Forms.TextBox txtVarLeerSiemens;
-        private System.Windows.Forms.GroupBox gbConfig;
-        private System.Windows.Forms.TextBox txtServidorRemoting;
-        private System.Windows.Forms.Label lblServidorRemoting;
-        private System.Windows.Forms.TextBox txtIdDispositivo;
-        private System.Windows.Forms.Label lblIdDispositivo;
-        private System.Windows.Forms.Button btnConectar;
-        private System.Windows.Forms.TextBox txtPuertoRemoting;
-        private System.Windows.Forms.Label lblPuertoRemoting;
+        private System.Windows.Forms.Panel pnlCanalA;
+        private System.Windows.Forms.TextBox EB06;
+        private System.Windows.Forms.TextBox EB05;
+        private System.Windows.Forms.TextBox EB04;
+        private System.Windows.Forms.TextBox EB03;
+        private System.Windows.Forms.TextBox EB02;
+        private System.Windows.Forms.TextBox EB01;
+        private System.Windows.Forms.TextBox EB00;
+        private System.Windows.Forms.GroupBox gbB0;
+        private System.Windows.Forms.Label lblB00;
+        private System.Windows.Forms.Label lblB06;
+        private System.Windows.Forms.Label lblB05;
+        private System.Windows.Forms.Label lblB04;
+        private System.Windows.Forms.Label lblB03;
+        private System.Windows.Forms.Label lblB02;
+        private System.Windows.Forms.Label lblB01;
+        private System.Windows.Forms.GroupBox gbB1;
+        private System.Windows.Forms.Label lblB16;
+        private System.Windows.Forms.Label lblB15;
+        private System.Windows.Forms.Label lblB14;
+        private System.Windows.Forms.Label lblB13;
+        private System.Windows.Forms.Label lblB12;
+        private System.Windows.Forms.Label lblB11;
+        private System.Windows.Forms.Label lblB10;
+        private System.Windows.Forms.TextBox EB10;
+        private System.Windows.Forms.TextBox EB11;
+        private System.Windows.Forms.TextBox EB16;
+        private System.Windows.Forms.TextBox EB12;
+        private System.Windows.Forms.TextBox EB15;
+        private System.Windows.Forms.TextBox EB13;
+        private System.Windows.Forms.TextBox EB14;
+        private System.Windows.Forms.GroupBox gbS0;
+        private System.Windows.Forms.Label lblS05;
+        private System.Windows.Forms.Label lblS04;
+        private System.Windows.Forms.Label lblS03;
+        private System.Windows.Forms.Label lblS02;
+        private System.Windows.Forms.Label lblS01;
+        private System.Windows.Forms.Label lblS00;
+        private System.Windows.Forms.TextBox SB00;
+        private System.Windows.Forms.TextBox SB01;
+        private System.Windows.Forms.TextBox SB02;
+        private System.Windows.Forms.TextBox SB05;
+        private System.Windows.Forms.TextBox SB03;
+        private System.Windows.Forms.TextBox SB04;
+        private System.Windows.Forms.Panel pnlBytes;
+        private System.Windows.Forms.GroupBox gbB2;
+        private System.Windows.Forms.Label lblB20;
+        private System.Windows.Forms.TextBox EB20;
+        private System.Windows.Forms.GroupBox gbB3;
+        private System.Windows.Forms.Label lblB30;
+        private System.Windows.Forms.TextBox EB30;
     }
 }
