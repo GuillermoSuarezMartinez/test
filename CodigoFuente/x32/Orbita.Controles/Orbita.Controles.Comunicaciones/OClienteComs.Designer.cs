@@ -355,7 +355,6 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbVariables;
         private System.Windows.Forms.DataGridView dataGridViewLecturas;
         private System.Windows.Forms.Panel pnlLecturas;
         private System.Windows.Forms.Button btnLeerVariables;
@@ -382,5 +381,6 @@
         public System.Windows.Forms.TextBox txtVarEscribir;
         public System.Windows.Forms.TextBox txtVarLeer;
         public System.Windows.Forms.Panel pnlDispSup;
+        public System.Windows.Forms.GroupBox gbVariables;
     }
 }

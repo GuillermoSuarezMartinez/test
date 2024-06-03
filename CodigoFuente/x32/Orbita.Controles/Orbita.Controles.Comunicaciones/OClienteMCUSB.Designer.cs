@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.pnlCanalA = new System.Windows.Forms.Panel();
+            this.A8 = new System.Windows.Forms.TextBox();
+            this.A7 = new System.Windows.Forms.TextBox();
+            this.A6 = new System.Windows.Forms.TextBox();
+            this.A5 = new System.Windows.Forms.TextBox();
             this.lblCanalA = new System.Windows.Forms.Label();
             this.A4 = new System.Windows.Forms.TextBox();
             this.A3 = new System.Windows.Forms.TextBox();
             this.A2 = new System.Windows.Forms.TextBox();
             this.A1 = new System.Windows.Forms.TextBox();
-            this.A8 = new System.Windows.Forms.TextBox();
-            this.A7 = new System.Windows.Forms.TextBox();
-            this.A6 = new System.Windows.Forms.TextBox();
-            this.A5 = new System.Windows.Forms.TextBox();
             this.pnlCanalB = new System.Windows.Forms.Panel();
             this.B8 = new System.Windows.Forms.TextBox();
             this.B7 = new System.Windows.Forms.TextBox();
@@ -71,7 +71,7 @@
             // gbDispositivo
             // 
             this.gbDispositivo.Location = new System.Drawing.Point(0, 60);
-            this.gbDispositivo.Size = new System.Drawing.Size(819, 535);
+            this.gbDispositivo.Size = new System.Drawing.Size(819, 628);
             this.gbDispositivo.Text = "Dispositivo MCC USB";
             // 
             // lblCom
@@ -100,6 +100,11 @@
             this.pnlDispSup.Controls.SetChildIndex(this.pnlCanalCL, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.pnlCanalCH, 0);
             // 
+            // gbVariables
+            // 
+            this.gbVariables.Location = new System.Drawing.Point(10, 142);
+            this.gbVariables.Size = new System.Drawing.Size(799, 330);
+            // 
             // pnlCanalA
             // 
             this.pnlCanalA.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -117,6 +122,50 @@
             this.pnlCanalA.Name = "pnlCanalA";
             this.pnlCanalA.Size = new System.Drawing.Size(174, 31);
             this.pnlCanalA.TabIndex = 52;
+            // 
+            // A8
+            // 
+            this.A8.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.A8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.A8.Location = new System.Drawing.Point(145, 4);
+            this.A8.Name = "A8";
+            this.A8.Size = new System.Drawing.Size(12, 20);
+            this.A8.TabIndex = 46;
+            this.A8.Tag = "4";
+            this.A8.Text = "8";
+            // 
+            // A7
+            // 
+            this.A7.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.A7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.A7.Location = new System.Drawing.Point(128, 4);
+            this.A7.Name = "A7";
+            this.A7.Size = new System.Drawing.Size(12, 20);
+            this.A7.TabIndex = 45;
+            this.A7.Tag = "3";
+            this.A7.Text = "7";
+            // 
+            // A6
+            // 
+            this.A6.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.A6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.A6.Location = new System.Drawing.Point(111, 4);
+            this.A6.Name = "A6";
+            this.A6.Size = new System.Drawing.Size(12, 20);
+            this.A6.TabIndex = 44;
+            this.A6.Tag = "2";
+            this.A6.Text = "6";
+            // 
+            // A5
+            // 
+            this.A5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.A5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.A5.Location = new System.Drawing.Point(94, 4);
+            this.A5.Name = "A5";
+            this.A5.Size = new System.Drawing.Size(12, 20);
+            this.A5.TabIndex = 43;
+            this.A5.Tag = "1";
+            this.A5.Text = "5";
             // 
             // lblCanalA
             // 
@@ -170,50 +219,6 @@
             this.A1.TabIndex = 39;
             this.A1.Tag = "1";
             this.A1.Text = "1";
-            // 
-            // A8
-            // 
-            this.A8.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.A8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.A8.Location = new System.Drawing.Point(145, 4);
-            this.A8.Name = "A8";
-            this.A8.Size = new System.Drawing.Size(12, 20);
-            this.A8.TabIndex = 46;
-            this.A8.Tag = "4";
-            this.A8.Text = "8";
-            // 
-            // A7
-            // 
-            this.A7.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.A7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.A7.Location = new System.Drawing.Point(128, 4);
-            this.A7.Name = "A7";
-            this.A7.Size = new System.Drawing.Size(12, 20);
-            this.A7.TabIndex = 45;
-            this.A7.Tag = "3";
-            this.A7.Text = "7";
-            // 
-            // A6
-            // 
-            this.A6.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.A6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.A6.Location = new System.Drawing.Point(111, 4);
-            this.A6.Name = "A6";
-            this.A6.Size = new System.Drawing.Size(12, 20);
-            this.A6.TabIndex = 44;
-            this.A6.Tag = "2";
-            this.A6.Text = "6";
-            // 
-            // A5
-            // 
-            this.A5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.A5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.A5.Location = new System.Drawing.Point(94, 4);
-            this.A5.Name = "A5";
-            this.A5.Size = new System.Drawing.Size(12, 20);
-            this.A5.TabIndex = 43;
-            this.A5.Tag = "1";
-            this.A5.Text = "5";
             // 
             // pnlCanalB
             // 
@@ -469,7 +474,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteMCUSB";
-            this.Size = new System.Drawing.Size(819, 595);
+            this.Size = new System.Drawing.Size(819, 688);
             this.gbDispositivo.ResumeLayout(false);
             this.pnlDispSup.ResumeLayout(false);
             this.pnlDispSup.PerformLayout();
