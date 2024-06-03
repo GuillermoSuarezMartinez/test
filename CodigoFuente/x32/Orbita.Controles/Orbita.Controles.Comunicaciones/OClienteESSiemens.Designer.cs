@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +68,12 @@
             this.EB03 = new System.Windows.Forms.TextBox();
             this.EB04 = new System.Windows.Forms.TextBox();
             this.pnlBytes = new System.Windows.Forms.Panel();
+            this.gbB2 = new System.Windows.Forms.GroupBox();
+            this.lblB20 = new System.Windows.Forms.Label();
+            this.EB20 = new System.Windows.Forms.TextBox();
+            this.gbB3 = new System.Windows.Forms.GroupBox();
+            this.lblB30 = new System.Windows.Forms.Label();
+            this.EB30 = new System.Windows.Forms.TextBox();
             this.gbB1 = new System.Windows.Forms.GroupBox();
             this.lblB16 = new System.Windows.Forms.Label();
             this.lblB15 = new System.Windows.Forms.Label();
@@ -81,12 +89,6 @@
             this.EB15 = new System.Windows.Forms.TextBox();
             this.EB13 = new System.Windows.Forms.TextBox();
             this.EB14 = new System.Windows.Forms.TextBox();
-            this.gbB2 = new System.Windows.Forms.GroupBox();
-            this.lblB20 = new System.Windows.Forms.Label();
-            this.EB20 = new System.Windows.Forms.TextBox();
-            this.gbB3 = new System.Windows.Forms.GroupBox();
-            this.lblB30 = new System.Windows.Forms.Label();
-            this.EB30 = new System.Windows.Forms.TextBox();
             this.gbDispositivo.SuspendLayout();
             this.gbConfig.SuspendLayout();
             this.pnlDispSup.SuspendLayout();
@@ -94,9 +96,9 @@
             this.gbS0.SuspendLayout();
             this.gbB0.SuspendLayout();
             this.pnlBytes.SuspendLayout();
-            this.gbB1.SuspendLayout();
             this.gbB2.SuspendLayout();
             this.gbB3.SuspendLayout();
+            this.gbB1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDispositivo
@@ -135,6 +137,18 @@
             // txtIdDispositivo
             // 
             this.txtIdDispositivo.Text = "5";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -513,6 +527,69 @@
             this.pnlBytes.Size = new System.Drawing.Size(516, 230);
             this.pnlBytes.TabIndex = 58;
             // 
+            // gbB2
+            // 
+            this.gbB2.Controls.Add(this.lblB20);
+            this.gbB2.Controls.Add(this.EB20);
+            this.gbB2.Location = new System.Drawing.Point(199, 6);
+            this.gbB2.Name = "gbB2";
+            this.gbB2.Size = new System.Drawing.Size(139, 86);
+            this.gbB2.TabIndex = 56;
+            this.gbB2.TabStop = false;
+            this.gbB2.Text = "EstadoB2";
+            // 
+            // lblB20
+            // 
+            this.lblB20.AutoSize = true;
+            this.lblB20.Location = new System.Drawing.Point(15, 50);
+            this.lblB20.Name = "lblB20";
+            this.lblB20.Size = new System.Drawing.Size(118, 13);
+            this.lblB20.TabIndex = 47;
+            this.lblB20.Text = "CONT FOT. OCR FILT.";
+            // 
+            // EB20
+            // 
+            this.EB20.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB20.Location = new System.Drawing.Point(18, 23);
+            this.EB20.Name = "EB20";
+            this.EB20.Size = new System.Drawing.Size(39, 20);
+            this.EB20.TabIndex = 39;
+            this.EB20.Tag = "1";
+            this.EB20.Text = "0";
+            // 
+            // gbB3
+            // 
+            this.gbB3.Controls.Add(this.lblB30);
+            this.gbB3.Controls.Add(this.EB30);
+            this.gbB3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gbB3.Location = new System.Drawing.Point(358, 0);
+            this.gbB3.Name = "gbB3";
+            this.gbB3.Size = new System.Drawing.Size(158, 230);
+            this.gbB3.TabIndex = 57;
+            this.gbB3.TabStop = false;
+            this.gbB3.Text = "EstadoB3";
+            // 
+            // lblB30
+            // 
+            this.lblB30.AutoSize = true;
+            this.lblB30.Location = new System.Drawing.Point(15, 50);
+            this.lblB30.Name = "lblB30";
+            this.lblB30.Size = new System.Drawing.Size(139, 13);
+            this.lblB30.TabIndex = 47;
+            this.lblB30.Text = "CONT FOT. OCR SIN FILT.";
+            // 
+            // EB30
+            // 
+            this.EB30.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB30.Location = new System.Drawing.Point(18, 23);
+            this.EB30.Name = "EB30";
+            this.EB30.Size = new System.Drawing.Size(39, 20);
+            this.EB30.TabIndex = 39;
+            this.EB30.Tag = "1";
+            this.EB30.Text = "0";
+            // 
             // gbB1
             // 
             this.gbB1.Controls.Add(this.lblB16);
@@ -677,69 +754,6 @@
             this.EB14.Tag = "1";
             this.EB14.Text = "4";
             // 
-            // gbB2
-            // 
-            this.gbB2.Controls.Add(this.lblB20);
-            this.gbB2.Controls.Add(this.EB20);
-            this.gbB2.Location = new System.Drawing.Point(199, 6);
-            this.gbB2.Name = "gbB2";
-            this.gbB2.Size = new System.Drawing.Size(139, 86);
-            this.gbB2.TabIndex = 56;
-            this.gbB2.TabStop = false;
-            this.gbB2.Text = "EstadoB2";
-            // 
-            // lblB20
-            // 
-            this.lblB20.AutoSize = true;
-            this.lblB20.Location = new System.Drawing.Point(15, 50);
-            this.lblB20.Name = "lblB20";
-            this.lblB20.Size = new System.Drawing.Size(118, 13);
-            this.lblB20.TabIndex = 47;
-            this.lblB20.Text = "CONT FOT. OCR FILT.";
-            // 
-            // EB20
-            // 
-            this.EB20.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB20.Location = new System.Drawing.Point(18, 23);
-            this.EB20.Name = "EB20";
-            this.EB20.Size = new System.Drawing.Size(39, 20);
-            this.EB20.TabIndex = 39;
-            this.EB20.Tag = "1";
-            this.EB20.Text = "0";
-            // 
-            // gbB3
-            // 
-            this.gbB3.Controls.Add(this.lblB30);
-            this.gbB3.Controls.Add(this.EB30);
-            this.gbB3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbB3.Location = new System.Drawing.Point(358, 0);
-            this.gbB3.Name = "gbB3";
-            this.gbB3.Size = new System.Drawing.Size(158, 230);
-            this.gbB3.TabIndex = 57;
-            this.gbB3.TabStop = false;
-            this.gbB3.Text = "EstadoB3";
-            // 
-            // lblB30
-            // 
-            this.lblB30.AutoSize = true;
-            this.lblB30.Location = new System.Drawing.Point(15, 50);
-            this.lblB30.Name = "lblB30";
-            this.lblB30.Size = new System.Drawing.Size(139, 13);
-            this.lblB30.TabIndex = 47;
-            this.lblB30.Text = "CONT FOT. OCR SIN FILT.";
-            // 
-            // EB30
-            // 
-            this.EB30.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB30.Location = new System.Drawing.Point(18, 23);
-            this.EB30.Name = "EB30";
-            this.EB30.Size = new System.Drawing.Size(39, 20);
-            this.EB30.TabIndex = 39;
-            this.EB30.Tag = "1";
-            this.EB30.Text = "0";
-            // 
             // OClienteESSiemens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -757,12 +771,12 @@
             this.gbB0.ResumeLayout(false);
             this.gbB0.PerformLayout();
             this.pnlBytes.ResumeLayout(false);
-            this.gbB1.ResumeLayout(false);
-            this.gbB1.PerformLayout();
             this.gbB2.ResumeLayout(false);
             this.gbB2.PerformLayout();
             this.gbB3.ResumeLayout(false);
             this.gbB3.PerformLayout();
+            this.gbB1.ResumeLayout(false);
+            this.gbB1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -828,5 +842,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }
 }
