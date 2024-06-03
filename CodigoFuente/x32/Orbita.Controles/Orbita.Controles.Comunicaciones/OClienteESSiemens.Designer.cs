@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,7 +110,7 @@
             // pnlDispSup
             // 
             this.pnlDispSup.Controls.Add(this.pnlCanalA);
-            this.pnlDispSup.Size = new System.Drawing.Size(879, 513);
+            this.pnlDispSup.Size = new System.Drawing.Size(879, 372);
             this.pnlDispSup.Controls.SetChildIndex(this.gbEscrituras, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
@@ -115,22 +119,46 @@
             // 
             // gbVariables
             // 
-            this.gbVariables.Location = new System.Drawing.Point(10, 536);
-            this.gbVariables.Size = new System.Drawing.Size(879, 206);
+            this.gbVariables.Location = new System.Drawing.Point(10, 395);
+            this.gbVariables.Size = new System.Drawing.Size(879, 127);
             // 
             // gbCDato
             // 
-            this.gbCDato.Location = new System.Drawing.Point(10, 742);
-            this.gbCDato.Size = new System.Drawing.Size(879, 120);
+            this.gbCDato.Location = new System.Drawing.Point(10, 522);
+            this.gbCDato.Size = new System.Drawing.Size(879, 340);
             // 
             // gbEscrituras
             // 
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 351);
-            this.gbEscrituras.Size = new System.Drawing.Size(879, 162);
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 243);
+            this.gbEscrituras.Size = new System.Drawing.Size(879, 129);
             // 
             // txtIdDispositivo
             // 
             this.txtIdDispositivo.Text = "5";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -164,9 +192,9 @@
             this.pnlCanalA.Controls.Add(this.gbB0);
             this.pnlCanalA.Controls.Add(this.pnlBytes);
             this.pnlCanalA.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlCanalA.Location = new System.Drawing.Point(0, 58);
+            this.pnlCanalA.Location = new System.Drawing.Point(0, 41);
             this.pnlCanalA.Name = "pnlCanalA";
-            this.pnlCanalA.Size = new System.Drawing.Size(879, 293);
+            this.pnlCanalA.Size = new System.Drawing.Size(879, 202);
             this.pnlCanalA.TabIndex = 53;
             // 
             // gbS0
@@ -186,7 +214,7 @@
             this.gbS0.Dock = System.Windows.Forms.DockStyle.Right;
             this.gbS0.Location = new System.Drawing.Point(684, 0);
             this.gbS0.Name = "gbS0";
-            this.gbS0.Size = new System.Drawing.Size(193, 291);
+            this.gbS0.Size = new System.Drawing.Size(193, 200);
             this.gbS0.TabIndex = 56;
             this.gbS0.TabStop = false;
             this.gbS0.Text = "OrdenB0";
@@ -327,9 +355,10 @@
             this.gbB0.Controls.Add(this.EB05);
             this.gbB0.Controls.Add(this.EB03);
             this.gbB0.Controls.Add(this.EB04);
-            this.gbB0.Location = new System.Drawing.Point(3, 3);
+            this.gbB0.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbB0.Location = new System.Drawing.Point(0, 0);
             this.gbB0.Name = "gbB0";
-            this.gbB0.Size = new System.Drawing.Size(153, 230);
+            this.gbB0.Size = new System.Drawing.Size(153, 200);
             this.gbB0.TabIndex = 48;
             this.gbB0.TabStop = false;
             this.gbB0.Text = "EstadoB0";
@@ -476,12 +505,12 @@
             // 
             // pnlBytes
             // 
-            this.pnlBytes.Controls.Add(this.gbB1);
             this.pnlBytes.Controls.Add(this.gbB2);
             this.pnlBytes.Controls.Add(this.gbB3);
+            this.pnlBytes.Controls.Add(this.gbB1);
             this.pnlBytes.Location = new System.Drawing.Point(162, 3);
             this.pnlBytes.Name = "pnlBytes";
-            this.pnlBytes.Size = new System.Drawing.Size(488, 230);
+            this.pnlBytes.Size = new System.Drawing.Size(516, 230);
             this.pnlBytes.TabIndex = 58;
             // 
             // gbB1
@@ -652,9 +681,9 @@
             // 
             this.gbB2.Controls.Add(this.lblB20);
             this.gbB2.Controls.Add(this.EB20);
-            this.gbB2.Location = new System.Drawing.Point(199, 3);
+            this.gbB2.Location = new System.Drawing.Point(199, 6);
             this.gbB2.Name = "gbB2";
-            this.gbB2.Size = new System.Drawing.Size(193, 101);
+            this.gbB2.Size = new System.Drawing.Size(139, 86);
             this.gbB2.TabIndex = 56;
             this.gbB2.TabStop = false;
             this.gbB2.Text = "EstadoB2";
@@ -664,9 +693,9 @@
             this.lblB20.AutoSize = true;
             this.lblB20.Location = new System.Drawing.Point(15, 50);
             this.lblB20.Name = "lblB20";
-            this.lblB20.Size = new System.Drawing.Size(146, 13);
+            this.lblB20.Size = new System.Drawing.Size(118, 13);
             this.lblB20.TabIndex = 47;
-            this.lblB20.Text = "CONT FOT. OCR FILTRADO";
+            this.lblB20.Text = "CONT FOT. OCR FILT.";
             // 
             // EB20
             // 
@@ -683,9 +712,10 @@
             // 
             this.gbB3.Controls.Add(this.lblB30);
             this.gbB3.Controls.Add(this.EB30);
-            this.gbB3.Location = new System.Drawing.Point(199, 110);
+            this.gbB3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gbB3.Location = new System.Drawing.Point(358, 0);
             this.gbB3.Name = "gbB3";
-            this.gbB3.Size = new System.Drawing.Size(193, 101);
+            this.gbB3.Size = new System.Drawing.Size(158, 230);
             this.gbB3.TabIndex = 57;
             this.gbB3.TabStop = false;
             this.gbB3.Text = "EstadoB3";
@@ -695,9 +725,9 @@
             this.lblB30.AutoSize = true;
             this.lblB30.Location = new System.Drawing.Point(15, 50);
             this.lblB30.Name = "lblB30";
-            this.lblB30.Size = new System.Drawing.Size(159, 13);
+            this.lblB30.Size = new System.Drawing.Size(139, 13);
             this.lblB30.TabIndex = 47;
-            this.lblB30.Text = "CONT FOT. OCR SIN FILTRAR";
+            this.lblB30.Text = "CONT FOT. OCR SIN FILT.";
             // 
             // EB30
             // 
@@ -794,5 +824,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }
