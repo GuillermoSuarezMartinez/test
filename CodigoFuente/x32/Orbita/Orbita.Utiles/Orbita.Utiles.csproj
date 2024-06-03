@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DAD5D2A3-9C23-4C22-ABEB-4DF8258170AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Orbita.Utiles</RootNamespace>
+    <AssemblyName>Orbita.Utiles</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Orbita.Utiles.xml</DocumentationFile>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Orbita.Utiles.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\OrbitaUtiles.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Orbita.Utiles.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Orbita.Utiles.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\OrbitaUtiles.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\OrbitaUtiles.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="hasp_net_windows">
+      <HintPath>..\Comun\Utiles\hasp_net_windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Colecciones\OCola.cs" />
+    <Compile Include="Colecciones\OColaSincronizada.cs" />
+    <Compile Include="Colecciones\OHashtable.cs" />
+    <Compile Include="Compresion\BZip2\BZip2.cs" />
+    <Compile Include="Compresion\BZip2\BZip2Constants.cs" />
+    <Compile Include="Compresion\BZip2\BZip2Exception.cs" />
+    <Compile Include="Compresion\BZip2\BZip2InputStream.cs" />
+    <Compile Include="Compresion\BZip2\BZip2OutputStream.cs" />
+    <Compile Include="Compresion\Checksums\Adler32.cs" />
+    <Compile Include="Compresion\Checksums\CRC32.cs" />
+    <Compile Include="Compresion\Checksums\IChecksum.cs" />
+    <Compile Include="Compresion\Checksums\StrangeCRC.cs" />
+    <Compile Include="Compresion\Core\FileSystemScanner.cs" />
+    <Compile Include="Compresion\Core\INameTransform.cs" />
+    <Compile Include="Compresion\Core\IScanFilter.cs" />
+    <Compile Include="Compresion\Core\NameFilter.cs" />
+    <Compile Include="Compresion\Core\OCompresionFicherosExcepcionBase.cs" />
+    <Compile Include="Compresion\Core\PathFilter.cs" />
+    <Compile Include="Compresion\Core\StreamUtils.cs" />
+    <Compile Include="Compresion\Core\WindowsPathUtils.cs" />
+    <Compile Include="Compresion\Encryption\PkzipClassic.cs" />
+    <Compile Include="Compresion\Encryption\ZipAESStream.cs" />
+    <Compile Include="Compresion\Encryption\ZipAESTransform.cs" />
+    <Compile Include="Compresion\GZip\GZIPConstants.cs" />
+    <Compile Include="Compresion\GZip\GZipException.cs" />
+    <Compile Include="Compresion\GZip\GzipInputStream.cs" />
+    <Compile Include="Compresion\GZip\GzipOutputStream.cs" />
+    <Compile Include="Compresion\Lzw\LzwConstants.cs" />
+    <Compile Include="Compresion\Lzw\LzwException.cs" />
+    <Compile Include="Compresion\Lzw\LzwInputStream.cs" />
+    <Compile Include="Compresion\OCompresionFicheros.cs" />
+    <Compile Include="Compresion\OCompresionFlujos.cs" />
+    <Compile Include="Compresion\ReturnInfo.cs" />
+    <Compile Include="Compresion\Sobreescribir.cs" />
+    <Compile Include="Compresion\Tar\InvalidHeaderException.cs" />
+    <Compile Include="Compresion\Tar\TarArchive.cs" />
+    <Compile Include="Compresion\Tar\TarBuffer.cs" />
+    <Compile Include="Compresion\Tar\TarEntry.cs" />
+    <Compile Include="Compresion\Tar\TarException.cs" />
+    <Compile Include="Compresion\Tar\TarHeader.cs" />
+    <Compile Include="Compresion\Tar\TarInputStream.cs" />
+    <Compile Include="Compresion\Tar\TarOutputStream.cs" />
+    <Compile Include="Compresion\Zip\Compression\Deflater.cs" />
+    <Compile Include="Compresion\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="Compresion\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="Compresion\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="Compresion\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="Compresion\Zip\Compression\Inflater.cs" />
+    <Compile Include="Compresion\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="Compresion\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="Compresion\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="Compresion\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="Compresion\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="Compresion\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="Compresion\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="Compresion\Zip\FastZip.cs" />
+    <Compile Include="Compresion\Zip\IEntryFactory.cs" />
+    <Compile Include="Compresion\Zip\WindowsNameTransform.cs" />
+    <Compile Include="Compresion\Zip\ZipConstants.cs" />
+    <Compile Include="Compresion\Zip\ZipEntry.cs" />
+    <Compile Include="Compresion\Zip\ZipEntryFactory.cs" />
+    <Compile Include="Compresion\Zip\ZipException.cs" />
+    <Compile Include="Compresion\Zip\ZipExtraData.cs" />
+    <Compile Include="Compresion\Zip\ZipFile.cs" />
+    <Compile Include="Compresion\Zip\ZipHelperStream.cs" />
+    <Compile Include="Compresion\Zip\ZipInputStream.cs" />
+    <Compile Include="Compresion\Zip\ZipNameTransform.cs" />
+    <Compile Include="Compresion\Zip\ZipOutputStream.cs" />
+    <Compile Include="Comunicaciones\OComm.cs" />
+    <Compile Include="Delegados\OEventArgs.cs" />
+    <Compile Include="Delegados\OManejadores.cs" />
+    <Compile Include="Enumerados\Enumerados.cs" />
+    <Compile Include="Enumerados\ODataTableEnumerado.cs" />
+    <Compile Include="Enumerados\OStringEnumerado.cs" />
+    <Compile Include="Enumerados\OAtributoEnumerado.cs" />
+    <Compile Include="Estructuras\OFichero.cs" />
+    <Compile Include="Excepciones\OExcepcion.cs" />
+    <Compile Include="Hasp\OHaspSN.cs" />
+    <Compile Include="Interfaces\ICola.cs" />
+    <Compile Include="Mensajes\OMensajes.cs" />
+    <Compile Include="Mensajes\OMensajesDetalle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\OCifrado.cs" />
+    <Compile Include="Seguridad\OEncriptacion.cs" />
+    <Compile Include="Seguridad\OSeguridad.cs" />
+    <Compile Include="Estructuras\OTiempo.cs" />
+    <Compile Include="Threads\OHilo.cs" />
+    <Compile Include="Threads\OHilos.cs" />
+    <Compile Include="Threads\OResetManual.cs" />
+    <Compile Include="Threads\OTimer.cs" />
+    <Compile Include="Threads\ORepositorio.cs" />
+    <Compile Include="Windows\OServicioWindows.cs" />
+    <Compile Include="XML\OAlmacenXML.cs" />
+    <Compile Include="XML\OXml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orbita.Trazabilidad\Orbita.Trazabilidad.csproj">
+      <Project>{1A2EEC44-A494-4BA6-A591-267B73A55CD1}</Project>
+      <Name>Orbita.Trazabilidad</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

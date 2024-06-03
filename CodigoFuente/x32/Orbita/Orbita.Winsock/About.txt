@@ -1,0 +1,23 @@
+Winsock is the result of refining a project that started when I graduated from VB6 to VB.NET 2003.
+
+.NET no longer supported the old WinsockBase control that had been so easy to use in VB6.  Instead they gave us something with much more power, but also much more complexity: the Socket.
+
+It took me a bit of time to figure the socket out, but when I did I decided to create a wrapper that worked just like the old control I was familiar with - making sockets much easier.
+
+The first version was wrought with bugs and wasn't thread-safe.  When VS 2005 came out, and revealed even more functions with regards to the socket - I resolved to make a new version.
+
+That was Winsock 2005.  It was thread-safe (to a point), and fixed the major bugs of the previous version.  It even had UDP support.
+
+In April of 2007 I started work on Winsock 2007.  Due to a project I was working on at the time, I was looking into Remoting to synchronize an object between server/client.  I decided Remoting wasn't for my project (couldn't implement blacklist), thus a new version of Winsock was born.
+
+Winsock 2007 enabled synchronizing of objects (via BinaryFormatter), making the Send/Get routines simpler.  The thread-safe events have been improved, as has UDP support.  IPv6 support was added making it much easier to use with Vista.
+
+Winsock (version 4.0.0) was made just to keep this going.  It had come to my attention that VS2008 had problems compiling the code for previous version, so I made this version.  This version streamlines the code, making it simpler to read (mainly by removing the WinsockMonitor class), and also adds in some Generics support on the Get/Peek methods to do automatic conversion to the type you want (watch out, you could cause exceptions for casting to the wrong type).
+
+All in all I've enjoyed creating this component, and hope others find it as helpful as I have.
+
+To report bugs please visit: http://www.k-koding.com/ and use the bug tracker.
+
+Thanks for using it,
+
+Chris Kolkman
