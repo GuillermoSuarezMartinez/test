@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Librería dinámica de funciones de visión")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Órbita Ingeniería")]
-[assembly: AssemblyProduct("Orbita.VAFunciones")]
+[assembly: AssemblyProduct("Orbita.VA.Funciones")]
 [assembly: AssemblyCopyright("Copyright © Órbita Ingeniería 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

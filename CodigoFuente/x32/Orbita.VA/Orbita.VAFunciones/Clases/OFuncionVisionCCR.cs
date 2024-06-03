@@ -41,7 +41,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Parámetros de configuración del CCR
         /// </summary>
-        private static OConfiguracionCCR Configuracion;
+        private static ConfiguracionCCR Configuracion;
         #endregion
 
         #region Método(s) privado(s)
@@ -71,12 +71,12 @@ namespace Orbita.VAFunciones
             {
                 try
                 {
-                    CCRManager.Configuracion = (OConfiguracionCCR)(new OConfiguracionCCR().CargarDatos());
+                    CCRManager.Configuracion = (ConfiguracionCCR)(new ConfiguracionCCR().CargarDatos());
                 }
                 catch (FileNotFoundException exception)
                 {
                     OVALogsManager.Error(OModulosFunciones.CCRContainer, "CCR", exception);
-                    CCRManager.Configuracion = new OConfiguracionCCR();
+                    CCRManager.Configuracion = new ConfiguracionCCR();
                     CCRManager.Configuracion.Guardar();
                 }
 
@@ -331,7 +331,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Siguiente imágen a procesar en el CCR
         /// </summary>
-        private OBitmapImage Imagen;
+        private OImagenBitmap Imagen;
         /// <summary>
         /// Siguiente ruta de imágen a procesar en el CCR
         /// </summary>
@@ -361,29 +361,29 @@ namespace Orbita.VAFunciones
                 DataTable dtFuncionVision = AppBD.GetFuncionVision(this.Codigo);
                 if (dtFuncionVision.Rows.Count == 1)
                 {
-                    this.ParametrosCCR.Altura = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_Altura"], -1, 10000, -1);
-                    this.ParametrosCCR.ActivadoRangoAlturas = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_ActivadoRangoAlturas"], 0, 1, 0);
-                    this.ParametrosCCR.AlturaMin = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_AlturaMin"], 1, 10000, 30);
-                    this.ParametrosCCR.AlturaMax = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_AlturaMax"], 1, 10000, 60);
+                    this.ParametrosCCR.Altura = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_Altura"], -1, 10000, -1);
+                    this.ParametrosCCR.ActivadoRangoAlturas = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_ActivadoRangoAlturas"], 0, 1, 0);
+                    this.ParametrosCCR.AlturaMin = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_AlturaMin"], 1, 10000, 30);
+                    this.ParametrosCCR.AlturaMax = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_AlturaMax"], 1, 10000, 60);
                     this.ParametrosCCR.VectorAlturas = new int[2] { this.ParametrosCCR.AlturaMin, this.ParametrosCCR.AlturaMax };
-                    this.ParametrosCCR.TimeOut = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_TimeOut"], 0, 1000000, 0);
-                    this.ParametrosCCR.ActivadaAjusteCorreccion = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_ActivadaAjusteCorrecion"], 0, 1, 0);
-                    this.ParametrosCCR.CoeficienteHorizontal = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_CoeficienteHorizontal"], -100000, +100000, 0);
-                    this.ParametrosCCR.CoeficienteVertical = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_CoeficienteVertical"], -100000, +100000, 0);
-                    this.ParametrosCCR.CoeficienteRadial = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_CoeficienteRadial"], -100000, +100000, 0);
-                    this.ParametrosCCR.AnguloRotacion = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_AnguloRotacion"], -100000, +100000, 0);
-                    this.ParametrosCCR.Distancia = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_Distancia"], 0, +100000, 0);
-                    this.ParametrosCCR.CoordIzq = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_CoordIzq"], 0, 10000, 0);
-                    this.ParametrosCCR.CoordArriba = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_CoordArriba"], 0, 10000, 0);
-                    this.ParametrosCCR.AlturaVentanaBusqueda = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_AlturaVentanaBusqueda"], 0, 10000, 0);
-                    this.ParametrosCCR.AnchuraVentanaBusqueda = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_AnchuraVentanaBusqueda"], 0, 10000, 0);
-                    this.ParametrosCCR.ActivadaMasInformacion = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_ActivadaMasInformacion"], 0, 10000, 1);
+                    this.ParametrosCCR.TimeOut = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_TimeOut"], 0, 1000000, 0);
+                    this.ParametrosCCR.ActivadaAjusteCorreccion = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_ActivadaAjusteCorrecion"], 0, 1, 0);
+                    this.ParametrosCCR.CoeficienteHorizontal = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoeficienteHorizontal"], -100000, +100000, 0);
+                    this.ParametrosCCR.CoeficienteVertical = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoeficienteVertical"], -100000, +100000, 0);
+                    this.ParametrosCCR.CoeficienteRadial = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoeficienteRadial"], -100000, +100000, 0);
+                    this.ParametrosCCR.AnguloRotacion = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_AnguloRotacion"], -100000, +100000, 0);
+                    this.ParametrosCCR.Distancia = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_Distancia"], 0, +100000, 0);
+                    this.ParametrosCCR.CoordIzq = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoordIzq"], 0, 10000, 0);
+                    this.ParametrosCCR.CoordArriba = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoordArriba"], 0, 10000, 0);
+                    this.ParametrosCCR.AlturaVentanaBusqueda = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_AlturaVentanaBusqueda"], 0, 10000, 0);
+                    this.ParametrosCCR.AnchuraVentanaBusqueda = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_AnchuraVentanaBusqueda"], 0, 10000, 0);
+                    this.ParametrosCCR.ActivadaMasInformacion = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_ActivadaMasInformacion"], 0, 10000, 1);
                     // Columnas añadidas posteriormente
                     try
                     {
-                        this.ParametrosCCR.Escala = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_Escala"], 0, +100000, 0);
-                        this.ParametrosCCR.Param1 = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_Param1"], 0, 10000, 1);
-                        this.ParametrosCCR.Param2 = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_Param2"], 0, 10000, 1);
+                        this.ParametrosCCR.Escala = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_Escala"], 0, +100000, 0);
+                        this.ParametrosCCR.Param1 = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_Param1"], 0, 10000, 1);
+                        this.ParametrosCCR.Param2 = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_Param2"], 0, 10000, 1);
                     }
                     catch (Exception ex)
                     {
@@ -576,7 +576,7 @@ namespace Orbita.VAFunciones
             {
                 if (tipoVariable == OEnumTipoDato.Imagen)
                 {
-                    this.Imagen = (OBitmapImage)valor;
+                    this.Imagen = (OImagenBitmap)valor;
                 }
                 else if (codigo == "Parametros")
                 {
@@ -608,7 +608,7 @@ namespace Orbita.VAFunciones
     /// <typeparam name="TInfo"></typeparam>
     /// <typeparam name="TParametros"></typeparam>
     /// <typeparam name="TResultados"></typeparam>
-    public class OInfoInspeccionCCR : OInfoInspeccion<OBitmapImage, OInfoImagenCCR, OParametrosCCR, OResultadoCCR>
+    public class OInfoInspeccionCCR : OInfoInspeccion<OImagenBitmap, OInfoImagenCCR, OParametrosCCR, OResultadoCCR>
     {
         #region Constructor
         /// <summary>
@@ -624,7 +624,7 @@ namespace Orbita.VAFunciones
         /// <param name="info"></param>
         /// <param name="parametros"></param>
         /// <param name="resultados"></param>
-        public OInfoInspeccionCCR(OBitmapImage imagen, OInfoImagenCCR info, OParametrosCCR parametros, OResultadoCCR resultados)
+        public OInfoInspeccionCCR(OImagenBitmap imagen, OInfoImagenCCR info, OParametrosCCR parametros, OResultadoCCR resultados)
             : base(imagen, info, parametros, resultados)
         {
         }
@@ -938,7 +938,7 @@ namespace Orbita.VAFunciones
     /// Parámetros de la aplicación
     /// </summary>
     [Serializable]
-    public class OConfiguracionCCR : OAlmacenXML
+    public class ConfiguracionCCR : OAlmacenXML
     {
         #region Atributo(s) estáticos
         /// <summary>
@@ -978,7 +978,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Contructor de la clase
         /// </summary>
-        public OConfiguracionCCR()
+        public ConfiguracionCCR()
             : base(ConfFile)
         {
         }
@@ -986,7 +986,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Contructor de la clase
         /// </summary>
-        public OConfiguracionCCR(string rutaFichero)
+        public ConfiguracionCCR(string rutaFichero)
             : base(rutaFichero)
         {
         }

@@ -39,7 +39,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Parámetros de configuración del LPR
         /// </summary>
-        private static OConfiguracionLPR Configuracion;
+        private static ConfiguracionLPR Configuracion;
 
         #endregion
 
@@ -70,12 +70,12 @@ namespace Orbita.VAFunciones
             {
                 try
                 {
-                    LPRManager.Configuracion = (OConfiguracionLPR)(new OConfiguracionLPR().CargarDatos());
+                    LPRManager.Configuracion = (ConfiguracionLPR)(new ConfiguracionLPR().CargarDatos());
                 }
                 catch (FileNotFoundException exception)
                 {
                     OVALogsManager.Error(OModulosFunciones.LPR, "LPR", exception);
-                    LPRManager.Configuracion = new OConfiguracionLPR();
+                    LPRManager.Configuracion = new ConfiguracionLPR();
                     LPRManager.Configuracion.Guardar();
                 }
 
@@ -305,7 +305,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Siguiente imágen a procesar en el LPR
         /// </summary>
-        private OBitmapImage Imagen;
+        private OImagenBitmap Imagen;
 
         /// <summary>
         /// Para ir alternando la configuración, si tiene distorisión tambien es útil combinarla con la configuración estandar
@@ -338,23 +338,23 @@ namespace Orbita.VAFunciones
                 DataTable dtFuncionVision = AppBD.GetFuncionVision(this.Codigo);
                 if (dtFuncionVision.Rows.Count == 1)
                 {
-                    this.ParametrosLPR.Altura = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_Altura"], -1, 10000, -1);
-                    this.ParametrosLPR.ActivadoRangoAlturas = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_ActivadoRangoAlturas"], 0, 1, 0);
-                    this.ParametrosLPR.AlturaMin = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_AlturaMin"], 1, 10000, 30);
-                    this.ParametrosLPR.AlturaMax = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_AlturaMax"], 1, 10000, 60);
+                    this.ParametrosLPR.Altura = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_Altura"], -1, 10000, -1);
+                    this.ParametrosLPR.ActivadoRangoAlturas = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_ActivadoRangoAlturas"], 0, 1, 0);
+                    this.ParametrosLPR.AlturaMin = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_AlturaMin"], 1, 10000, 30);
+                    this.ParametrosLPR.AlturaMax = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_AlturaMax"], 1, 10000, 60);
                     this.ParametrosLPR.VectorAlturas = new int[2] { this.ParametrosLPR.AlturaMin, this.ParametrosLPR.AlturaMax };
-                    this.ParametrosLPR.TimeOut = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_TimeOut"], 0, 1000000, 0);
-                    this.ParametrosLPR.ActivadaAjusteCorreccion = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_ActivadaAjusteCorrecion"], 0, 1, 0);
-                    this.ParametrosLPR.CoeficienteHorizontal = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_CoeficienteHorizontal"], -100000, +100000, 0);
-                    this.ParametrosLPR.CoeficienteVertical = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_CoeficienteVertical"], -100000, +100000, 0);
-                    this.ParametrosLPR.CoeficienteRadial = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_CoeficienteRadial"], -100000, +100000, 0);
-                    this.ParametrosLPR.AnguloRotacion = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_AnguloRotacion"], -100000, +100000, 0);
-                    this.ParametrosLPR.Distancia = (float)App.EvaluaDecimal(dtFuncionVision.Rows[0]["NL_Distancia"], 0, +100000, 0);
-                    this.ParametrosLPR.CoordIzq = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_CoordIzq"], 0, 10000, 0);
-                    this.ParametrosLPR.CoordArriba = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_CoordArriba"], 0, 10000, 0);
-                    this.ParametrosLPR.AlturaVentanaBusqueda = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_AlturaVentanaBusqueda"], 0, 10000, 0);
-                    this.ParametrosLPR.AnchuraVentanaBusqueda = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_AnchuraVentanaBusqueda"], 0, 10000, 0);
-                    this.ParametrosLPR.ActivadaMasInformacion = App.EvaluaNumero(dtFuncionVision.Rows[0]["NL_ActivadaMasInformacion"], 0, 10000, 1);
+                    this.ParametrosLPR.TimeOut = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_TimeOut"], 0, 1000000, 0);
+                    this.ParametrosLPR.ActivadaAjusteCorreccion = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_ActivadaAjusteCorrecion"], 0, 1, 0);
+                    this.ParametrosLPR.CoeficienteHorizontal = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoeficienteHorizontal"], -100000, +100000, 0);
+                    this.ParametrosLPR.CoeficienteVertical = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoeficienteVertical"], -100000, +100000, 0);
+                    this.ParametrosLPR.CoeficienteRadial = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoeficienteRadial"], -100000, +100000, 0);
+                    this.ParametrosLPR.AnguloRotacion = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_AnguloRotacion"], -100000, +100000, 0);
+                    this.ParametrosLPR.Distancia = (float)ODecimalRobusto.Validar(dtFuncionVision.Rows[0]["NL_Distancia"], 0, +100000, 0);
+                    this.ParametrosLPR.CoordIzq = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoordIzq"], 0, 10000, 0);
+                    this.ParametrosLPR.CoordArriba = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_CoordArriba"], 0, 10000, 0);
+                    this.ParametrosLPR.AlturaVentanaBusqueda = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_AlturaVentanaBusqueda"], 0, 10000, 0);
+                    this.ParametrosLPR.AnchuraVentanaBusqueda = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_AnchuraVentanaBusqueda"], 0, 10000, 0);
+                    this.ParametrosLPR.ActivadaMasInformacion = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["NL_ActivadaMasInformacion"], 0, 10000, 1);
                 }
             }
             catch (Exception exception)
@@ -546,7 +546,7 @@ namespace Orbita.VAFunciones
             {
                 if (tipoVariable == OEnumTipoDato.Imagen)
                 {
-                    this.Imagen = (OBitmapImage)valor;
+                    this.Imagen = (OImagenBitmap)valor;
                 }
                 else if (codigo == "Parametros")
                 {
@@ -577,7 +577,7 @@ namespace Orbita.VAFunciones
     /// <typeparam name="TInfo"></typeparam>
     /// <typeparam name="TParametros"></typeparam>
     /// <typeparam name="TResultados"></typeparam>
-    public class OInfoInspeccionLPR : OInfoInspeccion<OBitmapImage, OInfoImagenLPR, OParametrosLPR, OResultadoLPR>
+    public class OInfoInspeccionLPR : OInfoInspeccion<OImagenBitmap, OInfoImagenLPR, OParametrosLPR, OResultadoLPR>
     {
         #region Constructor
         /// <summary>
@@ -593,7 +593,7 @@ namespace Orbita.VAFunciones
         /// <param name="info"></param>
         /// <param name="parametros"></param>
         /// <param name="resultados"></param>
-        public OInfoInspeccionLPR(OBitmapImage imagen, OInfoImagenLPR info, OParametrosLPR parametros, OResultadoLPR resultados)
+        public OInfoInspeccionLPR(OImagenBitmap imagen, OInfoImagenLPR info, OParametrosLPR parametros, OResultadoLPR resultados)
             : base(imagen, info, parametros, resultados)
         {
         }
@@ -878,7 +878,7 @@ namespace Orbita.VAFunciones
     /// Parámetros de la aplicación
     /// </summary>
     [Serializable]
-    internal class OConfiguracionLPR : OAlmacenXML
+    internal class ConfiguracionLPR : OAlmacenXML
     {
         #region Atributo(s) estáticos
         /// <summary>
@@ -922,7 +922,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Contructor de la clase
         /// </summary>
-        public OConfiguracionLPR()
+        public ConfiguracionLPR()
             : base(ConfFile)
         {
         }
@@ -930,7 +930,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Contructor de la clase
         /// </summary>
-        public OConfiguracionLPR(string rutaFichero)
+        public ConfiguracionLPR(string rutaFichero)
             : base(rutaFichero)
         {
         }

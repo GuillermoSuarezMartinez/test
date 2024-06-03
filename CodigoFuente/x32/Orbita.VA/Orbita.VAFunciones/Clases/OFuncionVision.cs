@@ -417,10 +417,11 @@ namespace Orbita.VAFunciones
                 this._Descripcion = dtFuncionVision.Rows[0]["DescFuncionVision"].ToString();
                 this._RutaFichero = dtFuncionVision.Rows[0]["RutaFichero"].ToString();
 
-                int intTipoFuncion = App.EvaluaNumero(dtFuncionVision.Rows[0]["IdTipoFuncionVision"], 1, 3, 1);
+                int intTipoFuncion = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["IdTipoFuncionVision"], 1, 3, 1);
                 this._TipoFuncionVision = (OTipoFuncionVision)intTipoFuncion;
 
-                this._TipoEjecucionFuncionVision = (OTipoEjecucionFuncionVision)App.EnumParse(typeof(OTipoEjecucionFuncionVision), dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), OTipoEjecucionFuncionVision.EjecucionSincrona);
+                this._TipoEjecucionFuncionVision = OEnumRobusto<OTipoEjecucionFuncionVision>.Validar(dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), OTipoEjecucionFuncionVision.EjecucionSincrona);
+                //this._TipoEjecucionFuncionVision = (OTipoEjecucionFuncionVision)App.EnumParse(typeof(OTipoEjecucionFuncionVision), dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), OTipoEjecucionFuncionVision.EjecucionSincrona);
 
                 this._CodVariableEnEjecucion = dtFuncionVision.Rows[0]["CodVariable"].ToString();
 
@@ -1047,24 +1048,25 @@ namespace Orbita.VAFunciones
                 this._Descripcion = dtParametro.Rows[0]["DescParametroFuncionVision"].ToString();
                 this._CodVariable = dtParametro.Rows[0]["CodVariable"].ToString();
                 this._EsEntrada = (bool)dtParametro.Rows[0]["EsEntrada"];
-                this._OrigenValorParametro = (OOrigenValorParametro)App.EnumParse(typeof(OOrigenValorParametro), dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OOrigenValorParametro.ValorPorCodigo);
-                this._Tipo = (OEnumTipoDato)App.EvaluaNumero(dtParametro.Rows[0]["IdTipoParametroFuncionVision"], 0, 99, 0);
+                this._OrigenValorParametro = OEnumRobusto<OOrigenValorParametro>.Validar(dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OOrigenValorParametro.ValorPorCodigo);
+                //this._OrigenValorParametro = (OOrigenValorParametro)App.EnumParse(typeof(OOrigenValorParametro), dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OOrigenValorParametro.ValorPorCodigo);
+                this._Tipo = (OEnumTipoDato)OEnteroRobusto.Validar(dtParametro.Rows[0]["IdTipoParametroFuncionVision"], 0, 99, 0);
 
                 if (this._OrigenValorParametro == OOrigenValorParametro.ValorFijo)
                 {
                     switch (this._Tipo)
                     {
                         case OEnumTipoDato.Bit:
-                            this._Valor = App.EvaluaBooleano(dtParametro.Rows[0]["ValorBit"], false);
+                            this._Valor = OBoolRobusto.Validar(dtParametro.Rows[0]["ValorBit"], false);
                             break;
                         case OEnumTipoDato.Entero:
-                            this._Valor = App.EvaluaNumero(dtParametro.Rows[0]["ValorEntero"], int.MinValue, int.MaxValue, 0);
+                            this._Valor = OEnteroRobusto.Validar(dtParametro.Rows[0]["ValorEntero"], int.MinValue, int.MaxValue, 0);
                             break;
                         case OEnumTipoDato.Texto:
                             this._Valor = dtParametro.Rows[0]["ValorTexto"].ToString();
                             break;
                         case OEnumTipoDato.Decimal:
-                            this._Valor = App.EvaluaNumero(dtParametro.Rows[0]["ValorDecimal"], double.MinValue, double.MaxValue, 0);
+                            this._Valor = ODecimalRobusto.Validar(dtParametro.Rows[0]["ValorDecimal"], double.MinValue, double.MaxValue, 0);
                             break;
                     }
                 }
