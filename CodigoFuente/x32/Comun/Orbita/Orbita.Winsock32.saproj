@@ -1,0 +1,30 @@
+<SmartAssemblyProject ProjectId="{0615a734-475c-4f1b-9e45-998d2d34bcfc}" Version="2.0">
+    <MainAssemblyFileName>.\Orbita.Winsock.dll</MainAssemblyFileName>
+    <Configuration Name="Release">
+        <ApplicationName />
+        <Destination DestinationFileName="..\..\..\..\..\..\Orbita\General\Dlls\x32\Orbita\Orbita.Winsock.dll" />
+        <Assemblies>
+            <Assembly AssemblyName="Orbita.Winsock, Culture=neutral, PublicKeyToken=null">
+                <Merging>
+                    <ResourcesCompression />
+                    <MemberRefsProxy />
+                    <Pruning />
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" ObfuscationLevel="3" />
+                    <ResourcesPruning />
+                </Merging>
+            </Assembly>
+        </Assemblies>
+        <Options>
+            <Obfuscation FieldsNameMangling="3" NameMangling="3" />
+            <ExceptionReporting />
+            <StrongNameSigning />
+            <OtherProtections AddMetadataStream="1" SuppressIldasm="1" />
+            <StringsEncoding />
+            <OtherOptimizations />
+            <Debugging />
+        </Options>
+    </Configuration>
+</SmartAssemblyProject>
