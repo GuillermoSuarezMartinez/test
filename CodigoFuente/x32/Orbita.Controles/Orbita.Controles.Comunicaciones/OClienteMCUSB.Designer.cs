@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,50 +68,25 @@
             this.A3 = new System.Windows.Forms.TextBox();
             this.A2 = new System.Windows.Forms.TextBox();
             this.A1 = new System.Windows.Forms.TextBox();
-            this.gbDispositivo.SuspendLayout();
             this.gbConfig.SuspendLayout();
-            this.pnlDispSup.SuspendLayout();
             this.pnlInf.SuspendLayout();
+            this.SContMain.Panel1.SuspendLayout();
+            this.SContMain.Panel2.SuspendLayout();
+            this.SContMain.SuspendLayout();
+            this.SContMainSup.Panel2.SuspendLayout();
+            this.SContMainSup.SuspendLayout();
+            this.SContMainInf.Panel1.SuspendLayout();
+            this.SContMainInf.Panel2.SuspendLayout();
+            this.SContMainInf.SuspendLayout();
             this.pnlCanalCH.SuspendLayout();
             this.pnlCanalCL.SuspendLayout();
             this.pnlCanalB.SuspendLayout();
             this.pnlCanalA.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbDispositivo
-            // 
-            this.gbDispositivo.Location = new System.Drawing.Point(0, 60);
-            this.gbDispositivo.Size = new System.Drawing.Size(1146, 574);
-            this.gbDispositivo.Text = "Dispositivo MCC USB";
-            // 
-            // lblCom
-            // 
-            this.lblCom.Location = new System.Drawing.Point(70, 20);
-            this.lblCom.Size = new System.Drawing.Size(33, 13);
-            this.lblCom.Text = "MCC:";
-            // 
             // gbConfig
             // 
             this.gbConfig.Size = new System.Drawing.Size(1146, 60);
-            // 
-            // pnlDispSup
-            // 
-            this.pnlDispSup.Size = new System.Drawing.Size(1126, 212);
-            // 
-            // gbVariables
-            // 
-            this.gbVariables.Location = new System.Drawing.Point(10, 235);
-            this.gbVariables.Size = new System.Drawing.Size(1126, 203);
-            // 
-            // gbCDato
-            // 
-            this.gbCDato.Location = new System.Drawing.Point(10, 438);
-            this.gbCDato.Size = new System.Drawing.Size(1126, 126);
-            // 
-            // gbEscrituras
-            // 
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 53);
-            this.gbEscrituras.Size = new System.Drawing.Size(1126, 159);
             // 
             // txtIdDispositivo
             // 
@@ -121,8 +98,54 @@
             this.pnlInf.Controls.Add(this.pnlCanalCL);
             this.pnlInf.Controls.Add(this.pnlCanalB);
             this.pnlInf.Controls.Add(this.pnlCanalA);
-            this.pnlInf.Location = new System.Drawing.Point(0, 634);
-            this.pnlInf.Size = new System.Drawing.Size(1146, 54);
+            this.pnlInf.Location = new System.Drawing.Point(0, 604);
+            this.pnlInf.Size = new System.Drawing.Size(1146, 84);
+            // 
+            // SContMain
+            // 
+            this.SContMain.Location = new System.Drawing.Point(0, 60);
+            this.SContMain.Size = new System.Drawing.Size(1146, 544);
+            this.SContMain.SplitterDistance = 171;
+            // 
+            // SContMainSup
+            // 
+            this.SContMainSup.Size = new System.Drawing.Size(1146, 171);
+            this.SContMainSup.SplitterDistance = 60;
+            // 
+            // lblCom
+            // 
+            this.lblCom.Location = new System.Drawing.Point(70, 20);
+            this.lblCom.Size = new System.Drawing.Size(33, 13);
+            this.lblCom.Text = "MCC:";
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Size = new System.Drawing.Size(1146, 107);
+            // 
+            // SContMainInf
+            // 
+            this.SContMainInf.Size = new System.Drawing.Size(1146, 369);
+            this.SContMainInf.SplitterDistance = 176;
+            // 
+            // gbVariables
+            // 
+            this.gbVariables.Size = new System.Drawing.Size(1146, 176);
+            // 
+            // gbCDato
+            // 
+            this.gbCDato.Size = new System.Drawing.Size(1146, 189);
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -530,12 +553,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteMCUSB";
             this.Size = new System.Drawing.Size(1146, 688);
-            this.gbDispositivo.ResumeLayout(false);
             this.gbConfig.ResumeLayout(false);
             this.gbConfig.PerformLayout();
-            this.pnlDispSup.ResumeLayout(false);
-            this.pnlDispSup.PerformLayout();
             this.pnlInf.ResumeLayout(false);
+            this.SContMain.Panel1.ResumeLayout(false);
+            this.SContMain.Panel2.ResumeLayout(false);
+            this.SContMain.ResumeLayout(false);
+            this.SContMainSup.Panel2.ResumeLayout(false);
+            this.SContMainSup.ResumeLayout(false);
+            this.SContMainInf.Panel1.ResumeLayout(false);
+            this.SContMainInf.Panel2.ResumeLayout(false);
+            this.SContMainInf.ResumeLayout(false);
             this.pnlCanalCH.ResumeLayout(false);
             this.pnlCanalCH.PerformLayout();
             this.pnlCanalCL.ResumeLayout(false);
@@ -588,5 +616,7 @@
         private System.Windows.Forms.TextBox A1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

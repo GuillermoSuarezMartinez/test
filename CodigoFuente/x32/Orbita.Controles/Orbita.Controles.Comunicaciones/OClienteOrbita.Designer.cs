@@ -28,32 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gbDispositivo.SuspendLayout();
             this.gbConfig.SuspendLayout();
-            this.pnlDispSup.SuspendLayout();
+            this.SContMain.Panel1.SuspendLayout();
+            this.SContMain.Panel2.SuspendLayout();
+            this.SContMain.SuspendLayout();
+            this.SContMainSup.Panel2.SuspendLayout();
+            this.SContMainSup.SuspendLayout();
+            this.SContMainInf.Panel1.SuspendLayout();
+            this.SContMainInf.Panel2.SuspendLayout();
+            this.SContMainInf.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gbDispositivo
-            // 
-            this.gbDispositivo.Size = new System.Drawing.Size(1020, 577);
-            this.gbDispositivo.Text = "Dispositivo Orbita";
-            // 
-            // gbVariables
-            // 
-            this.gbVariables.Size = new System.Drawing.Size(1000, 204);
-            // 
-            // gbCDato
-            // 
-            this.gbCDato.Location = new System.Drawing.Point(10, 420);
             // 
             // pnlInf
             // 
             this.pnlInf.Location = new System.Drawing.Point(0, 642);
             this.pnlInf.Size = new System.Drawing.Size(1020, 10);
+            // 
+            // SContMain
+            // 
+            this.SContMain.Size = new System.Drawing.Size(1020, 577);
+            this.SContMain.SplitterDistance = 181;
+            // 
+            // SContMainSup
+            // 
+            this.SContMainSup.Size = new System.Drawing.Size(1020, 181);
+            this.SContMainSup.SplitterDistance = 64;
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Size = new System.Drawing.Size(1020, 113);
+            // 
+            // SContMainInf
+            // 
+            this.SContMainInf.Size = new System.Drawing.Size(1020, 392);
+            this.SContMainInf.SplitterDistance = 187;
+            // 
+            // gbVariables
+            // 
+            this.gbVariables.Size = new System.Drawing.Size(1020, 187);
+            // 
+            // gbCDato
+            // 
+            this.gbCDato.Size = new System.Drawing.Size(1020, 201);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -85,11 +119,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteOrbita";
             this.Size = new System.Drawing.Size(1020, 652);
-            this.gbDispositivo.ResumeLayout(false);
             this.gbConfig.ResumeLayout(false);
             this.gbConfig.PerformLayout();
-            this.pnlDispSup.ResumeLayout(false);
-            this.pnlDispSup.PerformLayout();
+            this.SContMain.Panel1.ResumeLayout(false);
+            this.SContMain.Panel2.ResumeLayout(false);
+            this.SContMain.ResumeLayout(false);
+            this.SContMainSup.Panel2.ResumeLayout(false);
+            this.SContMainSup.ResumeLayout(false);
+            this.SContMainInf.Panel1.ResumeLayout(false);
+            this.SContMainInf.Panel2.ResumeLayout(false);
+            this.SContMainInf.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -100,5 +139,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,43 +56,24 @@
             this.S13 = new System.Windows.Forms.TextBox();
             this.S12 = new System.Windows.Forms.TextBox();
             this.S11 = new System.Windows.Forms.TextBox();
-            this.gbDispositivo.SuspendLayout();
             this.gbConfig.SuspendLayout();
-            this.pnlDispSup.SuspendLayout();
             this.pnlInf.SuspendLayout();
+            this.SContMain.Panel1.SuspendLayout();
+            this.SContMain.Panel2.SuspendLayout();
+            this.SContMain.SuspendLayout();
+            this.SContMainSup.Panel2.SuspendLayout();
+            this.SContMainSup.SuspendLayout();
+            this.SContMainInf.Panel1.SuspendLayout();
+            this.SContMainInf.Panel2.SuspendLayout();
+            this.SContMainInf.SuspendLayout();
             this.pnlInput2.SuspendLayout();
             this.pnlInput1.SuspendLayout();
             this.pnlOutput.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbDispositivo
-            // 
-            this.gbDispositivo.Location = new System.Drawing.Point(0, 59);
-            this.gbDispositivo.Size = new System.Drawing.Size(989, 538);
-            this.gbDispositivo.Text = "Dispositivo Phoenix";
-            // 
             // gbConfig
             // 
             this.gbConfig.Size = new System.Drawing.Size(989, 59);
-            // 
-            // pnlDispSup
-            // 
-            this.pnlDispSup.Size = new System.Drawing.Size(969, 141);
-            // 
-            // gbVariables
-            // 
-            this.gbVariables.Location = new System.Drawing.Point(10, 164);
-            this.gbVariables.Size = new System.Drawing.Size(969, 170);
-            // 
-            // gbCDato
-            // 
-            this.gbCDato.Location = new System.Drawing.Point(10, 334);
-            this.gbCDato.Size = new System.Drawing.Size(969, 194);
-            // 
-            // gbEscrituras
-            // 
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 41);
-            this.gbEscrituras.Size = new System.Drawing.Size(969, 100);
             // 
             // pnlInf
             // 
@@ -97,6 +82,58 @@
             this.pnlInf.Controls.Add(this.pnlOutput);
             this.pnlInf.Location = new System.Drawing.Point(0, 597);
             this.pnlInf.Size = new System.Drawing.Size(989, 100);
+            // 
+            // SContMain
+            // 
+            this.SContMain.Location = new System.Drawing.Point(0, 59);
+            this.SContMain.Size = new System.Drawing.Size(989, 538);
+            this.SContMain.SplitterDistance = 169;
+            // 
+            // SContMainSup
+            // 
+            this.SContMainSup.Size = new System.Drawing.Size(989, 169);
+            this.SContMainSup.SplitterDistance = 59;
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Size = new System.Drawing.Size(989, 106);
+            // 
+            // SContMainInf
+            // 
+            this.SContMainInf.Size = new System.Drawing.Size(989, 365);
+            this.SContMainInf.SplitterDistance = 174;
+            // 
+            // gbVariables
+            // 
+            this.gbVariables.Size = new System.Drawing.Size(989, 174);
+            // 
+            // gbCDato
+            // 
+            this.gbCDato.Size = new System.Drawing.Size(989, 187);
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -341,12 +378,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteESPhoenixILBK48";
             this.Size = new System.Drawing.Size(989, 697);
-            this.gbDispositivo.ResumeLayout(false);
             this.gbConfig.ResumeLayout(false);
             this.gbConfig.PerformLayout();
-            this.pnlDispSup.ResumeLayout(false);
-            this.pnlDispSup.PerformLayout();
             this.pnlInf.ResumeLayout(false);
+            this.SContMain.Panel1.ResumeLayout(false);
+            this.SContMain.Panel2.ResumeLayout(false);
+            this.SContMain.ResumeLayout(false);
+            this.SContMainSup.Panel2.ResumeLayout(false);
+            this.SContMainSup.ResumeLayout(false);
+            this.SContMainInf.Panel1.ResumeLayout(false);
+            this.SContMainInf.Panel2.ResumeLayout(false);
+            this.SContMainInf.ResumeLayout(false);
             this.pnlInput2.ResumeLayout(false);
             this.pnlInput2.PerformLayout();
             this.pnlInput1.ResumeLayout(false);
@@ -383,5 +425,9 @@
         private System.Windows.Forms.TextBox S11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }
 }

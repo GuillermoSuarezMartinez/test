@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,22 +42,16 @@
             this.lblCadenaOPC = new System.Windows.Forms.Label();
             this.lblPLC = new System.Windows.Forms.Label();
             this.txtPLC = new System.Windows.Forms.TextBox();
-            this.gbDispositivo.SuspendLayout();
             this.gbConfig.SuspendLayout();
-            this.pnlDispSup.SuspendLayout();
+            this.SContMain.Panel1.SuspendLayout();
+            this.SContMain.Panel2.SuspendLayout();
+            this.SContMain.SuspendLayout();
+            this.SContMainSup.Panel2.SuspendLayout();
+            this.SContMainSup.SuspendLayout();
+            this.SContMainInf.Panel1.SuspendLayout();
+            this.SContMainInf.Panel2.SuspendLayout();
+            this.SContMainInf.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gbDispositivo
-            // 
-            this.gbDispositivo.Location = new System.Drawing.Point(0, 91);
-            this.gbDispositivo.Size = new System.Drawing.Size(1020, 582);
-            this.gbDispositivo.Text = "Dispositivo OPC";
-            // 
-            // lblCom
-            // 
-            this.lblCom.Location = new System.Drawing.Point(64, 20);
-            this.lblCom.Size = new System.Drawing.Size(32, 13);
-            this.lblCom.Text = "OPC:";
             // 
             // gbConfig
             // 
@@ -72,34 +68,56 @@
             this.gbConfig.Controls.SetChildIndex(this.lblCadenaPLC, 0);
             this.gbConfig.Controls.SetChildIndex(this.txtCadenaPLC, 0);
             // 
-            // pnlDispSup
-            // 
-            this.pnlDispSup.Controls.Add(this.lblPLC);
-            this.pnlDispSup.Controls.Add(this.txtPLC);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.gbEscrituras, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.lblCom, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtPLC, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.lblPLC, 0);
-            // 
-            // gbVariables
-            // 
-            this.gbVariables.Size = new System.Drawing.Size(1000, 209);
-            // 
-            // gbCDato
-            // 
-            this.gbCDato.Location = new System.Drawing.Point(10, 425);
-            // 
-            // gbEscrituras
-            // 
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 69);
-            this.gbEscrituras.Size = new System.Drawing.Size(1000, 124);
-            // 
             // pnlInf
             // 
             this.pnlInf.Location = new System.Drawing.Point(0, 673);
             this.pnlInf.Size = new System.Drawing.Size(1020, 10);
+            // 
+            // SContMain
+            // 
+            this.SContMain.Location = new System.Drawing.Point(0, 91);
+            this.SContMain.Size = new System.Drawing.Size(1020, 582);
+            this.SContMain.SplitterDistance = 183;
+            // 
+            // SContMainSup
+            // 
+            this.SContMainSup.Size = new System.Drawing.Size(1020, 183);
+            this.SContMainSup.SplitterDistance = 64;
+            // 
+            // lblCom
+            // 
+            this.lblCom.Location = new System.Drawing.Point(64, 20);
+            this.lblCom.Size = new System.Drawing.Size(32, 13);
+            this.lblCom.Text = "OPC:";
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Size = new System.Drawing.Size(1020, 115);
+            // 
+            // SContMainInf
+            // 
+            this.SContMainInf.Size = new System.Drawing.Size(1020, 395);
+            this.SContMainInf.SplitterDistance = 189;
+            // 
+            // gbVariables
+            // 
+            this.gbVariables.Size = new System.Drawing.Size(1020, 189);
+            // 
+            // gbCDato
+            // 
+            this.gbCDato.Size = new System.Drawing.Size(1020, 202);
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -193,11 +211,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteComsOPC";
             this.Size = new System.Drawing.Size(1020, 683);
-            this.gbDispositivo.ResumeLayout(false);
             this.gbConfig.ResumeLayout(false);
             this.gbConfig.PerformLayout();
-            this.pnlDispSup.ResumeLayout(false);
-            this.pnlDispSup.PerformLayout();
+            this.SContMain.Panel1.ResumeLayout(false);
+            this.SContMain.Panel2.ResumeLayout(false);
+            this.SContMain.ResumeLayout(false);
+            this.SContMainSup.Panel2.ResumeLayout(false);
+            this.SContMainSup.ResumeLayout(false);
+            this.SContMainInf.Panel1.ResumeLayout(false);
+            this.SContMainInf.Panel2.ResumeLayout(false);
+            this.SContMainInf.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -216,5 +239,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

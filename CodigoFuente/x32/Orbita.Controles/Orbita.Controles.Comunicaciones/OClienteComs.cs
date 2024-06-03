@@ -292,7 +292,7 @@ namespace Orbita.Controles.Comunicaciones
                 DateTime dtini = DateTime.Now;
                 object[] valor = this._servidor.OrbitaLeer(this._idDispositivo, lectura, true);
                 TimeSpan ts = DateTime.Now.Subtract(dtini);
-                this.lblTpoLect.Text = ts.TotalMilliseconds.ToString() + " ms.";
+                //this.lblTpoLect.Text = ts.TotalMilliseconds.ToString() + " ms.";
                 string svalor = valor[0].ToString();
                 this.txtValLeer.Text = svalor;
             }
@@ -323,7 +323,7 @@ namespace Orbita.Controles.Comunicaciones
                 DateTime dtini = DateTime.Now;
                 bool resp = this._servidor.OrbitaEscribir(this._idDispositivo, variable, valor);
                 TimeSpan ts = DateTime.Now.Subtract(dtini);
-                this.lblTpoEsc.Text = ts.TotalMilliseconds.ToString() + " ms.";
+                //this.lblTpoEsc.Text = ts.TotalMilliseconds.ToString() + " ms.";
             }
             catch (System.Exception ex)
             {
