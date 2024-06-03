@@ -273,7 +273,7 @@ namespace Orbita.Controles.Comunicaciones
                 object[] valor = this._servidor.OrbitaLeer(this._idDispositivo, lectura, true);
 
                 string svalor = valor[0].ToString();
-                this.txtVarLeer.Text = svalor;
+                this.txtValLeer.Text = svalor;
             }
             catch (System.Exception ex)
             {
