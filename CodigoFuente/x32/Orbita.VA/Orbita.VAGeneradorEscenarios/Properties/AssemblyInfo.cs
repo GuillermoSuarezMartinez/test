@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Generador automático de código")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Órbita Ingeniería")]
-[assembly: AssemblyProduct("Orbita.VAGeneradorEscenarios")]
+[assembly: AssemblyProduct("Orbita.VA.GeneradorEscenarios")]
 [assembly: AssemblyCopyright("Copyright © Órbita Ingeniería 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

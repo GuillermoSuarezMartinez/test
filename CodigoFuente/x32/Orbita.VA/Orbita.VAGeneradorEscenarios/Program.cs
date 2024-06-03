@@ -141,7 +141,8 @@ namespace Orbita.VAGeneradorEscenarios
         private static bool GenerarMaquinaEstados(OGeneradorAccesoRapido generador, string claseImplementadora, string descripcionMaquinaEstados, out CodeTypeDeclaration claseMaquinaEstados)
         {
             // Generación de la clase parcial de la máquina de estados
-            claseMaquinaEstados = generador.GenerarClase(claseImplementadora, "MaquinaEstadosBase", descripcionMaquinaEstados, MemberAttributes.Public, true);
+            string clasePadre = typeof(OMaquinaEstadosBase).Name; //"OMaquinaEstadosBase"
+            claseMaquinaEstados = generador.GenerarClase(claseImplementadora, clasePadre, descripcionMaquinaEstados, MemberAttributes.Public, true);
             if (claseMaquinaEstados == null)
             {
                 return false;
@@ -178,7 +179,8 @@ namespace Orbita.VAGeneradorEscenarios
         private static bool GenerarEscenario(OGeneradorAccesoRapido generador, string claseImplementadora, string descripcionEscenario, out CodeTypeDeclaration claseEscenario)
         {
             // Generación de la clase escenario asociada a la máquina de estados
-            claseEscenario = generador.GenerarClase(claseImplementadora, "Escenario", descripcionEscenario, MemberAttributes.Public, true);
+            string clasePadre = typeof(OEscenario).Name; //"OEscenario"
+            claseEscenario = generador.GenerarClase(claseImplementadora, clasePadre, descripcionEscenario, MemberAttributes.Public, true);
             if (claseEscenario == null)
             {
                 return false;
@@ -298,7 +300,8 @@ namespace Orbita.VAGeneradorEscenarios
                 string codEstado = drEstado["CodEstado"].ToString();
                 string descEstado = "Estado: " + drEstado["DescEstado"].ToString();
                 string claseImplementadora = drEstado["ClaseImplementadora"].ToString();
-                OTipoEstado tipoEstado = (OTipoEstado)App.EnumParse(typeof(OTipoEstado), drEstado["Tipo"].ToString(), OTipoEstado.EstadoSimple);
+                OTipoEstado tipoEstado = OEnumRobusto<OTipoEstado>.Validar(drEstado["Tipo"].ToString(), OTipoEstado.EstadoSimple);
+                //OTipoEstado tipoEstado = (OTipoEstado)App.EnumParse(typeof(OTipoEstado), drEstado["Tipo"].ToString(), OTipoEstado.EstadoSimple);
 
                 // Generación de la clase parcial del estado
                 string claseEstadoPadre;
@@ -306,10 +309,10 @@ namespace Orbita.VAGeneradorEscenarios
                 {
                     case OTipoEstado.EstadoSimple:
                     default:
-                        claseEstadoPadre = "EstadoBase";
+                        claseEstadoPadre = typeof (OEstadoBase).Name; //"OEstadoBase";
                         break;
                     case OTipoEstado.EstadoAsincrono:
-                        claseEstadoPadre = "EstadoAsincrono";
+                        claseEstadoPadre = typeof (OEstadoAsincrono).Name; //"OEstadoAsincrono";
                         break;
                 }
                 CodeTypeDeclaration claseEstado = generador.GenerarClase(claseImplementadora, claseEstadoPadre, descEstado, MemberAttributes.Public, true);
@@ -359,7 +362,8 @@ namespace Orbita.VAGeneradorEscenarios
                 string codTransicion = drTransicion["CodTransicion"].ToString();
                 string descTransicion = "Transición: " + drTransicion["ExplicacionCondicionEsperada"].ToString();
                 string claseImplementadora = drTransicion["ClaseImplementadora"].ToString();
-                OTipoTransicion tipoTransicion = (OTipoTransicion)App.EnumParse(typeof(OTipoTransicion), drTransicion["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
+                OTipoTransicion tipoTransicion = OEnumRobusto<OTipoTransicion>.Validar(drTransicion["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
+                //OTipoTransicion tipoTransicion = (OTipoTransicion)App.EnumParse(typeof(OTipoTransicion), drTransicion["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
 
                 // Generación de la clase parcial del transicion
                 string claseTransicionPadre;
@@ -367,10 +371,10 @@ namespace Orbita.VAGeneradorEscenarios
                 {
                     case OTipoTransicion.TransicionSimple:
                     default:
-                        claseTransicionPadre = "TransicionBase";
+                        claseTransicionPadre = typeof (OTransicionBase).Name; //"OTransicionBase";
                         break;
                     case OTipoTransicion.TransicionUniversal:
-                        claseTransicionPadre = "TransicionUniversal";
+                        claseTransicionPadre = typeof (OTransicionUniversal).Name; //"OTransicionUniversal";
                         break;
                 }
                 CodeTypeDeclaration claseTransicion = generador.GenerarClase(claseImplementadora, claseTransicionPadre, descTransicion, MemberAttributes.Public, true);
