@@ -44,7 +44,7 @@ namespace Orbita.Controles.Comunicaciones
         /// <summary>
         /// Identificador de dispositivo
         /// </summary>
-        int _idDispositivo = 4;
+        int _idDispositivo = 1;
         /// <summary>
         /// Servidor remoting
         /// </summary>
