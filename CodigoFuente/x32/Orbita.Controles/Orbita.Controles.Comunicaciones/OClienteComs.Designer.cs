@@ -363,12 +363,9 @@
         private System.Windows.Forms.Button btnEscritura;
         private System.Windows.Forms.Button btnLectura;
         private System.Windows.Forms.TextBox txtValLeer;
-        private System.Windows.Forms.TextBox txtServidorRemoting;
         private System.Windows.Forms.Label lblServidorRemoting;
-        private System.Windows.Forms.TextBox txtIdDispositivo;
         private System.Windows.Forms.Label lblIdDispositivo;
         private System.Windows.Forms.Button btnConectar;
-        private System.Windows.Forms.TextBox txtPuertoRemoting;
         private System.Windows.Forms.Label lblPuertoRemoting;
         public System.Windows.Forms.GroupBox gbDispositivo;
         public System.Windows.Forms.Label lblCom;
@@ -380,5 +377,8 @@
         public System.Windows.Forms.GroupBox gbCDato;
         private System.Windows.Forms.DataGridView dataGridViewEscrituras;
         public System.Windows.Forms.GroupBox gbEscrituras;
+        public System.Windows.Forms.TextBox txtServidorRemoting;
+        public System.Windows.Forms.TextBox txtIdDispositivo;
+        public System.Windows.Forms.TextBox txtPuertoRemoting;
     }
 }

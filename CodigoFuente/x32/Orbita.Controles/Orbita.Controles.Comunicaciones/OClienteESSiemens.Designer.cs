@@ -28,22 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCanalA = new System.Windows.Forms.Panel();
-            this.EB06 = new System.Windows.Forms.TextBox();
-            this.EB05 = new System.Windows.Forms.TextBox();
-            this.EB04 = new System.Windows.Forms.TextBox();
-            this.EB03 = new System.Windows.Forms.TextBox();
-            this.EB02 = new System.Windows.Forms.TextBox();
-            this.EB01 = new System.Windows.Forms.TextBox();
-            this.EB00 = new System.Windows.Forms.TextBox();
-            this.lblB00 = new System.Windows.Forms.Label();
+            this.gbS0 = new System.Windows.Forms.GroupBox();
+            this.lblS05 = new System.Windows.Forms.Label();
+            this.lblS04 = new System.Windows.Forms.Label();
+            this.lblS03 = new System.Windows.Forms.Label();
+            this.lblS02 = new System.Windows.Forms.Label();
+            this.lblS01 = new System.Windows.Forms.Label();
+            this.lblS00 = new System.Windows.Forms.Label();
+            this.SB00 = new System.Windows.Forms.TextBox();
+            this.SB01 = new System.Windows.Forms.TextBox();
+            this.SB02 = new System.Windows.Forms.TextBox();
+            this.SB05 = new System.Windows.Forms.TextBox();
+            this.SB03 = new System.Windows.Forms.TextBox();
+            this.SB04 = new System.Windows.Forms.TextBox();
             this.gbB0 = new System.Windows.Forms.GroupBox();
-            this.lblB01 = new System.Windows.Forms.Label();
-            this.lblB02 = new System.Windows.Forms.Label();
-            this.lblB03 = new System.Windows.Forms.Label();
-            this.lblB04 = new System.Windows.Forms.Label();
-            this.lblB05 = new System.Windows.Forms.Label();
             this.lblB06 = new System.Windows.Forms.Label();
+            this.lblB05 = new System.Windows.Forms.Label();
+            this.lblB04 = new System.Windows.Forms.Label();
+            this.lblB03 = new System.Windows.Forms.Label();
+            this.lblB02 = new System.Windows.Forms.Label();
+            this.lblB01 = new System.Windows.Forms.Label();
+            this.lblB00 = new System.Windows.Forms.Label();
+            this.EB00 = new System.Windows.Forms.TextBox();
+            this.EB01 = new System.Windows.Forms.TextBox();
+            this.EB06 = new System.Windows.Forms.TextBox();
+            this.EB02 = new System.Windows.Forms.TextBox();
+            this.EB05 = new System.Windows.Forms.TextBox();
+            this.EB03 = new System.Windows.Forms.TextBox();
+            this.EB04 = new System.Windows.Forms.TextBox();
+            this.pnlBytes = new System.Windows.Forms.Panel();
             this.gbB1 = new System.Windows.Forms.GroupBox();
             this.lblB16 = new System.Windows.Forms.Label();
             this.lblB15 = new System.Windows.Forms.Label();
@@ -65,34 +83,21 @@
             this.gbB3 = new System.Windows.Forms.GroupBox();
             this.lblB30 = new System.Windows.Forms.Label();
             this.EB30 = new System.Windows.Forms.TextBox();
-            this.gbS0 = new System.Windows.Forms.GroupBox();
-            this.lblS05 = new System.Windows.Forms.Label();
-            this.lblS04 = new System.Windows.Forms.Label();
-            this.lblS03 = new System.Windows.Forms.Label();
-            this.lblS02 = new System.Windows.Forms.Label();
-            this.lblS01 = new System.Windows.Forms.Label();
-            this.lblS00 = new System.Windows.Forms.Label();
-            this.SB00 = new System.Windows.Forms.TextBox();
-            this.SB01 = new System.Windows.Forms.TextBox();
-            this.SB02 = new System.Windows.Forms.TextBox();
-            this.SB05 = new System.Windows.Forms.TextBox();
-            this.SB03 = new System.Windows.Forms.TextBox();
-            this.SB04 = new System.Windows.Forms.TextBox();
-            this.pnlBytes = new System.Windows.Forms.Panel();
             this.gbDispositivo.SuspendLayout();
+            this.gbConfig.SuspendLayout();
             this.pnlDispSup.SuspendLayout();
             this.pnlCanalA.SuspendLayout();
+            this.gbS0.SuspendLayout();
             this.gbB0.SuspendLayout();
+            this.pnlBytes.SuspendLayout();
             this.gbB1.SuspendLayout();
             this.gbB2.SuspendLayout();
             this.gbB3.SuspendLayout();
-            this.gbS0.SuspendLayout();
-            this.pnlBytes.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDispositivo
             // 
-            this.gbDispositivo.Size = new System.Drawing.Size(899, 616);
+            this.gbDispositivo.Size = new System.Drawing.Size(899, 872);
             // 
             // gbConfig
             // 
@@ -101,7 +106,8 @@
             // pnlDispSup
             // 
             this.pnlDispSup.Controls.Add(this.pnlCanalA);
-            this.pnlDispSup.Size = new System.Drawing.Size(879, 306);
+            this.pnlDispSup.Size = new System.Drawing.Size(879, 513);
+            this.pnlDispSup.Controls.SetChildIndex(this.gbEscrituras, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.lblCom, 0);
@@ -109,13 +115,46 @@
             // 
             // gbVariables
             // 
-            this.gbVariables.Location = new System.Drawing.Point(10, 329);
-            this.gbVariables.Size = new System.Drawing.Size(879, 131);
+            this.gbVariables.Location = new System.Drawing.Point(10, 536);
+            this.gbVariables.Size = new System.Drawing.Size(879, 206);
             // 
             // gbCDato
             // 
-            this.gbCDato.Location = new System.Drawing.Point(10, 460);
-            this.gbCDato.Size = new System.Drawing.Size(879, 146);
+            this.gbCDato.Location = new System.Drawing.Point(10, 742);
+            this.gbCDato.Size = new System.Drawing.Size(879, 120);
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 351);
+            this.gbEscrituras.Size = new System.Drawing.Size(879, 162);
+            // 
+            // txtIdDispositivo
+            // 
+            this.txtIdDispositivo.Text = "5";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // pnlCanalA
             // 
@@ -125,96 +164,152 @@
             this.pnlCanalA.Controls.Add(this.gbB0);
             this.pnlCanalA.Controls.Add(this.pnlBytes);
             this.pnlCanalA.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlCanalA.Location = new System.Drawing.Point(0, 72);
+            this.pnlCanalA.Location = new System.Drawing.Point(0, 58);
             this.pnlCanalA.Name = "pnlCanalA";
-            this.pnlCanalA.Size = new System.Drawing.Size(879, 234);
+            this.pnlCanalA.Size = new System.Drawing.Size(879, 293);
             this.pnlCanalA.TabIndex = 53;
             // 
-            // EB06
+            // gbS0
             // 
-            this.EB06.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB06.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB06.Location = new System.Drawing.Point(18, 175);
-            this.EB06.Name = "EB06";
-            this.EB06.Size = new System.Drawing.Size(12, 20);
-            this.EB06.TabIndex = 45;
-            this.EB06.Tag = "3";
-            this.EB06.Text = "6";
+            this.gbS0.Controls.Add(this.lblS05);
+            this.gbS0.Controls.Add(this.lblS04);
+            this.gbS0.Controls.Add(this.lblS03);
+            this.gbS0.Controls.Add(this.lblS02);
+            this.gbS0.Controls.Add(this.lblS01);
+            this.gbS0.Controls.Add(this.lblS00);
+            this.gbS0.Controls.Add(this.SB00);
+            this.gbS0.Controls.Add(this.SB01);
+            this.gbS0.Controls.Add(this.SB02);
+            this.gbS0.Controls.Add(this.SB05);
+            this.gbS0.Controls.Add(this.SB03);
+            this.gbS0.Controls.Add(this.SB04);
+            this.gbS0.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gbS0.Location = new System.Drawing.Point(684, 0);
+            this.gbS0.Name = "gbS0";
+            this.gbS0.Size = new System.Drawing.Size(193, 291);
+            this.gbS0.TabIndex = 56;
+            this.gbS0.TabStop = false;
+            this.gbS0.Text = "OrdenB0";
             // 
-            // EB05
+            // lblS05
             // 
-            this.EB05.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB05.Location = new System.Drawing.Point(18, 150);
-            this.EB05.Name = "EB05";
-            this.EB05.Size = new System.Drawing.Size(12, 20);
-            this.EB05.TabIndex = 44;
-            this.EB05.Tag = "2";
-            this.EB05.Text = "5";
+            this.lblS05.AutoSize = true;
+            this.lblS05.Location = new System.Drawing.Point(36, 152);
+            this.lblS05.Name = "lblS05";
+            this.lblS05.Size = new System.Drawing.Size(91, 13);
+            this.lblS05.TabIndex = 52;
+            this.lblS05.Text = "FOT. OCR2 HAB.";
             // 
-            // EB04
+            // lblS04
             // 
-            this.EB04.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB04.Location = new System.Drawing.Point(18, 124);
-            this.EB04.Name = "EB04";
-            this.EB04.Size = new System.Drawing.Size(12, 20);
-            this.EB04.TabIndex = 43;
-            this.EB04.Tag = "1";
-            this.EB04.Text = "4";
+            this.lblS04.AutoSize = true;
+            this.lblS04.Location = new System.Drawing.Point(36, 126);
+            this.lblS04.Name = "lblS04";
+            this.lblS04.Size = new System.Drawing.Size(91, 13);
+            this.lblS04.TabIndex = 51;
+            this.lblS04.Text = "FOT. OCR1 HAB.";
             // 
-            // EB03
+            // lblS03
             // 
-            this.EB03.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB03.Location = new System.Drawing.Point(18, 98);
-            this.EB03.Name = "EB03";
-            this.EB03.Size = new System.Drawing.Size(12, 20);
-            this.EB03.TabIndex = 42;
-            this.EB03.Tag = "4";
-            this.EB03.Text = "3";
+            this.lblS03.AutoSize = true;
+            this.lblS03.Location = new System.Drawing.Point(36, 100);
+            this.lblS03.Name = "lblS03";
+            this.lblS03.Size = new System.Drawing.Size(101, 13);
+            this.lblS03.TabIndex = 50;
+            this.lblS03.Text = "ILUMINACIÓN LPR";
             // 
-            // EB02
+            // lblS02
             // 
-            this.EB02.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB02.Location = new System.Drawing.Point(18, 72);
-            this.EB02.Name = "EB02";
-            this.EB02.Size = new System.Drawing.Size(12, 20);
-            this.EB02.TabIndex = 41;
-            this.EB02.Tag = "3";
-            this.EB02.Text = "2";
+            this.lblS02.AutoSize = true;
+            this.lblS02.Location = new System.Drawing.Point(36, 74);
+            this.lblS02.Name = "lblS02";
+            this.lblS02.Size = new System.Drawing.Size(131, 13);
+            this.lblS02.TabIndex = 49;
+            this.lblS02.Text = "ILUMINACIÓN TRASERA";
             // 
-            // EB01
+            // lblS01
             // 
-            this.EB01.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB01.Location = new System.Drawing.Point(18, 48);
-            this.EB01.Name = "EB01";
-            this.EB01.Size = new System.Drawing.Size(12, 20);
-            this.EB01.TabIndex = 40;
-            this.EB01.Tag = "2";
-            this.EB01.Text = "1";
+            this.lblS01.AutoSize = true;
+            this.lblS01.Location = new System.Drawing.Point(36, 50);
+            this.lblS01.Name = "lblS01";
+            this.lblS01.Size = new System.Drawing.Size(103, 13);
+            this.lblS01.TabIndex = 48;
+            this.lblS01.Text = "ILUMINACIÓN OCR";
             // 
-            // EB00
+            // lblS00
             // 
-            this.EB00.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.EB00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EB00.Location = new System.Drawing.Point(18, 23);
-            this.EB00.Name = "EB00";
-            this.EB00.Size = new System.Drawing.Size(12, 20);
-            this.EB00.TabIndex = 39;
-            this.EB00.Tag = "1";
-            this.EB00.Text = "0";
+            this.lblS00.AutoSize = true;
+            this.lblS00.Location = new System.Drawing.Point(36, 25);
+            this.lblS00.Name = "lblS00";
+            this.lblS00.Size = new System.Drawing.Size(123, 13);
+            this.lblS00.TabIndex = 47;
+            this.lblS00.Text = "RESET CLASIFICADOR";
             // 
-            // lblB00
+            // SB00
             // 
-            this.lblB00.AutoSize = true;
-            this.lblB00.Location = new System.Drawing.Point(36, 25);
-            this.lblB00.Name = "lblB00";
-            this.lblB00.Size = new System.Drawing.Size(62, 13);
-            this.lblB00.TabIndex = 47;
-            this.lblB00.Text = "ESPIRA E0";
+            this.SB00.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB00.Location = new System.Drawing.Point(18, 23);
+            this.SB00.Name = "SB00";
+            this.SB00.Size = new System.Drawing.Size(12, 20);
+            this.SB00.TabIndex = 39;
+            this.SB00.Tag = "1";
+            this.SB00.Text = "0";
+            // 
+            // SB01
+            // 
+            this.SB01.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB01.Location = new System.Drawing.Point(18, 48);
+            this.SB01.Name = "SB01";
+            this.SB01.Size = new System.Drawing.Size(12, 20);
+            this.SB01.TabIndex = 40;
+            this.SB01.Tag = "2";
+            this.SB01.Text = "1";
+            // 
+            // SB02
+            // 
+            this.SB02.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB02.Location = new System.Drawing.Point(18, 72);
+            this.SB02.Name = "SB02";
+            this.SB02.Size = new System.Drawing.Size(12, 20);
+            this.SB02.TabIndex = 41;
+            this.SB02.Tag = "3";
+            this.SB02.Text = "2";
+            // 
+            // SB05
+            // 
+            this.SB05.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB05.Location = new System.Drawing.Point(18, 150);
+            this.SB05.Name = "SB05";
+            this.SB05.Size = new System.Drawing.Size(12, 20);
+            this.SB05.TabIndex = 44;
+            this.SB05.Tag = "2";
+            this.SB05.Text = "5";
+            // 
+            // SB03
+            // 
+            this.SB03.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB03.Location = new System.Drawing.Point(18, 98);
+            this.SB03.Name = "SB03";
+            this.SB03.Size = new System.Drawing.Size(12, 20);
+            this.SB03.TabIndex = 42;
+            this.SB03.Tag = "4";
+            this.SB03.Text = "3";
+            // 
+            // SB04
+            // 
+            this.SB04.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SB04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SB04.Location = new System.Drawing.Point(18, 124);
+            this.SB04.Name = "SB04";
+            this.SB04.Size = new System.Drawing.Size(12, 20);
+            this.SB04.TabIndex = 43;
+            this.SB04.Tag = "1";
+            this.SB04.Text = "4";
             // 
             // gbB0
             // 
@@ -239,41 +334,14 @@
             this.gbB0.TabStop = false;
             this.gbB0.Text = "EstadoB0";
             // 
-            // lblB01
+            // lblB06
             // 
-            this.lblB01.AutoSize = true;
-            this.lblB01.Location = new System.Drawing.Point(36, 50);
-            this.lblB01.Name = "lblB01";
-            this.lblB01.Size = new System.Drawing.Size(62, 13);
-            this.lblB01.TabIndex = 48;
-            this.lblB01.Text = "ESPIRA E1";
-            // 
-            // lblB02
-            // 
-            this.lblB02.AutoSize = true;
-            this.lblB02.Location = new System.Drawing.Point(36, 74);
-            this.lblB02.Name = "lblB02";
-            this.lblB02.Size = new System.Drawing.Size(62, 13);
-            this.lblB02.TabIndex = 49;
-            this.lblB02.Text = "ESPIRA E2";
-            // 
-            // lblB03
-            // 
-            this.lblB03.AutoSize = true;
-            this.lblB03.Location = new System.Drawing.Point(36, 100);
-            this.lblB03.Name = "lblB03";
-            this.lblB03.Size = new System.Drawing.Size(74, 13);
-            this.lblB03.TabIndex = 50;
-            this.lblB03.Text = "FOT_01_DET";
-            // 
-            // lblB04
-            // 
-            this.lblB04.AutoSize = true;
-            this.lblB04.Location = new System.Drawing.Point(36, 126);
-            this.lblB04.Name = "lblB04";
-            this.lblB04.Size = new System.Drawing.Size(74, 13);
-            this.lblB04.TabIndex = 51;
-            this.lblB04.Text = "FOT_02_DET";
+            this.lblB06.AutoSize = true;
+            this.lblB06.Location = new System.Drawing.Point(36, 177);
+            this.lblB06.Name = "lblB06";
+            this.lblB06.Size = new System.Drawing.Size(99, 13);
+            this.lblB06.TabIndex = 53;
+            this.lblB06.Text = "FOT_02_DET HAB";
             // 
             // lblB05
             // 
@@ -284,14 +352,137 @@
             this.lblB05.TabIndex = 52;
             this.lblB05.Text = "FOT_01_DET HAB";
             // 
-            // lblB06
+            // lblB04
             // 
-            this.lblB06.AutoSize = true;
-            this.lblB06.Location = new System.Drawing.Point(36, 177);
-            this.lblB06.Name = "lblB06";
-            this.lblB06.Size = new System.Drawing.Size(99, 13);
-            this.lblB06.TabIndex = 53;
-            this.lblB06.Text = "FOT_02_DET HAB";
+            this.lblB04.AutoSize = true;
+            this.lblB04.Location = new System.Drawing.Point(36, 126);
+            this.lblB04.Name = "lblB04";
+            this.lblB04.Size = new System.Drawing.Size(74, 13);
+            this.lblB04.TabIndex = 51;
+            this.lblB04.Text = "FOT_02_DET";
+            // 
+            // lblB03
+            // 
+            this.lblB03.AutoSize = true;
+            this.lblB03.Location = new System.Drawing.Point(36, 100);
+            this.lblB03.Name = "lblB03";
+            this.lblB03.Size = new System.Drawing.Size(74, 13);
+            this.lblB03.TabIndex = 50;
+            this.lblB03.Text = "FOT_01_DET";
+            // 
+            // lblB02
+            // 
+            this.lblB02.AutoSize = true;
+            this.lblB02.Location = new System.Drawing.Point(36, 74);
+            this.lblB02.Name = "lblB02";
+            this.lblB02.Size = new System.Drawing.Size(62, 13);
+            this.lblB02.TabIndex = 49;
+            this.lblB02.Text = "ESPIRA E2";
+            // 
+            // lblB01
+            // 
+            this.lblB01.AutoSize = true;
+            this.lblB01.Location = new System.Drawing.Point(36, 50);
+            this.lblB01.Name = "lblB01";
+            this.lblB01.Size = new System.Drawing.Size(62, 13);
+            this.lblB01.TabIndex = 48;
+            this.lblB01.Text = "ESPIRA E1";
+            // 
+            // lblB00
+            // 
+            this.lblB00.AutoSize = true;
+            this.lblB00.Location = new System.Drawing.Point(36, 25);
+            this.lblB00.Name = "lblB00";
+            this.lblB00.Size = new System.Drawing.Size(62, 13);
+            this.lblB00.TabIndex = 47;
+            this.lblB00.Text = "ESPIRA E0";
+            // 
+            // EB00
+            // 
+            this.EB00.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB00.Location = new System.Drawing.Point(18, 23);
+            this.EB00.Name = "EB00";
+            this.EB00.Size = new System.Drawing.Size(12, 20);
+            this.EB00.TabIndex = 39;
+            this.EB00.Tag = "1";
+            this.EB00.Text = "0";
+            // 
+            // EB01
+            // 
+            this.EB01.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB01.Location = new System.Drawing.Point(18, 48);
+            this.EB01.Name = "EB01";
+            this.EB01.Size = new System.Drawing.Size(12, 20);
+            this.EB01.TabIndex = 40;
+            this.EB01.Tag = "2";
+            this.EB01.Text = "1";
+            // 
+            // EB06
+            // 
+            this.EB06.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB06.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB06.Location = new System.Drawing.Point(18, 175);
+            this.EB06.Name = "EB06";
+            this.EB06.Size = new System.Drawing.Size(12, 20);
+            this.EB06.TabIndex = 45;
+            this.EB06.Tag = "3";
+            this.EB06.Text = "6";
+            // 
+            // EB02
+            // 
+            this.EB02.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB02.Location = new System.Drawing.Point(18, 72);
+            this.EB02.Name = "EB02";
+            this.EB02.Size = new System.Drawing.Size(12, 20);
+            this.EB02.TabIndex = 41;
+            this.EB02.Tag = "3";
+            this.EB02.Text = "2";
+            // 
+            // EB05
+            // 
+            this.EB05.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB05.Location = new System.Drawing.Point(18, 150);
+            this.EB05.Name = "EB05";
+            this.EB05.Size = new System.Drawing.Size(12, 20);
+            this.EB05.TabIndex = 44;
+            this.EB05.Tag = "2";
+            this.EB05.Text = "5";
+            // 
+            // EB03
+            // 
+            this.EB03.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB03.Location = new System.Drawing.Point(18, 98);
+            this.EB03.Name = "EB03";
+            this.EB03.Size = new System.Drawing.Size(12, 20);
+            this.EB03.TabIndex = 42;
+            this.EB03.Tag = "4";
+            this.EB03.Text = "3";
+            // 
+            // EB04
+            // 
+            this.EB04.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.EB04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EB04.Location = new System.Drawing.Point(18, 124);
+            this.EB04.Name = "EB04";
+            this.EB04.Size = new System.Drawing.Size(12, 20);
+            this.EB04.TabIndex = 43;
+            this.EB04.Tag = "1";
+            this.EB04.Text = "4";
+            // 
+            // pnlBytes
+            // 
+            this.pnlBytes.Controls.Add(this.gbB1);
+            this.pnlBytes.Controls.Add(this.gbB2);
+            this.pnlBytes.Controls.Add(this.gbB3);
+            this.pnlBytes.Location = new System.Drawing.Point(162, 3);
+            this.pnlBytes.Name = "pnlBytes";
+            this.pnlBytes.Size = new System.Drawing.Size(488, 230);
+            this.pnlBytes.TabIndex = 58;
             // 
             // gbB1
             // 
@@ -519,179 +710,29 @@
             this.EB30.Tag = "1";
             this.EB30.Text = "0";
             // 
-            // gbS0
-            // 
-            this.gbS0.Controls.Add(this.lblS05);
-            this.gbS0.Controls.Add(this.lblS04);
-            this.gbS0.Controls.Add(this.lblS03);
-            this.gbS0.Controls.Add(this.lblS02);
-            this.gbS0.Controls.Add(this.lblS01);
-            this.gbS0.Controls.Add(this.lblS00);
-            this.gbS0.Controls.Add(this.SB00);
-            this.gbS0.Controls.Add(this.SB01);
-            this.gbS0.Controls.Add(this.SB02);
-            this.gbS0.Controls.Add(this.SB05);
-            this.gbS0.Controls.Add(this.SB03);
-            this.gbS0.Controls.Add(this.SB04);
-            this.gbS0.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbS0.Location = new System.Drawing.Point(684, 0);
-            this.gbS0.Name = "gbS0";
-            this.gbS0.Size = new System.Drawing.Size(193, 232);
-            this.gbS0.TabIndex = 56;
-            this.gbS0.TabStop = false;
-            this.gbS0.Text = "OrdenB0";
-            // 
-            // lblS05
-            // 
-            this.lblS05.AutoSize = true;
-            this.lblS05.Location = new System.Drawing.Point(36, 152);
-            this.lblS05.Name = "lblS05";
-            this.lblS05.Size = new System.Drawing.Size(91, 13);
-            this.lblS05.TabIndex = 52;
-            this.lblS05.Text = "FOT. OCR2 HAB.";
-            // 
-            // lblS04
-            // 
-            this.lblS04.AutoSize = true;
-            this.lblS04.Location = new System.Drawing.Point(36, 126);
-            this.lblS04.Name = "lblS04";
-            this.lblS04.Size = new System.Drawing.Size(91, 13);
-            this.lblS04.TabIndex = 51;
-            this.lblS04.Text = "FOT. OCR1 HAB.";
-            // 
-            // lblS03
-            // 
-            this.lblS03.AutoSize = true;
-            this.lblS03.Location = new System.Drawing.Point(36, 100);
-            this.lblS03.Name = "lblS03";
-            this.lblS03.Size = new System.Drawing.Size(101, 13);
-            this.lblS03.TabIndex = 50;
-            this.lblS03.Text = "ILUMINACIÓN LPR";
-            // 
-            // lblS02
-            // 
-            this.lblS02.AutoSize = true;
-            this.lblS02.Location = new System.Drawing.Point(36, 74);
-            this.lblS02.Name = "lblS02";
-            this.lblS02.Size = new System.Drawing.Size(131, 13);
-            this.lblS02.TabIndex = 49;
-            this.lblS02.Text = "ILUMINACIÓN TRASERA";
-            // 
-            // lblS01
-            // 
-            this.lblS01.AutoSize = true;
-            this.lblS01.Location = new System.Drawing.Point(36, 50);
-            this.lblS01.Name = "lblS01";
-            this.lblS01.Size = new System.Drawing.Size(103, 13);
-            this.lblS01.TabIndex = 48;
-            this.lblS01.Text = "ILUMINACIÓN OCR";
-            // 
-            // lblS00
-            // 
-            this.lblS00.AutoSize = true;
-            this.lblS00.Location = new System.Drawing.Point(36, 25);
-            this.lblS00.Name = "lblS00";
-            this.lblS00.Size = new System.Drawing.Size(123, 13);
-            this.lblS00.TabIndex = 47;
-            this.lblS00.Text = "RESET CLASIFICADOR";
-            // 
-            // SB00
-            // 
-            this.SB00.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SB00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SB00.Location = new System.Drawing.Point(18, 23);
-            this.SB00.Name = "SB00";
-            this.SB00.Size = new System.Drawing.Size(12, 20);
-            this.SB00.TabIndex = 39;
-            this.SB00.Tag = "1";
-            this.SB00.Text = "0";
-            // 
-            // SB01
-            // 
-            this.SB01.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SB01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SB01.Location = new System.Drawing.Point(18, 48);
-            this.SB01.Name = "SB01";
-            this.SB01.Size = new System.Drawing.Size(12, 20);
-            this.SB01.TabIndex = 40;
-            this.SB01.Tag = "2";
-            this.SB01.Text = "1";
-            // 
-            // SB02
-            // 
-            this.SB02.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SB02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SB02.Location = new System.Drawing.Point(18, 72);
-            this.SB02.Name = "SB02";
-            this.SB02.Size = new System.Drawing.Size(12, 20);
-            this.SB02.TabIndex = 41;
-            this.SB02.Tag = "3";
-            this.SB02.Text = "2";
-            // 
-            // SB05
-            // 
-            this.SB05.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SB05.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SB05.Location = new System.Drawing.Point(18, 150);
-            this.SB05.Name = "SB05";
-            this.SB05.Size = new System.Drawing.Size(12, 20);
-            this.SB05.TabIndex = 44;
-            this.SB05.Tag = "2";
-            this.SB05.Text = "5";
-            // 
-            // SB03
-            // 
-            this.SB03.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SB03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SB03.Location = new System.Drawing.Point(18, 98);
-            this.SB03.Name = "SB03";
-            this.SB03.Size = new System.Drawing.Size(12, 20);
-            this.SB03.TabIndex = 42;
-            this.SB03.Tag = "4";
-            this.SB03.Text = "3";
-            // 
-            // SB04
-            // 
-            this.SB04.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SB04.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SB04.Location = new System.Drawing.Point(18, 124);
-            this.SB04.Name = "SB04";
-            this.SB04.Size = new System.Drawing.Size(12, 20);
-            this.SB04.TabIndex = 43;
-            this.SB04.Tag = "1";
-            this.SB04.Text = "4";
-            // 
-            // pnlBytes
-            // 
-            this.pnlBytes.Controls.Add(this.gbB1);
-            this.pnlBytes.Controls.Add(this.gbB2);
-            this.pnlBytes.Controls.Add(this.gbB3);
-            this.pnlBytes.Location = new System.Drawing.Point(162, 3);
-            this.pnlBytes.Name = "pnlBytes";
-            this.pnlBytes.Size = new System.Drawing.Size(488, 230);
-            this.pnlBytes.TabIndex = 58;
-            // 
             // OClienteESSiemens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteESSiemens";
-            this.Size = new System.Drawing.Size(899, 681);
+            this.Size = new System.Drawing.Size(899, 937);
             this.gbDispositivo.ResumeLayout(false);
+            this.gbConfig.ResumeLayout(false);
+            this.gbConfig.PerformLayout();
             this.pnlDispSup.ResumeLayout(false);
             this.pnlDispSup.PerformLayout();
             this.pnlCanalA.ResumeLayout(false);
+            this.gbS0.ResumeLayout(false);
+            this.gbS0.PerformLayout();
             this.gbB0.ResumeLayout(false);
             this.gbB0.PerformLayout();
+            this.pnlBytes.ResumeLayout(false);
             this.gbB1.ResumeLayout(false);
             this.gbB1.PerformLayout();
             this.gbB2.ResumeLayout(false);
             this.gbB2.PerformLayout();
             this.gbB3.ResumeLayout(false);
             this.gbB3.PerformLayout();
-            this.gbS0.ResumeLayout(false);
-            this.gbS0.PerformLayout();
-            this.pnlBytes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -749,5 +790,9 @@
         private System.Windows.Forms.GroupBox gbB3;
         private System.Windows.Forms.Label lblB30;
         private System.Windows.Forms.TextBox EB30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

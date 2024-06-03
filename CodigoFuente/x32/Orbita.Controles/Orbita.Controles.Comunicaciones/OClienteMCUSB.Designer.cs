@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCanalA = new System.Windows.Forms.Panel();
@@ -63,6 +65,7 @@
             this.CH2 = new System.Windows.Forms.TextBox();
             this.CH1 = new System.Windows.Forms.TextBox();
             this.gbDispositivo.SuspendLayout();
+            this.gbConfig.SuspendLayout();
             this.pnlDispSup.SuspendLayout();
             this.pnlCanalA.SuspendLayout();
             this.pnlCanalB.SuspendLayout();
@@ -114,8 +117,24 @@
             // 
             // gbEscrituras
             // 
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 92);
-            this.gbEscrituras.Size = new System.Drawing.Size(1126, 155);
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 88);
+            this.gbEscrituras.Size = new System.Drawing.Size(1126, 159);
+            // 
+            // txtIdDispositivo
+            // 
+            this.txtIdDispositivo.Text = "6";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -500,6 +519,8 @@
             this.Name = "OClienteMCUSB";
             this.Size = new System.Drawing.Size(1146, 688);
             this.gbDispositivo.ResumeLayout(false);
+            this.gbConfig.ResumeLayout(false);
+            this.gbConfig.PerformLayout();
             this.pnlDispSup.ResumeLayout(false);
             this.pnlDispSup.PerformLayout();
             this.pnlCanalA.ResumeLayout(false);
@@ -550,5 +571,7 @@
         private System.Windows.Forms.TextBox A1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

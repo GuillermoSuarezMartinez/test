@@ -19,8 +19,7 @@ namespace Orbita.Controles.Comunicaciones
             InitializeComponent();
         }
 
-        #endregion
-        
+        #endregion        
 
         #region Métodos
         /// <summary>
@@ -51,251 +50,217 @@ namespace Orbita.Controles.Comunicaciones
             }
             else
             {
-                //OInfoDato dato = (OInfoDato)e.Argumento;
+                OInfoDato dato = (OInfoDato)e.Argumento;
 
-                //switch (dato.Texto)
-                //{
-                //    case "E01":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.EB00.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.EB00.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "E02":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.A2.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.A2.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "E03":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.A3.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.A3.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "E04":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.A4.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.A4.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "E05":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.A5.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.A5.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "E06":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.A6.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.A6.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "A7":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.A7.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.A7.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "A8":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.A8.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.A8.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "B1":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.B1.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.B1.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "B2":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.B2.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.B2.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "B3":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.B3.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.B3.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "B4":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.B4.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.B4.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "B5":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.B5.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.B5.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "B6":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.B6.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.B6.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "B7":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.B7.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.B7.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "B8":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.B8.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.B8.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "CL1":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.CL1.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.CL1.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "CL2":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.CL2.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.CL2.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "CL3":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.CL3.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.CL3.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "CL4":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.CL4.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.CL4.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "CH1":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.CH1.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.CH1.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "CH2":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.CH2.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.CH2.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "CH3":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.CH3.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.CH3.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //    case "CH4":
-                //        if ((int)dato.Valor == 1)
-                //        {
-                //            this.CH4.BackColor = Color.Orange;
-                //        }
-                //        else
-                //        {
-                //            this.CH4.BackColor = Color.Beige;
-                //        }
-                //        break;
-                //}
+                switch (dato.Texto)
+                {
+                    case "E01":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB00.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB00.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E02":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB01.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB01.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E03":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB02.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB02.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E04":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB03.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB03.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E05":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB04.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB04.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E06":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB05.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB05.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E07":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB06.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB06.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E11":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB10.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB10.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E12":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB11.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB11.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E13":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB12.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB12.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E14":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB13.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB13.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E15":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB14.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB14.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E16":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB15.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB15.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E17":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.EB16.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.EB16.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S01":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.SB00.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.SB00.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S02":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.SB01.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.SB01.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S03":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.SB02.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.SB02.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S04":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.SB03.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.SB03.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S05":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.SB04.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.SB04.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S06":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.SB05.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.SB05.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E2":
+                        this.EB20.Text = dato.Valor.ToString();
+                        break;
+                    case "E3":
+                        this.EB30.Text = dato.Valor.ToString();
+                        break;
+                }
             }
         }
         /// <summary>
