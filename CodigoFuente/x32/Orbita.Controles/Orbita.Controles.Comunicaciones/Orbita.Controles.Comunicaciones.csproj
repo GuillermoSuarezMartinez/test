@@ -62,12 +62,6 @@
     <Compile Include="OClienteComsOPC.Designer.cs">
       <DependentUpon>OClienteComsOPC.cs</DependentUpon>
     </Compile>
-    <Compile Include="OClienteComsOPC1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="OClienteComsOPC1.designer.cs">
-      <DependentUpon>OClienteComsOPC1.cs</DependentUpon>
-    </Compile>
     <Compile Include="OClienteESPhoenixILBK48.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -102,9 +96,6 @@
     <EmbeddedResource Include="OClienteComsOPC.resx">
       <DependentUpon>OClienteComsOPC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OClienteComsOPC1.resx">
-      <DependentUpon>OClienteComsOPC1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="OClienteESPhoenixILBK48.resx">
       <DependentUpon>OClienteESPhoenixILBK48.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OClienteMCUSB.resx">
       <DependentUpon>OClienteMCUSB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OClienteOrbita.resx">
+      <DependentUpon>OClienteOrbita.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

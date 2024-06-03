@@ -43,6 +43,7 @@
             // 
             this.gbDispositivo.Location = new System.Drawing.Point(0, 91);
             this.gbDispositivo.Size = new System.Drawing.Size(807, 452);
+            this.gbDispositivo.Text = "Dispositivo OPC";
             // 
             // lblCom
             // 

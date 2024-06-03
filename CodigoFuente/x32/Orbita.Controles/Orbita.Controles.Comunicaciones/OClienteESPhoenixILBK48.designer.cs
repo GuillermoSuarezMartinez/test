@@ -56,6 +56,7 @@
             // gbDispositivo
             // 
             this.gbDispositivo.Size = new System.Drawing.Size(989, 478);
+            this.gbDispositivo.Text = "Dispositivo Phoenix";
             // 
             // gbConfig
             // 
