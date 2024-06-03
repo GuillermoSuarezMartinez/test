@@ -420,7 +420,7 @@ namespace Orbita.VAFunciones
                 int intTipoFuncion = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["IdTipoFuncionVision"], 1, 3, 1);
                 this._TipoFuncionVision = (TipoFuncionVision)intTipoFuncion;
 
-                this._TipoEjecucionFuncionVision = OEnumRobusto<OTipoEjecucionFuncionVision>.Validar(dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), TipoEjecucionFuncionVision.EjecucionSincrona);
+                this._TipoEjecucionFuncionVision = OEnumRobusto<TipoEjecucionFuncionVision>.Validar(dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), TipoEjecucionFuncionVision.EjecucionSincrona);
                 //this._TipoEjecucionFuncionVision = (OTipoEjecucionFuncionVision)App.EnumParse(typeof(OTipoEjecucionFuncionVision), dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), OTipoEjecucionFuncionVision.EjecucionSincrona);
 
                 this._CodVariableEnEjecucion = dtFuncionVision.Rows[0]["CodVariable"].ToString();
@@ -1048,7 +1048,7 @@ namespace Orbita.VAFunciones
                 this._Descripcion = dtParametro.Rows[0]["DescParametroFuncionVision"].ToString();
                 this._CodVariable = dtParametro.Rows[0]["CodVariable"].ToString();
                 this._EsEntrada = (bool)dtParametro.Rows[0]["EsEntrada"];
-                this._OrigenValorParametro = OEnumRobusto<OOrigenValorParametro>.Validar(dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OrigenValorParametro.ValorPorCodigo);
+                this._OrigenValorParametro = OEnumRobusto<OrigenValorParametro>.Validar(dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OrigenValorParametro.ValorPorCodigo);
                 //this._OrigenValorParametro = (OOrigenValorParametro)App.EnumParse(typeof(OOrigenValorParametro), dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OOrigenValorParametro.ValorPorCodigo);
                 this._Tipo = (OEnumTipoDato)OEnteroRobusto.Validar(dtParametro.Rows[0]["IdTipoParametroFuncionVision"], 0, 99, 0);
 
