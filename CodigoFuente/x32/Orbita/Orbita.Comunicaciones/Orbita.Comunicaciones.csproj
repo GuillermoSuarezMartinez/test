@@ -151,6 +151,8 @@
     <Compile Include="Dispositivos\Colecciones\OEstadoComms.cs" />
     <Compile Include="Dispositivos\ODispositivoES.cs" />
     <Compile Include="Dispositivos\ODispositivoILBKPhoenix.cs" />
+    <Compile Include="Dispositivos\ODispositivoMCUSB.cs" />
+    <Compile Include="Dispositivos\ODispositivoSiemens1200ES.cs" />
     <Compile Include="Protocolos\ModBusTCP\OModbusTCP.cs" />
     <Compile Include="Protocolos\OPC\Constantes\Constantes.cs" />
     <Compile Include="Protocolos\OPC\Info\OOPCEnlaces.cs" />
