@@ -70,10 +70,10 @@ namespace Orbita.VAFunciones
             ListaFuncionesVision = null;
 
             // Se elimina la demanda del uso de LPR
-            LPRManager.FinDemandaUso();
+            OLPRManager.FinDemandaUso();
 
             // Se elimina la demanda del uso de OCR
-            CCRManager.FinDemandaUso();
+            OCCRManager.FinDemandaUso();
         }
 
         /// <summary>
@@ -356,11 +356,11 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Tipo de función de visión
         /// </summary>
-        private OTipoFuncionVision _TipoFuncionVision;
+        private TipoFuncionVision _TipoFuncionVision;
         /// <summary>
         /// Tipo de función de visión
         /// </summary>
-        public OTipoFuncionVision TipoFuncionVision
+        public TipoFuncionVision TipoFuncionVision
         {
             get { return _TipoFuncionVision; }
             set { _TipoFuncionVision = value; }
@@ -370,12 +370,12 @@ namespace Orbita.VAFunciones
         /// Indica si la ejecución se realiza por defecto en el mismo hilo de ejecución que la
         /// applicación principal o en un hijo de ejecución distinto
         /// </summary>
-        private OTipoEjecucionFuncionVision _TipoEjecucionFuncionVision;
+        private TipoEjecucionFuncionVision _TipoEjecucionFuncionVision;
         /// <summary>
         /// Indica si la ejecución se realiza por defecto en el mismo hilo de ejecución que la
         /// applicación principal o en un hijo de ejecución distinto
         /// </summary>
-        public OTipoEjecucionFuncionVision TipoEjecucionFuncionVision
+        public TipoEjecucionFuncionVision TipoEjecucionFuncionVision
         {
             get { return _TipoEjecucionFuncionVision; }
             set { _TipoEjecucionFuncionVision = value; }
@@ -418,9 +418,9 @@ namespace Orbita.VAFunciones
                 this._RutaFichero = dtFuncionVision.Rows[0]["RutaFichero"].ToString();
 
                 int intTipoFuncion = OEnteroRobusto.Validar(dtFuncionVision.Rows[0]["IdTipoFuncionVision"], 1, 3, 1);
-                this._TipoFuncionVision = (OTipoFuncionVision)intTipoFuncion;
+                this._TipoFuncionVision = (TipoFuncionVision)intTipoFuncion;
 
-                this._TipoEjecucionFuncionVision = OEnumRobusto<OTipoEjecucionFuncionVision>.Validar(dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), OTipoEjecucionFuncionVision.EjecucionSincrona);
+                this._TipoEjecucionFuncionVision = OEnumRobusto<OTipoEjecucionFuncionVision>.Validar(dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), TipoEjecucionFuncionVision.EjecucionSincrona);
                 //this._TipoEjecucionFuncionVision = (OTipoEjecucionFuncionVision)App.EnumParse(typeof(OTipoEjecucionFuncionVision), dtFuncionVision.Rows[0]["TipoEjecucion"].ToString(), OTipoEjecucionFuncionVision.EjecucionSincrona);
 
                 this._CodVariableEnEjecucion = dtFuncionVision.Rows[0]["CodVariable"].ToString();
@@ -483,11 +483,11 @@ namespace Orbita.VAFunciones
         {
             switch (this._TipoEjecucionFuncionVision)
             {
-                case OTipoEjecucionFuncionVision.EjecucionSincrona:
+                case TipoEjecucionFuncionVision.EjecucionSincrona:
                 default:
                     this.IniciarEjecucionSincrona();
                     break;
-                case OTipoEjecucionFuncionVision.EjecucionAsincrona:
+                case TipoEjecucionFuncionVision.EjecucionAsincrona:
                     this.IniciarEjecucionAsincrona();
                     break;
             }
@@ -504,7 +504,7 @@ namespace Orbita.VAFunciones
                 OCronometrosManager.Start(this._Codigo);
 
                 // Guardamos la traza
-                OVALogsManager.Info(OModulosFunciones.Vision, this._Codigo, "Inicio de la ejecución síncrona de la función " + this._Codigo);
+                OVALogsManager.Info(ModulosFunciones.Vision, this._Codigo, "Inicio de la ejecución síncrona de la función " + this._Codigo);
 
                 this.EjecucionTerminada = false;
 
@@ -527,7 +527,7 @@ namespace Orbita.VAFunciones
                 OCronometrosManager.Start(this._Codigo);
 
                 // Guardamos la traza
-                OVALogsManager.Info(OModulosFunciones.Vision, this._Codigo, "Inicio de la ejecución asíncrona de la función " + this._Codigo);
+                OVALogsManager.Info(ModulosFunciones.Vision, this._Codigo, "Inicio de la ejecución asíncrona de la función " + this._Codigo);
 
                 this.EjecucionTerminada = false;
 
@@ -552,7 +552,7 @@ namespace Orbita.VAFunciones
             {
                 switch (parametro.OrigenValorParametro)
                 {
-                    case OOrigenValorParametro.ValorPorCodigo:
+                    case OrigenValorParametro.ValorPorCodigo:
                         object valorSalida;
 
                         if (this.GetSalida(parametro.Codigo, out valorSalida, parametro.Tipo))
@@ -578,7 +578,7 @@ namespace Orbita.VAFunciones
             {
                 switch (parametro.OrigenValorParametro)
                 {
-                    case OOrigenValorParametro.ValorVariable:
+                    case OrigenValorParametro.ValorVariable:
                         valorEntrada = OVariablesManager.GetValue(parametro.CodVariable);
                         this.SetEntrada(parametro.Codigo, valorEntrada, parametro.Tipo);
                         break;
@@ -596,7 +596,7 @@ namespace Orbita.VAFunciones
             {
                 switch (parametro.OrigenValorParametro)
                 {
-                    case OOrigenValorParametro.ValorFijo:
+                    case OrigenValorParametro.ValorFijo:
                         valorEntrada = parametro.Valor;
                         this.SetEntrada(parametro.Codigo, valorEntrada, parametro.Tipo);
                         break;
@@ -614,7 +614,7 @@ namespace Orbita.VAFunciones
             {
                 switch (parametro.OrigenValorParametro)
                 {
-                    case OOrigenValorParametro.ValorVariable:
+                    case OrigenValorParametro.ValorVariable:
                         if (this.GetSalida(parametro.Codigo, out valorSalida, parametro.Tipo))
                         {
                             OVariablesManager.SetValue(parametro.CodVariable, valorSalida, "VisionFunction", this.Codigo);
@@ -707,7 +707,7 @@ namespace Orbita.VAFunciones
                 OCronometrosManager.Stop(this._Codigo);
 
                 // Guardamos la traza
-                OVALogsManager.Info(OModulosFunciones.Vision, this._Codigo, "Fin de la ejecución de la función " + this._Codigo + ". Duración: " + OCronometrosManager.DuracionUltimaEjecucion(this._Codigo).ToString());
+                OVALogsManager.Info(ModulosFunciones.Vision, this._Codigo, "Fin de la ejecución de la función " + this._Codigo + ". Duración: " + OCronometrosManager.DuracionUltimaEjecucion(this._Codigo).ToString());
 
                 // Llamada a la variable que indica el estado de ejecución de la función
                 OVariablesManager.SetValue(this._CodVariableEnEjecucion, false, "Vision", this.Codigo);
@@ -716,7 +716,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.Vision, this._Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.Vision, this._Codigo, exception);
             }
         }
         #endregion
@@ -815,7 +815,7 @@ namespace Orbita.VAFunciones
                 OCronometrosManager.Start(this.Codigo);
 
                 // Guardamos la traza
-                OVALogsManager.Info(OModulosFunciones.Vision, this.Codigo, "Inicio de la ejecución encolada de la función " + this.Codigo);
+                OVALogsManager.Info(ModulosFunciones.Vision, this.Codigo, "Inicio de la ejecución encolada de la función " + this.Codigo);
 
                 this.EjecucionTerminada = false;
 
@@ -864,7 +864,7 @@ namespace Orbita.VAFunciones
         /// Metodo virtual asociado al delegado donde se recibe un resultado parcial
         /// </summary>
         /// <returns></returns>
-        internal virtual void AñadirResultadoParcial(object sender, OEventArgsResultadoParcial e)
+        internal virtual void AñadirResultadoParcial(object sender, EventArgsResultadoParcial e)
         {
             try
             {
@@ -885,7 +885,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.Vision, this.Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.Vision, this.Codigo, exception);
             }
         }
 
@@ -914,7 +914,7 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// CallBack donde mandar el resultado parcial
         /// </summary>
-        public OCallBackResultadoParcial OnResultadoParcial;
+        public CallBackResultadoParcial OnResultadoParcial;
 
         #endregion
     }
@@ -980,11 +980,11 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Indica si se trata de un parámetro fijo o es una variable
         /// </summary>
-        private OOrigenValorParametro _OrigenValorParametro;
+        private OrigenValorParametro _OrigenValorParametro;
         /// <summary>
         /// Indica si se trata de un parámetro fijo o es una variable
         /// </summary>
-        public OOrigenValorParametro OrigenValorParametro
+        public OrigenValorParametro OrigenValorParametro
         {
             get { return _OrigenValorParametro; }
             set { _OrigenValorParametro = value; }
@@ -1048,11 +1048,11 @@ namespace Orbita.VAFunciones
                 this._Descripcion = dtParametro.Rows[0]["DescParametroFuncionVision"].ToString();
                 this._CodVariable = dtParametro.Rows[0]["CodVariable"].ToString();
                 this._EsEntrada = (bool)dtParametro.Rows[0]["EsEntrada"];
-                this._OrigenValorParametro = OEnumRobusto<OOrigenValorParametro>.Validar(dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OOrigenValorParametro.ValorPorCodigo);
+                this._OrigenValorParametro = OEnumRobusto<OOrigenValorParametro>.Validar(dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OrigenValorParametro.ValorPorCodigo);
                 //this._OrigenValorParametro = (OOrigenValorParametro)App.EnumParse(typeof(OOrigenValorParametro), dtParametro.Rows[0]["OrigenValorParametro"].ToString(), OOrigenValorParametro.ValorPorCodigo);
                 this._Tipo = (OEnumTipoDato)OEnteroRobusto.Validar(dtParametro.Rows[0]["IdTipoParametroFuncionVision"], 0, 99, 0);
 
-                if (this._OrigenValorParametro == OOrigenValorParametro.ValorFijo)
+                if (this._OrigenValorParametro == OrigenValorParametro.ValorFijo)
                 {
                     switch (this._Tipo)
                     {
@@ -1078,7 +1078,7 @@ namespace Orbita.VAFunciones
     /// <summary>
     /// Enumerado que identifica a los tipos de funciones de visión
     /// </summary>
-    public enum OTipoFuncionVision
+    public enum TipoFuncionVision
     {
         /// <summary>
         /// Función propia
@@ -1101,7 +1101,7 @@ namespace Orbita.VAFunciones
     /// <summary>
     /// Indica el tipo de ejecución que se realizará en la función de visión
     /// </summary>
-    public enum OTipoEjecucionFuncionVision
+    public enum TipoEjecucionFuncionVision
     {
         /// <summary>
         /// Ejecución sincrona de la función de visión
@@ -1120,7 +1120,7 @@ namespace Orbita.VAFunciones
     /// <summary>
     /// Enumerado que informa sobre el origen del valor de un parámetro
     /// </summary>
-    public enum OOrigenValorParametro
+    public enum OrigenValorParametro
     {
         /// <summary>
         /// Valor fijado en la base de datos (únicamente válido para las entradas)
@@ -1195,7 +1195,7 @@ namespace Orbita.VAFunciones
     /// <summary>
     /// Parametros de retorno del evento que indica de la llegada de un mensaje actualizacion
     /// </summary>
-    public class OEventArgsResultadoParcial : EventArgs
+    public class EventArgsResultadoParcial : EventArgs
     {
         #region Atributo(s)
         /// <summary>
@@ -1208,14 +1208,14 @@ namespace Orbita.VAFunciones
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OEventArgsResultadoParcial()
+        public EventArgsResultadoParcial()
         {
             this.InfoInspeccion = new object();
         }
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OEventArgsResultadoParcial(object infoInspeccion)
+        public EventArgsResultadoParcial(object infoInspeccion)
         {
             this.InfoInspeccion = infoInspeccion;
         }
@@ -1227,6 +1227,6 @@ namespace Orbita.VAFunciones
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public delegate void OCallBackResultadoParcial(object sender, OEventArgsResultadoParcial e);
+    public delegate void CallBackResultadoParcial(object sender, EventArgsResultadoParcial e);
     #endregion
 }

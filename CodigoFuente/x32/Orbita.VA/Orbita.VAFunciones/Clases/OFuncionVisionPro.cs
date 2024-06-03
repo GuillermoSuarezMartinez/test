@@ -54,7 +54,7 @@ namespace Orbita.VAFunciones
         {
             try
             {
-                this.TipoFuncionVision = OTipoFuncionVision.VisionPro;
+                this.TipoFuncionVision = TipoFuncionVision.VisionPro;
 
                 // Creación de los campos
                 this.ThreadEjecucion = new BackgroundWorker();
@@ -94,7 +94,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.VisionPro, this.Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.VisionPro, this.Codigo, exception);
             }
         }
 
@@ -115,7 +115,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.VisionPro, this.Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.VisionPro, this.Codigo, exception);
             }
         }
 
@@ -162,7 +162,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.VisionPro, this.Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.VisionPro, this.Codigo, exception);
             }
         }
 
@@ -206,7 +206,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.VisionPro, this.Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.VisionPro, this.Codigo, exception);
             }
 
             return resultado;
@@ -229,7 +229,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.VisionPro, this.Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.VisionPro, this.Codigo, exception);
             }
 
             return resultado;
@@ -281,7 +281,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.VisionPro, this.Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.VisionPro, this.Codigo, exception);
             }
             return functionReturnValue;
         }
@@ -326,7 +326,7 @@ namespace Orbita.VAFunciones
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosFunciones.VisionPro, this.Codigo, exception);
+                OVALogsManager.Error(ModulosFunciones.VisionPro, this.Codigo, exception);
             }
             return functionReturnValue;
         }
