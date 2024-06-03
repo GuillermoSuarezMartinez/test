@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Segoe UI" Size="9" />
+  <Class Name="OrbitaVAMaquinaEstados.MaquinaEstadosBase">
+    <Position X="4.25" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>StateMachine.cs</FileName>
+      <HashCode>IiAAGQAgAQAIBACAQAABgQIBEAAgwREkhCQA/EABBYA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="EstadoInicial" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="ListaEstados" />
+      <Field Name="ListaTransiciones" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="_Cadencia" Hidden="true" />
+      <Field Name="_Codigo" Hidden="true" />
+      <Field Name="_ColectorBasuraManual" Hidden="true" />
+      <Field Name="_Descripcion" Hidden="true" />
+      <Field Name="_Habilitado" Hidden="true" />
+      <Field Name="_Nombre" Hidden="true" />
+      <Field Name="_Valido" Hidden="true" />
+      <Method Name="BuscaEstado" Hidden="true" />
+      <Method Name="BuscaEstadoInicial" Hidden="true" />
+      <Method Name="BuscaTransicionesEntrantes" Hidden="true" />
+      <Method Name="BuscaTransicionesSalientes" Hidden="true" />
+      <Property Name="Cadencia" Hidden="true" />
+      <Method Name="CrearSuscripcionVariables" Hidden="true" />
+      <Method Name="EjecutarNuevoEstado" Hidden="true" />
+      <Method Name="EjecutarTransiciones" Hidden="true" />
+      <Method Name="EliminarSuscripcionVariables" Hidden="true" />
+      <Field Name="EstadoActual" Hidden="true" />
+      <Method Name="EventoTimerEjecucion" Hidden="true" />
+      <Method Name="Finalizar" Hidden="true" />
+      <Method Name="Inicializar" Hidden="true" />
+      <Method Name="IniciarEjecucion" Hidden="true" />
+      <Method Name="MaquinaEstadosBase" Hidden="true" />
+      <Method Name="NuevaTransicion" Hidden="true" />
+      <Method Name="NuevoEstado" Hidden="true" />
+      <Method Name="PararEjecucion" Hidden="true" />
+      <Method Name="PepararEjecucion" Hidden="true" />
+      <Field Name="TimerEjecucion" Hidden="true" />
+      <Method Name="Validar" Hidden="true" />
+      <Property Name="Valido" Hidden="true" />
+      <Field Name="VariableEstadoActual" Hidden="true" />
+    </Members>
+    <AssociationLine Name="ListaEstados" Type="OrbitaVAMaquinaEstados.EstadoBase" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="5.039" />
+        <Point X="8.5" Y="5.039" />
+        <Point X="8.5" Y="8" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.067" Y="0.141" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ListaTransiciones" Type="OrbitaVAMaquinaEstados.TransicionBase" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.25" Y="4.665" />
+        <Point X="2.188" Y="4.665" />
+        <Point X="2.188" Y="8" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.375" Y="0.144" Height="0.182" Width="1.223" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="EstadoInicial" Type="OrbitaVAMaquinaEstados.EstadoBase" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="4.637" />
+        <Point X="8.938" Y="4.637" />
+        <Point X="8.938" Y="8" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.121" Y="0.148" Height="0.182" Width="1.001" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="OrbitaVAMaquinaEstados.EstadoBase">
+    <Position X="7.5" Y="8" Width="2" />
+    <TypeIdentifier>
+      <FileName>StateMachine.cs</FileName>
+      <HashCode>AgBAEIAAAUAAJAIBQAAAgCABAAIAABElAACAAACAwIA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="ListaTransicionesEntrantes" />
+      <Field Name="ListaTransicionesSalientes" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="_Codigo" Hidden="true" />
+      <Field Name="_CodigoMaquinaEstados" Hidden="true" />
+      <Field Name="_Descripcion" Hidden="true" />
+      <Field Name="_EnEjecucion" Hidden="true" />
+      <Field Name="_EsEstadoInicial" Hidden="true" />
+      <Field Name="_Habilitado" Hidden="true" />
+      <Field Name="_Monitorizado" Hidden="true" />
+      <Field Name="_Nombre" Hidden="true" />
+      <Field Name="_TimeOut" Hidden="true" />
+      <Method Name="EstadoBase" Hidden="true" />
+      <Method Name="Finalizar" Hidden="true" />
+      <Method Name="Inicializar" Hidden="true" />
+      <Method Name="IniciarEjecucion" Hidden="true" />
+      <Method Name="PararEjecucion" Hidden="true" />
+    </Members>
+    <AssociationLine Name="ListaTransicionesEntrantes" Type="OrbitaVAMaquinaEstados.TransicionBase" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="8.614" />
+        <Point X="3.5" Y="8.614" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ListaTransicionesSalientes" Type="OrbitaVAMaquinaEstados.TransicionBase" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="8.878" />
+        <Point X="3.5" Y="8.878" />
+      </Path>
+    </AssociationLine>
+  </Class>
+  <Class Name="OrbitaVAMaquinaEstados.TransicionBase">
+    <Position X="1.25" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>StateMachine.cs</FileName>
+      <HashCode>AgAEEMAAAQBEAAAQQAAAgAAAEFAAABFhAAAIAACABAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EstadoOrigen" />
+      <Property Name="EstadoDestino" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="_Codigo" Hidden="true" />
+      <Field Name="_CodigoMaquinaEstados" Hidden="true" />
+      <Field Name="_EstadoDestino" Hidden="true" />
+      <Field Name="_EstadoOrigen" Hidden="true" />
+      <Field Name="_ExplicacionCondicionEsperada" Hidden="true" />
+      <Field Name="_Habilitado" Hidden="true" />
+      <Field Name="_Monitorizado" Hidden="true" />
+      <Field Name="_Nombre" Hidden="true" />
+      <Field Name="_VariablesUtilizadas" Hidden="true" />
+      <Field Name="CodigoEstadoDestino" Hidden="true" />
+      <Field Name="CodigoEstadoOrigen" Hidden="true" />
+      <Method Name="Finalizar" Hidden="true" />
+      <Method Name="Inicializar" Hidden="true" />
+      <Method Name="IniciarComprobacionCondiciones" Hidden="true" />
+      <Method Name="TransicionBase" Hidden="true" />
+    </Members>
+    <AssociationLine Name="EstadoOrigen" Type="OrbitaVAMaquinaEstados.EstadoBase" FixedToPoint="true">
+      <Path>
+        <Point X="3.5" Y="9.709" />
+        <Point X="7.5" Y="9.709" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="EstadoDestino" Type="OrbitaVAMaquinaEstados.EstadoBase" FixedToPoint="true">
+      <Path>
+        <Point X="3.5" Y="10.028" />
+        <Point X="7.5" Y="10.028" />
+      </Path>
+    </AssociationLine>
+  </Class>
+  <Class Name="OrbitaVAMaquinaEstados.StateMachineRuntime">
+    <Position X="4" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>StateMachine.cs</FileName>
+      <HashCode>IgAAAEQgAAACJEAAQAAAAAAAAAAAAAAgAAQAABAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="ListaMaquinasEstados" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Method Name="IniciarEjecucion" Hidden="true" />
+      <Method Name="NuevaMaquinaEstados" Hidden="true" />
+    </Members>
+    <AssociationLine Name="ListaMaquinasEstados" Type="OrbitaVAMaquinaEstados.MaquinaEstadosBase">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.727" Y="0.149" Height="0.182" Width="1.585" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+</ClassDiagram>

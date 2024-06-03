@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Segoe UI" Size="9" />
+  <Class Name="Orbita.VAHardware.FrmMonitorizacionCamaras" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>FrmMonitorizacionCamaras.cs</FileName>
+      <HashCode>AAAQAAAAACAAAAAAAACAAAECAAQAAAAAAAAAAAEAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="layFondoCamaras" Hidden="true" />
+      <Field Name="NumeroCamaras" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="Orbita.VAHardware.CameraRuntime" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>FrmMonitorizacionCamaras.cs</FileName>
+      <HashCode>AgAAAEwAACAAIAAACIAAAAMAAABAAAAgMAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="FrmMonitorizacionCamaras" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="ListaCamaras" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="ListaCamaras" Type="Orbita.VAHardware.CtrlCamera" FixedToPoint="true">
+      <Path>
+        <Point X="5.625" Y="1.062" />
+        <Point X="5.625" Y="3.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.448" Y="2.168" Height="0.182" Width="1.412" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="Orbita.VAHardware.CtrlCamera" Collapsed="true">
+    <Position X="4.25" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>CtrlCamera.cs</FileName>
+      <HashCode>AiAMEsiBQSAAAmAABJDEgRETIDhYABEkLAgggkMAQAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SimulacionCamara" />
+      <Property Name="TipoCamara" />
+      <Property Name="ImagenActual" />
+      <Property Name="Color" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="ListaTerminales" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="_Codigo" Hidden="true" />
+      <Field Name="_CodigoTipoCamara" Hidden="true" />
+      <Field Name="_CodVariableImagen" Hidden="true" />
+      <Field Name="_Color" Hidden="true" />
+      <Field Name="_Conectado" Hidden="true" />
+      <Field Name="_Descripcion" Hidden="true" />
+      <Field Name="_DescripcionTipoCamara" Hidden="true" />
+      <Field Name="_Existe" Hidden="true" />
+      <Field Name="_Fabricante" Hidden="true" />
+      <Field Name="_Grab" Hidden="true" />
+      <Field Name="_Habilitado" Hidden="true" />
+      <Field Name="_ImagenActual" Hidden="true" />
+      <Field Name="_Modelo" Hidden="true" />
+      <Field Name="_Nombre" Hidden="true" />
+      <Field Name="_Resolucion" Hidden="true" />
+      <Field Name="_TipoCamara" Hidden="true" />
+      <Field Name="_VisualizacionEnVivo" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Constructor" Hidden="true" />
+      <Method Name="CtrlCamera" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="EstablecerVariableAsociada" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="InternalSnap" Hidden="true" />
+      <Method Name="InternalStart" Hidden="true" />
+      <Method Name="InternalStop" Hidden="true" />
+      <Field Name="lblTituloCamara" Hidden="true" />
+      <Field Name="pnlTituloCamara" Hidden="true" />
+      <Method Name="SnapSimulado" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="TipoCamara" Type="Orbita.VAHardware.TipoCamara" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.125" Y="3.5" />
+        <Point X="5.125" Y="1.75" />
+        <Point X="4.25" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Color" Type="Orbita.VAHardware.TipoColorPixel" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.812" Y="3.5" />
+        <Point X="4.812" Y="2.5" />
+        <Point X="4.25" Y="2.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="SimulacionCamara" Type="Orbita.VAHardware.SimulacionCamara" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.062" Y="3.5" />
+        <Point X="6.062" Y="2.563" />
+        <Point X="8.25" Y="2.563" />
+      </Path>
+    </AssociationLine>
+  </Class>
+  <Class Name="Orbita.VAHardware.CrtlCameraBaslerVPro" Collapsed="true">
+    <Position X="4.25" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>CrtlCameraBaslerVPro.cs</FileName>
+      <HashCode>AiCiXAKAcCEIMgACFNTBBQEGMFwBAQSoBESm2cBBCFg=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="AcquisitionMode" />
+      <Property Name="ImagenActual" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="AcqFifo" Hidden="true" />
+      <Field Name="AcquisitionFormat" Hidden="true" />
+      <Field Name="AcquisitionFormatDefault" Hidden="true" />
+      <Field Name="AcquisitionFormatValues" Hidden="true" />
+      <Field Name="AcquisitionModeDefault" Hidden="true" />
+      <Field Name="AcquisitionModeValues" Hidden="true" />
+      <Field Name="AOI" Hidden="true" />
+      <Field Name="BlackLevel" Hidden="true" />
+      <Field Name="BlackLevelDefault" Hidden="true" />
+      <Field Name="BlackLevelMax" Hidden="true" />
+      <Field Name="BlackLevelMin" Hidden="true" />
+      <Method Name="CompleteAcquisition" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="CrtlCameraBaslerVPro" Hidden="true" />
+      <Field Name="DeviceID" Hidden="true" />
+      <Field Name="Display" Hidden="true" />
+      <Field Name="DisplayStatusBar" Hidden="true" />
+      <Field Name="DisplayToolbar" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="EventoScan" Hidden="true" />
+      <Field Name="Features" Hidden="true" />
+      <Field Name="FrameGrabber" Hidden="true" />
+      <Field Name="Gain" Hidden="true" />
+      <Field Name="GainAuto" Hidden="true" />
+      <Field Name="GainAutoDefault" Hidden="true" />
+      <Field Name="GainAutoValues" Hidden="true" />
+      <Field Name="GainDefault" Hidden="true" />
+      <Field Name="GainMax" Hidden="true" />
+      <Field Name="GainMin" Hidden="true" />
+      <Field Name="Gamma" Hidden="true" />
+      <Field Name="GammaDefault" Hidden="true" />
+      <Field Name="GammaEnable" Hidden="true" />
+      <Field Name="GammaEnableDefault" Hidden="true" />
+      <Field Name="GammaMax" Hidden="true" />
+      <Field Name="GammaMin" Hidden="true" />
+      <Method Name="GetCurrentImage" Hidden="true" />
+      <Field Name="ImageFormat" Hidden="true" />
+      <Field Name="ImageFormatDefault" Hidden="true" />
+      <Field Name="ImageFormatValues" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="InternalSnap" Hidden="true" />
+      <Method Name="InternalStart" Hidden="true" />
+      <Method Name="InternalStop" Hidden="true" />
+      <Field Name="Line1" Hidden="true" />
+      <Field Name="Line2" Hidden="true" />
+      <Field Name="Out1" Hidden="true" />
+      <Field Name="Out2" Hidden="true" />
+      <Field Name="Out3" Hidden="true" />
+      <Field Name="Out4" Hidden="true" />
+      <Method Name="SetCurrentImage" Hidden="true" />
+      <Field Name="Shutter" Hidden="true" />
+      <Field Name="ShutterDefault" Hidden="true" />
+      <Field Name="ShutterMax" Hidden="true" />
+      <Field Name="ShutterMin" Hidden="true" />
+      <Field Name="timerScan" Hidden="true" />
+      <Field Name="TransferFormat" Hidden="true" />
+      <Field Name="TransferFormatDefault" Hidden="true" />
+      <Field Name="TransferFormatValues" Hidden="true" />
+      <Field Name="TriggerOnRisingEdge" Hidden="true" />
+      <Field Name="TriggerOnRisingEdgeDefault" Hidden="true" />
+      <Field Name="TriggerSource" Hidden="true" />
+      <Field Name="TriggerSourceDefault" Hidden="true" />
+      <Field Name="TriggerSourceValues" Hidden="true" />
+      <Field Name="WhiteBalanceBlue" Hidden="true" />
+      <Field Name="WhiteBalanceDefault" Hidden="true" />
+      <Field Name="WhiteBalanceGreen" Hidden="true" />
+      <Field Name="WhiteBalanceMax" Hidden="true" />
+      <Field Name="WhiteBalanceMin" Hidden="true" />
+      <Field Name="WhiteBalanceRed" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="Orbita.VAHardware.OrbitaImage" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>OrbitaImage.cs</FileName>
+      <HashCode>AAAIAAAAACAAABAAAJYAAAAAAAAAABQAAAAAKAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TipoImagen" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="_Image" Hidden="true" />
+      <Field Name="_TipoImagen" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Orbita.VAHardware.VisionProImage" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>VisionProImage.cs</FileName>
+      <HashCode>AAAIAAAAACAAABAAABQAAAAAAAAAABAAAAAAIAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Property Name="Image" Hidden="true" />
+      <Method Name="VisionProImage" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="Orbita.VAHardware.SimulacionCamara" Collapsed="true">
+    <Position X="8.25" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>CtrlCamera.cs</FileName>
+      <HashCode>YAQAGSAAAQBAAkAAACQgABAEAKABIAAAAAAQAAEAAIQ=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TipoSimulacion" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="_Codigo" Hidden="true" />
+      <Field Name="_Filtro" Hidden="true" />
+      <Field Name="_IntervaloEntreSnaps" Hidden="true" />
+      <Field Name="_OnSnapSimulado" Hidden="true" />
+      <Field Name="_RutaFotografias" Hidden="true" />
+      <Field Name="_Simulacion" Hidden="true" />
+      <Field Name="_TipoSimulacion" Hidden="true" />
+      <Field Name="IndiceFotografia" Hidden="true" />
+      <Method Name="SimulacionCamara" Hidden="true" />
+      <Field Name="TimerSimulacionGrab" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="Orbita.VAHardware.TerminalIOBase" Collapsed="true">
+    <Position X="1" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>IOBase.cs</FileName>
+      <HashCode>BgAAEAIAAQAAAAAAAAIAwABFAAAAABEFAQAAAgAJAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Orbita.VAHardware.TerminalIOBaslerVproBit" Collapsed="true">
+    <Position X="1" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>CrtlCameraBaslerVPro.cs</FileName>
+      <HashCode>AgAAAAAAAAAAAAAAAgABQAAEAAAAAAAAAAAAAgAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Orbita.VAHardware.FrmGestionSimulacion" Collapsed="true">
+    <Position X="8" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>FrmGestionSimulacion.cs</FileName>
+      <HashCode>IFIAgAiAASCABgSBAgiAQhACgiYAEI0AUEBAwgCBUFA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SimulacionCamara" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="BindingSimulacionCamara" Hidden="true" />
+      <Field Name="bindingTipoSimulacion" Hidden="true" />
+      <Field Name="btnDialogoRuta" Hidden="true" />
+      <Method Name="btnDialogoRuta_Click" Hidden="true" />
+      <Field Name="cboTipoSimulacion" Hidden="true" />
+      <Field Name="checkSimulacion" Hidden="true" />
+      <Field Name="codigoDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="codVariableDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="descVariableDataGridViewTextBoxColumn" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="folderBrowserDialog" Hidden="true" />
+      <Method Name="FrmGestionSimulacion" Hidden="true" />
+      <Field Name="gridMaster" Hidden="true" />
+      <Field Name="grupoDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="guardarTrazabilidadDataGridViewCheckBoxColumn" Hidden="true" />
+      <Field Name="habilitadoVariableDataGridViewCheckBoxColumn" Hidden="true" />
+      <Field Name="idVariableDataGridViewTextBoxColumn" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="intervaloEntreSnapsDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="lblFiltro" Hidden="true" />
+      <Field Name="lblIntervaloEntreSnaps" Hidden="true" />
+      <Field Name="lblMsIntervaloEntreSnaps" Hidden="true" />
+      <Field Name="lblRutaFotografias" Hidden="true" />
+      <Field Name="lblSimulacion" Hidden="true" />
+      <Field Name="lblTipoSimulacion" Hidden="true" />
+      <Field Name="nombreVariableDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="openFileDialog" Hidden="true" />
+      <Field Name="pageGestion" Hidden="true" />
+      <Field Name="pnlFormulario" Hidden="true" />
+      <Field Name="rutaFotografiasDataGridViewTextBoxColumn" Hidden="true" />
+      <Method Name="Simulacion_StateChanged" Hidden="true" />
+      <Field Name="simulacionDataGridViewCheckBoxColumn" Hidden="true" />
+      <Field Name="tabGestion" Hidden="true" />
+      <Field Name="tipoSimulacionDataGridViewTextBoxColumn" Hidden="true" />
+      <Field Name="toolStripContainer1" Hidden="true" />
+      <Field Name="txtFiltro" Hidden="true" />
+      <Field Name="txtIntervaloEntreSnaps" Hidden="true" />
+      <Field Name="txtRutaFotografias" Hidden="true" />
+      <Field Name="ultraTabPageControl2" Hidden="true" />
+      <Field Name="ultraTabSharedControlsPage1" Hidden="true" />
+    </Members>
+    <AssociationLine Name="SimulacionCamara" Type="Orbita.VAHardware.SimulacionCamara">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.098" Y="0.779" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Enum Name="Orbita.VAHardware.TipoCamara" Collapsed="true">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CtrlCamera.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Orbita.VAHardware.TipoColorPixel" Collapsed="true">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CtrlCamera.cs</FileName>
+      <HashCode>AAAAAAIAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Orbita.VAHardware.TipoSimulacionCamara" Collapsed="true">
+    <Position X="11.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CtrlCamera.cs</FileName>
+      <HashCode>AAAQAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Orbita.VAHardware.ModoAdquisicion" Collapsed="true">
+    <Position X="4.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CrtlCameraBaslerVPro.cs</FileName>
+      <HashCode>AAAAAAAAAgAIAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Orbita.VAHardware.TipoImagen" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>OrbitaImage.cs</FileName>
+      <HashCode>AAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

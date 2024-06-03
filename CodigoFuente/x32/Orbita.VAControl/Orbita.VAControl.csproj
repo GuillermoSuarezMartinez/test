@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CA30AAB-0DA9-4947-B5C5-E81E9A2D9C18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Orbita.VAControl</RootNamespace>
+    <AssemblyName>Orbita.VAControl</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAControl.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAControl.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Forzar32|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAControl.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAControl.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Comun\Orbita\Orbita.VAControl.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Forzar32|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Orbita.VAControl.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ofuscado|AnyCPU'">
+    <OutputPath>bin\Ofuscado\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>..\Bin\Orbita.VAControl.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>..\Bin\Orbita.VAControl.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ofuscado|x86'">
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\Comun\Orbita\Orbita.VAControl.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Infragistics2.Shared.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Controles\v6\Infragistics2.Shared.v6.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics2.Win.Misc.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Controles\v6\Infragistics2.Win.Misc.v6.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinChart.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Controles\v6\Infragistics2.Win.UltraWinChart.v6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinDataSource.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Controles\v6\Infragistics2.Win.UltraWinDataSource.v6.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Controles\v6\Infragistics2.Win.UltraWinEditors.v6.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Controles\v6\Infragistics2.Win.UltraWinGrid.v6.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinToolbars.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Controles\v6\Infragistics2.Win.UltraWinToolbars.v6.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Infragistics2.Win.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Controles\v6\Infragistics2.Win.v6.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OrbitaBBDD, Version=12.206.3.2, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\Comun\Orbita\VA\OrbitaBBDD.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OrbitaControles, Version=11.265.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Comun\Orbita\VA\OrbitaControles.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OrbitaUtiles, Version=12.206.3.2, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\Comun\Orbita\VA\OrbitaUtiles.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\AppBD.cs" />
+    <Compile Include="Clases\Escenario.cs" />
+    <Compile Include="Clases\ExtensionLogs.cs" />
+    <Compile Include="Clases\Variables.cs" />
+    <Compile Include="Controles\CtrlVariableChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\CtrlVariableChart.Designer.cs">
+      <DependentUpon>CtrlVariableChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\CtrlVariableChartBool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\CtrlVariableChartBool.Designer.cs">
+      <DependentUpon>CtrlVariableChartBool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\CtrlStateMachineDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\CtrlStateMachineDisplay.Designer.cs">
+      <DependentUpon>CtrlStateMachineDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmGestionVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmGestionVariables.Designer.cs">
+      <DependentUpon>FrmGestionVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmGestionVariablesEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmGestionVariablesEdicion.Designer.cs">
+      <DependentUpon>FrmGestionVariablesEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmMonitorizacionMaquinaEstados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmMonitorizacionMaquinaEstados.designer.cs">
+      <DependentUpon>FrmMonitorizacionMaquinaEstados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmMonitorizacionVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmMonitorizacionVariables.Designer.cs">
+      <DependentUpon>FrmMonitorizacionVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmVariableChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmVariableChart.Designer.cs">
+      <DependentUpon>FrmVariableChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\MaquinasEstados.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Diagramas\StateMachineDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controles\CtrlVariableChart.resx">
+      <DependentUpon>CtrlVariableChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\CtrlVariableChartBool.resx">
+      <DependentUpon>CtrlVariableChartBool.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\CtrlStateMachineDisplay.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CtrlStateMachineDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmGestionVariables.resx">
+      <DependentUpon>FrmGestionVariables.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmGestionVariablesEdicion.resx">
+      <DependentUpon>FrmGestionVariablesEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Formularios\FrmMonitorizacionVariables.Designer.Images.resx">
+      <DependentUpon>FrmMonitorizacionVariables.Designer.cs</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Formularios\FrmMonitorizacionMaquinaEstados.resx">
+      <DependentUpon>FrmMonitorizacionMaquinaEstados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmMonitorizacionVariables.resx">
+      <DependentUpon>FrmMonitorizacionVariables.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmVariableChart.resx">
+      <DependentUpon>FrmVariableChart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAdd16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCancelar24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnEliminar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnGuardar24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnModificar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnVer16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgBeginning24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgDelete24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgEstado16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgEstado24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgFoto24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgFoto32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgFotoForzada24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgFotoForzada32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgLast24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgMonitorizarVariable24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgNew24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgNext24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgNumero24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgNumero32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgNumeroForzada24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgNumeroForzada32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgPrev24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgTexto24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgTexto32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgTextoForzada24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgTextoForzada32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgTransicion16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgTransicion24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVariableActiva24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVariableActiva32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVariableActivaForzada24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVariableActivaForzada32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVariableInactiva24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVariableInactiva32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVariableInactivaForzada24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVariableInactivaForzada32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVistasVariables24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgEscenariosVariables.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgInfo24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgStop24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgWarning24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgNuevaTransicion24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgNuevoEstado24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orbita.VAComun\Orbita.VAComun.csproj">
+      <Project>{CC36FE63-3F16-4355-A11D-F0926DFBC977}</Project>
+      <Name>Orbita.VAComun</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>..\Bin\Orbita.VAControl.bat $(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

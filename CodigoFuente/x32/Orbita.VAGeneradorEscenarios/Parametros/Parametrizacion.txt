@@ -1,0 +1,5 @@
+﻿----- LPR -----
+OrbitaVAPersonalizacion "C:\PROYECTOS\Astra Sistemas\Sistemas\LPR\Codigo Fuente\OrbitaVA_LPR\Bin\ConfiguracionOrbitaVA.xml" "C:\PROYECTOS\Astra Sistemas\Sistemas\LPR\Codigo Fuente\OrbitaVA_LPR\OrbitaVAPersonalizacion\Clases\StateMachinePersonalizacion.cs" Vars Hard
+
+----- ORQUESTADOR -----
+OrbitaOrquestador "C:\PROYECTOS\Astra Sistemas\Sistemas\Orquestador\Codigo Fuente\OrbitaOrquestador\Bin\ConfiguracionOrbitaOrquestador.xml" "C:\PROYECTOS\Astra Sistemas\Sistemas\Orquestador\Codigo Fuente\OrbitaOrquestador\OrbitaOrquestador\Clases\StateMachinePersonalizacion.cs"  Vars NoHard
