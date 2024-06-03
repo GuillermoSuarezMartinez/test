@@ -154,6 +154,10 @@
     <Compile Include="Protocolos\ModBusTCP\OModbusTCP.cs" />
     <Compile Include="Protocolos\OPC\Constantes\Constantes.cs" />
     <Compile Include="Protocolos\OPC\Info\OOPCEnlaces.cs" />
+    <Compile Include="Protocolos\Phoenix\ProtocoloTCPPhoenixES.cs" />
+    <Compile Include="Protocolos\Siemens\ProtocoloTCPSiemens.cs" />
+    <Compile Include="Protocolos\Siemens\ProtocoloTCPSiemensGateOCRES.cs" />
+    <Compile Include="Protocolos\Siemens\ProtocoloTCPSiemensGateOSES.cs" />
     <Compile Include="Protocolos\WinCC\OWinCCDataManager.cs" />
     <Compile Include="Puertos\OConfiguracionPuerto.cs" />
     <Compile Include="Puertos\OInformacionPuerto.cs" />
@@ -212,6 +216,7 @@
       <Name>Orbita.Winsock</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)Orbita.Comunicaciones.dll" "$(ProjectDir)\..\..\Comun\Orbita" /R /Y /I</PostBuildEvent>

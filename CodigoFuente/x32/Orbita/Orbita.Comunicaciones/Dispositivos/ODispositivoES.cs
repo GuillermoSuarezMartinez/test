@@ -11,9 +11,6 @@ using Orbita.Winsock;
 
 namespace Orbita.Comunicaciones
 {
-    /// <summary>
-    /// Dispositivo de entradas y salidas
-    /// </summary>
     public class ODispositivoES : ODispositivo
     {
 
@@ -43,6 +40,14 @@ namespace Orbita.Comunicaciones
         /// Segundos para la reconexión con el dispositivo
         /// </summary>
         public decimal SegReconexion = 1;
+        /// <summary>
+        /// Valor devuelto para las entradas
+        /// </summary>
+        public byte[] Entradas;
+        /// <summary>
+        /// Valor devuelto para las salidas
+        /// </summary>
+        public byte[] Salidas;
         #endregion
 
         #region Constructores
@@ -51,7 +56,7 @@ namespace Orbita.Comunicaciones
         /// </summary>
         public ODispositivoES(OTags tags, OHilos hilos, ODispositivo dispositivo)
         {
-            LogManager.GetLogger("wrapper").Info("Creando dispositivo ODispositivoTCP");
+            LogManager.GetLogger("wrapper").Info("Creando dispositivo ODispositivoES");
 
             try
             {
@@ -66,6 +71,7 @@ namespace Orbita.Comunicaciones
                 this.Direccion = dispositivo.Direccion;
                 this.Local = dispositivo.Local;
                 this.Puerto = dispositivo.Puerto;
+                this.Protocolo = dispositivo.Protocolo;
                 Hilos = hilos;
             }
             catch (Exception ex)
@@ -112,7 +118,6 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// Inicializar grupos, punteros e items.
         /// </summary>
-        [EnvironmentPermissionAttribute(SecurityAction.Demand, Unrestricted = true)]
         public override void Iniciar()
         {
             this.InicHiloVida();
@@ -150,6 +155,13 @@ namespace Orbita.Comunicaciones
             return this.Tags.GetAlarmas();
         }
         /// <summary>
+        /// Proceso del hilo de vida.
+        /// </summary>
+        public virtual void ProcesarHiloVida()
+        {
+
+        }
+        /// <summary>
         /// Limpia los objetos en memoria
         /// </summary>
         /// <param name="disposing"></param>
@@ -169,13 +181,6 @@ namespace Orbita.Comunicaciones
             // Crear el objeto Hilo e iniciarlo. El parámetro iniciar indica
             // a la colección que una vez añadido el hilo se iniciado.
             Hilos.Add(new ThreadStart(ProcesarHiloVida), true);
-        }
-        /// <summary>
-        /// Proceso del hilo de vida.
-        /// </summary>
-        public virtual void ProcesarHiloVida()
-        {
-
         }
 
         #endregion
