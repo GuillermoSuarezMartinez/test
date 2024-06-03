@@ -362,7 +362,6 @@
         private System.Windows.Forms.Button btnLeerAlarmas;
         private System.Windows.Forms.GroupBox gbCDato;
         private System.Windows.Forms.ListView listViewCDato;
-        private System.Windows.Forms.Panel pnlDispSup;
         private System.Windows.Forms.Label lblVarEscritura;
         private System.Windows.Forms.TextBox txtValEscribir;
         private System.Windows.Forms.Label lblVarLectura;
@@ -382,5 +381,6 @@
         public System.Windows.Forms.GroupBox gbConfig;
         public System.Windows.Forms.TextBox txtVarEscribir;
         public System.Windows.Forms.TextBox txtVarLeer;
+        public System.Windows.Forms.Panel pnlDispSup;
     }
 }

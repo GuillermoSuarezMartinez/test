@@ -102,6 +102,9 @@
     <EmbeddedResource Include="OClienteComsOPC.resx">
       <DependentUpon>OClienteComsOPC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OClienteESPhoenixILBK48.resx">
+      <DependentUpon>OClienteESPhoenixILBK48.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OClienteESPhoenixILBK482.resx">
       <DependentUpon>OClienteESPhoenixILBK482.cs</DependentUpon>
     </EmbeddedResource>

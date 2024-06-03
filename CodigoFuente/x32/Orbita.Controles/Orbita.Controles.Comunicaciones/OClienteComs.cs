@@ -36,19 +36,19 @@ namespace Orbita.Controles.Comunicaciones
         /// <summary>
         /// Puerto de comunicación de remoting
         /// </summary>
-        private int _remotingPuerto = 1852;
+        public int _remotingPuerto = 1852;
         /// <summary>
         /// Servidor de comunicaciones.
         /// </summary>
-        IOCommRemoting _servidor;
+        public IOCommRemoting _servidor;
         /// <summary>
         /// Identificador de dispositivo
         /// </summary>
-        int _idDispositivo = 1;
+        public int _idDispositivo = 1;
         /// <summary>
         /// Servidor remoting
         /// </summary>
-        string _servidorRemoting = "localhost";
+        public string _servidorRemoting = "localhost";
         #endregion
 
         #region Constructores
@@ -202,7 +202,7 @@ namespace Orbita.Controles.Comunicaciones
         /// Evento de cambio de dato.
         /// </summary>
         /// <param name="e"></param>
-        public void eventWrapper_OrbitaCambioDato(OEventArgs e)
+        public virtual void eventWrapper_OrbitaCambioDato(OEventArgs e)
         {
             try
             {
@@ -249,7 +249,7 @@ namespace Orbita.Controles.Comunicaciones
         /// Evento de comunicaciones.
         /// </summary>
         /// <param name="e"></param>
-        void eventWrapper_OrbitaComm(OEventArgs e)
+        public void eventWrapper_OrbitaComm(OEventArgs e)
         {
             try
             {
