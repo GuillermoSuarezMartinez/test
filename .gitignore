@@ -1,0 +1,15 @@
+# Large media files
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
+*.vpp
+
+#BackUps BBDD
+*.bak
+
+# cosas de c#
+obj
+.vs
