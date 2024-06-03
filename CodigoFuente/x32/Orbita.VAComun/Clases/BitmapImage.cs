@@ -3,9 +3,9 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Modificados métodos constructores y destructores para heredar de LargeObject
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -20,7 +20,7 @@ namespace Orbita.VAComun
     /// Imagen de tipo Bitmap de windows
     /// </summary>
     [Serializable]
-    public class BitmapImage : OrbitaImage, IDisposable, ICloneable
+    public class BitmapImage : OrbitaImage, ICloneable
     {
         #region Atributo(s)
         /// <summary>
@@ -67,12 +67,19 @@ namespace Orbita.VAComun
         }
         #endregion
 
-        #region Constructor
+        #region Constructor(es)
         /// <summary>
         /// Constructor de la clase
         /// </summary>
         public BitmapImage()
-            : base()
+            : this("BitmapImage")
+        {
+        }
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        public BitmapImage(string codigo)
+            : base(codigo)
         {
             this.TipoImagen = TipoImagen.Bitmap;
         }
@@ -81,16 +88,15 @@ namespace Orbita.VAComun
         /// </summary>
         /// <param name="imagenALiberar">Variable que se desea liberar de memoria</param>
         public BitmapImage(object imagen)
-            : base(imagen)
+            : this("BitmapImage", imagen)
         {
-            this.TipoImagen = TipoImagen.Bitmap;
         }
         /// <summary>
         /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
         /// </summary>
         /// <param name="imagenALiberar">Variable que se desea liberar de memoria</param>
-        public BitmapImage(OrbitaImage imagenALiberar)
-            : base(imagenALiberar)
+        public BitmapImage(string codigo, object imagen)
+            : base(codigo, imagen)
         {
             this.TipoImagen = TipoImagen.Bitmap;
         }
@@ -100,19 +106,20 @@ namespace Orbita.VAComun
         /// <summary>
         /// Método a implementar en las clases hijas. Elimina la memoria asignada por el objeto.
         /// </summary>
-        public override void Dispose()
+        protected override void Dispose(bool disposing)
         {
-            try
+            if (!Disposed)
             {
                 if (this.Image != null)
                 {
-                    this.Image.Dispose();
+                    //if (disposing)
+                    //{
+                        //this.Image.Dispose(); // No se elimina porque otro objeto puede hacer referencia a ella
+                    //}
                     this.Image = null;
                 }
             }
-            finally
-            {
-            }
+            base.Dispose(disposing);
         }
 
         /// <summary>
@@ -202,6 +209,7 @@ namespace Orbita.VAComun
 
             g.DrawImage((Image)img.Image, 0, 0, alto, ancho);
             g.Dispose();
+            g = null;
 
             reducida.Image = (Image)b;
             Image prueba = (Image)b;

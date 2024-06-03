@@ -3,9 +3,9 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : 15-11-2012
+// Last Modified On : aibañez
+// Description      : Añadidas instrucciones en la finalización del thread
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -196,6 +196,7 @@ namespace Orbita.VAComun
         public void Finalizar()
         {
             this.Thread.Dispose(500);
+            this.Thread = null;
         }
 
         /// <summary>
@@ -203,6 +204,7 @@ namespace Orbita.VAComun
         /// </summary>
         public void Dispose()
         {
+            this.Thread.Dispose();
             this.Thread = null;
         }
 

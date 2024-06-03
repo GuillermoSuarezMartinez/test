@@ -657,7 +657,7 @@ namespace Orbita.VAHardware
                             this.Valor = valor;
 
                             // Se lanza desde un thread distino.
-                            App.SimpleMethod setVariableEnThread = new App.SimpleMethod(this.EstablecerValorVariable);
+                            SimpleMethod setVariableEnThread = new SimpleMethod(this.EstablecerValorVariable);
                             setVariableEnThread.BeginInvoke(null, null);
                         }
                     }
@@ -690,7 +690,7 @@ namespace Orbita.VAHardware
                     if (!this.ProcedeEventoCambio)
                     {
                         // Se lanza desde un thread distino.
-                        App.SimpleMethod setVariableEnThread = new App.SimpleMethod(this.EstablecerValorVariable);
+                        SimpleMethod setVariableEnThread = new SimpleMethod(this.EstablecerValorVariable);
                         setVariableEnThread.BeginInvoke(null, null);
                     }
                     else
@@ -698,7 +698,7 @@ namespace Orbita.VAHardware
                         if ((((TerminalIOBase)this).TipoTerminalIO == TipoTerminalIO.EntradaDigital) || (((TerminalIOBase)this).TipoTerminalIO == TipoTerminalIO.EntradaComando))
                         {
                             // Se lanza desde un thread distino.
-                            App.SimpleMethod setVariableEnThread = new App.SimpleMethod(this.EstablecerValorVariable);
+                            SimpleMethod setVariableEnThread = new SimpleMethod(this.EstablecerValorVariable);
                             setVariableEnThread.BeginInvoke(null, null);
                         }
                     }
@@ -920,7 +920,7 @@ namespace Orbita.VAHardware
                             this.Valor = this.SCEDAFormatoCorrecto(this.ValorSCED);
 
                             // Se lanza desde un thread distino.
-                            App.SimpleMethod setVariableEnThread = new App.SimpleMethod(this.EstablecerValorVariable);
+                            SimpleMethod setVariableEnThread = new SimpleMethod(this.EstablecerValorVariable);
                             setVariableEnThread.BeginInvoke(null, null);
                         }
                     }
@@ -953,7 +953,7 @@ namespace Orbita.VAHardware
                     this.Valor = this.SCEDAFormatoCorrecto(this.ValorSCED);
 
                     // Se lanza desde un thread distino.
-                    App.SimpleMethod setVariableEnThread = new App.SimpleMethod(this.EstablecerValorVariable);
+                    SimpleMethod setVariableEnThread = new SimpleMethod(this.EstablecerValorVariable);
                     setVariableEnThread.BeginInvoke(null, null);
                 }
             }

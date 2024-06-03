@@ -1,12 +1,18 @@
 ﻿//***********************************************************************
 // Assembly         : Orbita.VAComun
 // Author           : aibañez
-// Created          : 06-09-2012
+// Created          : 16-11-2012
 //
 // Last Modified By : aibañez
-// Last Modified On : 05-11-2012
+// Last Modified On : 16-11-2012
+// Description      : Extraido delegado genérico SimpleMethod fuera de App
+//                    Añadidos delegados genérico MessageDelegate y ExceptionDelegate
+//                    Añadida función ColectorBasura para centralizar las llamadas al GarbageCollector de .Net
+//
+//      Modified By : aibañez
+//      Modified On : 05-11-2012
 // Description      : Añadido un método sobrecargado de Espera donde se le pasa como argumento un delegado
-// Description      : Nuevo método para reemplazar strings especificando el tipo de comparación
+//                    Nuevo método para reemplazar strings especificando el tipo de comparación
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -2143,13 +2149,6 @@ namespace Orbita.VAComun
 		}
 		#endregion
 
-		#region Definición de delegado(s) genéricos
-		/// <summary>
-		/// Delegado de método simple
-		/// </summary>
-		public delegate void SimpleMethod();
-		#endregion
-
 		#region Trabajo con fechas
 		/// <summary>
 		/// Conversión de día gregocriano a juliano
@@ -2372,6 +2371,41 @@ namespace Orbita.VAComun
                 //set flag if there was a timeout or some other issues
             }
             return resultado;
+        }
+        #endregion
+
+        #region Colector de basura
+        /// <summary>
+        /// Llamada al colector de basura para que llame a destructores y libere la memoria no usada.
+        /// Cuando realizar la llamada:
+        ///   - Es recomendable hacer una llamada a este método una vez por ciclo de la máquina de estados con el parámetro esperaFinalizacion a true (.
+        ///   - También se debe llamar cuando terminamos el proceso de parada de la clase sistema con el parámetro esperaFinalizacion a true.
+        ///   - Si 
+        ///   - En caso de necesidad de llamarse más veces debería de ser después de una asignación a null con el parámetro esepraFinalización a false.
+        /// </summary>
+        /// <param name="esperaFinalizacion">Si verdadero espera a que finalice el proceso de liberación de memoria.
+        /// Este proceso puede ser costoso, por lo que se recomienda utilizarlo en momentos de latencia</param>
+        public static void ColectorBasura(bool esperaFinalizacion)
+        {
+            Stopwatch cronometro = new Stopwatch();
+            cronometro.Start();
+
+            //Force garbage collection.
+            GC.Collect();
+
+            // Wait for all finalizers to complete before continuing.
+            // Without this call to GC.WaitForPendingFinalizers, 
+            // the worker loop below might execute at the same time 
+            // as the finalizers.
+            // With this call, the worker loop executes only after
+            // all finalizers have been called.
+            if (esperaFinalizacion)
+            {
+                GC.WaitForPendingFinalizers();
+            }
+
+            cronometro.Stop();
+            LogsRuntime.Info(ModulosSistema.Comun, "Colector de basura", "Duración: " + cronometro.Elapsed.TotalMilliseconds.ToString());
         }
         #endregion
 	}
@@ -3428,4 +3462,33 @@ namespace Orbita.VAComun
 	}
 
 	#endregion
+
+    #region Definición de delegado(s) genéricos
+    /// <summary>
+    /// Delegado de método simple
+    /// </summary>
+    public delegate void SimpleMethod();
+    /// <summary>
+    /// Delegado utilizado para devolver mensajes
+    /// </summary>
+    /// <param name="message"></param>
+    public delegate void MessageDelegate(string mensaje);
+    /// <summary>
+    /// Delegado utilizado para devolver mensajes
+    /// </summary>
+    /// <param name="codigo"></param>
+    /// <param name="message"></param>
+    public delegate void MessageDelegateAdv(string codigo, string mensaje);
+    /// <summary>
+    /// Delegado utilizado para devolver una excepción
+    /// </summary>
+    /// <param name="message"></param>
+    public delegate void ExceptionDelegate(Exception exception);
+    /// <summary>
+    /// Delegado utilizado para devolver una excepción
+    /// </summary>
+    /// <param name="codigo"></param>
+    /// <param name="message"></param>
+    public delegate void ExceptionDelegateAdv(string codigo, Exception exception);
+    #endregion
 }

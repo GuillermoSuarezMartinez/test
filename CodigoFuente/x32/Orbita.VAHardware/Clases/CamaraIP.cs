@@ -91,14 +91,6 @@ namespace Orbita.VAHardware
             get { return (BitmapImage)this._ImagenActual; }
             set { this._ImagenActual = value; }
         }
-        /// <summary>
-        /// Propieadad a heredar donde se accede a la imagen
-        /// </summary>
-        public new CtrlDisplayBitmap Display
-        {
-            get { return (CtrlDisplayBitmap)this._Display; }
-            set { this._Display = value; }
-        }
         #endregion
 
         #region Constructor(es)
@@ -466,16 +458,6 @@ namespace Orbita.VAHardware
             BitmapImage bitmapImage = new BitmapImage(new Bitmap(this.Resolucion.X, this.Resolucion.Y));
             return bitmapImage;
         }
-
-        /// <summary>
-        /// Visualiza una imagen en el display
-        /// </summary>
-        /// <param name="imagen">Imagen a visualizar</param>
-        /// <param name="graficos">Objeto que contiene los gráficos a visualizar (letras, rectas, circulos, etc)</param>
-        public override void VisualizarImagen(OrbitaImage imagen, OrbitaGrafico graficos)
-        {
-            this.Display.Visualizar(imagen, graficos);
-        }
         #endregion
 
         #region Eventos
@@ -509,11 +491,8 @@ namespace Orbita.VAHardware
                     // Actualizo el Frame Rate
                     this.MedidorVelocidadAdquisicion.NuevaCaptura();
 
-                    // Visualización en vivo
-                    if (this.VisualizacionEnVivo)
-                    {
-                        this.VisualizarUltimaImagen();
-                    }
+                    // Lanamos el evento de adquisición
+                    this.AdquisicionCompletada(this.ImagenActual);
 
                     // Se asigna el valor de la variable asociada
                     if (this.LanzarEventoAlSnap && this.ImagenActual.EsValida())

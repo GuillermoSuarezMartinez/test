@@ -3,9 +3,11 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Desvinculado de forularios de diálogo
+//                    Nuevos eventos de ShowMessageDelegate y ShowExceptionDelegate
+//                    Nuevo módulo de log: ManejadorObjetosGrandes
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -42,17 +44,28 @@ namespace Orbita.VAComun
         /// Logger de tipo backup
         /// </summary>
         public static Dictionary<string, ILogger> Loggers;
+
+        /// <summary>
+        /// Delegado utilizado para lanzar mensajes 
+        /// </summary>
+        public static MessageDelegate ShowMessageDelegate;
+
+        /// <summary>
+        /// Delegado utilizado para lanzar mensajes 
+        /// </summary>
+        public static ExceptionDelegate ShowExceptionDelegate;
         #endregion
 
         #region Método(s) público(s)
-
         /// <summary>
         /// Construye los objetos
         /// </summary>
-        public static void Constructor()
+        public static void Constructor(MessageDelegate showMessageEvent, ExceptionDelegate showExceptionDelegate)
         {
             Loggers = new Dictionary<string, ILogger>();
             IniciandoSistema = true;
+            ShowMessageDelegate = showMessageEvent;
+            ShowExceptionDelegate = showExceptionDelegate;
         }
 
         /// <summary>
@@ -554,7 +567,10 @@ namespace Orbita.VAComun
             #endif
             if (mostrarMensaje)
             {
-                Orbita.VAComun.MensajeError.MostrarExcepcion(true, excepcion);
+                if (ShowExceptionDelegate != null)
+                {
+                    ShowExceptionDelegate(excepcion);
+                }
             }
         }
         /// <summary>
@@ -570,7 +586,10 @@ namespace Orbita.VAComun
             #endif
             if (mostrarMensaje)
             {
-                Orbita.VAComun.MensajeError.MostrarInfo(true, informacion);
+                if (ShowMessageDelegate != null)
+                {
+                    ShowMessageDelegate(informacion);
+                }
             }
         }
 
@@ -580,8 +599,10 @@ namespace Orbita.VAComun
         /// <param name="excepcion">Información a mostrar</param>
         private static void MensajeFatal(Exception excepcion)
         {
-            // Se mostrará un mensaje únicamente cuando se está iniciando el sistema o cuando se produce un error fatal. Ambos si se está en modo debug
-            Orbita.VAComun.MensajeError.MostrarExcepcion(true, excepcion);
+            if (ShowExceptionDelegate != null)
+            {
+                ShowExceptionDelegate(excepcion);
+            }
         }
         /// <summary>
         /// Muestra un mensaje de información
@@ -589,8 +610,10 @@ namespace Orbita.VAComun
         /// <param name="informacion">Información a mostrar</param>
         private static void MensajeFatal(string informacion)
         {
-            // Se mostrará un mensaje únicamente cuando se está iniciando el sistema o cuando se produce un error fatal. Ambos si se está en modo debug
-            Orbita.VAComun.MensajeError.MostrarInfo(true, informacion);
+            if (ShowMessageDelegate != null)
+            {
+                ShowMessageDelegate(informacion);
+            }
         }
         #endregion
     }
@@ -641,6 +664,10 @@ namespace Orbita.VAComun
         /// Módulo de funciones base para el almacenamientod de información
         /// </summary>
         public static EnumModulosSistema AlmacenInformacion = new EnumModulosSistema("AlmacenInformacion", "Módulo de funciones base para el almacenamientod de información", 10);
+        /// <summary>
+        /// Módulo de funciones encargadas de monitorizar la creación y destrucción de objetos de origen propio que ocupan gran cantidad de memoria y de creación frecuente.
+        /// </summary>
+        public static EnumModulosSistema ManejadorObjetosGrandes = new EnumModulosSistema("ManejadorObjetosGrandes", "Módulo de funciones encargadas de monitorizar la creación y destrucción de objetos de origen propio que ocupan gran cantidad de memoria y de creación frecuente.", 11);
         #endregion
     }
 

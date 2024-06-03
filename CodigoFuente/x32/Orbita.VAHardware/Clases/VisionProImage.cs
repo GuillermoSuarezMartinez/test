@@ -24,7 +24,7 @@ namespace Orbita.VAHardware
     /// Imagen de tipo VisionPro de Cognex
     /// </summary>
     [Serializable]
-    public class VisionProImage : OrbitaImage, IDisposable, ICloneable
+    public class VisionProImage : OrbitaImage, ICloneable
     {
         #region Atributo(s)
         /// <summary>
@@ -76,7 +76,14 @@ namespace Orbita.VAHardware
         /// Constructor de la clase
         /// </summary>
         public VisionProImage()
-            : base()
+            : this("VisionProImage")
+        {
+        }
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        public VisionProImage(string codigo)
+            : base(codigo)
         {
             this.TipoImagen = TipoImagen.VisionPro;
         }
@@ -85,17 +92,15 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="imagenALiberar">Variable que se desea liberar de memoria</param>
         public VisionProImage(object imagen)
-            : base(imagen)
+            : this("VisionProImage", imagen)
         {
-            this.TipoImagen = TipoImagen.VisionPro;
         }
         /// <summary>
         /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
         /// </summary>
         /// <param name="imagenALiberar">Variable que se desea liberar de memoria</param>
-
-        public VisionProImage(OrbitaImage imagenALiberar)
-            : base(imagenALiberar)
+        public VisionProImage(string codigo, object imagen)
+            : base(codigo, imagen)
         {
             this.TipoImagen = TipoImagen.VisionPro;
         }
@@ -105,20 +110,18 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Método a implementar en las clases hijas. Elimina la memoria asignada por el objeto.
         /// </summary>
-        public override void Dispose()
+        protected override void Dispose(bool disposing)
         {
-            try
+            if (!this.Disposed)
             {
-                //if (this.Image != null)
-                //{
-                ////Marshal.ReleaseComObject(this._Image); NO FUNCIONA!!
-                //((IDisposable)this._Image).Dispose(); // Da error al salir del programa
-                //}
-                this._Image = null;
+                if (this.Image != null)
+                {
+                    ////Marshal.ReleaseComObject(this._Image); NO FUNCIONA!!
+                    //((IDisposable)this._Image).Dispose(); // Da error al salir del programa
+                    this._Image = null;
+                }
             }
-            finally
-            {
-            }
+            base.Dispose(disposing);
         }
 
         /// <summary>
@@ -494,7 +497,10 @@ namespace Orbita.VAHardware
         {
             try
             {
-                this._Grafico = null;
+                if (this._Grafico != null)
+                {
+                    this._Grafico = null;
+                }
             }
             finally
             {

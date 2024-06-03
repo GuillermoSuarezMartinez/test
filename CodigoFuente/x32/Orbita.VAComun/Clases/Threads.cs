@@ -3,9 +3,9 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Cabiados métodos de finalización
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -387,6 +387,7 @@ namespace Orbita.VAComun
         {
             this.Stop();
             ThreadRuntime.EliminarThread(this);
+            this.ThreadEjecucion = null;
         }
         /// <summary>
         /// Elimina la memoria asignada por el objeto.
@@ -395,6 +396,7 @@ namespace Orbita.VAComun
         {
             this.Stop(milisecondsTimeout);
             ThreadRuntime.EliminarThread(this);
+            this.ThreadEjecucion = null;
         }
         /// <summary>
         /// Cambia la prioridad al thread

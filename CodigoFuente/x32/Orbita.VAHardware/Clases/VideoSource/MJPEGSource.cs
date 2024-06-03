@@ -23,7 +23,7 @@ namespace Orbita.VAHardware
     /// <summary>
     /// MJPEGSource - MJPEG stream support
     /// </summary>
-    public class MJPEGSource : IVideoSource
+    internal class MJPEGSource : IVideoSource
     {
         #region Constante(s)
         /// <summary>
@@ -280,11 +280,13 @@ namespace Orbita.VAHardware
                 WaitForStop();
             }
         }
+        #endregion
 
+        #region Método(s) privado(s)
         /// <summary>
         /// Thread entry point
         /// </summary>
-        public void WorkerThread()
+        private void WorkerThread()
         {
             byte[] buffer = new byte[bufSize];	// buffer to read stream
 
@@ -295,7 +297,8 @@ namespace Orbita.VAHardware
                     // reset reload event
                     reloadEvent.Reset();
 
-                    HttpWebRequest req = null;
+                    //HttpWebRequest req = null;
+                    WebRequest req = null;
                     WebResponse resp = null;
                     Stream stream = null;
                     byte[] delimiter = null;
@@ -311,7 +314,10 @@ namespace Orbita.VAHardware
                     try
                     {
                         // create request
-                        req = (HttpWebRequest)WebRequest.Create(source);
+                        //req = (HttpWebRequest)WebRequest.Create(source);
+                        req = WebRequest.Create(source);
+                        req.Method = "GET";
+                        req.Timeout = 15000;
                         // set login and password
                         if ((login != null) && (password != null) && (login != ""))
                             req.Credentials = new NetworkCredential(login, password);
@@ -476,6 +482,12 @@ namespace Orbita.VAHardware
                         //LogsRuntime.Error(ModulosHardware.Camaras, "Thread de MJPG", ex);
                         //System.Diagnostics.Debug.WriteLine("=============: " + ex.Message);
                     }
+                    catch (Exception ex)
+                    {
+                        //this.LanzarError(ex);
+                        //LogsRuntime.Error(ModulosHardware.Camaras, "Thread de MJPG", ex);
+                        //System.Diagnostics.Debug.WriteLine("=============: " + ex.Message);
+                    }
                     finally
                     {
                         // abort request
@@ -510,9 +522,7 @@ namespace Orbita.VAHardware
                 }
             }
         } 
-        #endregion
 
-        #region Método(s) privado(s)
         /// <summary>
         /// Free resources
         /// </summary>

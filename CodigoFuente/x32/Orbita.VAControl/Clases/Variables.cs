@@ -3,9 +3,9 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Cambiadas referencias a eventos genéricos de App.cs
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -1471,7 +1471,7 @@ namespace Orbita.VAControl
         {
             if (!ThreadRuntime.EjecucionEnTrheadPrincipal())
             {
-                ThreadRuntime.SincronizarConThreadPrincipal(new App.SimpleMethod(EjecutaDelegado), new object[] { });
+                ThreadRuntime.SincronizarConThreadPrincipal(new SimpleMethod(EjecutaDelegado), new object[] { });
                 return;
             }
 

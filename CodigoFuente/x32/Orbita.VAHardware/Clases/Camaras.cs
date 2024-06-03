@@ -4,6 +4,12 @@
 // Created          : 06-09-2012
 //
 // Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Eliminadas referencias al formulario de monitorización de cámaras
+//                    Eliminadas referencias a los displays
+//                    Añadidos eventos de NuevaFotografia, CambioEstado y Mensajes
+//
+// Last Modified By : aibañez
 // Last Modified On : 05-11-2012
 // Description      : Adaptada a la utilización de los nuevos controles display
 //                    Añadido nuevo campo a la BBDD (FrameIntervalMs)
@@ -34,11 +40,6 @@ namespace Orbita.VAHardware
 		/// Lista de las cámaras del sistema
 		/// </summary>
 		public static List<CamaraBase> ListaCamaras;
-
-		/// <summary>
-		/// Formulario de monitorización de cámaras
-		/// </summary>
-		public static FrmDisplays FrmMonitorizacionCamaras;
 		#endregion
 
 		#region Método(s) público(s)
@@ -51,31 +52,22 @@ namespace Orbita.VAHardware
 			ListaCamaras = new List<CamaraBase>();
 
 			// Añadimos las cámaras al formulario
-			DataTable dtCamaras = AppBD.GetCamaras();
-			if (dtCamaras.Rows.Count > 0)
-			{
-				// Si hay alguna cámara visualizo el formulario de monitorización de cámaras
-				FrmMonitorizacionCamaras = new FrmDisplays("Monitorización de cámaras");
-				FrmMonitorizacionCamaras.Show();
+            DataTable dtCamaras = AppBD.GetCamaras();
+            if (dtCamaras.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dtCamaras.Rows)
+                {
+                    string codCamara = dr["CodHardware"].ToString();
+                    string claseImplementadora = string.Format("{0}.{1}", Assembly.GetExecutingAssembly().GetName().Name, dr["ClaseImplementadora"].ToString());
 
-				foreach (DataRow dr in dtCamaras.Rows)
-				{
-					string codCamara = dr["CodHardware"].ToString();
-					string claseImplementadora = string.Format("{0}.{1}", Assembly.GetExecutingAssembly().GetName().Name, dr["ClaseImplementadora"].ToString());
-					
-					object objetoImplementado;
-					if (App.ConstruirClase(Assembly.GetExecutingAssembly().GetName().Name, claseImplementadora, out objetoImplementado, codCamara))
-					{
-						CamaraBase camara = (CamaraBase)objetoImplementado;
-						ListaCamaras.Add(camara);
-						FrmMonitorizacionCamaras.AddDisplay(camara.Display);
-                        
-                        // Añado propiedades especificas a los displays para su visualización
-                        camara.Display.MostrarBtnMaximinzar = true;
-                        camara.Display.MostrarBtnSiguienteAnterior = dtCamaras.Rows.Count > 1;
-					}
-				}
-			}
+                    object objetoImplementado;
+                    if (App.ConstruirClase(Assembly.GetExecutingAssembly().GetName().Name, claseImplementadora, out objetoImplementado, codCamara))
+                    {
+                        CamaraBase camara = (CamaraBase)objetoImplementado;
+                        ListaCamaras.Add(camara);
+                    }
+                }
+            }
 		}
 
 		/// <summary>
@@ -83,12 +75,6 @@ namespace Orbita.VAHardware
 		/// </summary>
 		public static void Destructor()
 		{
-			if (FrmMonitorizacionCamaras != null)
-			{
-				FrmMonitorizacionCamaras.Close();
-				FrmMonitorizacionCamaras = null;
-			}
-
 			ListaCamaras = null;
 		}
 
@@ -249,67 +235,168 @@ namespace Orbita.VAHardware
 			}
 		}
 
-		/// <summary>
-		/// Visualiza una imagen en el display
-		/// </summary>
-		/// <param name="imagen">Imagen a visualizar</param>
-		public static void VisualizarImagen(string codigo, OrbitaImage imagen)
-		{
-			foreach (CamaraBase camara in ListaCamaras)
-			{
-				if (camara.Codigo == codigo)
-				{
-					camara.VisualizarImagen(imagen);
-				}
-			}
-		}
+        /// <summary>
+        /// Suscribe el cambio de fotografía de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
+        public static void CrearSuscripcionNuevaFotografia(string codigo, DelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.CrearSuscripcionNuevaFotografia(delegadoNuevaFotografiaCamara);
+            }
+        }
+        /// <summary>
+        /// Suscribe el cambio de fotografía de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
+        public static void CrearSuscripcionNuevaFotografia(string codigo, DelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.CrearSuscripcionNuevaFotografia(delegadoNuevaFotografiaCamara);
+            }
+        }
 
-		/// <summary>
-		/// Visualiza una imagen en el display
-		/// </summary>
-		/// <param name="imagen">Imagen a visualizar</param>
-		/// <param name="graficos">Objeto que contiene los gráficos a visualizar (letras, rectas, circulos, etc)</param>
-		public static void VisualizarImagen(string codigo, OrbitaImage imagen, OrbitaGrafico graficos)
-		{
-			foreach (CamaraBase camara in ListaCamaras)
-			{
-				if (camara.Codigo == codigo)
-				{
-					camara.VisualizarImagen(imagen, graficos);
-				}
-			}
-		}
+        /// <summary>
+        /// Elimina la suscripción del cambio de fotografía de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
+        public static void EliminarSuscripcionNuevaFotografia(string codigo, DelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.EliminarSuscripcionNuevaFotografia(delegadoNuevaFotografiaCamara);
+            }
+        }
+        /// <summary>
+        /// Elimina la suscripción del cambio de fotografía de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
+        public static void EliminarSuscripcionNuevaFotografia(string codigo, DelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.EliminarSuscripcionNuevaFotografia(delegadoNuevaFotografiaCamara);
+            }
+        }
 
-		/// <summary>
-		/// Visualiza la última imagen capturada por la cámara
-		/// </summary>
-		public static void VisualizarUltimaImagen(string codigo)
-		{
-			foreach (CamaraBase camara in ListaCamaras)
-			{
-				if (camara.Codigo == codigo)
-				{
-					camara.VisualizarUltimaImagen();
-				}
-			}
-		}
+        /// <summary>
+        /// Suscribe el cambio de estado de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
+        public static void CrearSuscripcionCambioEstado(string codigo, DelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.CrearSuscripcionCambioEstado(delegadoCambioEstadoConexionCamara);
+            }
+        }
+        /// <summary>
+        /// Suscribe el cambio de estado de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
+        public static void CrearSuscripcionCambioEstado(string codigo, DelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.CrearSuscripcionCambioEstado(delegadoCambioEstadoConexionCamara);
+            }
+        }
 
-		/// <summary>
-		/// Visualiza la última imagen capturada por la cámara
-		/// </summary>
-		/// <param name="graficos">Objeto que contiene los gráficos a visualizar (letras, rectas, circulos, etc)</param>
-		public static void VisualizarUltimaImagen(string codigo, OrbitaGrafico graficos)
-		{
-			foreach (CamaraBase camara in ListaCamaras)
-			{
-				if (camara.Codigo == codigo)
-				{
-					camara.VisualizarUltimaImagen(graficos);
-				}
-			}
-		}
+        /// <summary>
+        /// Elimina la suscripción del cambio de estado de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
+        public static void EliminarSuscripcionCambioEstado(string codigo, DelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.EliminarSuscripcionCambioEstado(delegadoCambioEstadoConexionCamara);
+            }
+        }
+        /// <summary>
+        /// Elimina la suscripción del cambio de estado de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
+        public static void EliminarSuscripcionCambioEstado(string codigo, DelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.EliminarSuscripcionCambioEstado(delegadoCambioEstadoConexionCamara);
+            }
+        }
 
-		#endregion
+        /// <summary>
+        /// Suscribe la recepción de mensajes de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir los mensajes</param>
+        public static void CrearSuscripcionMensajes(string codigo, MessageDelegate messageDelegate)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.CrearSuscripcionMensajes(messageDelegate);
+            }
+        }
+        /// <summary>
+        /// Suscribe la recepción de mensajes de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir los mensajes</param>
+        public static void CrearSuscripcionMensajes(string codigo, MessageDelegateAdv messageDelegate)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.CrearSuscripcionMensajes(messageDelegate);
+            }
+        }
+
+        /// <summary>
+        /// Elimina la suscripción de mensajes de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir los mensajes</param>
+        public static void EliminarSuscripcionMensajes(string codigo, MessageDelegate messageDelegate)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.EliminarSuscripcionMensajes(messageDelegate);
+            }
+        }
+        /// <summary>
+        /// Elimina la suscripción de mensajes de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir los mensajes</param>
+        public static void EliminarSuscripcionMensajes(string codigo, MessageDelegateAdv messageDelegate)
+        {
+            CamaraBase camara = ListaCamaras.Find(delegate(CamaraBase c) { return (c.Codigo == codigo); });
+            if (camara != null)
+            {
+                camara.EliminarSuscripcionMensajes(messageDelegate);
+            }
+        }
+        #endregion
 	}
 
 	/// <summary>
@@ -565,24 +652,14 @@ namespace Orbita.VAHardware
 					// Información extra
 					LogsRuntime.Debug(ModulosHardware.Camaras, this.Codigo, "Estado de la conexión: " + value.ToString());
 
-					// La cámara pasa de desconectada a conectada
-					if ((this._EstadoConexion == EstadoConexion.Desconectado) && (value == EstadoConexion.Conectado))
-					{
-						this.ImagenActual = this.NuevaImagen();
-						this.ImagenActual.ConvertFromBitmap(global::Orbita.VAHardware.Properties.Resources.CamaraConectada);
-						this.VisualizarImagen(this.ImagenActual);
-						this.Display.ZoomFull();
-                        this.Display.MostrarMensaje("Cámara conectada");
-					}
-
-					// La cámara pasa de conectada a desconectada
-					if ((this._EstadoConexion == EstadoConexion.Conectado) && (value == EstadoConexion.Desconectado))
-					{
-						this.ImagenActual = this.NuevaImagen();
-						this.ImagenActual.ConvertFromBitmap(global::Orbita.VAHardware.Properties.Resources.CamaraDesConectada);
-						this.VisualizarImagen(this.ImagenActual);
-                        this.Display.ZoomFull();
-                        this.Display.MostrarMensaje("Cámara desconectada");
+                    // Lanzamos el evento de cambio de estado
+                    if (this.OnCambioEstadoConexionCamara != null)
+                    {
+                        this.OnCambioEstadoConexionCamara(value);
+                    }
+                    if (this.OnCambioEstadoConexionCamaraAdv != null)
+                    {
+                        this.OnCambioEstadoConexionCamaraAdv(this.Codigo, value);
                     }
 
 					// La cámara pasa de conectada a error de conexión
@@ -591,38 +668,12 @@ namespace Orbita.VAHardware
                         // Paramos la cámara
                         this.Stop();
                         this.Desconectar();
-                        // Mostramos una imagen de error
-                        this.ImagenActual = this.NuevaImagen();
-						this.ImagenActual.ConvertFromBitmap(global::Orbita.VAHardware.Properties.Resources.CamaraDesConectada);
-						this.VisualizarImagen(this.ImagenActual);
-                        this.Display.ZoomFull();
-                        this.Display.MostrarMensaje("Error de conexión");
                         // Iniciamos el protocolo de reconexión
                         this.IniciarProtocoloReconexion();
                     }
 
-					// La cámara pasa de error de conexión a conectada
-					if ((this._EstadoConexion == EstadoConexion.ErrorConexion) && (value == EstadoConexion.Conectado))
-					{
-						this.ImagenActual = this.NuevaImagen();
-						this.ImagenActual.ConvertFromBitmap(global::Orbita.VAHardware.Properties.Resources.CamaraConectada);
-						this.VisualizarImagen(this.ImagenActual);
-                        this.Display.ZoomFull();
-                        this.Display.MostrarMensaje("Cámara conectada");
-                    }
-
-					// La cámara pasa de error de conexión a desconectada
-					if ((this._EstadoConexion == EstadoConexion.ErrorConexion) && (value == EstadoConexion.Desconectado))
-					{
-						this.ImagenActual = this.NuevaImagen();
-						this.ImagenActual.ConvertFromBitmap(global::Orbita.VAHardware.Properties.Resources.CamaraDesConectada);
-						this.VisualizarImagen(this.ImagenActual);
-                        this.Display.ZoomFull();
-                        this.Display.MostrarMensaje("Cámara desconectada");
-                    }
-
 					this._EstadoConexion = value;
-				}
+                }
 			}
 		}
 
@@ -652,19 +703,6 @@ namespace Orbita.VAHardware
 		{
 			get { return _VisualizacionEnVivo; }
 			set { _VisualizacionEnVivo = value; }
-		}
-
-		/// <summary>
-		/// Control display asociado a la cámara
-		/// </summary>
-		protected CtrlDisplay _Display;
-		/// <summary>
-		/// Control display asociado a la cámara
-		/// </summary>
-		public CtrlDisplay Display
-		{
-			get { return _Display; }
-			set { _Display = value; }
 		}
 
 		/// <summary>
@@ -705,7 +743,6 @@ namespace Orbita.VAHardware
             get { return _FrameInterval; }
             set { _FrameInterval = value; }
         }
-        
 
         /// <summary>
         /// Indica el límite máximo de visualización de imagenes y que por lo tanto se ha de visualizar de forma retrasada con un timer
@@ -719,8 +756,66 @@ namespace Orbita.VAHardware
             get { return _MaxFrameIntervalVisualizacion; }
             set { _MaxFrameIntervalVisualizacion = value; }
         }
-        
+
+        /// <summary>
+        /// Nombre del ensamblado de la clase que implementa el display asociado a este tipo de cámara
+        /// </summary>
+        private string _EnsambladoClaseImplementadora;
+        /// <summary>
+        /// Nombre del ensamblado de la clase que implementa el display asociado a este tipo de cámara
+        /// </summary>
+        public string EnsambladoClaseImplementadora
+        {
+            get { return _EnsambladoClaseImplementadora; }
+            set { _EnsambladoClaseImplementadora = value; }
+        }
+
+        /// <summary>
+        /// Nombre de la clase que implementa el display asociado a este tipo de cámara
+        /// </summary>
+        private string _ClaseImplementadoraDisplay;
+        /// <summary>
+        /// Nombre de la clase que implementa el display asociado a este tipo de cámara
+        /// </summary>
+        public string ClaseImplementadoraDisplay
+        {
+            get { return _ClaseImplementadoraDisplay; }
+            set { _ClaseImplementadoraDisplay = value; }
+        }
 		#endregion
+
+        #region Declaración(es) de evento(s)
+        /// <summary>
+        /// Delegado de nueva fotografía
+        /// </summary>
+        /// <param name="estadoConexion"></param>
+        public DelegadoNuevaFotografiaCamara OnNuevaFotografiaCamara;
+        /// <summary>
+        /// Delegado de nueva fotografía
+        /// </summary>
+        /// <param name="estadoConexion"></param>
+        public DelegadoNuevaFotografiaCamaraAdv OnNuevaFotografiaCamaraAdv;
+        /// <summary>
+        /// Delegado de cambio de estaco de conexión de la cámara
+        /// </summary>
+        /// <param name="estadoConexion"></param>
+        public DelegadoCambioEstadoConexionCamara OnCambioEstadoConexionCamara;
+        /// <summary>
+        /// Delegado de cambio de estaco de conexión de la cámara
+        /// </summary>
+        /// <param name="estadoConexion"></param>
+        public DelegadoCambioEstadoConexionCamaraAdv OnCambioEstadoConexionCamaraAdv;
+        /// <summary>
+        /// Delegado de mensaje de la cámara
+        /// </summary>
+        /// <param name="estadoConexion"></param>
+        public MessageDelegate OnMensajeCamara;
+        /// <summary>
+        /// Delegado de mensaje de la cámara
+        /// </summary>
+        /// <param name="estadoConexion"></param>
+        public MessageDelegateAdv OnMensajeCamaraAdv;
+        #endregion
 
 		#region Constructor(es)
 		/// <summary>
@@ -761,23 +856,8 @@ namespace Orbita.VAHardware
 					this._Color = (TipoColorPixel)App.EvaluaNumero(dt.Rows[0]["Color"], 0, 1, 0);
                     this._FrameInterval = App.EvaluaNumero(dt.Rows[0]["FrameIntervalMs"], 0.0, 1000.0, 1.0);
                     this._MaxFrameIntervalVisualizacion = App.EvaluaNumero(dt.Rows[0]["MaxFrameIntervalMsVisualizacion"], 0.0, 1000.0, 0.0);
-
-					string titulo = this._Nombre + " [" + this._Fabricante + "]";
-
-                    string ensambladoClaseImplementadora = dt.Rows[0]["EnsambladoClaseImplementadora"].ToString();
-                    string claseImplementadoraDisplay = string.Format("{0}.{1}", ensambladoClaseImplementadora, dt.Rows[0]["ClaseImplementadoraDisplay"].ToString());
-					object objetoImplementado;
-                    if (App.ConstruirClase(ensambladoClaseImplementadora, claseImplementadoraDisplay, out objetoImplementado, titulo, this._Codigo, this._MaxFrameIntervalVisualizacion, string.Empty, string.Empty))
-					{
-						this.Display = (CtrlDisplay)objetoImplementado;
-
-                        // Añado propiedades especificas a los displays para su visualización
-                        this.Display.MostrarBtnAbrir = false;
-                        this.Display.MostrarBtnGuardar = true;
-                        this.Display.MostrarBtnInfo = true;
-                        this.Display.OnInfoDemandada += this.OnInfoDemandada;
-                        this.Display.MostrarStatusMensaje = true;
-                    }
+                    this._EnsambladoClaseImplementadora = dt.Rows[0]["EnsambladoClaseImplementadora"].ToString();
+                    this._ClaseImplementadoraDisplay = string.Format("{0}.{1}", this._EnsambladoClaseImplementadora, dt.Rows[0]["ClaseImplementadoraDisplay"].ToString());
 				}
 				else
 				{
@@ -978,17 +1058,146 @@ namespace Orbita.VAHardware
             }
             return false;
         }
+
+        /// <summary>
+        /// Suscribe el cambio de fotografía de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
+        public void CrearSuscripcionNuevaFotografia(DelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
+        {
+            this.OnNuevaFotografiaCamara += delegadoNuevaFotografiaCamara;
+        }
+        /// <summary>
+        /// Suscribe el cambio de fotografía de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
+        public void CrearSuscripcionNuevaFotografia(DelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
+        {
+            this.OnNuevaFotografiaCamaraAdv += delegadoNuevaFotografiaCamara;
+        }
+
+        /// <summary>
+        /// Elimina la suscripción del cambio de fotografía de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
+        public void EliminarSuscripcionNuevaFotografia(DelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
+        {
+            this.OnNuevaFotografiaCamara -= delegadoNuevaFotografiaCamara;
+        }
+        /// <summary>
+        /// Elimina la suscripción del cambio de fotografía de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
+        public void EliminarSuscripcionNuevaFotografia(DelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
+        {
+            this.OnNuevaFotografiaCamaraAdv -= delegadoNuevaFotografiaCamara;
+        }
+
+        /// <summary>
+        /// Suscribe el cambio de estado de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
+        public void CrearSuscripcionCambioEstado(DelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
+        {
+            this.OnCambioEstadoConexionCamara += delegadoCambioEstadoConexionCamara;
+        }
+        /// <summary>
+        /// Suscribe el cambio de estado de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
+        public void CrearSuscripcionCambioEstado(DelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
+        {
+            this.OnCambioEstadoConexionCamaraAdv += delegadoCambioEstadoConexionCamara;
+        }
+
+        /// <summary>
+        /// Elimina la suscripción del cambio de estado de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
+        public void EliminarSuscripcionCambioEstado(DelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
+        {
+            this.OnCambioEstadoConexionCamara -= delegadoCambioEstadoConexionCamara;
+        }
+        /// <summary>
+        /// Elimina la suscripción del cambio de estado de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
+        public void EliminarSuscripcionCambioEstado(DelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
+        {
+            this.OnCambioEstadoConexionCamaraAdv -= delegadoCambioEstadoConexionCamara;
+        }
+
+        /// <summary>
+        /// Suscribe la recepción de mensajes de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir los mensajes</param>
+        public void CrearSuscripcionMensajes(MessageDelegate messageDelegate)
+        {
+            this.OnMensajeCamara += messageDelegate;
+        }
+        /// <summary>
+        /// Suscribe la recepción de mensajes de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir los mensajes</param>
+        public void CrearSuscripcionMensajes(MessageDelegateAdv messageDelegate)
+        {
+            this.OnMensajeCamaraAdv += messageDelegate;
+        }
+
+        /// <summary>
+        /// Elimina la suscripción de mensajes de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir los mensajes</param>
+        public void EliminarSuscripcionMensajes(MessageDelegate messageDelegate)
+        {
+            this.OnMensajeCamara -= messageDelegate;
+        }
+        /// <summary>
+        /// Elimina la suscripción de mensajes de una determinada cámara
+        /// </summary>
+        /// <param name="codigo">Código de la cámara</param>
+        /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir los mensajes</param>
+        public void EliminarSuscripcionMensajes(MessageDelegateAdv messageDelegate)
+        {
+            this.OnMensajeCamaraAdv -= messageDelegate;
+        }
 		#endregion
 
 		#region Método(s) privado(s)
+        /// <summary>
+        /// Se ejecuta cuando se ha completado la adquisición de una imagen
+        /// </summary>
+        protected virtual void AdquisicionCompletada(OrbitaImage imagen)
+        {
+            if (this.OnNuevaFotografiaCamara != null)
+            {
+                // Se dispara el delegado de nueva fotografía
+                this.OnNuevaFotografiaCamara(imagen);
+            }
+            if (this.OnNuevaFotografiaCamaraAdv != null)
+            {
+                // Se dispara el delegado de nueva fotografía
+                this.OnNuevaFotografiaCamaraAdv(this.Codigo, imagen);
+            }
+        }
+
 		/// <summary>
 		/// Establece el valor de la imagen a la variable asociada
 		/// </summary>
 		/// <param name="imagen">Imagen a establecer en la variable</param>
 		protected void EstablecerVariableAsociada(OrbitaImage imagen)
 		{
-			//OrbitaImage nuevaImagen = imagen).Clone(); // Tal vez no sea necesario!!
-
 			// Se asigna el valor de la variable asociada
 			VariableRuntime.SetValue(this.CodVariableImagen, imagen, "Camaras", this.Codigo);
 		}
@@ -1213,17 +1422,6 @@ namespace Orbita.VAHardware
 			// Método implementado en las clases hijas
 			return true;
 		}
-
-        /// <summary>
-        /// Muestra la ventana de información del dispositivo
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public virtual void OnInfoDemandada(object sender, EventArgs e)
-        {
-            FrmDetalleCamara frmDetalleCam = new FrmDetalleCamara(this.Codigo);
-            frmDetalleCam.Show();
-        }
 		#endregion
 
 		#region Eventos
@@ -1593,11 +1791,6 @@ namespace Orbita.VAHardware
 							{
 								this.IndiceFotografia++;
 								resultado = App.InRange(this.IndiceFotografia, 0, this.ListaRutaFotografias.Count - 1);
-								//this.IndiceFotografia = App.EvaluaNumero(this.IndiceFotografia, 0, this.ListaRutaFotografias.Count - 1, 0); // Si se sobrepasa la última fotografía se vuelve a la primera
-								//if (IndiceFotografia == 0)
-								//{
-								//    MessageBox.Show("Fin de la reproducción.");
-								//}
 								if (resultado)
 								{
 									rutaFotografiaActual = this.ListaRutaFotografias[this.IndiceFotografia];
@@ -1683,8 +1876,32 @@ namespace Orbita.VAHardware
 		/// </summary>
 		ErrorConexion = 2
 	}
-
 	#endregion
+
+    #region Delegados de las cámaras
+    /// <summary>
+    /// Delegado de nueva fotografía
+    /// </summary>
+    /// <param name="estadoConexion"></param>
+    public delegate void DelegadoNuevaFotografiaCamara(OrbitaImage imagen);
+    /// <summary>
+    /// Delegado de nueva fotografía
+    /// </summary>
+    /// <param name="codigo"></param>
+    /// <param name="estadoConexion"></param>
+    public delegate void DelegadoNuevaFotografiaCamaraAdv(string codigo, OrbitaImage imagen);
+    /// <summary>
+    /// Delegado de cambio de estaco de conexión de la cámara
+    /// </summary>
+    /// <param name="estadoConexion"></param>
+    public delegate void DelegadoCambioEstadoConexionCamara(EstadoConexion estadoConexion);
+    /// <summary>
+    /// Delegado de cambio de estaco de conexión de la cámara
+    /// </summary>
+    /// <param name="codigo"></param>
+    /// <param name="estadoConexion"></param>
+    public delegate void DelegadoCambioEstadoConexionCamaraAdv(string codigo, EstadoConexion estadoConexion);
+    #endregion
 
 	#region Medición de la tasa de adquisición
 	/// <summary>

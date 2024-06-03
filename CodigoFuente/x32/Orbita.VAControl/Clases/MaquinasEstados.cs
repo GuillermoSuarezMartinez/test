@@ -3,9 +3,10 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Cambiada gestión del recolector de basura
+//                    Añadido parámetro a la tabla "MaquinasEstados" base de datos "ColectorBasuraAutomatico: bit"
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -353,14 +354,14 @@ namespace Orbita.VAControl
         /// <summary>
         /// Habilita a la maquina de estados para llamar al colector de basura automáticamente al inicio de cada ciclo
         /// </summary>
-        private bool _ColectorBasuraManual;
+        private bool _ColectorBasuraAutomatico;
         /// <summary>
         /// Habilita a la maquina de estados para llamar al colector de basura automáticamente al inicio de cada ciclo
         /// </summary>
-        public bool ColectorBasuraManual
+        public bool ColectorBasuraAutomatico
         {
-            get { return _ColectorBasuraManual; }
-            set { _ColectorBasuraManual = value; }
+            get { return _ColectorBasuraAutomatico; }
+            set { _ColectorBasuraAutomatico = value; }
         }
 
         /// <summary>
@@ -406,7 +407,7 @@ namespace Orbita.VAControl
                     this.Habilitado = (bool)dtMaquinaEstados.Rows[0]["HabilitadoMaquinaEstados"];
                     this.VariableEstadoActual = dtMaquinaEstados.Rows[0]["CodVariableEstadoActual"].ToString();
                     this.CodVista = dtMaquinaEstados.Rows[0]["CodVista"].ToString();
-                    this._ColectorBasuraManual = true;
+                    this._ColectorBasuraAutomatico = App.EvaluaBooleano(dtMaquinaEstados.Rows[0]["ColectorBasuraAutomatico"], true);
 
                     if (App.IsNumericInt(dtMaquinaEstados.Rows[0]["CadenciaEjecucion"]))
                     {
@@ -543,18 +544,10 @@ namespace Orbita.VAControl
                     this.EstadoActual.FinalizarEjecucion();
 
                     // Se llama al colector de basura
-                    if (this._ColectorBasuraManual && (this.EstadoInicial == siguienteEstado))
+                    if (this._ColectorBasuraAutomatico && (this.EstadoInicial == siguienteEstado))
                     {
-                        //Force garbage collection.
-                        GC.Collect();
-
-                        // Wait for all finalizers to complete before continuing.
-                        // Without this call to GC.WaitForPendingFinalizers, 
-                        // the worker loop below might execute at the same time 
-                        // as the finalizers.
-                        // With this call, the worker loop executes only after
-                        // all finalizers have been called.
-                        GC.WaitForPendingFinalizers();
+                        // Llamada al colector de basura
+                        LargeObjectsRuntime.ColectorBasura(true);
                     }
                 }
 

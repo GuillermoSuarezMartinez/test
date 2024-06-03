@@ -211,50 +211,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imgNew24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgDelete24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgBeginning24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgPrev24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgNext24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgLast24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgBuscarFichero24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgBuscarFichero16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgParametros24.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\DataSources\CommonLibrary.EnumeracionCombo.datasource" />
-    <None Include="Resources\imgImportar24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgBuscar24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgQuickBuild24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgRun24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgReset24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgFiltro24.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -272,12 +229,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgInspecciones24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgTransicion24.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Orbita.VAComun\Orbita.VAComun.csproj">

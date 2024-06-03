@@ -19,12 +19,12 @@ namespace Orbita.VAHardware
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public delegate void CameraEventHandler(object sender, CameraEventArgs e);
+    internal delegate void CameraEventHandler(object sender, CameraEventArgs e);
 
     /// <summary>
     /// Camera event arguments
     /// </summary>
-    public class CameraEventArgs : EventArgs
+    internal class CameraEventArgs : EventArgs
     {
         #region Atributo(s)
         /// <summary>
@@ -60,12 +60,12 @@ namespace Orbita.VAHardware
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public delegate void CameraErrorEventHandler(object sender, CameraErrorEventArgs e);
+    internal delegate void CameraErrorEventHandler(object sender, CameraErrorEventArgs e);
 
     /// <summary>
     /// Camera event arguments
     /// </summary>
-    public class CameraErrorEventArgs : EventArgs
+    internal class CameraErrorEventArgs : EventArgs
     {
         #region Atributo(s)
         /// <summary>

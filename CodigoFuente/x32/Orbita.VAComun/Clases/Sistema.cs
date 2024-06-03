@@ -3,9 +3,12 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Borrada la implementación de InicioSistema y ParoSistema
+//                    Declarados como virtuales los métodos InicioSistema y ParoSistema
+//                     Es necesario heredarlos e implemenarlos en las clases hijas para dotarlos de funcionalidad
+//                    Se ha extraido el atributo OpcionesEscritorio del fichero de configuración
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -145,44 +148,6 @@ namespace Orbita.VAComun
 
         #region Método(s) público(s)
         /// <summary>
-        /// Inicia el sistema de inspección en tiempo real
-        /// </summary>
-        internal bool IniciarSistema(bool incial)
-        {
-            bool resultado;
-
-            // Mostramos el formulario Splash
-            SplashRuntime.Contructor();
-
-            resultado = this.InicioSistema();
-            this.FinInicioSistema(ref resultado);
-
-            // Ocultamos el formulario splash
-            SplashRuntime.Destructor();
-
-            if (!resultado)
-            {
-                OMensajes.MostrarAviso("El sistema no se ha podido iniciar con éxito.");
-            }
-
-            return resultado;
-        }
-        /// <summary>
-        /// Detiene el sistema de inspección en tiempo real
-        /// </summary>
-        internal bool PararSistema()
-        {
-            bool resultado;
-
-            resultado = this.ParoSistema();
-            this.FinParoSistema(ref resultado);
-
-            // Se limpian todos los objetos eliminados
-            GC.Collect();
-
-            return resultado;
-        }
-        /// <summary>
         /// Conslta de un parámetro de la aplicación
         /// </summary>
         /// <returns></returns>
@@ -199,230 +164,32 @@ namespace Orbita.VAComun
 
             return resultado;
         }
-
         #endregion
 
         #region Método(s) virtual(es)
         /// <summary>
         /// Inicia el sistema de inspección en tiempo real
         /// </summary>
-        protected virtual bool InicioSistema()
+        public virtual bool IniciarSistema(bool incial)
         {
-            bool resultado = false;
-
-            if (this.EstadoSistema == EstadoSistema.Detenido)
-            {
-                this.EstadoSistema = EstadoSistema.Arrancando;
-                resultado = true;
-
-                // Fase 1: Se obtiene la conexión con la BBDD y se inicia el registro de eventos
-                if (resultado)
-                {
-                    try
-                    {
-                        // Conexión con la base de datos
-                        if (this.Configuracion.UtilizaBaseDeDatos)
-                        {
-                            SplashRuntime.Mensaje("Conectando con las bases de datos");
-                            BaseDatosRuntime.Constructor();
-                            BaseDatosRuntime.Inicializar();
-                            BaseDatosParam.Conectar();
-                            BaseDatosAlmacen.Conectar();
-                        }
-
-                        // Creación de los threads del sistema
-                        SplashRuntime.Mensaje("Creando log los hilos de ejecución");
-                        ThreadRuntime.Constructor();
-                        ThreadRuntime.Inicializar();
-
-                        // Creación del log de eventos
-                        SplashRuntime.Mensaje("Creando log de eventos");
-                        LogsRuntime.Constructor();
-                        LogsRuntime.Inicializar();
-                        LogsRuntime.Info(ModulosSistema.Sistema, "IniciarSistema", "Inicio del sistema");
-
-                        // Creación de la monitorización del sistema
-                        MonitorizacionSistemaRuntime.Constructor();
-                        MonitorizacionSistemaRuntime.NuevaMonitorizacion(TipoMonitorizacion.MonitorizacionCpuRam);
-                        MonitorizacionSistemaRuntime.NuevaMonitorizacion(TipoMonitorizacion.MonitorizacionDiscos);
-                        MonitorizacionSistemaRuntime.NuevaMonitorizacion(TipoMonitorizacion.MonitorizacionProcesos);
-                        MonitorizacionSistemaRuntime.NuevaMonitorizacion(TipoMonitorizacion.MonitorizacionConexiones);
-                        MonitorizacionSistemaRuntime.Inicializar();
-                    }
-                    catch (Exception exception)
-                    {
-                        LogsRuntime.Error(ModulosSistema.Sistema, "IniciarSistema", exception);
-                        resultado = false;
-                    }
-                }
-
-                // Fase 2: Se inician, uno a uno, los módulos básicos del sistema
-                if (resultado)
-                {
-                    try
-                    {
-                        // Creación del manejo avanzado de ventanas
-                        SplashRuntime.Mensaje("Construyendo el escritorio");
-                        EscritoriosRuntime.Constructor();
-
-                        // Creación de los cronómetros del sistema
-                        SplashRuntime.Mensaje("Construyendo el control de tiempos");
-                        CronometroRuntime.Constructor();
-                        CronometroRuntime.Inicializar();
-
-                        // Creación del almacen de objetos visuales
-                        AlmacenVisualRuntime.Constructor();
-                        AlmacenVisualRuntime.Inicializar();
-                    }
-                    catch (Exception exception)
-                    {
-                        LogsRuntime.Error(ModulosSistema.Sistema, "IniciarSistema", "Error: " + exception.ToString());
-                        resultado = false;
-                    }
-                }
-
-            }
-            else
-            {
-                OMensajes.MostrarError("No se puede iniciar el sistema porque este no se encuentra parado.");
-            }
-
-            return resultado;
+            // A implementar en heredados
+            return false;
         }
         /// <summary>
-        /// Se ejecuta al finalizar el inicio del sistema
+        /// Detiene el sistema de inspección en tiempo real
         /// </summary>
-        protected virtual void FinInicioSistema(ref bool resultado)
+        public virtual bool PararSistema()
         {
-            if (resultado)
-            {
-                try
-                {
-                    // Inicialización del escritorio actual
-                    SplashRuntime.Mensaje("Inicializado el escritorio");
-                    EscritoriosRuntime.Inicializar();
-
-                    // Monitorización inicial para ver el estado del sistema en el momento del arranque
-                    MonitorizacionSistemaRuntime.SiguienteMonitorizacion();
-                    MonitorizacionSistemaRuntime.Log();
-
-                    // Se finaliza el modo inicialización de los logs (tienen un comportamiento dinstinto)
-                    LogsRuntime.FinInicializacion();
-
-                    // Ocultamos el formulario Splash
-                    SplashRuntime.Mensaje("Inicio finalizado con éxito");
-                    LogsRuntime.Info(ModulosSistema.Sistema, "IniciarSistema", "Inicio finalizado con éxito");
-                }
-                catch (Exception exception)
-                {
-                    LogsRuntime.Error(ModulosSistema.Sistema, "IniciarSistema", "Error: " + exception.ToString());
-                    resultado = false;
-                }
-            }
-
-            // Cambiamos el estado del sistema según el resultado del arranque
-            if (resultado)
-            {
-                this.EstadoSistema = EstadoSistema.Iniciado;
-            }
-            else
-            {
-                this.EstadoSistema = EstadoSistema.Detenido;
-            }
+            // A implementar en heredados
+            return false;
         }
         /// <summary>
-        /// Detiene el funcionamiento del inspección en tiempo real
+        /// Se muestra un mensaje en el splash screen de la evolución de arranque del sistema
         /// </summary>
-        protected virtual bool ParoSistema()
+        protected virtual void MensajeInfoArranqueSistema(string mensaje)
         {
-            bool resultado = false;
-
-            if (this.EstadoSistema == EstadoSistema.Iniciado)
-            {
-                this.EstadoSistema = EstadoSistema.Deteniendo;
-                resultado = true;
-
-                try
-                {
-                    LogsRuntime.Info(ModulosSistema.Sistema, "PararSistema", "Paro del sistema");
-
-                    // Finalización manejo avanzado de ventanas                    
-                    EscritoriosRuntime.Finalizar();
-                    EscritoriosRuntime.Destructor();
-                }
-                catch (Exception exception)
-                {
-                    LogsRuntime.Error(ModulosSistema.Sistema, "PararSistema", "Error: " + exception.ToString());
-                    resultado = false;
-                }
-            }
-            else
-            {
-                OMensajes.MostrarError("No se puede detener el sistema porque este no se encuentra iniciado.");
-            }
-
-            return resultado;
+            // A implementar en heredados
         }
-        /// <summary>
-        /// Se ejecuta al finalizar la detención del sistema
-        /// </summary>
-        protected virtual void FinParoSistema(ref bool resultado)
-        {
-            if (resultado)
-            {
-                try
-                {
-                    // Creación del almacen de objetos visuales
-                    AlmacenVisualRuntime.Finalizar();
-                    AlmacenVisualRuntime.Destructor();
-
-                    // Finalización de los cronómetros del sistema
-                    CronometroRuntime.Finalizar();
-                    CronometroRuntime.Destructor();
-                }
-                catch (Exception exception)
-                {
-                    LogsRuntime.Error(ModulosSistema.Sistema, "PararSistema", "Error: " + exception.ToString());
-                    resultado = false;
-                }
-
-                try
-                {
-                    // Finalizaación de las bases de datos
-                    BaseDatosRuntime.Finalizar();
-                    BaseDatosRuntime.Destructor();
-
-                    // Finalización del log de eventos
-                    LogsRuntime.Info(ModulosSistema.Sistema, "PararSistema", "Paro del sistema finalizado con éxito");
-                    LogsRuntime.Finalizar();
-                    LogsRuntime.Destructor();
-
-                    // Finalización de los threads del sistema
-                    SplashRuntime.Mensaje("Creando log los hilos de ejecución");
-                    ThreadRuntime.Finalizar();
-                    ThreadRuntime.Destructor();
-
-                    // Liberación de memoria
-                    GC.Collect();
-                }
-                catch (Exception exception)
-                {
-                    OMensajes.MostrarError(exception.ToString());
-                    resultado = false;
-                }
-
-                // Cambiamos el estado del sistema según el resultado del arranque
-                if (resultado)
-                {
-                    this.EstadoSistema = EstadoSistema.Detenido;
-                }
-                else
-                {
-                    this.EstadoSistema = EstadoSistema.Iniciado;
-                }
-            }
-        }
-
         #endregion
     }
 
@@ -492,11 +259,6 @@ namespace Orbita.VAComun
         /// Opciones de configuración del registro de eventos
         /// </summary>
         public OpcionesLogs OpcionesLogs;
-
-        /// <summary>
-        /// Opciones de configuración del gestor de escritorios
-        /// </summary>
-        public OpcionesEscritorios OpcionesEscritorio;
         #endregion
 
         #region Constructor
@@ -507,7 +269,6 @@ namespace Orbita.VAComun
             : base(ConfFile)
         {
             this.ListaInformacionBasesDatos = new List<InformacionBasesDatos>();
-            this.OpcionesEscritorio = new OpcionesEscritorios();
             this.OpcionesLogs = new OpcionesLogs();
         }
 

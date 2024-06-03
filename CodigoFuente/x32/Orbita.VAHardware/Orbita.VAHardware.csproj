@@ -230,59 +230,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\AppBD.cs" />
-    <Compile Include="Clases\CamaraAxis.cs" />
     <Compile Include="Clases\CamaraBaslerVPro.cs" />
     <Compile Include="Clases\Camaras.cs" />
     <Compile Include="Clases\CamaraIP.cs" />
-    <Compile Include="Clases\Digital.cs" />
+    <Compile Include="Clases\CamaraWDM.cs" />
+    <Compile Include="Clases\DirectShow\Filter.cs" />
+    <Compile Include="Clases\DirectShow\FilterCollection.cs" />
+    <Compile Include="Clases\DirectShow\Tools.cs" />
     <Compile Include="Clases\IO_MeasurementComputing.cs" />
     <Compile Include="Clases\ExtensionLogs.cs" />
     <Compile Include="Clases\Hardware.cs" />
     <Compile Include="Clases\IO_SCED.cs" />
     <Compile Include="Clases\VideoSource\ByteArrayUtils.cs" />
+    <Compile Include="Clases\VideoSource\CaptureDevice.cs" />
     <Compile Include="Clases\VideoSource\Events.cs" />
+    <Compile Include="Clases\DirectShow\IBaseFilter.cs" />
+    <Compile Include="Clases\DirectShow\IBasicVideo.cs" />
+    <Compile Include="Clases\DirectShow\ICreateDevEnum.cs" />
+    <Compile Include="Clases\DirectShow\IEnumPins.cs" />
+    <Compile Include="Clases\DirectShow\IFileSourceFilter.cs" />
+    <Compile Include="Clases\DirectShow\IFilterGraph.cs" />
+    <Compile Include="Clases\DirectShow\IGraphBuilder.cs" />
+    <Compile Include="Clases\DirectShow\IMediaControl.cs" />
+    <Compile Include="Clases\DirectShow\IMediaEvent.cs" />
+    <Compile Include="Clases\DirectShow\IMediaPosition.cs" />
+    <Compile Include="Clases\DirectShow\IMediaSeeking.cs" />
+    <Compile Include="Clases\DirectShow\IPin.cs" />
+    <Compile Include="Clases\DirectShow\IPropertyBag.cs" />
+    <Compile Include="Clases\DirectShow\ISampleGrabber.cs" />
+    <Compile Include="Clases\DirectShow\IVideoFrameStep.cs" />
+    <Compile Include="Clases\DirectShow\IVideoWindow.cs" />
     <Compile Include="Clases\VideoSource\JPGSource.cs" />
     <Compile Include="Clases\VideoSource\MJPEGSource.cs" />
+    <Compile Include="Clases\DirectShow\Structures.cs" />
+    <Compile Include="Clases\DirectShow\Uuids.cs" />
     <Compile Include="Clases\VideoSource\VideoSource.cs" />
+    <Compile Include="Clases\DirectShow\Win32.cs" />
     <Compile Include="Clases\VisionProImage.cs" />
-    <Compile Include="Controles\CrtlDisplayAxis.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\CrtlDisplayAxis.designer.cs">
-      <DependentUpon>CrtlDisplayAxis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\CtrlDisplayVPro.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\CtrlDisplayVPro.designer.cs">
-      <DependentUpon>CtrlDisplayVPro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmDetalleCamara.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmDetalleCamara.Designer.cs">
-      <DependentUpon>FrmDetalleCamara.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmGestionCamaraAxis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmGestionCamaraAxis.Designer.cs">
-      <DependentUpon>FrmGestionCamaraAxis.cs</DependentUpon>
-    </Compile>
     <Compile Include="Clases\IO_AXIS.cs" />
-    <Compile Include="Formularios\FrmGestionSimulacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmGestionSimulacion.designer.cs">
-      <DependentUpon>FrmGestionSimulacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Clases\IOBase.cs" />
-    <Compile Include="Formularios\FrmMonitorizacionIO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmMonitorizacionIO.Designer.cs">
-      <DependentUpon>FrmMonitorizacionIO.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -291,27 +277,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controles\CrtlDisplayAxis.resx">
-      <DependentUpon>CrtlDisplayAxis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\CtrlDisplayVPro.resx">
-      <DependentUpon>CtrlDisplayVPro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmDetalleCamara.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FrmDetalleCamara.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmGestionCamaraAxis.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FrmGestionCamaraAxis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmGestionSimulacion.resx">
-      <DependentUpon>FrmGestionSimulacion.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmMonitorizacionIO.resx">
-      <DependentUpon>FrmMonitorizacionIO.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
@@ -323,39 +288,8 @@
     <None Include="Diagramas\CamerasDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imgPrev24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnCancelar24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnGuardar24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgBeginning24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgDelete24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgLast24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgNew24.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\DataSources\CommonLibrary.EnumeracionCombo.datasource" />
     <None Include="Properties\DataSources\SimulacionCamara.datasource" />
-    <None Include="Resources\imgNext24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgInfo24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgInfo12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Axis223M.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -375,34 +309,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AxisM1114.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgInicio.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgFloppy16.png" />
-    <None Include="Resources\imgFullScreen16.png" />
-    <None Include="Resources\imgInfo16.png" />
-    <None Include="Resources\ImgChat16.png" />
-    <Content Include="Resources\imgMonitorizarVariable24.png" />
-    <None Include="Resources\ImgTarget16.png" />
-    <None Include="Resources\imgNoFullScreen16.png" />
-    <None Include="Resources\ImgNextDoc16.png" />
-    <None Include="Resources\ImgPrevDoc16.png" />
-    <Content Include="Resources\imgVariableActiva24.png" />
-    <Content Include="Resources\imgVariableActiva32.png" />
-    <Content Include="Resources\imgVariableInactiva24.png" />
-    <Content Include="Resources\imgVariableInactiva32.png" />
-    <Content Include="Resources\imgVistasVariables24.png" />
-    <None Include="Resources\imgFotoForzada32.png" />
-    <None Include="Resources\imgFoto32.png" />
-    <None Include="Resources\imgFoto24.png" />
-    <None Include="Resources\CamaraConectada.bmp" />
-    <None Include="Resources\CamaraDesConectada.bmp" />
-    <Content Include="Resources\imgCamaraBasler.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Orbita.VAComun\Orbita.VAComun.csproj">
       <Project>{CC36FE63-3F16-4355-A11D-F0926DFBC977}</Project>
       <Name>Orbita.VAComun</Name>
@@ -414,6 +320,7 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>..\Bin\Orbita.VAHardware.bat $(ConfigurationName)</PostBuildEvent>

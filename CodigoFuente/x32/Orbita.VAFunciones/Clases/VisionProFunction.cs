@@ -3,9 +3,10 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Modificados métodos de finalización
+//                    Deshabiliada la gestión de memoria por parte de VisionPro
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -148,7 +149,8 @@ namespace Orbita.VAFunciones
             {
                 if (this.Valido)
                 {
-                    this.ToolBlock.GarbageCollectionEnabled = true;
+                    //this.ToolBlock.GarbageCollectionEnabled = true;
+                    this.ToolBlock.GarbageCollectionEnabled = false;
                     if (OptimizarVelocidad)
                     {
                         // La primera ejecución es muy lenta por lo que se realiza una ejecución de prueba al cargar el toolblock
@@ -181,7 +183,7 @@ namespace Orbita.VAFunciones
 
             if (this.ToolBlock != null)
             {
-                //this.ToolBlock.Dispose();
+                this.ToolBlock.Dispose();
                 this.ToolBlock = null;
             }
         }

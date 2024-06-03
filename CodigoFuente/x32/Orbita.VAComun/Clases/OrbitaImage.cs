@@ -3,9 +3,9 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Modificados métodos constructores y destructores para heredar de LargeObject
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -20,7 +20,7 @@ namespace Orbita.VAComun
     /// Clase genérica de imagen. Independiente del formato de almacenamiento y del formato de adquisición
     /// </summary>
     [Serializable]
-    public class OrbitaImage : IDisposable, ICloneable
+    public class OrbitaImage : LargeObjectBase, ICloneable
     {
         #region Atributo(s)
         /// <summary>
@@ -71,7 +71,15 @@ namespace Orbita.VAComun
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OrbitaImage()
+        public OrbitaImage():
+            this("OrbitaImage")
+        {
+        }
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        public OrbitaImage(string codigo) :
+            base(codigo)
         {
             this._Image = null;
             this._TipoImagen = TipoImagen.Bitmap; // Valor por defecto
@@ -80,24 +88,18 @@ namespace Orbita.VAComun
         /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
         /// </summary>
         /// <param name="imagenALiberar">Variable que se desea liberar de memoria</param>
-        public OrbitaImage(object imagen)
+        public OrbitaImage(object imagen):
+            this("OrbitaImage", imagen)
+        {
+        }
+        /// <summary>
+        /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
+        /// </summary>
+        /// <param name="imagenALiberar">Variable que se desea liberar de memoria</param>
+        public OrbitaImage(string codigo, object imagen):
+            base(codigo)
         {
             this._Image = imagen;
-            this._TipoImagen = TipoImagen.Bitmap; // Valor por defecto
-        }
-        /// <summary>
-        /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
-        /// </summary>
-        /// <param name="imagenALiberar">Variable que se desea liberar de memoria</param>
-        public OrbitaImage(OrbitaImage imagenALiberar)
-        {
-            // Limpieza de memoria
-            if (imagenALiberar != null)
-            {
-                imagenALiberar = null;
-            }
-
-            this._Image = null;
             this._TipoImagen = TipoImagen.Bitmap; // Valor por defecto
         }
         #endregion
@@ -117,15 +119,6 @@ namespace Orbita.VAComun
         #endregion
 
         #region Método(s) virtual(es)
-        /// <summary>
-        /// Método a implementar en las clases hijas. Elimina la memoria asignada por el objeto.
-        /// </summary>
-        public virtual void Dispose()
-        {
-            //Force garbage collection.
-            GC.Collect();
-        }
-
         /// <summary>
         /// Clonado de la imagen
         /// </summary>
@@ -258,6 +251,20 @@ namespace Orbita.VAComun
             return null;
         }
 
+        #endregion
+
+        #region Método(s) heredado(s)
+        /// <summary>
+        /// Método a implementar en las clases hijas. Elimina la memoria asignada por el objeto.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (!Disposed)
+            {
+                this._Image = null;
+            }
+            base.Dispose(disposing);
+        }
         #endregion
 
         #region Método(s) público(s)
@@ -423,8 +430,10 @@ namespace Orbita.VAComun
         /// </summary>
         public virtual void Dispose()
         {
-            //Force garbage collection.
-            GC.Collect();
+            if (this._Grafico != null)
+            {
+                this._Grafico = null;
+            }
         }
 
         /// <summary>

@@ -3,9 +3,9 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Cambiadas referencias a eventos genéricos de App.cs
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -117,7 +117,7 @@ namespace Orbita.VAComun
         /// Crea una suscripción para recibir un evento cada vez que se registra un usuario
         /// </summary>
         /// <param name="onRegistroUsuario"></param>
-        public static void SuscribirAlRegistrarUsuario(App.SimpleMethod onRegistroUsuario)
+        public static void SuscribirAlRegistrarUsuario(SimpleMethod onRegistroUsuario)
         {
             OnRegistroUsuario += onRegistroUsuario;
         }
@@ -126,7 +126,7 @@ namespace Orbita.VAComun
         /// Elimina la suscripción para recibir un evento cada vez que se registra un usuario
         /// </summary>
         /// <param name="onRegistroUsuario"></param>
-        public static void DesSuscribirAlRegistrarUsuario(App.SimpleMethod onRegistroUsuario)
+        public static void DesSuscribirAlRegistrarUsuario(SimpleMethod onRegistroUsuario)
         {
             OnRegistroUsuario -= onRegistroUsuario;
         }
@@ -136,7 +136,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Evento de registro de usuario
         /// </summary>
-        private static App.SimpleMethod OnRegistroUsuario;
+        private static SimpleMethod OnRegistroUsuario;
         #endregion
     }
 

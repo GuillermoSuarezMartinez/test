@@ -17,7 +17,7 @@ namespace Orbita.VAHardware
     /// <summary>
     /// IVideoSource interface
     /// </summary>
-    public interface IVideoSource
+    internal interface IVideoSource
     {
         #region Declaración de eventos
         /// <summary>
@@ -116,6 +116,6 @@ namespace Orbita.VAHardware
         /// Secuencia de JPEG
         /// </summary>
         [StringValue("JPEG")]
-        JPG = 2,
+        JPG = 2
     }
 }

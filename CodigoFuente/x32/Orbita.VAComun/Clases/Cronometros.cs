@@ -3,9 +3,10 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Añadido nuevo método ExisteCronometro
+//                    Utilización interna de este nuevo método
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -67,14 +68,28 @@ namespace Orbita.VAComun
         /// <param name="descripcion">Texto descriptivo del cronómetro</param>
         public static void NuevoCronometro(string codigo, string nombre, string descripcion)
         {
-            // Creación del nuevo cronómetro
-            Cronometro cronometro = new Cronometro(codigo, nombre, descripcion);
-
-            // Añadimos a la lista de máquinas de estado
-            if (ListaCronometros != null)
+            // Si el cronómetro no existe se crea
+            if (!ExisteCronometro(codigo))
             {
-                ListaCronometros.Add(cronometro);
+                // Creación del nuevo cronómetro
+                Cronometro cronometro = new Cronometro(codigo, nombre, descripcion);
+
+                // Añadimos a la lista de máquinas de estado
+                if (ListaCronometros != null)
+                {
+                    ListaCronometros.Add(cronometro);
+                }
             }
+        }
+
+        public static bool ExisteCronometro(string codigo)
+        {
+            return ListaCronometros.Exists(delegate(Cronometro c) { return c.Codigo == codigo;});
+        }
+
+        public static Cronometro BuscaCronometro(string codigo)
+        {
+            return ListaCronometros.Find(delegate(Cronometro c) { return c.Codigo == codigo; });
         }
 
         /// <summary>
@@ -82,12 +97,10 @@ namespace Orbita.VAComun
         /// </summary>
         public static void Start(string codigo)
         {
-            foreach (Cronometro cronometro in ListaCronometros)
+            Cronometro cronometro = BuscaCronometro(codigo);
+            if (cronometro != null)
             {
-                if (cronometro.Codigo == codigo)
-                {
-                    cronometro.Start();
-                }
+                cronometro.Start();
             }
         }
 
@@ -96,12 +109,10 @@ namespace Orbita.VAComun
         /// </summary>
         public static void StartPaused(string codigo)
         {
-            foreach (Cronometro cronometro in ListaCronometros)
+            Cronometro cronometro = BuscaCronometro(codigo);
+            if (cronometro != null)
             {
-                if (cronometro.Codigo == codigo)
-                {
-                    cronometro.StartPaused();
-                }
+                cronometro.StartPaused();
             }
         }
 
@@ -110,12 +121,10 @@ namespace Orbita.VAComun
         /// </summary>
         public static void Stop(string codigo)
         {
-            foreach (Cronometro cronometro in ListaCronometros)
+            Cronometro cronometro = BuscaCronometro(codigo);
+            if (cronometro != null)
             {
-                if (cronometro.Codigo == codigo)
-                {
-                    cronometro.Stop();
-                }
+                cronometro.Stop();
             }
         }
 
@@ -124,12 +133,10 @@ namespace Orbita.VAComun
         /// </summary>
         public static void Pause(string codigo)
         {
-            foreach (Cronometro cronometro in ListaCronometros)
+            Cronometro cronometro = BuscaCronometro(codigo);
+            if (cronometro != null)
             {
-                if (cronometro.Codigo == codigo)
-                {
-                    cronometro.Pause();
-                }
+                cronometro.Pause();
             }
         }
 
@@ -138,12 +145,10 @@ namespace Orbita.VAComun
         /// </summary>
         public static void Resume(string codigo)
         {
-            foreach (Cronometro cronometro in ListaCronometros)
+            Cronometro cronometro = BuscaCronometro(codigo);
+            if (cronometro != null)
             {
-                if (cronometro.Codigo == codigo)
-                {
-                    cronometro.Resume();
-                }
+                cronometro.Resume();
             }
         }
 
@@ -152,14 +157,13 @@ namespace Orbita.VAComun
         /// </summary>
         public static TimeSpan DuracionUltimaEjecucion(string codigo)
         {
-            foreach (Cronometro cronometro in ListaCronometros)
+            TimeSpan resultado = new TimeSpan();
+            Cronometro cronometro = BuscaCronometro(codigo);
+            if (cronometro != null)
             {
-                if (cronometro.Codigo == codigo)
-                {
-                    return cronometro.DuracionUltimaEjecucion;
-                }
+                resultado = cronometro.DuracionUltimaEjecucion;
             }
-            return new TimeSpan();
+            return resultado;
         }
         #endregion
     }

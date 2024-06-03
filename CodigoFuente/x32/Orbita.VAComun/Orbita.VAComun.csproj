@@ -220,104 +220,13 @@
     <Compile Include="Clases\Claves.cs" />
     <Compile Include="Clases\Cronometros.cs" />
     <Compile Include="Clases\CXML.cs" />
+    <Compile Include="Clases\LargeObject.cs" />
     <Compile Include="Clases\MonitorizacionSistema.cs" />
     <Compile Include="Clases\OrbitaImage.cs" />
     <Compile Include="Clases\Robustez.cs" />
     <Compile Include="Clases\Threads.cs" />
-    <Compile Include="Clases\Escritorios.cs" />
     <Compile Include="Clases\Usuarios.cs" />
-    <Compile Include="Controles\CtrlBase.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\CtrlBase.designer.cs">
-      <DependentUpon>CtrlBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\CtrlDisplay.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\CtrlDisplay.designer.cs">
-      <DependentUpon>CtrlDisplay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\CtrlDisplayBitmap.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\CtrlDisplayBitmap.designer.cs">
-      <DependentUpon>CtrlDisplayBitmap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\VisorImagenes\Clases\MetodosNativos.cs" />
-    <Compile Include="Controles\VisorImagenes\Componentes\ControlVirtualScrollable.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controles\VisorImagenes\Componentes\PropiedadesScroll.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controles\VisorImagenes\Componentes\ScrollControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controles\VisorImagenes\Componentes\VisorImagenes.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmDetalleVisor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmDetalleVisor.Designer.cs">
-      <DependentUpon>FrmDetalleVisor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmDialogoBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmDialogoBase.designer.cs">
-      <DependentUpon>FrmDialogoBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmBase.designer.cs">
-      <DependentUpon>FrmBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmGestionEscritorios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmGestionEscritorios.Designer.cs">
-      <DependentUpon>FrmGestionEscritorios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmInputTextBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmInputTextBox.Designer.cs">
-      <DependentUpon>FrmInputTextBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmDisplays.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmDisplays.Designer.cs">
-      <DependentUpon>FrmDisplays.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmMonitorizacionTiempos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmMonitorizacionTiempos.designer.cs">
-      <DependentUpon>FrmMonitorizacionTiempos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmSplash.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmSplash.Designer.cs">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
-    </Compile>
     <Compile Include="Clases\Logs.cs" />
-    <Compile Include="Formularios\FrmMensajeError.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmMensajeError.Designer.cs">
-      <DependentUpon>FrmMensajeError.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\FrmUserPsw.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\FrmUserPsw.Designer.cs">
-      <DependentUpon>FrmUserPsw.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -332,51 +241,6 @@
     <Compile Include="Clases\Sistema.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controles\CtrlBase.resx">
-      <DependentUpon>CtrlBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\CtrlDisplay.resx">
-      <DependentUpon>CtrlDisplay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\CtrlDisplayBitmap.resx">
-      <DependentUpon>CtrlDisplayBitmap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmDetalleVisor.resx">
-      <DependentUpon>FrmDetalleVisor.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmDialogoBase.resx">
-      <DependentUpon>FrmDialogoBase.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmBase.resx">
-      <DependentUpon>FrmBase.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmGestionEscritorios.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FrmGestionEscritorios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmInputTextBox.resx">
-      <DependentUpon>FrmInputTextBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmDisplays.resx">
-      <DependentUpon>FrmDisplays.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmMonitorizacionTiempos.resx">
-      <DependentUpon>FrmMonitorizacionTiempos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmSplash.resx">
-      <DependentUpon>FrmSplash.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmMensajeError.resx">
-      <DependentUpon>FrmMensajeError.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FrmUserPsw.resx">
-      <DependentUpon>FrmUserPsw.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
@@ -386,19 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagramas\VAComunDiagram.cd" />
-    <None Include="Resources\btnCancelar24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnGuardar24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnVer16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnAdd16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnModificar16.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -406,29 +257,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\btnEliminar16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgPrev24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgBeginning24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgDelete24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgLast24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgNew24.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\Escritorio.datasource" />
-    <None Include="Resources\imgNext24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -446,84 +277,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgNoFullScreen16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgDesktop48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgError64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgWindows48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BtnToolTips24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnEstablecerEscritorio16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnOk16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BtnNok16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BtnNok24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnOk24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnAncla48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnAncla24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgContadorActivo24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgContadorActivo32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgContadorInactivo24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgContadorInactivo32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ImgUsuarios48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgInfo16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imgFloppy16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ImgPrevDoc16.png" />
-    <None Include="Resources\ImgPrevDoc16.png.png" />
-    <None Include="Resources\ImgTarget16.png" />
-    <None Include="Resources\imgFullScreen16.png" />
-    <None Include="Resources\ImgChat16.png" />
-    <None Include="Resources\ImgNextDoc16.png" />
-    <Content Include="Resources\ImgPointer16.png" />
-    <None Include="Resources\ImgZoomOut16.png" />
-    <None Include="Resources\ImgZoomIn16.png" />
-    <None Include="Resources\ImgZoomFit16.png" />
-    <None Include="Resources\ImgZoom16.png" />
-    <None Include="Resources\ImgZona16.png" />
-    <None Include="Resources\ImgTamaño16.png" />
-    <None Include="Resources\ImgSeleccionado16.png" />
-    <None Include="Resources\ImgSeleccion16.png" />
-    <None Include="Resources\ImgPosicion16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ImgHand16.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

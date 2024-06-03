@@ -3,9 +3,10 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Nuevo tipo de Monitorización: MonitorizacionObjetosMemoria
+//                     Se controla las clases LargeObects existentes en el sistema
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -577,6 +578,49 @@ namespace Orbita.VAComun
     }
 
     /// <summary>
+    /// Monitorización de los objetos en memoria
+    /// </summary>
+    public class MonitorizacionObjetosMemoria : MonitorizacionSistemaBase
+    {
+        #region Constructor
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        public MonitorizacionObjetosMemoria()
+        {
+        }
+        #endregion
+
+        #region Método(s) público(s)
+        /// <summary>
+        /// Inicialización de la monitorización del sistema
+        /// </summary>
+        public override void Inicializar()
+        {
+            this.SiguienteMonitorizacion();
+        }
+
+        /// <summary>
+        /// Ejecución de la monitorización del sistema
+        /// </summary>
+        public override void SiguienteMonitorizacion()
+        {
+        }
+
+        /// <summary>
+        /// Resumen de la monitorización
+        /// </summary>
+        public override List<string> Resumen()
+        {
+            List<string> resultado = new List<string>();
+            resultado.Add(string.Format("Número de objetos residentes en memoria: {0}", LargeObjectsRuntime.Count));
+            resultado.AddRange(LargeObjectsRuntime.Resumen("Objeto residente en memoria. Código Hash: {0}, Tipo: {1}, Código: {2}"));
+            return resultado;
+        }
+        #endregion
+    }
+
+    /// <summary>
     /// Enumerado que describe el tiepo de monitorización
     /// </summary>
     public enum TipoMonitorizacion
@@ -596,7 +640,11 @@ namespace Orbita.VAComun
         /// <summary>
         /// Monitorización de conexiones TCP/IP
         /// </summary>
-        MonitorizacionConexiones = 8
+        MonitorizacionConexiones = 5,
+        /// <summary>
+        /// Monitorización de los objetos en memoria
+        /// </summary>
+        MonitorizacionObjetosMemoria = 6
     }
 
     /// <summary>
