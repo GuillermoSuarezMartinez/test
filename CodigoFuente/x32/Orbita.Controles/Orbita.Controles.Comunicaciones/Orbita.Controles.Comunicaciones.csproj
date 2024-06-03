@@ -56,11 +56,11 @@
     <Compile Include="OClienteComsOPC.designer.cs">
       <DependentUpon>OClienteComsOPC.cs</DependentUpon>
     </Compile>
-    <Compile Include="OClienteES.cs">
+    <Compile Include="OClienteESPhoenixILBK48.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OClienteES.designer.cs">
-      <DependentUpon>OClienteES.cs</DependentUpon>
+    <Compile Include="OClienteESPhoenixILBK48.designer.cs">
+      <DependentUpon>OClienteESPhoenixILBK48.cs</DependentUpon>
     </Compile>
     <Compile Include="OClienteOrbita.cs">
       <SubType>UserControl</SubType>
@@ -75,8 +75,8 @@
     <EmbeddedResource Include="OClienteComsOPC.resx">
       <DependentUpon>OClienteComsOPC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OClienteES.resx">
-      <DependentUpon>OClienteES.cs</DependentUpon>
+    <EmbeddedResource Include="OClienteESPhoenixILBK48.resx">
+      <DependentUpon>OClienteESPhoenixILBK48.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OClienteOrbita.resx">
       <DependentUpon>OClienteOrbita.cs</DependentUpon>
