@@ -114,8 +114,6 @@
             this.GrpConfigEscritorio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpConfigEscritorio.Location = new System.Drawing.Point(0, 100);
             this.GrpConfigEscritorio.Name = "GrpConfigEscritorio";
-            this.GrpConfigEscritorio.OrbColorBorde = System.Drawing.Color.Empty;
-            this.GrpConfigEscritorio.OrbColorCabecera = System.Drawing.Color.Empty;
             this.GrpConfigEscritorio.Size = new System.Drawing.Size(371, 173);
             this.GrpConfigEscritorio.TabIndex = 35;
             this.GrpConfigEscritorio.Text = "Configuración predefinida";
@@ -294,8 +292,6 @@
             this.GrpListaEscritorios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpListaEscritorios.Location = new System.Drawing.Point(0, 100);
             this.GrpListaEscritorios.Name = "GrpListaEscritorios";
-            this.GrpListaEscritorios.OrbColorBorde = System.Drawing.Color.Empty;
-            this.GrpListaEscritorios.OrbColorCabecera = System.Drawing.Color.Empty;
             this.GrpListaEscritorios.Size = new System.Drawing.Size(371, 173);
             this.GrpListaEscritorios.TabIndex = 37;
             this.GrpListaEscritorios.Text = "Listado de escritorios";
@@ -320,35 +316,14 @@
             this.GridEscritorios.Location = new System.Drawing.Point(84, 24);
             this.GridEscritorios.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.GridEscritorios.Name = "GridEscritorios";
-            this.GridEscritorios.OrbColorBorde = System.Drawing.SystemColors.Control;
-            this.GridEscritorios.OrbColorBordeFilas = System.Drawing.SystemColors.Control;
-            this.GridEscritorios.OrbColorCabecera = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.GridEscritorios.OrbColorCeldaActiva = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(100)))), ((int)(((byte)(150)))));
-            this.GridEscritorios.OrbColorFilaActiva = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(100)))), ((int)(((byte)(150)))));
-            this.GridEscritorios.OrbColorFilaAlterna = System.Drawing.SystemColors.Control;
-            this.GridEscritorios.OrbColorFilaNueva = System.Drawing.SystemColors.Control;
-            this.GridEscritorios.OrbColorFiltros = System.Drawing.SystemColors.Control;
-            this.GridEscritorios.OrbColorFondo = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this.GridEscritorios.OrbColorSeparador = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(100)))), ((int)(((byte)(150)))));
-            this.GridEscritorios.OrbColorTextoCeldaActiva = System.Drawing.Color.White;
-            this.GridEscritorios.OrbColorTextoFila = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.GridEscritorios.OrbColorTextoFilaAlterna = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.GridEscritorios.OrbColorTextoFilaNueva = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.GridEscritorios.OrbConfirmacionBorrarFilas = false;
-            this.GridEscritorios.OrbEditable = true;
-            this.GridEscritorios.OrbMostrarBotonAñadirFila = true;
-            this.GridEscritorios.OrbMostrarBotonEliminarFila = true;
-            this.GridEscritorios.OrbMostrarRecuentoFilas = true;
-            this.GridEscritorios.OrbPermitirBorrarFilas = true;
-            this.GridEscritorios.OrbPosicionResumenes = Infragistics.Win.UltraWinGrid.SummaryDisplayAreas.BottomFixed;
             this.GridEscritorios.OrbSeparador = Infragistics.Win.UltraWinGrid.SpecialRowSeparator.FilterRow;
             this.GridEscritorios.Size = new System.Drawing.Size(279, 112);
             this.GridEscritorios.TabIndex = 41;
-            this.orbitaTooltipOrbita.SetToolTip(this.GridEscritorios, resources.GetString("GridEscritorios.ToolTip"));
+            this.OrbTooltip.SetToolTip(this.GridEscritorios, resources.GetString("GridEscritorios.ToolTip"));
             this.GridEscritorios.OrbCeldaFinEdicion += new Orbita.Controles.OrbitaGridPro.CeldaFinEdicionHandler(this.GridEscritorios_OrbCeldaFinEdicion);
-            this.GridEscritorios.OrbToolbarClick += new Orbita.Controles.OrbitaGridPro.ToolbarClickHandler(this.GridEscritorios_OrbToolbarClick);
-            this.GridEscritorios.OrbBotonEliminarFilaClick += new Orbita.Controles.OrbitaGridPro.orbDelegadoEliminarFila(this.GridEscritorios_OrbBotonEliminarFilaClick);
-            this.GridEscritorios.OrbBotonAñadirClick += new Orbita.Controles.OrbitaGridPro.orbDelegadoAñadir(this.GridEscritorios_OrbBotonAñadirClick);
+            this.GridEscritorios.OrbToolBarClick += new Orbita.Controles.OrbitaGridPro.ToolBarClickHandler(this.GridEscritorios_OrbToolbarClick);
+            this.GridEscritorios.OrbBotonEliminarFilaClick += new Orbita.Controles.OrbitaGridPro.OrbDelegadoEliminarFila(this.GridEscritorios_OrbBotonEliminarFilaClick);
+            this.GridEscritorios.OrbBotonAñadirClick += new Orbita.Controles.OrbitaGridPro.OrbDelegadoAñadir(this.GridEscritorios_OrbBotonAñadirClick);
             // 
             // PnlEscritorios
             // 

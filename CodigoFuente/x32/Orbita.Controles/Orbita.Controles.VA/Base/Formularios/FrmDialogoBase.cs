@@ -414,11 +414,11 @@ namespace Orbita.Controles.VA
             {
                 if (controlInterno is OrbitaComboPro)
                 {
-                    this.orbitaTooltipOrbita.SetToolTip(((OrbitaComboPro)controlInterno).OrbCombo, this.orbitaTooltipOrbita.GetToolTip(((OrbitaComboPro)controlInterno)));
+                    this.OrbTooltip.SetToolTip(((OrbitaComboPro)controlInterno).OrbCombo, this.OrbTooltip.GetToolTip(((OrbitaComboPro)controlInterno)));
                 }
                 if (controlInterno is OrbitaGridPro)
                 {
-                    this.orbitaTooltipOrbita.SetToolTip(((OrbitaGridPro)controlInterno).OrbGrid, this.orbitaTooltipOrbita.GetToolTip(((OrbitaGridPro)controlInterno)));
+                    this.OrbTooltip.SetToolTip(((OrbitaGridPro)controlInterno).OrbGrid, this.OrbTooltip.GetToolTip(((OrbitaGridPro)controlInterno)));
                 }
 
                 // Recursivo
@@ -451,7 +451,7 @@ namespace Orbita.Controles.VA
                 }
                 else if (controlInterno is OrbitaGridPro)
                 {
-                    ((OrbitaGridPro)controlInterno).OrbEditable = this.ModoAperturaFormulario != ModoAperturaFormulario.Visualizacion;
+                    ((OrbitaGridPro)controlInterno).OrbCeldaEditable = this.ModoAperturaFormulario != ModoAperturaFormulario.Visualizacion;
                 }
                 else if (controlInterno is OrbitaDateTime)
                 {
@@ -505,7 +505,7 @@ namespace Orbita.Controles.VA
                     this.EstablecerModoSistema();
                     break;
                 default:
-                    LogsRuntime.Error(ModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
+                    OVALogsManager.Error(OModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
                     break;
             }
 
@@ -574,7 +574,7 @@ namespace Orbita.Controles.VA
                         this.ResetDeteccionModificaciones();
                         return true;
                     default:
-                        LogsRuntime.Error(ModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
+                        OVALogsManager.Error(OModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
                         return false;
                 }
             }
@@ -693,7 +693,7 @@ namespace Orbita.Controles.VA
         {
             this.SuspendLayout();
             this.ChkToolTip.Checked = false;
-            this.orbitaTooltipOrbita.Active = false;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -704,7 +704,7 @@ namespace Orbita.Controles.VA
         {
             this.SuspendLayout();
             this.ChkToolTip.Checked = false;
-            this.orbitaTooltipOrbita.Active = false;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -715,7 +715,7 @@ namespace Orbita.Controles.VA
         {
             this.SuspendLayout();
             this.ChkToolTip.Checked = false;
-            this.orbitaTooltipOrbita.Active = false;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -726,7 +726,7 @@ namespace Orbita.Controles.VA
         {
             this.SuspendLayout();
             this.ChkToolTip.Checked = false;
-            this.orbitaTooltipOrbita.Active = false;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -737,7 +737,7 @@ namespace Orbita.Controles.VA
         {
             this.SuspendLayout();
             this.ChkToolTip.Checked = false;
-            this.orbitaTooltipOrbita.Active = false;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -859,7 +859,7 @@ namespace Orbita.Controles.VA
                 }
                 catch (Exception exception)
                 {
-                    LogsRuntime.Error(ModulosSistema.Escritorios, "Apertura de formulario", exception);
+                    OVALogsManager.Error(OModulosSistema.Escritorios, "Apertura de formulario", exception);
                 }
             }
         }
@@ -891,7 +891,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Carga de formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Carga de formulario", exception);
             }
         }
         /// <summary>
@@ -907,7 +907,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Cancelar formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Cancelar formulario", exception);
             }
         }
         /// <summary>
@@ -927,7 +927,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Guardar datos", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Guardar datos", exception);
             }
         }
         /// <summary>
@@ -972,7 +972,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Cierre de formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Cierre de formulario", exception);
             }
         }
         /// <summary>
@@ -992,7 +992,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Cierre de formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Cierre de formulario", exception);
             }
         }
         /// <summary>
@@ -1007,7 +1007,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Activación de formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Activación de formulario", exception);
             }
         }
         /// <summary>
@@ -1026,7 +1026,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Cambio de valor", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Cambio de valor", exception);
             }
         }
         /// <summary>
@@ -1047,11 +1047,11 @@ namespace Orbita.Controles.VA
         {
             try
             {
-                this.orbitaTooltipOrbita.Active = ChkToolTip.Checked;
+                this.OrbTooltip.Active = ChkToolTip.Checked;
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Clic en botón de ToolTips", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Clic en botón de ToolTips", exception);
             }
         }
         #endregion Manejadores de eventos

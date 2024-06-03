@@ -68,7 +68,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
             }
         }
         #endregion

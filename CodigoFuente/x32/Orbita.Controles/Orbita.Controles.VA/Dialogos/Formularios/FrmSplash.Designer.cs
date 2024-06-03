@@ -54,7 +54,7 @@
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(204, 16);
             this.lblUsuario.TabIndex = 2;
-            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.Text = "OUsuario";
             // 
             // lblMaquina
             // 

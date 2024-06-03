@@ -92,8 +92,6 @@
             this.GrpFondo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpFondo.Location = new System.Drawing.Point(0, 0);
             this.GrpFondo.Name = "GrpFondo";
-            this.GrpFondo.OrbColorBorde = System.Drawing.Color.Empty;
-            this.GrpFondo.OrbColorCabecera = System.Drawing.Color.Empty;
             this.GrpFondo.Size = new System.Drawing.Size(371, 98);
             this.GrpFondo.TabIndex = 2;
             // 

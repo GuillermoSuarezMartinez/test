@@ -13,7 +13,6 @@ using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using Orbita.Controles;
 using Orbita.VAComun;
 
 namespace Orbita.Controles.VA
@@ -106,7 +105,7 @@ namespace Orbita.Controles.VA
         {
             TimerRefresco.Stop();				// Se para el timer.
 
-            SplashRuntime.MostrandoSplash = true;
+            OSplashManager.MostrandoSplash = true;
 
             // Se realiza la comprobación de la visualización
             this.RealizarVisualizaciones();
@@ -118,7 +117,7 @@ namespace Orbita.Controles.VA
             }
             else
             {
-                SplashRuntime.MostrandoSplash = false;
+                OSplashManager.MostrandoSplash = false;
                 this.Close();	// Si se ha terminado cerramos.
             }
 
@@ -131,7 +130,7 @@ namespace Orbita.Controles.VA
         /// <param name="e"></param>
         private void FrmSplash_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (SplashRuntime.MostrandoSplash)
+            if (OSplashManager.MostrandoSplash)
             {
                 e.Cancel = true;
             }
@@ -142,7 +141,7 @@ namespace Orbita.Controles.VA
     /// <summary>
     /// Clase estática para el acceso al fomrulario de splash
     /// </summary>
-    public static class SplashRuntime
+    public static class OSplashManager
     {
         #region Atributo(s)
         /// <summary>
@@ -191,15 +190,15 @@ namespace Orbita.Controles.VA
             {
                 // Deshabilito el formulario principal
                 Application.UseWaitCursor = true;
-                App.FormularioPrincipalMDI.UseWaitCursor = true;
-                App.FormularioPrincipalMDI.Enabled = false;
+                OTrabajoControles.FormularioPrincipalMDI.UseWaitCursor = true;
+                OTrabajoControles.FormularioPrincipalMDI.Enabled = false;
 
                 // Mostramos el formulario Splash en un hilo
                 Thread tSplash = new Thread(new ThreadStart(IniciarSplash));
                 tSplash.Start();
 
                 // Espero el incio
-                App.Espera(ref MostrandoSplash, true, 10000);
+                OThread.Espera(ref MostrandoSplash, true, 10000);
             }
         }
 
@@ -213,13 +212,13 @@ namespace Orbita.Controles.VA
                 Splash.Cerrar = true;
 
                 // Espero la finalización
-                App.Espera(ref MostrandoSplash, false, 10000);
+                OThread.Espera(ref MostrandoSplash, false, 10000);
 
                 // Habilito el formulario principal
                 Application.UseWaitCursor = false;
-                App.FormularioPrincipalMDI.UseWaitCursor = false;
-                App.FormularioPrincipalMDI.Enabled = true;
-                App.FormularioPrincipalMDI.BringToFront();
+                OTrabajoControles.FormularioPrincipalMDI.UseWaitCursor = false;
+                OTrabajoControles.FormularioPrincipalMDI.Enabled = true;
+                OTrabajoControles.FormularioPrincipalMDI.BringToFront();
             }
         }
 

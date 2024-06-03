@@ -42,7 +42,7 @@ namespace Orbita.Controles.VA
             this.pnlFormulario = new Orbita.Controles.OrbitaPanel();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
-            this.BindingSimulacionCamara = new System.Windows.Forms.BindingSource(this.components);
+            this.BindingOSimulacionCamara = new System.Windows.Forms.BindingSource(this.components);
             this.lblIntervaloEntreSnaps = new Orbita.Controles.OrbitaLabel(this.components);
             this.lblRutaFotografias = new Orbita.Controles.OrbitaLabel(this.components);
             this.lblTipoSimulacion = new Orbita.Controles.OrbitaLabel(this.components);
@@ -69,7 +69,7 @@ namespace Orbita.Controles.VA
             this.pnlPanelPrincipalPadre.SuspendLayout();
             this.pageGestion.SuspendLayout();
             this.pnlFormulario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSimulacionCamara)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingOSimulacionCamara)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRutaFotografias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIntervaloEntreSnaps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingTipoSimulacion)).BeginInit();
@@ -131,16 +131,16 @@ namespace Orbita.Controles.VA
             // 
             // txtFiltro
             // 
-            this.txtFiltro.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSimulacionCamara, "Filtro", true));
+            this.txtFiltro.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingOSimulacionCamara, "Filtro", true));
             this.txtFiltro.Location = new System.Drawing.Point(144, 120);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(100, 20);
             this.txtFiltro.TabIndex = 27;
             this.txtFiltro.Visible = false;
             // 
-            // BindingSimulacionCamara
+            // BindingOSimulacionCamara
             // 
-            this.BindingSimulacionCamara.DataSource = typeof(SimulacionCamara);
+            this.BindingOSimulacionCamara.DataSource = typeof(OSimulacionCamara);
             // 
             // lblIntervaloEntreSnaps
             // 
@@ -213,7 +213,7 @@ namespace Orbita.Controles.VA
             // 
             // checkSimulacion
             // 
-            this.checkSimulacion.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.BindingSimulacionCamara, "Simulacion", true));
+            this.checkSimulacion.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.BindingOSimulacionCamara, "Simulacion", true));
             this.checkSimulacion.Location = new System.Drawing.Point(144, 24);
             this.checkSimulacion.Name = "checkSimulacion";
             this.checkSimulacion.Size = new System.Drawing.Size(120, 20);
@@ -223,7 +223,7 @@ namespace Orbita.Controles.VA
             // txtRutaFotografias
             // 
             this.txtRutaFotografias.Appearance = null;
-            this.txtRutaFotografias.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSimulacionCamara, "RutaFotografias", true));
+            this.txtRutaFotografias.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingOSimulacionCamara, "RutaFotografias", true));
             this.txtRutaFotografias.Font = new System.Drawing.Font("Franklin Gothic Book", 9F);
             this.txtRutaFotografias.Location = new System.Drawing.Point(144, 77);
             this.txtRutaFotografias.Name = "txtRutaFotografias";
@@ -235,7 +235,7 @@ namespace Orbita.Controles.VA
             // txtIntervaloEntreSnaps
             // 
             this.txtIntervaloEntreSnaps.Appearance = null;
-            this.txtIntervaloEntreSnaps.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSimulacionCamara, "IntervaloEntreSnaps", true));
+            this.txtIntervaloEntreSnaps.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingOSimulacionCamara, "IntervaloEntreSnaps", true));
             this.txtIntervaloEntreSnaps.Font = new System.Drawing.Font("Franklin Gothic Book", 9F);
             this.txtIntervaloEntreSnaps.Location = new System.Drawing.Point(144, 146);
             this.txtIntervaloEntreSnaps.Name = "txtIntervaloEntreSnaps";
@@ -256,7 +256,7 @@ namespace Orbita.Controles.VA
             // 
             // cboTipoSimulacion
             // 
-            this.cboTipoSimulacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.BindingSimulacionCamara, "TipoSimulacion", true));
+            this.cboTipoSimulacion.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.BindingOSimulacionCamara, "TipoSimulacion", true));
             this.cboTipoSimulacion.DataSource = this.bindingTipoSimulacion;
             this.cboTipoSimulacion.DisplayMember = "Descripcion";
             this.cboTipoSimulacion.FormattingEnabled = true;
@@ -270,7 +270,7 @@ namespace Orbita.Controles.VA
             // 
             // bindingTipoSimulacion
             // 
-            this.bindingTipoSimulacion.DataSource = typeof(EnumeracionCombo);
+            this.bindingTipoSimulacion.DataSource = typeof(OEnumeracionCombo);
             // 
             // ultraTabPageControl2
             // 
@@ -290,7 +290,7 @@ namespace Orbita.Controles.VA
             this.tipoSimulacionDataGridViewTextBoxColumn,
             this.intervaloEntreSnapsDataGridViewTextBoxColumn,
             this.rutaFotografiasDataGridViewTextBoxColumn});
-            this.gridMaster.DataSource = this.BindingSimulacionCamara;
+            this.gridMaster.DataSource = this.BindingOSimulacionCamara;
             this.gridMaster.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridMaster.Location = new System.Drawing.Point(5, 5);
             this.gridMaster.Name = "gridMaster";
@@ -403,7 +403,7 @@ namespace Orbita.Controles.VA
             this.pageGestion.ResumeLayout(false);
             this.pnlFormulario.ResumeLayout(false);
             this.pnlFormulario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSimulacionCamara)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingOSimulacionCamara)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRutaFotografias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIntervaloEntreSnaps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingTipoSimulacion)).EndInit();
@@ -433,7 +433,7 @@ namespace Orbita.Controles.VA
         private System.Windows.Forms.DataGridViewTextBoxColumn grupoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn guardarTrazabilidadDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descVariableDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource BindingSimulacionCamara;
+        private System.Windows.Forms.BindingSource BindingOSimulacionCamara;
         private System.Windows.Forms.ComboBox cboTipoSimulacion;
         private Orbita.Controles.OrbitaButton btnDialogoRuta;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;

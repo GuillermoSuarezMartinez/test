@@ -76,8 +76,6 @@
             this.GrpFondo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpFondo.Location = new System.Drawing.Point(0, 0);
             this.GrpFondo.Name = "GrpFondo";
-            this.GrpFondo.OrbColorBorde = System.Drawing.Color.Empty;
-            this.GrpFondo.OrbColorCabecera = System.Drawing.Color.Empty;
             this.GrpFondo.Size = new System.Drawing.Size(408, 125);
             this.GrpFondo.TabIndex = 3;
             // 
@@ -128,7 +126,7 @@
             this.LblUsuario.Name = "LblUsuario";
             this.LblUsuario.Size = new System.Drawing.Size(75, 18);
             this.LblUsuario.TabIndex = 1;
-            this.LblUsuario.Text = "Usuario";
+            this.LblUsuario.Text = "OUsuario";
             this.LblUsuario.UseMnemonic = false;
             // 
             // TxtContraseña

@@ -83,7 +83,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ctrlStateMachineDisplay_OnMensajeMaquinaEstadosRecibido(object sender, EventMessageRaised e)
+        private void ctrlStateMachineDisplay_OnMensajeMaquinaEstadosRecibido(object sender, OEventMessageRaised e)
         {
             try
             {
@@ -108,19 +108,19 @@ namespace Orbita.Controles.VA
                 item.Tag = null;
                 switch (e.Tipo)
                 {
-                    case TipoMensajeMaquinaEstados.CambioEstado:
+                    case OTipoMensajeMaquinaEstados.CambioEstado:
                         item.ImageKey = "ImgNuevoEstado24";
                         break;
-                    case TipoMensajeMaquinaEstados.CondicionesTransicion:
+                    case OTipoMensajeMaquinaEstados.CondicionesTransicion:
                         item.ImageKey = "ImgNuevaTransicion24";
                         break;
-                    case TipoMensajeMaquinaEstados.Informacion:
+                    case OTipoMensajeMaquinaEstados.Informacion:
                         item.ImageKey = "ImgInfo24";
                         break;
-                    case TipoMensajeMaquinaEstados.Warning:
+                    case OTipoMensajeMaquinaEstados.Warning:
                         item.ImageKey = "ImgWarning24";
                         break;
-                    case TipoMensajeMaquinaEstados.Parada:
+                    case OTipoMensajeMaquinaEstados.Parada:
                         item.ImageKey = "ImgStop24";
                         break;
                 }
@@ -146,7 +146,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.Monitorizacion, this.Name, exception);
             }
         } 
         #endregion

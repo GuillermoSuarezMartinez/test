@@ -13,7 +13,6 @@ using System;
 using System.Collections;
 using System.Data;
 using System.Windows.Forms;
-using Orbita.Controles;
 using Orbita.Utiles;
 using Orbita.VAComun;
 using Orbita.VAControl;
@@ -66,7 +65,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                //LogsRuntime.Error(ModulosSistema.Comun, "DirectoryCopy", exception);
+                //OVALogsManager.Error(OModulosSistema.Comun, "DirectoryCopy", exception);
                 //MensajeError.MostrarExcepcion(ex);
             }
         }
@@ -96,7 +95,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Fatal(ModulosControl.GestionVariables, "Eliminación", exception);
+                OVALogsManager.Fatal(OModulosControl.GestionVariables, "Eliminación", exception);
             }
         }
         /// <summary>

@@ -96,8 +96,6 @@
             this.grbCronometros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbCronometros.Location = new System.Drawing.Point(0, 0);
             this.grbCronometros.Name = "grbCronometros";
-            this.grbCronometros.OrbColorBorde = System.Drawing.Color.Empty;
-            this.grbCronometros.OrbColorCabecera = System.Drawing.Color.Empty;
             this.grbCronometros.Size = new System.Drawing.Size(763, 337);
             this.grbCronometros.TabIndex = 15;
             this.grbCronometros.Text = "Listado de cronómetros del sistema";

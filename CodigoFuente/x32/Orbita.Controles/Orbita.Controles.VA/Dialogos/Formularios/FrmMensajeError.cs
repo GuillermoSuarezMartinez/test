@@ -131,9 +131,9 @@ namespace Orbita.Controles.VA
         {
             try
             {
-                if (!ThreadRuntime.EjecucionEnTrheadPrincipal())
+                if (!OThreadManager.EjecucionEnTrheadPrincipal())
                 {
-                    ThreadRuntime.SincronizarConThreadPrincipal(new DelegadoMostrar(this.Mostrar), new object[] { dialogo });
+                    OThreadManager.SincronizarConThreadPrincipal(new DelegadoMostrar(this.Mostrar), new object[] { dialogo });
                     return;
                 }
 

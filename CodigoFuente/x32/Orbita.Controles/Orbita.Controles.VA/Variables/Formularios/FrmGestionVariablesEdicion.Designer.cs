@@ -215,7 +215,7 @@
             this.btnAceptar.ImageSize = new System.Drawing.Size(24, 24);
             this.btnAceptar.Location = new System.Drawing.Point(304, 270);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.OrbTipoBoton = Orbita.Controles.OrbitaButton.TipoBoton.Aceptar;
+            this.btnAceptar.OrbTipoBoton = Orbita.Controles.TipoBoton.Aceptar;
             this.btnAceptar.Size = new System.Drawing.Size(98, 33);
             this.btnAceptar.TabIndex = 38;
             this.btnAceptar.Text = "Aceptar";
@@ -229,7 +229,7 @@
             this.btnCancelar.ImageSize = new System.Drawing.Size(24, 24);
             this.btnCancelar.Location = new System.Drawing.Point(408, 270);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.OrbTipoBoton = Orbita.Controles.OrbitaButton.TipoBoton.Cancelar;
+            this.btnCancelar.OrbTipoBoton = Orbita.Controles.TipoBoton.Cancelar;
             this.btnCancelar.Size = new System.Drawing.Size(98, 33);
             this.btnCancelar.TabIndex = 39;
             this.btnCancelar.Text = "Cancelar";

@@ -42,7 +42,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Lista de visores
         /// </summary>
-        public List<ODisplayBase> ListaDisplays;
+        public List<OVisorBase> ListaDisplays;
         #endregion
 
         #region Propiedad(es)
@@ -107,7 +107,7 @@ namespace Orbita.Controles.VA
         {
             InitializeComponent();
 
-            this.ListaDisplays = new List<ODisplayBase>();
+            this.ListaDisplays = new List<OVisorBase>();
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace Orbita.Controles.VA
             this._VisualizacionEnVivo = visualiacionEnVivo;
             this._ControlCamara = controlCamara;
 
-            this.ListaDisplays = new List<ODisplayBase>();
+            this.ListaDisplays = new List<OVisorBase>();
         }  
         #endregion
 
@@ -153,9 +153,9 @@ namespace Orbita.Controles.VA
                 for (int col = 0; col < this.layFondoVisores.ColumnCount; col++)
                 {
                     Control control = this.layFondoVisores.GetControlFromPosition(col, row);
-                    if (control is ODisplayBase)
+                    if (control is OVisorBase)
                     {
-                        string codCamaraAux = ((ODisplayBase)control).Codigo;
+                        string codCamaraAux = ((OVisorBase)control).Codigo;
                         if (codCamaraAux == codCamara)
                         {
                             controlEncontrado = true;
@@ -238,14 +238,14 @@ namespace Orbita.Controles.VA
                         case EventDeviceViewerChangedArgs.DeviceViewerChangeOrder.next:
                         default:
                             indiceSiguiente = indiceActual + 1;
-                            if (!App.InRange(indiceSiguiente, 0, this.ListaDisplays.Count - 1))
+                            if (!OEnteroRobusto.InRange(indiceSiguiente, 0, this.ListaDisplays.Count - 1))
                             {
                                 indiceSiguiente = 0;
                             }
                             break;
                         case EventDeviceViewerChangedArgs.DeviceViewerChangeOrder.previous:
                             indiceSiguiente = indiceActual - 1;
-                            if (!App.InRange(indiceSiguiente, 0, this.ListaDisplays.Count - 1))
+                            if (!OEnteroRobusto.InRange(indiceSiguiente, 0, this.ListaDisplays.Count - 1))
                             {
                                 indiceSiguiente = this.ListaDisplays.Count - 1;
                             }
@@ -274,7 +274,7 @@ namespace Orbita.Controles.VA
 
             if (this._EnlazarCamaras)
             {
-                foreach (CamaraBase camara in CamaraRuntime.ListaCamaras)
+                foreach (OCamaraBase camara in OCamaraManager.ListaCamaras)
                 {
                     if (camara.Habilitado)
                     {
@@ -282,7 +282,7 @@ namespace Orbita.Controles.VA
                         object objetoImplementado;
                         if (App.ConstruirClase(camara.EnsambladoClaseImplementadoraDisplay, camara.ClaseImplementadoraDisplay, out objetoImplementado, titulo, camara.Codigo, camara.MaxFrameIntervalVisualizacion, this._ControlCamara, this._VisualizacionEnVivo))
                         {
-                            ODisplayBase display = (ODisplayBase)objetoImplementado;
+                            OVisorBase display = (OVisorBase)objetoImplementado;
                             this.AddDisplay(display);
 
                             // Añado propiedades especificas a los displays para su visualización
@@ -292,7 +292,7 @@ namespace Orbita.Controles.VA
                             display.MostrarBtnSnap = this._ControlCamara;
                             display.MostrarBtnInfo = true;
                             display.MostrarBtnMaximinzar = true;
-                            display.MostrarBtnSiguienteAnterior = CamaraRuntime.ListaCamaras.Count > 0;
+                            display.MostrarBtnSiguienteAnterior = OCamaraManager.ListaCamaras.Count > 0;
                             display.OnInfoDemandada += this.OnInfoDemandada;
                             display.MostrarLblTitulo = true;
                             display.MostrarStatusBar = true;
@@ -311,7 +311,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         protected virtual void AccionesSalir()
         {
-            foreach (ODisplayBase display in this.ListaDisplays)
+            foreach (OVisorBase display in this.ListaDisplays)
             {
                 if (this._EnlazarCamaras)
                 {
@@ -327,7 +327,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Acción de añadir una cámara al formulario
         /// </summary>
-        public void AddDisplay(ODisplayBase display)
+        public void AddDisplay(OVisorBase display)
         {
             this.NumeroCamaras++;
 
@@ -391,7 +391,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.ImagenGraficos, e.CodCamara, exception);
+                OVALogsManager.Error(OModulosSistema.ImagenGraficos, e.CodCamara, exception);
             }
         }
 
@@ -408,7 +408,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.ImagenGraficos, e.CodCamara, exception);
+                OVALogsManager.Error(OModulosSistema.ImagenGraficos, e.CodCamara, exception);
             }
         }
 
@@ -426,7 +426,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.ImagenGraficos, e.CodCamara, exception);
+                OVALogsManager.Error(OModulosSistema.ImagenGraficos, e.CodCamara, exception);
             }
         }
         #endregion

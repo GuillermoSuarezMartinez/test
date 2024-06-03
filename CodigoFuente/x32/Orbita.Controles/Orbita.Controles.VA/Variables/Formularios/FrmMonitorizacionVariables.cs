@@ -15,8 +15,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinToolbars;
-using Orbita.VAControl;
 using Orbita.VAComun;
+using Orbita.VAControl;
 
 namespace Orbita.Controles.VA
 {
@@ -112,7 +112,7 @@ namespace Orbita.Controles.VA
 
             // Inicializamos el timer de refresco
             this.MomentoUltimoRefresco = DateTime.Now;
-            this.timerRefresco.Interval = SystemRuntime.Configuracion.CadenciaMonitorizacionMilisegundos;
+            this.timerRefresco.Interval = OSistemaManager.Configuracion.CadenciaMonitorizacionMilisegundos;
         }
         /// <summary>
         /// Carga y muestra datos del formulario en modo nuevo. Se cargan todos datos que se muestran en 
@@ -157,7 +157,7 @@ namespace Orbita.Controles.VA
             if (this.CodEscenarioActual == string.Empty)
             {
                 // Todas las variables
-                foreach (VariableItem variable in VariableRuntime.ListaVariables.Values)
+                foreach (OVariable variable in OVariablesManager.ListaVariables.Values)
                 {
                     this.ListaCodVariablesActuales.Add(variable.Codigo);
                 }
@@ -165,8 +165,8 @@ namespace Orbita.Controles.VA
             else
             {
                 // Variables de una vista
-                VistaVariable vistaVariable = VariableRuntime.Vistas[this.CodEscenarioActual]; // Extraigo la vista acutal
-                foreach (KeyValuePair<string,string> aliasPair in vistaVariable.ListaAlias) // Para cada alias
+                OVistaVariable OVistaVariable = OVariablesManager.Vistas[this.CodEscenarioActual]; // Extraigo la vista acutal
+                foreach (KeyValuePair<string,string> aliasPair in OVistaVariable.ListaAlias) // Para cada alias
                 {
                     this.ListaCodVariablesActuales.Add(aliasPair.Value); // Guardo el código de la variable al que hace referencia
                 }
@@ -174,17 +174,17 @@ namespace Orbita.Controles.VA
 
             foreach (string codVariable in this.ListaCodVariablesActuales)
             {
-                VariableItem variable = VariableRuntime.GetVariable(codVariable);
+                OVariable variable = OVariablesManager.GetVariable(codVariable);
                 this.CrearItem(variable);
 
                 switch (variable.Tipo)
                 {
-                    case EnumTipoDato.Bit:
-                    case EnumTipoDato.Entero:
-                    case EnumTipoDato.Texto:
-                    case EnumTipoDato.Decimal:
-                    case EnumTipoDato.Fecha:
-                        VariableRuntime.CrearSuscripcion(variable.Codigo, "Monitorización", this.Name, this.EventoRefrescarVariables);
+                    case OEnumTipoDato.Bit:
+                    case OEnumTipoDato.Entero:
+                    case OEnumTipoDato.Texto:
+                    case OEnumTipoDato.Decimal:
+                    case OEnumTipoDato.Fecha:
+                        OVariablesManager.CrearSuscripcion(variable.Codigo, "Monitorización", this.Name, this.EventoRefrescarVariables);
                         break;
                 }
             }
@@ -197,7 +197,7 @@ namespace Orbita.Controles.VA
         {
             foreach (string codVariable in this.ListaCodVariablesActuales)                
             {
-                VariableRuntime.EliminarSuscripcion(codVariable, "Monitorización", this.Name, this.EventoRefrescarVariables);
+                OVariablesManager.EliminarSuscripcion(codVariable, "Monitorización", this.Name, this.EventoRefrescarVariables);
             }
 
             this.ListaCodVariablesActuales.Clear();
@@ -208,7 +208,7 @@ namespace Orbita.Controles.VA
         /// Dibuja un item en la lista de variables
         /// </summary>
         /// <param name="variable">Variable a visualizar</param>
-        private void CrearItem(VariableItem variable)
+        private void CrearItem(OVariable variable)
         {
             string codigo = variable.Codigo.ToString();
             string descripcion = variable.Descripcion.ToString();
@@ -290,17 +290,17 @@ namespace Orbita.Controles.VA
             string textoValor = string.Empty;
             bool verdadero = false;
             this.ExtraerValorVariable(valor, ref verdadero, ref textoValor);
-            VariableItem variable = (VariableItem)item.Tag;
+            OVariable variable = (OVariable)item.Tag;
             bool bloqueado = variable.Bloqueado;
 
             item.SubItems["Valor"].Text = textoValor;
 
-            EnumTipoDato tipo = variable.Tipo;
+            OEnumTipoDato tipo = variable.Tipo;
             switch (tipo)
             {
-                case EnumTipoDato.SinDefinir:
-                case EnumTipoDato.Flag:
-                case EnumTipoDato.Bit:
+                case OEnumTipoDato.SinDefinir:
+                case OEnumTipoDato.Flag:
+                case OEnumTipoDato.Bit:
                     if (verdadero && !bloqueado)
                     {
                         item.ImageKey = "imgVariableActiva";
@@ -318,9 +318,9 @@ namespace Orbita.Controles.VA
                         item.ImageKey = "imgVariableInactivaForzada";
                     }
                     break;
-                case EnumTipoDato.Entero:
-                case EnumTipoDato.Decimal:
-                case EnumTipoDato.Fecha:
+                case OEnumTipoDato.Entero:
+                case OEnumTipoDato.Decimal:
+                case OEnumTipoDato.Fecha:
                     if (bloqueado)
                     {
                         item.ImageKey = "imgNumeroForzada";
@@ -330,7 +330,7 @@ namespace Orbita.Controles.VA
                         item.ImageKey = "imgNumero";
                     }
                     break;
-                case EnumTipoDato.Texto:
+                case OEnumTipoDato.Texto:
                     if (bloqueado)
                     {
                         item.ImageKey = "imgTextoForzada";
@@ -340,8 +340,8 @@ namespace Orbita.Controles.VA
                         item.ImageKey = "imgTexto";
                     }
                     break;
-                case EnumTipoDato.Imagen:
-                case EnumTipoDato.Grafico:
+                case OEnumTipoDato.Imagen:
+                case OEnumTipoDato.Grafico:
                     if (bloqueado)
                     {
                         item.ImageKey = "imgFotoForzada";
@@ -358,21 +358,21 @@ namespace Orbita.Controles.VA
         /// Fuerza el valor de una variable
         /// </summary>
         /// <param name="variable"></param>
-        private void ForzarValor(VariableItem variable)
+        private void ForzarValor(OVariable variable)
         {
             if (variable.Bloqueado)
             {
                 object objValor = variable.GetValor();
                 switch (variable.Tipo)
                 {
-                    case EnumTipoDato.Entero:
+                    case OEnumTipoDato.Entero:
                         break;
-                    case EnumTipoDato.Texto:
-                        InputTextBox.Show(variable.Codigo, "Forzado de valor", "Escriba el nuevo valor de la variable " + variable.Codigo, App.ToString(objValor), this.TextoImputadoPorUsuario);
+                    case OEnumTipoDato.Texto:
+                        InputTextBox.Show(variable.Codigo, "Forzado de valor", "Escriba el nuevo valor de la variable " + variable.Codigo, ORobusto.ToString(objValor), this.TextoImputadoPorUsuario);
                         break;
-                    case EnumTipoDato.Decimal:
+                    case OEnumTipoDato.Decimal:
                         break;
-                    case EnumTipoDato.Fecha:
+                    case OEnumTipoDato.Fecha:
                         break;
                 }
             }
@@ -389,7 +389,7 @@ namespace Orbita.Controles.VA
             try
             {
                 TimeSpan tiempoSinRefrescar = DateTime.Now - MomentoUltimoRefresco;
-                if (tiempoSinRefrescar > VariableRuntime.CadenciaMonitorizacion)
+                if (tiempoSinRefrescar > OVariablesManager.CadenciaMonitorizacion)
                 {
                     // Si hace más de x tiempo que se refresco, volvemos a referescar
                     ListViewItem[] items = this.ListVariables.Items.Find(codigo, false);
@@ -410,7 +410,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -429,7 +429,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -443,16 +443,16 @@ namespace Orbita.Controles.VA
                 foreach (ListViewItem item in this.ListVariables.Items)
                 {
                     string codigo = item.Text;
-                    object valor = VariableRuntime.GetValue(codigo);
-                    VariableItem variable = (VariableItem)item.Tag;
+                    object valor = OVariablesManager.GetValue(codigo);
+                    OVariable variable = (OVariable)item.Tag;
 
                     switch (variable.Tipo)
                     {
-                        case EnumTipoDato.Bit:
-                        case EnumTipoDato.Entero:
-                        case EnumTipoDato.Texto:
-                        case EnumTipoDato.Decimal:
-                        case EnumTipoDato.Fecha:
+                        case OEnumTipoDato.Bit:
+                        case OEnumTipoDato.Entero:
+                        case OEnumTipoDato.Texto:
+                        case OEnumTipoDato.Decimal:
+                        case OEnumTipoDato.Fecha:
                             this.RefrescarVariables(codigo, valor, item);
                             break;
                     }
@@ -460,7 +460,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -484,12 +484,12 @@ namespace Orbita.Controles.VA
                                     try
                                     {
                                         FrmVariableChart frm = new FrmVariableChart(item.Text);
-                                        //App.FormularioPrincipalMDI.OrbMdiEncolarForm(frm);
+                                        //OTrabajoControles.FormularioPrincipalMDI.OrbMdiEncolarForm(frm);
                                         frm.Show();
                                     }
                                     catch (Exception exception)
                                     {
-                                        LogsRuntime.Fatal(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                                        OVALogsManager.Fatal(OModulosControl.MonitorizacionVariables, this.Name, exception);
                                     }
                                 }
                             }
@@ -499,7 +499,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -514,7 +514,7 @@ namespace Orbita.Controles.VA
             {
                 if (this.ListVariables.FocusedItem != null)
                 {
-                    VariableItem variable = (VariableItem)this.ListVariables.FocusedItem.Tag;
+                    OVariable variable = (OVariable)this.ListVariables.FocusedItem.Tag;
 
                     // Menú de bloqueo
                     this.menuBloquearVariable.Visible = !variable.Bloqueado;
@@ -528,14 +528,14 @@ namespace Orbita.Controles.VA
                     // Menú de Forzado
                     switch (variable.Tipo)
                     {
-                        case EnumTipoDato.Flag:
+                        case OEnumTipoDato.Flag:
                             this.menuForzarValor.Visible = true;
                             this.menuForzarValorFalso.Visible = false;
                             this.menuForzarValorVerdadero.Visible = false;
                             this.menuCargarFoto.Visible = false;
                             this.menuGuardarFoto.Visible = false;
                             break;
-                        case EnumTipoDato.Bit:
+                        case OEnumTipoDato.Bit:
                             bool boolValor = false;
                             object objValor = variable.GetValor();
                             if ((objValor is bool) && ((bool)objValor))
@@ -549,28 +549,28 @@ namespace Orbita.Controles.VA
                             this.menuCargarFoto.Visible = false;
                             this.menuGuardarFoto.Visible = false;
                             break;
-                        case EnumTipoDato.Entero:
+                        case OEnumTipoDato.Entero:
                             this.menuForzarValor.Visible = true;
                             this.menuForzarValorFalso.Visible = false;
                             this.menuForzarValorVerdadero.Visible = false;
                             this.menuCargarFoto.Visible = false;
                             this.menuGuardarFoto.Visible = false;
                             break;
-                        case EnumTipoDato.Texto:
+                        case OEnumTipoDato.Texto:
                             this.menuForzarValor.Visible = true;
                             this.menuForzarValorFalso.Visible = false;
                             this.menuForzarValorVerdadero.Visible = false;
                             this.menuCargarFoto.Visible = false;
                             this.menuGuardarFoto.Visible = false;
                             break;
-                        case EnumTipoDato.Fecha:
+                        case OEnumTipoDato.Fecha:
                             this.menuForzarValor.Visible = true;
                             this.menuForzarValorFalso.Visible = false;
                             this.menuForzarValorVerdadero.Visible = false;
                             this.menuCargarFoto.Visible = false;
                             this.menuGuardarFoto.Visible = false;
                             break;
-                        case EnumTipoDato.Imagen:
+                        case OEnumTipoDato.Imagen:
                             this.menuForzarValor.Visible = false;
                             this.menuForzarValorFalso.Visible = false;
                             this.menuForzarValorVerdadero.Visible = false;
@@ -589,7 +589,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -605,14 +605,14 @@ namespace Orbita.Controles.VA
                 if (this.ListVariables.FocusedItem != null)
                 {
                     string codigo = this.ListVariables.FocusedItem.Text;
-                    VariableRuntime.Bloquear(codigo, "Monitorizacion", this.Name);
+                    OVariablesManager.Bloquear(codigo, "Monitorizacion", this.Name);
 
-                    this.PintarItem(codigo, VariableRuntime.GetValue(codigo), this.ListVariables.FocusedItem);
+                    this.PintarItem(codigo, OVariablesManager.GetValue(codigo), this.ListVariables.FocusedItem);
                 }
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -628,14 +628,14 @@ namespace Orbita.Controles.VA
                 if (this.ListVariables.FocusedItem != null)
                 {
                     string codigo = this.ListVariables.FocusedItem.Text;
-                    VariableRuntime.Desbloquear(codigo, "Monitorizacion", this.Name);
+                    OVariablesManager.Desbloquear(codigo, "Monitorizacion", this.Name);
 
-                    this.PintarItem(codigo, VariableRuntime.GetValue(codigo), this.ListVariables.FocusedItem);
+                    this.PintarItem(codigo, OVariablesManager.GetValue(codigo), this.ListVariables.FocusedItem);
                 }
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -650,14 +650,14 @@ namespace Orbita.Controles.VA
             {
                 if (this.ListVariables.FocusedItem != null)
                 {
-                    VariableItem variable = (VariableItem)this.ListVariables.FocusedItem.Tag;
+                    OVariable variable = (OVariable)this.ListVariables.FocusedItem.Tag;
                     string codigo = this.ListVariables.FocusedItem.Text;
                     switch (variable.Tipo)
                     {
-                        case EnumTipoDato.Entero:
-                        case EnumTipoDato.Texto:
-                        case EnumTipoDato.Decimal:
-                        case EnumTipoDato.Fecha:
+                        case OEnumTipoDato.Entero:
+                        case OEnumTipoDato.Texto:
+                        case OEnumTipoDato.Decimal:
+                        case OEnumTipoDato.Fecha:
                             this.ForzarValor(variable);
                             break;
                     }
@@ -665,7 +665,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -680,17 +680,17 @@ namespace Orbita.Controles.VA
             {
                 if (this.ListVariables.FocusedItem != null)
                 {
-                    VariableItem variable = (VariableItem)this.ListVariables.FocusedItem.Tag;
-                    if (variable.Tipo == EnumTipoDato.Bit)
+                    OVariable variable = (OVariable)this.ListVariables.FocusedItem.Tag;
+                    if (variable.Tipo == OEnumTipoDato.Bit)
                     {
                         string codigo = this.ListVariables.FocusedItem.Text;
-                        VariableRuntime.ForzarValor(codigo, true, "Monitorizacion", this.Name);
+                        OVariablesManager.ForzarValor(codigo, true, "Monitorizacion", this.Name);
                     }
                 }
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -705,17 +705,17 @@ namespace Orbita.Controles.VA
             {
                 if (this.ListVariables.FocusedItem != null)
                 {
-                    VariableItem variable = (VariableItem)this.ListVariables.FocusedItem.Tag;
-                    if (variable.Tipo == EnumTipoDato.Bit)
+                    OVariable variable = (OVariable)this.ListVariables.FocusedItem.Tag;
+                    if (variable.Tipo == OEnumTipoDato.Bit)
                     {
                         string codigo = this.ListVariables.FocusedItem.Text;
-                        VariableRuntime.ForzarValor(codigo, false, "Monitorizacion", this.Name);
+                        OVariablesManager.ForzarValor(codigo, false, "Monitorizacion", this.Name);
                     }
                 }
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -730,27 +730,27 @@ namespace Orbita.Controles.VA
             {
                 if (this.ListVariables.FocusedItem != null)
                 {
-                    VariableItem variable = (VariableItem)this.ListVariables.FocusedItem.Tag;
+                    OVariable variable = (OVariable)this.ListVariables.FocusedItem.Tag;
                     string codigo = this.ListVariables.FocusedItem.Text;
-                    object objValor = VariableRuntime.GetValue(codigo);
+                    object objValor = OVariablesManager.GetValue(codigo);
 
                     switch (variable.Tipo)
                     {
-                        case EnumTipoDato.Flag:
-                            VariableRuntime.Dispara(codigo, "Monitorizacion", this.Name);
+                        case OEnumTipoDato.Flag:
+                            OVariablesManager.Dispara(codigo, "Monitorizacion", this.Name);
                             break;
-                        case EnumTipoDato.Bit:
+                        case OEnumTipoDato.Bit:
                             bool valor = true;
                             if (objValor is bool)
                             {
                                 valor = !(bool)objValor;
                             }
-                            VariableRuntime.ForzarValor(codigo, valor, "Monitorizacion", this.Name);
+                            OVariablesManager.ForzarValor(codigo, valor, "Monitorizacion", this.Name);
                             break;
-                        case EnumTipoDato.Entero:
-                        case EnumTipoDato.Decimal:
-                        case EnumTipoDato.Texto:
-                        case EnumTipoDato.Fecha:
+                        case OEnumTipoDato.Entero:
+                        case OEnumTipoDato.Decimal:
+                        case OEnumTipoDato.Texto:
+                        case OEnumTipoDato.Fecha:
                             this.ForzarValor(variable);
                             break;
                     }
@@ -759,7 +759,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -790,7 +790,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -815,7 +815,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -832,7 +832,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -845,11 +845,11 @@ namespace Orbita.Controles.VA
         {
             try
             {
-                VariableRuntime.ForzarValor(e.Codigo, e.TextoImputado, "Monitorizacion", this.Name);
+                OVariablesManager.ForzarValor(e.Codigo, e.TextoImputado, "Monitorizacion", this.Name);
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 
@@ -865,36 +865,36 @@ namespace Orbita.Controles.VA
 
                 if (this.ListVariables.FocusedItem != null)
                 {
-                    VariableItem variable = (VariableItem)this.ListVariables.FocusedItem.Tag;
-                    if (variable.Tipo == EnumTipoDato.Imagen)
+                    OVariable variable = (OVariable)this.ListVariables.FocusedItem.Tag;
+                    if (variable.Tipo == OEnumTipoDato.Imagen)
                     {
                         string codigo = this.ListVariables.FocusedItem.Text;
-                        string rutaArchivo = RutaParametrizable.AppFolder;
+                        string rutaArchivo = ORutaParametrizable.AppFolder;
                         bool archivoSeleccionadoOK = App.FormularioSeleccionArchivo(this.openFileDialog, ref rutaArchivo);
                         if (archivoSeleccionadoOK)
                         {
-                            OrbitaImage imagen;
-                            object objImagen = VariableRuntime.GetValue(codigo);
+                            OImage imagen;
+                            object objImagen = OVariablesManager.GetValue(codigo);
 
                             // Por defecto se crea una imagen de tipo BitmapImage
-                            if ((objImagen == null) || !(objImagen is OrbitaImage))
+                            if ((objImagen == null) || !(objImagen is OImage))
                             {
-                                imagen = new BitmapImage();
+                                imagen = new OImagenBitmap();
                             }
                             else
                             {
-                                imagen = ((OrbitaImage)objImagen).Nueva();
+                                imagen = ((OImage)objImagen).Nueva();
                             }
 
                             imagen.Cargar(rutaArchivo);
-                            VariableRuntime.ForzarValor(codigo, imagen, "Monitorizacion", this.Name);
+                            OVariablesManager.ForzarValor(codigo, imagen, "Monitorizacion", this.Name);
                         }
                     }
                 }
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosControl.MonitorizacionVariables, this.Name, exception);
+                OVALogsManager.Error(OModulosControl.MonitorizacionVariables, this.Name, exception);
             }
         }
 

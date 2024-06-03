@@ -109,8 +109,6 @@
             this.grbVariables.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbVariables.Location = new System.Drawing.Point(0, 0);
             this.grbVariables.Name = "grbVariables";
-            this.grbVariables.OrbColorBorde = System.Drawing.Color.Empty;
-            this.grbVariables.OrbColorCabecera = System.Drawing.Color.Empty;
             this.grbVariables.Size = new System.Drawing.Size(763, 337);
             this.grbVariables.TabIndex = 15;
             this.grbVariables.Text = "Listado de variables del sistema";

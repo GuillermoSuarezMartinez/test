@@ -65,17 +65,17 @@
             this.gridVariables.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridVariables.Location = new System.Drawing.Point(0, 0);
             this.gridVariables.Name = "gridVariables";
-            this.gridVariables.OrbAutoAjusteColumnas = Infragistics.Win.UltraWinGrid.AutoFitStyle.None;
-            this.gridVariables.OrbMostrarBotonAñadirFila = true;
-            this.gridVariables.OrbMostrarBotonEliminarFila = true;
-            this.gridVariables.OrbMostrarBotonModificarFila = true;
-            this.gridVariables.OrbMostrarBotonRefrescar = true;
+            this.gridVariables.OrbColumnaAutoAjuste = Infragistics.Win.UltraWinGrid.AutoFitStyle.None;
+            this.gridVariables.OrbToolBarMostrarToolAñadir = true;
+            this.gridVariables.OrbToolBarMostrarToolEliminar = true;
+            this.gridVariables.OrbToolBarMostrarToolModificar = true;
+            this.gridVariables.OrbToolBarMostrarToolRefrescar = true;
             this.gridVariables.Size = new System.Drawing.Size(970, 415);
             this.gridVariables.TabIndex = 3;
-            this.gridVariables.OrbBotonRefrescarClick += new Orbita.Controles.OrbitaGridPro.orbDelegadoRefrescar(this.gridVariables_OrbBotonRefrescarClick);
-            this.gridVariables.OrbBotonEliminarFilaClick += new Orbita.Controles.OrbitaGridPro.orbDelegadoEliminarFila(this.gridVariables_OrbBotonEliminarFilaClick);
-            this.gridVariables.OrbBotonModificarClick += new Orbita.Controles.OrbitaGridPro.orbDelegadoModificar(this.gridVariables_OrbBotonModificarClick);
-            this.gridVariables.OrbBotonAñadirClick += new Orbita.Controles.OrbitaGridPro.orbDelegadoAñadir(this.gridVariables_OrbBotonAñadirClick);
+            this.gridVariables.OrbBotonRefrescarClick += new Orbita.Controles.OrbitaGridPro.OrbDelegadoRefrescar(this.gridVariables_OrbBotonRefrescarClick);
+            this.gridVariables.OrbBotonEliminarFilaClick += new Orbita.Controles.OrbitaGridPro.OrbDelegadoEliminarFila(this.gridVariables_OrbBotonEliminarFilaClick);
+            this.gridVariables.OrbBotonModificarClick += new Orbita.Controles.OrbitaGridPro.OrbDelegadoModificar(this.gridVariables_OrbBotonModificarClick);
+            this.gridVariables.OrbBotonAñadirClick += new Orbita.Controles.OrbitaGridPro.OrbDelegadoAñadir(this.gridVariables_OrbBotonAñadirClick);
             // 
             // FrmGestionVariables
             // 

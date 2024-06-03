@@ -17,7 +17,6 @@ using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinDock;
 using Infragistics.Win.UltraWinGrid;
-using Orbita.Controles;
 using Orbita.Utiles;
 using Orbita.VAComun;
 
@@ -572,11 +571,11 @@ namespace Orbita.Controles.VA
             {
                 if (controlInterno is OrbitaComboPro)
                 {
-                    this.orbitaTooltipOrbita.SetToolTip(((OrbitaComboPro)controlInterno).OrbCombo, this.orbitaTooltipOrbita.GetToolTip(((OrbitaComboPro)controlInterno)));
+                    this.OrbTooltip.SetToolTip(((OrbitaComboPro)controlInterno).OrbCombo, this.OrbTooltip.GetToolTip(((OrbitaComboPro)controlInterno)));
                 }
                 if (controlInterno is OrbitaGridPro)
                 {
-                    this.orbitaTooltipOrbita.SetToolTip(((OrbitaGridPro)controlInterno).OrbGrid, this.orbitaTooltipOrbita.GetToolTip(((OrbitaGridPro)controlInterno)));
+                    this.OrbTooltip.SetToolTip(((OrbitaGridPro)controlInterno).OrbGrid, this.OrbTooltip.GetToolTip(((OrbitaGridPro)controlInterno)));
                 }
 
                 // Recursivo
@@ -609,7 +608,7 @@ namespace Orbita.Controles.VA
                 }
                 else if (controlInterno is OrbitaGridPro)
                 {
-                    ((OrbitaGridPro)controlInterno).OrbEditable = this.ModoAperturaFormulario != ModoAperturaFormulario.Visualizacion;
+                    ((OrbitaGridPro)controlInterno).OrbCeldaEditable = this.ModoAperturaFormulario != ModoAperturaFormulario.Visualizacion;
                 }
                 else if (controlInterno is OrbitaDateTime)
                 {
@@ -630,15 +629,15 @@ namespace Orbita.Controles.VA
         /// </summary>
         private void CrearAnclaje()
         {
-            if (EscritoriosRuntime.PermiteAnclajes)
+            if (OEscritoriosManager.PermiteAnclajes)
             {
                 this.SuspendLayout();
-                App.DockManager.SuspendLayout();
+                OTrabajoControles.DockManager.SuspendLayout();
 
                 FormWindowState windowState = this.WindowState;
 
                 // Creación del área de anclaje
-                this.DockAreaPane = App.DockManager.DockControls(new Control[] { this }, DockedLocation.DockedRight, ChildPaneStyle.TabGroup);
+                this.DockAreaPane = OTrabajoControles.DockManager.DockControls(new Control[] { this }, DockedLocation.DockedRight, ChildPaneStyle.TabGroup);
                 this.DockAreaPane.MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
                 this.DockAreaPane.Key = this.Handle.ToString();
                 this.DockAreaPane.Text = this.Text;
@@ -669,15 +668,15 @@ namespace Orbita.Controles.VA
                 }
 
                 // Eventos para controlar la salida del formulario
-                App.DockManager.AfterPaneButtonClick += this.FrmBase_AfterPaneButtonClick;
-                App.DockManager.AfterDockChange += this.FrmBase_AfterDockChange;
+                OTrabajoControles.DockManager.AfterPaneButtonClick += this.FrmBase_AfterPaneButtonClick;
+                OTrabajoControles.DockManager.AfterDockChange += this.FrmBase_AfterDockChange;
 
                 // Se establece el formulario para ser visualizado como un control
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 this.Dock = DockStyle.Fill;
                 this._Anclado = true;
 
-                App.DockManager.ResumeLayout();
+                OTrabajoControles.DockManager.ResumeLayout();
                 this.ResumeLayout();
             }
         }
@@ -687,10 +686,10 @@ namespace Orbita.Controles.VA
         /// </summary>
         private void RehacerAnclaje(DockedLocation dockedLocation)
         {
-            if (EscritoriosRuntime.PermiteAnclajes)
+            if (OEscritoriosManager.PermiteAnclajes)
             {
                 this.SuspendLayout();
-                App.DockManager.SuspendLayout();
+                OTrabajoControles.DockManager.SuspendLayout();
 
                 DockAreaPane dockAreaPane = new DockAreaPane(dockedLocation);
                 dockAreaPane.MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2);
@@ -719,7 +718,7 @@ namespace Orbita.Controles.VA
                 this.DestroyClosedPanes();
                 this.DockAreaPane = this.DockableControlPane.DockAreaPane;
 
-                App.DockManager.ResumeLayout();
+                OTrabajoControles.DockManager.ResumeLayout();
                 this.ResumeLayout();
             }
         }
@@ -729,14 +728,14 @@ namespace Orbita.Controles.VA
         /// </summary>
         private void EliminarAnclaje()
         {
-            if (EscritoriosRuntime.PermiteAnclajes)
+            if (OEscritoriosManager.PermiteAnclajes)
             {
                 this.SuspendLayout();
-                App.DockManager.SuspendLayout();
+                OTrabajoControles.DockManager.SuspendLayout();
 
                 // Eventos para controlar la salida del formulario
-                App.DockManager.AfterPaneButtonClick -= this.FrmBase_AfterPaneButtonClick;
-                App.DockManager.AfterDockChange -= this.FrmBase_AfterDockChange;
+                OTrabajoControles.DockManager.AfterPaneButtonClick -= this.FrmBase_AfterPaneButtonClick;
+                OTrabajoControles.DockManager.AfterDockChange -= this.FrmBase_AfterDockChange;
 
                 if (this.DockableWindow.ParentForm is MdiChildForm)
                 {
@@ -747,7 +746,7 @@ namespace Orbita.Controles.VA
                 this.DockableControlPane.Close();
                 this.DestroyClosedPanes();
 
-                App.DockManager.ResumeLayout();
+                OTrabajoControles.DockManager.ResumeLayout();
                 this.ResumeLayout();
             }
         }
@@ -757,7 +756,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         private void DestroyClosedPanes()
         {
-            foreach (DockableControlPane pane in App.DockManager.ControlPanes)
+            foreach (DockableControlPane pane in OTrabajoControles.DockManager.ControlPanes)
             {
                 if (pane.Closed)
                 {
@@ -806,7 +805,7 @@ namespace Orbita.Controles.VA
                     this.EstablecerModoSistema();
                     break;
                 default:
-                    LogsRuntime.Error(ModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
+                    OVALogsManager.Error(OModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
                     break;
             }
 
@@ -875,7 +874,7 @@ namespace Orbita.Controles.VA
                         this.ResetDeteccionModificaciones();
                         return true;
                     default:
-                        LogsRuntime.Error(ModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
+                        OVALogsManager.Error(OModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
                         return false;
                 }
             }
@@ -996,7 +995,7 @@ namespace Orbita.Controles.VA
             this.ChkToolTip.Checked = false;
             this.ChkDock.Checked = false;
             this.ChkDock.Visible = false;
-            this.orbitaTooltipOrbita.Active = false;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -1009,7 +1008,7 @@ namespace Orbita.Controles.VA
             this.ChkToolTip.Checked = false;
             this.ChkDock.Checked = false;
             this.ChkDock.Visible = false;
-            this.orbitaTooltipOrbita.Active = false;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -1022,7 +1021,7 @@ namespace Orbita.Controles.VA
             this.ChkToolTip.Checked = false;
             this.ChkDock.Checked = false;
             this.ChkDock.Visible = false;
-            this.orbitaTooltipOrbita.Active = false;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -1034,8 +1033,8 @@ namespace Orbita.Controles.VA
             this.SuspendLayout();
             this.ChkToolTip.Checked = false;
             this.ChkDock.Checked = false;
-            this.ChkDock.Visible = EscritoriosRuntime.PermiteAnclajes && this.Anclable;
-            this.orbitaTooltipOrbita.Active = false;
+            this.ChkDock.Visible = OEscritoriosManager.PermiteAnclajes && this.Anclable;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -1047,8 +1046,8 @@ namespace Orbita.Controles.VA
             this.SuspendLayout();
             this.ChkToolTip.Checked = false;
             this.ChkDock.Checked = false;
-            this.ChkDock.Visible = EscritoriosRuntime.PermiteAnclajes && this.Anclable;
-            this.orbitaTooltipOrbita.Active = false;
+            this.ChkDock.Visible = OEscritoriosManager.PermiteAnclajes && this.Anclable;
+            this.OrbTooltip.Active = false;
             this.InternoEstablecerModo(this.pnlPanelPrincipalPadre);
             this.ResumeLayout();
         }
@@ -1161,7 +1160,7 @@ namespace Orbita.Controles.VA
                 {
                     // Apertura del formulario
                     this.CierrePorUsuario = false;
-                    App.FormularioPrincipalMDI.OrbMdiEncolarForm(this);
+                    OTrabajoControles.FormularioPrincipalMDI.OrbMdiEncolarForm(this);
 
                     // Posición por defecto del formulario
                     this.DefatulRectangle = new Rectangle(this.Left, this.Top, this.Width, this.Height);
@@ -1183,11 +1182,11 @@ namespace Orbita.Controles.VA
                         this.CrearAnclaje();
                     }
 
-                    EscritoriosRuntime.SituarFormulario(ref frmBase);
+                    OEscritoriosManager.SituarFormulario(ref frmBase);
                 }
                 catch (Exception exception)
                 {
-                    LogsRuntime.Error(ModulosSistema.Escritorios, "Apertura de formulario", exception);
+                    OVALogsManager.Error(OModulosSistema.Escritorios, "Apertura de formulario", exception);
                 }
             }
         }
@@ -1219,7 +1218,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Carga de formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Carga de formulario", exception);
             }
         }
         /// <summary>
@@ -1235,7 +1234,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Cancelar formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Cancelar formulario", exception);
             }
         }
         /// <summary>
@@ -1255,7 +1254,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Guardar datos", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Guardar datos", exception);
             }
         }
         /// <summary>
@@ -1300,7 +1299,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Cierre de formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Cierre de formulario", exception);
             }
         }
         /// <summary>
@@ -1327,7 +1326,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Cierre de formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Cierre de formulario", exception);
             }
         }
         /// <summary>
@@ -1342,7 +1341,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Activación de formulario", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Activación de formulario", exception);
             }
         }
         /// <summary>
@@ -1361,7 +1360,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Cambio de valor", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Cambio de valor", exception);
             }
         }
         /// <summary>
@@ -1382,11 +1381,11 @@ namespace Orbita.Controles.VA
         {
             try
             {
-                this.orbitaTooltipOrbita.Active = ChkToolTip.Checked;
+                this.OrbTooltip.Active = ChkToolTip.Checked;
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Clic en botón de ToolTips", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Clic en botón de ToolTips", exception);
             }
         }
         /// <summary>
@@ -1403,7 +1402,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Clic en botón de anclaje", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Clic en botón de anclaje", exception);
             }
         }
         /// <summary>
@@ -1429,7 +1428,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Clic en botón cerrar del anclaje", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Clic en botón cerrar del anclaje", exception);
             }
         }
         /// <summary>
@@ -1460,7 +1459,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Escritorios, "Formulario cambiado de anclaje", exception);
+                OVALogsManager.Error(OModulosSistema.Escritorios, "Formulario cambiado de anclaje", exception);
             }
         }
         #endregion Manejadores de eventos

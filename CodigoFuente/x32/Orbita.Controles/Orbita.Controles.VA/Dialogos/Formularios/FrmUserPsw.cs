@@ -44,11 +44,11 @@ namespace Orbita.Controles.VA
             base.CargarDatosModoModificacion();
 
             Dictionary<object, string> valores = new Dictionary<object, string>();
-            foreach (Usuario usuario in UsuariosRuntime.ListaUsuarios)
+            foreach (OUsuario usuario in OUsuariosManager.ListaUsuarios)
             {
                 valores.Add(usuario, usuario.Codigo);
             }
-            App.CargarCombo(this.ComboUsuario, valores, typeof(Usuario), UsuariosRuntime.UsuarioActual);
+            OTrabajoControles.CargarCombo(this.ComboUsuario, valores, typeof(OUsuario), OUsuariosManager.UsuarioActual);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Orbita.Controles.VA
         {
             bool resultado = base.GuardarDatosModoModificacion();
 
-            resultado &= UsuariosRuntime.Registrar(this.ComboUsuario.OrbTexto, this.TxtContraseña.Text);
+            resultado &= OUsuariosManager.Registrar(this.ComboUsuario.OrbTexto, this.TxtContraseña.Text);
             if (!resultado)
             {
                 this.LblErrorContraseña.Visible = true;

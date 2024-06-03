@@ -11,8 +11,8 @@
 //***********************************************************************
 using System;
 using System.Windows.Forms;
-using Orbita.VAHardware;
 using Orbita.VAComun;
+using Orbita.VAHardware;
 
 namespace Orbita.Controles.VA
 {
@@ -62,14 +62,14 @@ namespace Orbita.Controles.VA
         {
             base.CargarDatosComunes();
 
-            this.Hardware = HardwareRuntime.GetHardware(this.Codigo);
+            this.Hardware = OHardwareManager.GetHardware(this.Codigo);
 
             if (this.Hardware != null)
             {
                 // Inicializamos el timer de refresco
-                this.timerRefresco.Interval = SystemRuntime.Configuracion.CadenciaMonitorizacionMilisegundos;
+                this.timerRefresco.Interval = OSistemaManager.Configuracion.CadenciaMonitorizacionMilisegundos;
 
-                foreach (TerminalIOBase terminalIO in this.Hardware.ListaTerminales)
+                foreach (OTerminalIOBase terminalIO in this.Hardware.ListaTerminales)
                 {
                     this.CrearItem(terminalIO);
                 }
@@ -101,12 +101,12 @@ namespace Orbita.Controles.VA
         /// Dibuja un item en la lista de variables
         /// </summary>
         /// <param name="terminalIO">Variable a visualizar</param>
-        private void CrearItem(TerminalIOBase terminalIO)
+        private void CrearItem(OTerminalIOBase terminalIO)
         {
             string codigo = terminalIO.Codigo.ToString();
             string descripcion = terminalIO.Descripcion.ToString();
             string habilitado = terminalIO.Habilitado.ToString();
-            string tipo = StringValueAttribute.GetStringValue(terminalIO.TipoTerminalIO);
+            string tipo = OStringValueAttribute.GetStringValue(terminalIO.TipoTerminalIO);
 
             ListViewItem item = new ListViewItem();
 
@@ -182,16 +182,16 @@ namespace Orbita.Controles.VA
             string textoValor = string.Empty;
             bool verdadero = false;
             this.ExtraerValorTerminal(valor, ref verdadero, ref textoValor);
-            TerminalIOBase terminal = (TerminalIOBase)item.Tag;
+            OTerminalIOBase terminal = (OTerminalIOBase)item.Tag;
 
             item.SubItems["Valor"].Text = textoValor;
 
-            EnumTipoDato tipo = terminal.TipoDato;
+            OEnumTipoDato tipo = terminal.TipoDato;
             switch (tipo)
             {
-                case EnumTipoDato.SinDefinir:
-                case EnumTipoDato.Bit:
-                case EnumTipoDato.Flag:
+                case OEnumTipoDato.SinDefinir:
+                case OEnumTipoDato.Bit:
+                case OEnumTipoDato.Flag:
                 default:
                     if (verdadero)
                     {
@@ -202,16 +202,16 @@ namespace Orbita.Controles.VA
                         item.ImageKey = "imgVariableInactiva";
                     }
                     break;
-                case EnumTipoDato.Entero:
-                case EnumTipoDato.Decimal:
-                case EnumTipoDato.Fecha:
+                case OEnumTipoDato.Entero:
+                case OEnumTipoDato.Decimal:
+                case OEnumTipoDato.Fecha:
                     item.ImageKey = "imgNumero";
                     break;
-                case EnumTipoDato.Texto:
+                case OEnumTipoDato.Texto:
                     item.ImageKey = "imgTexto";
                     break;
-                case EnumTipoDato.Imagen:
-                case EnumTipoDato.Grafico:
+                case OEnumTipoDato.Imagen:
+                case OEnumTipoDato.Grafico:
                     item.ImageKey = "imgFoto";
                     break;
             }
@@ -231,7 +231,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -245,10 +245,10 @@ namespace Orbita.Controles.VA
                 foreach (ListViewItem item in this.ListTerminales.Items)
                 {
                     string codigo = item.Text;
-                    TerminalIOBase terminalIO = (TerminalIOBase)item.Tag;
+                    OTerminalIOBase terminalIO = (OTerminalIOBase)item.Tag;
                     object valor = terminalIO.Valor;
 
-                    //if (terminalIO.TipoVariable == EnumTipoDato.Bit)
+                    //if (terminalIO.TipoVariable == OEnumTipoDato.Bit)
                     {
                         this.RefrescarTerminales(codigo, valor, item);
                     }
@@ -256,7 +256,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -280,12 +280,12 @@ namespace Orbita.Controles.VA
             //                        try
             //                        {
             //                            FrmVariableChart frm = new FrmVariableChart(item.Text);
-            //                            //App.FormularioPrincipalMDI.OrbMdiEncolarForm(frm);
+            //                            //OTrabajoControles.FormularioPrincipalMDI.OrbMdiEncolarForm(frm);
             //                            frm.Show();
             //                        }
             //                        catch (Exception exception)
             //                        {
-            //                            LogsRuntime.Warning(ModulosHardware.Monitorizacion, this.Name, "Warning: " + exception.ToString());
+            //                            OVALogsManager.Warning(OModulosHardware.Monitorizacion, this.Name, "Warning: " + exception.ToString());
             //                        }
             //                    }
             //                }
@@ -295,7 +295,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -326,7 +326,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -344,7 +344,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
             }
             this.timerRefresco.Enabled = true;
         }

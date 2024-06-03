@@ -13,8 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Orbita.Utiles;
-using Orbita.VAHardware;
 using Orbita.VAComun;
+using Orbita.VAHardware;
 
 //TODO! Que no modifique los objetos simulación hasta que no se acepte el formulario.
 namespace Orbita.Controles.VA
@@ -39,8 +39,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Lista de las simulaciones que se están editando
         /// </summary>
-        private SimulacionCamara SimulacionCamara;
-
+        private OSimulacionCamara SimulacionCamara;
         #endregion
 
         #region Constructor(es)
@@ -68,21 +67,21 @@ namespace Orbita.Controles.VA
             base.CargarDatosComunes();
 
             // Rellenamos el binding de los tipos de simulaciones
-            List<EnumeracionCombo> listaTiposSimulaciones = new List<EnumeracionCombo>();
-            listaTiposSimulaciones.Add(new EnumeracionCombo(TipoSimulacionCamara.FotografiaSimple, "Fotografía de disco"));
-            listaTiposSimulaciones.Add(new EnumeracionCombo(TipoSimulacionCamara.DirectorioFotografias, "Carpeta de fotografías de disco"));
+            List<OEnumeracionCombo> listaTiposSimulaciones = new List<OEnumeracionCombo>();
+            listaTiposSimulaciones.Add(new OEnumeracionCombo(OTipoSimulacionCamara.FotografiaSimple, "Fotografía de disco"));
+            listaTiposSimulaciones.Add(new OEnumeracionCombo(OTipoSimulacionCamara.DirectorioFotografias, "Carpeta de fotografías de disco"));
             this.bindingTipoSimulacion.DataSource = listaTiposSimulaciones;
 
             // Rellenamos el binding de las simulaciones
-            this.SimulacionCamara = new SimulacionCamara(this.Codigo);
-            foreach (CamaraBase camara in CamaraRuntime.ListaCamaras)
+            this.SimulacionCamara = new OSimulacionCamara(this.Codigo);
+            foreach (OCamaraBase camara in OCamaraManager.ListaCamaras)
             {
                 if (this.Codigo == camara.Codigo)
                 {
                     this.SimulacionCamara = camara.SimulacionCamara;
                 }
             }
-            this.BindingSimulacionCamara.DataSource = this.SimulacionCamara;
+            this.BindingOSimulacionCamara.DataSource = this.SimulacionCamara;
         }
         /// <summary>
         /// Comprueba si se ha modificado algún dato en algún campo del formulario
@@ -103,9 +102,9 @@ namespace Orbita.Controles.VA
             if (this.checkSimulacion.Checked)
             {
                 // Comprobación del filtro
-                switch ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue)
+                switch ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue)
                 {
-                    case TipoSimulacionCamara.DirectorioFotografias:
+                    case OTipoSimulacionCamara.DirectorioFotografias:
                         string valor = this.txtFiltro.Text;
                         resultado &= valor != string.Empty;
                         if (!resultado)
@@ -117,16 +116,16 @@ namespace Orbita.Controles.VA
                 }
 
                 // Comprobación de la ruta
-                switch ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue)
+                switch ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue)
                 {
-                    case TipoSimulacionCamara.FotografiaSimple:
+                    case OTipoSimulacionCamara.FotografiaSimple:
                         if (!File.Exists(this.txtRutaFotografias.Text))
                         {
                             OMensajes.MostrarAviso("La imagen seleccionada no existe o es incorrecta.");
                             return false;
                         }
                         break;
-                    case TipoSimulacionCamara.DirectorioFotografias:
+                    case OTipoSimulacionCamara.DirectorioFotografias:
                         if (!Directory.Exists(this.txtRutaFotografias.Text))
                         {
                             OMensajes.MostrarAviso("La carpeta seleccionada no existe o es incorrecta.");
@@ -142,12 +141,12 @@ namespace Orbita.Controles.VA
                 }
 
                 // Comprobación del intervalo
-                switch ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue)
+                switch ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue)
                 {
-                    case TipoSimulacionCamara.DirectorioFotografias:
+                    case OTipoSimulacionCamara.DirectorioFotografias:
                         int valor;
                         resultado &= int.TryParse(this.txtIntervaloEntreSnaps.Text, out valor);
-                        resultado &= App.InRange(valor, 1, 100000);
+                        resultado &= OEnteroRobusto.InRange(valor, 1, 100000);
                         if (!resultado)
                         {
                             OMensajes.MostrarAviso("El intervalo de tiempo entre fotografías no es correcto.");
@@ -167,7 +166,7 @@ namespace Orbita.Controles.VA
         {
             base.GuardarDatosModoModificacion();
 
-            this.BindingSimulacionCamara.EndEdit();
+            this.BindingOSimulacionCamara.EndEdit();
 
             return this.SimulacionCamara.ConfigurarModoSimulacion(); ;
         }
@@ -176,7 +175,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         protected override void AccionesNoGuardar()
         {
-            this.BindingSimulacionCamara.CancelEdit();
+            this.BindingOSimulacionCamara.CancelEdit();
         }
         #endregion Métodos virtuales
 
@@ -190,9 +189,9 @@ namespace Orbita.Controles.VA
         {
             try
             {
-                switch ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue)
+                switch ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue)
                 {
-                    case TipoSimulacionCamara.FotografiaSimple:
+                    case OTipoSimulacionCamara.FotografiaSimple:
                         string rutaArchivo = this.txtRutaFotografias.Text;
                         bool archivoSeleccionadoOK = App.FormularioSeleccionArchivo(this.openFileDialog, ref rutaArchivo);
                         if (archivoSeleccionadoOK)
@@ -202,7 +201,7 @@ namespace Orbita.Controles.VA
                             this.btnDialogoRuta.Focus();
                         }						
                         break;
-                    case TipoSimulacionCamara.DirectorioFotografias:
+                    case OTipoSimulacionCamara.DirectorioFotografias:
                         string rutaCarpeta = this.txtRutaFotografias.Text;
                         bool carpetaSeleccionadaOK = App.FormularioSeleccionCarpeta(this.folderBrowserDialog, ref rutaCarpeta);
                         if (carpetaSeleccionadaOK)
@@ -216,7 +215,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosHardware.Camaras, this.Name, exception);
+                OVALogsManager.Error(OModulosHardware.Camaras, this.Name, exception);
             }
         }
 
@@ -234,18 +233,18 @@ namespace Orbita.Controles.VA
                 this.lblRutaFotografias.Visible = this.checkSimulacion.Checked;
                 this.txtRutaFotografias.Visible = this.checkSimulacion.Checked;
                 this.btnDialogoRuta.Visible = this.checkSimulacion.Checked;
-                if (this.cboTipoSimulacion.SelectedValue is TipoSimulacionCamara)
+                if (this.cboTipoSimulacion.SelectedValue is OTipoSimulacionCamara)
                 {
-                    this.lblIntervaloEntreSnaps.Visible = this.checkSimulacion.Checked && ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == TipoSimulacionCamara.DirectorioFotografias);
-                    this.txtIntervaloEntreSnaps.Visible = this.checkSimulacion.Checked && ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == TipoSimulacionCamara.DirectorioFotografias);
-                    this.lblMsIntervaloEntreSnaps.Visible = this.checkSimulacion.Checked && ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == TipoSimulacionCamara.DirectorioFotografias);
-                    this.txtFiltro.Visible = this.checkSimulacion.Checked && ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == TipoSimulacionCamara.DirectorioFotografias);
-                    this.lblFiltro.Visible = this.checkSimulacion.Checked && ((TipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == TipoSimulacionCamara.DirectorioFotografias);
+                    this.lblIntervaloEntreSnaps.Visible = this.checkSimulacion.Checked && ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == OTipoSimulacionCamara.DirectorioFotografias);
+                    this.txtIntervaloEntreSnaps.Visible = this.checkSimulacion.Checked && ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == OTipoSimulacionCamara.DirectorioFotografias);
+                    this.lblMsIntervaloEntreSnaps.Visible = this.checkSimulacion.Checked && ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == OTipoSimulacionCamara.DirectorioFotografias);
+                    this.txtFiltro.Visible = this.checkSimulacion.Checked && ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == OTipoSimulacionCamara.DirectorioFotografias);
+                    this.lblFiltro.Visible = this.checkSimulacion.Checked && ((OTipoSimulacionCamara)this.cboTipoSimulacion.SelectedValue == OTipoSimulacionCamara.DirectorioFotografias);
                 }
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosHardware.Camaras, this.Name, exception);
+                OVALogsManager.Error(OModulosHardware.Camaras, this.Name, exception);
             }
         }
         #endregion

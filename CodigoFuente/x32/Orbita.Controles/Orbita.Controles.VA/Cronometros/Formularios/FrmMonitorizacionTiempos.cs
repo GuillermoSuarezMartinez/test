@@ -55,9 +55,9 @@ namespace Orbita.Controles.VA
 
             // Inicializamos el timer de refresco
             this.MomentoUltimoRefresco = DateTime.Now;
-            this.timerRefresco.Interval = Convert.ToInt32(SystemRuntime.Configuracion.CadenciaMonitorizacion.TotalMilliseconds);
+            this.timerRefresco.Interval = Convert.ToInt32(OSistemaManager.Configuracion.CadenciaMonitorizacion.TotalMilliseconds);
 
-            foreach (Cronometro cronometro in CronometroRuntime.ListaCronometros)
+            foreach (OCronometro cronometro in OCronometrosManager.ListaCronometros)
             {
                 this.CrearItem(cronometro);
             }
@@ -96,7 +96,7 @@ namespace Orbita.Controles.VA
         /// Dibuja un item en la lista de variables
         /// </summary>
         /// <param name="cronometro">Variable a visualizar</param>
-        private void CrearItem(Cronometro cronometro)
+        private void CrearItem(OCronometro cronometro)
         {
             string codigo = cronometro.Codigo;
             string nombre = cronometro.Nombre;
@@ -190,13 +190,13 @@ namespace Orbita.Controles.VA
                 {
                     string codigo = item.Text;
 
-                    Cronometro cronometro = (Cronometro)item.Tag;
+                    OCronometro cronometro = (OCronometro)item.Tag;
                     this.PintarItem(codigo, cronometro.Ejecutando, cronometro.ContadorEjecuciones, cronometro.DuracionUltimaEjecucion, cronometro.DuracionPromedioEjecucion, cronometro.DuracionTotalEjecucion, item);
                 }
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosSistema.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -254,7 +254,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosSistema.Monitorizacion, this.Name, exception);
             }
         }
         
@@ -271,7 +271,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                LogsRuntime.Error(ModulosSistema.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(OModulosSistema.Monitorizacion, this.Name, exception);
             }
         }
         #endregion

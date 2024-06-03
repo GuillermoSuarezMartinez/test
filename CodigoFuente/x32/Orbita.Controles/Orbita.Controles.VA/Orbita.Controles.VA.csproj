@@ -23,11 +23,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Bin\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\Bin\Orbita.Controles.VA.XML</DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.Controles.VA.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,56 +53,41 @@
     <Reference Include="Cognex.VisionPro.Display.Controls, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=MSIL">
       <HintPath>..\..\Comun\VA\Cognex\Cognex.VisionPro.Display.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="Cognex.VisionPro.ImageFile, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=x86">
-      <HintPath>..\..\Comun\VA\Cognex\Cognex.VisionPro.ImageFile.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Shared.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Shared.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Shared.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Shared.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.Misc.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.Misc.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.Misc.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.Misc.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.UltraWinChart.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.UltraWinChart.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinChart.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.UltraWinChart.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.UltraWinDataSource.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.UltraWinDataSource.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinDataSource.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.UltraWinDataSource.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.UltraWinDock.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.UltraWinDock.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinDock.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.UltraWinDock.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.UltraWinEditors.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinEditors.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.UltraWinEditors.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.UltraWinGrid.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinGrid.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.UltraWinGrid.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.UltraWinTabControl.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.UltraWinTabControl.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinTabControl.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.UltraWinTabControl.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.UltraWinToolbars.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.UltraWinToolbars.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.UltraWinToolbars.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.UltraWinToolbars.v6.2.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Infragistics2.Win.v11.2">
+      <HintPath>..\..\Comun\Controles\Infragistics\V11-2\Infragistics2.Win.v11.2.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.Win.v6.2, Version=6.2.20062.34, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Controles\v6\Infragistics2.Win.v6.2.dll</HintPath>
+    <Reference Include="Orbita.Controles">
+      <HintPath>..\..\Comun\Orbita\Orbita.Controles.dll</HintPath>
     </Reference>
-    <Reference Include="OrbitaControles, Version=11.265.5.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\Comun\Orbita\VA\OrbitaControles.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="OrbitaUtiles, Version=12.206.3.2, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\..\Comun\Orbita\OrbitaUtiles.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Orbita.Utiles, Version=12.226.3.1, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\Comun\Orbita\Orbita.Utiles.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -110,11 +96,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Controles\CtrlBase.cs">
+    <Compile Include="Base\Clases\OTrabajoControles.cs" />
+    <Compile Include="Base\Controles\OCtrlBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Base\Controles\CtrlBase.Designer.cs">
-      <DependentUpon>CtrlBase.cs</DependentUpon>
+    <Compile Include="Base\Controles\OCtrlBase.Designer.cs">
+      <DependentUpon>OCtrlBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Base\Formularios\FrmBase.cs">
       <SubType>Form</SubType>
@@ -152,7 +139,7 @@
     <Compile Include="Dialogos\Formularios\FrmUserPsw.Designer.cs">
       <DependentUpon>FrmUserPsw.cs</DependentUpon>
     </Compile>
-    <Compile Include="Escritorios\Clases\Escritorios.cs" />
+    <Compile Include="Escritorios\Clases\OEscritorios.cs" />
     <Compile Include="Hardware\Formularios\FrmGestionCamaraAxis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,14 +158,14 @@
     <Compile Include="Hardware\Formularios\FrmMonitorizacionIO.Designer.cs">
       <DependentUpon>FrmMonitorizacionIO.cs</DependentUpon>
     </Compile>
-    <Compile Include="Label\OrbitaAntialiasingLabel.cs">
+    <Compile Include="Label\OAntialiasingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MaquinasEstados\Controles\OStateMachineDisplay.cs">
+    <Compile Include="MaquinasEstados\Controles\OVisorMaquinaEstados.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MaquinasEstados\Controles\OStateMachineDisplay.Designer.cs">
-      <DependentUpon>OStateMachineDisplay.cs</DependentUpon>
+    <Compile Include="MaquinasEstados\Controles\OVisorMaquinaEstados.Designer.cs">
+      <DependentUpon>OVisorMaquinaEstados.cs</DependentUpon>
     </Compile>
     <Compile Include="MaquinasEstados\Formularios\FrmMonitorizacionMaquinaEstados.cs">
       <SubType>Form</SubType>
@@ -204,17 +191,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Variables\Controles\OVariableChartBase.cs">
+    <Compile Include="Variables\Controles\OGraficaVariableBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Variables\Controles\OVariableChartBase.Designer.cs">
-      <DependentUpon>OVariableChartBase.cs</DependentUpon>
+    <Compile Include="Variables\Controles\OGraficaVariableBase.Designer.cs">
+      <DependentUpon>OGraficaVariableBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Variables\Controles\OVariableChartBool.cs">
+    <Compile Include="Variables\Controles\OGraficaVariableBool.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Variables\Controles\OVariableChartBool.Designer.cs">
-      <DependentUpon>OVariableChartBool.cs</DependentUpon>
+    <Compile Include="Variables\Controles\OGraficaVariableBool.Designer.cs">
+      <DependentUpon>OGraficaVariableBool.cs</DependentUpon>
     </Compile>
     <Compile Include="Variables\Formularios\FrmGestionVariables.cs">
       <SubType>Form</SubType>
@@ -240,35 +227,35 @@
     <Compile Include="Variables\Formularios\FrmVariableChart.Designer.cs">
       <DependentUpon>FrmVariableChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayBase.cs">
+    <Compile Include="Visores\Controles\OVisorImagenBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayBase.designer.cs">
-      <DependentUpon>ODisplayBase.cs</DependentUpon>
+    <Compile Include="Visores\Controles\OVisorImagenBase.designer.cs">
+      <DependentUpon>OVisorImagenBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayBitmap.cs">
+    <Compile Include="Visores\Controles\OVisorBitmap.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayBitmap.designer.cs">
-      <DependentUpon>ODisplayBitmap.cs</DependentUpon>
+    <Compile Include="Visores\Controles\OVisorBitmap.designer.cs">
+      <DependentUpon>OVisorBitmap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayVPro.cs">
+    <Compile Include="Visores\Controles\OVisorVPro.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayVPro.designer.cs">
-      <DependentUpon>ODisplayVPro.cs</DependentUpon>
+    <Compile Include="Visores\Controles\OVisorVPro.designer.cs">
+      <DependentUpon>OVisorVPro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayBitmap\Clases\MetodosNativos.cs" />
-    <Compile Include="Visores\Controles\ODisplayBitmap\Componentes\ControlVirtualScrollable.cs">
+    <Compile Include="Visores\Controles\OVisorBitmap\Clases\MetodosNativos.cs" />
+    <Compile Include="Visores\Controles\OVisorBitmap\Componentes\ControlVirtualScrollable.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayBitmap\Componentes\PropiedadesScroll.cs">
+    <Compile Include="Visores\Controles\OVisorBitmap\Componentes\PropiedadesScroll.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayBitmap\Componentes\ScrollControl.cs">
+    <Compile Include="Visores\Controles\OVisorBitmap\Componentes\ScrollControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\ODisplayBitmap\Componentes\VisorImagenes.cs">
+    <Compile Include="Visores\Controles\OVisorBitmap\Componentes\VisorImagenes.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Visores\Formularios\FrmDetalleCamara.cs">
@@ -292,8 +279,8 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Base\Controles\CtrlBase.resx">
-      <DependentUpon>CtrlBase.cs</DependentUpon>
+    <EmbeddedResource Include="Base\Controles\OCtrlBase.resx">
+      <DependentUpon>OCtrlBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Base\Formularios\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
@@ -327,8 +314,8 @@
     <EmbeddedResource Include="Hardware\Formularios\FrmMonitorizacionIO.resx">
       <DependentUpon>FrmMonitorizacionIO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaquinasEstados\Controles\OStateMachineDisplay.resx">
-      <DependentUpon>OStateMachineDisplay.cs</DependentUpon>
+    <EmbeddedResource Include="MaquinasEstados\Controles\OVisorMaquinaEstados.resx">
+      <DependentUpon>OVisorMaquinaEstados.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MaquinasEstados\Formularios\FrmMonitorizacionMaquinaEstados.resx">
@@ -345,12 +332,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Variables\Controles\OVariableChartBase.resx">
-      <DependentUpon>OVariableChartBase.cs</DependentUpon>
+    <EmbeddedResource Include="Variables\Controles\OGraficaVariableBase.resx">
+      <DependentUpon>OGraficaVariableBase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Variables\Controles\OVariableChartBool.resx">
-      <DependentUpon>OVariableChartBool.cs</DependentUpon>
+    <EmbeddedResource Include="Variables\Controles\OGraficaVariableBool.resx">
+      <DependentUpon>OGraficaVariableBool.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Variables\Formularios\FrmGestionVariables.resx">
@@ -371,14 +358,14 @@
     <None Include="Variables\Formularios\FrmMonitorizacionVariables.Designer.Images.resx">
       <DependentUpon>FrmMonitorizacionVariables.Designer.cs</DependentUpon>
     </None>
-    <EmbeddedResource Include="Visores\Controles\ODisplayBase.resx">
-      <DependentUpon>ODisplayBase.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\OVisorImagenBase.resx">
+      <DependentUpon>OVisorImagenBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visores\Controles\ODisplayBitmap.resx">
-      <DependentUpon>ODisplayBitmap.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\OVisorBitmap.resx">
+      <DependentUpon>OVisorBitmap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visores\Controles\ODisplayVPro.resx">
-      <DependentUpon>ODisplayVPro.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\OVisorVPro.resx">
+      <DependentUpon>OVisorVPro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visores\Formularios\FrmDetalleCamara.resx">
       <DependentUpon>FrmDetalleCamara.cs</DependentUpon>
@@ -394,8 +381,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dialogos\Controles\" />
-    <Folder Include="Hardware\Controles\" />
+    <ProjectReference Include="..\..\Orbita.VA\Orbita.VAComun\Orbita.VA.Comun.csproj">
+      <Project>{CC36FE63-3F16-4355-A11D-F0926DFBC977}</Project>
+      <Name>Orbita.VA.Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Orbita.VA\Orbita.VAControl\Orbita.VA.MaquinasEstados.csproj">
+      <Project>{1CA30AAB-0DA9-4947-B5C5-E81E9A2D9C18}</Project>
+      <Name>Orbita.VA.MaquinasEstados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Orbita.VA\Orbita.VAHardware\Orbita.VA.Hardware.csproj">
+      <Project>{B336255B-92F8-4DAE-9051-C930269AA460}</Project>
+      <Name>Orbita.VA.Hardware</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnAdd16.png" />
@@ -687,28 +684,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgInicio.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Orbita.VAComun\Orbita.VAComun.csproj">
-      <Project>{CC36FE63-3F16-4355-A11D-F0926DFBC977}</Project>
-      <Name>Orbita.VAComun</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Orbita.VAControl\Orbita.VAControl.csproj">
-      <Project>{1CA30AAB-0DA9-4947-B5C5-E81E9A2D9C18}</Project>
-      <Name>Orbita.VAControl</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Orbita.VAFunciones\Orbita.VAFunciones.csproj">
-      <Project>{80C544D1-CA4E-4836-84DD-EB90E7042B5B}</Project>
-      <Name>Orbita.VAFunciones</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Orbita.VAHardware\Orbita.VAHardware.csproj">
-      <Project>{B336255B-92F8-4DAE-9051-C930269AA460}</Project>
-      <Name>Orbita.VAHardware</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ImgPlay16.png" />

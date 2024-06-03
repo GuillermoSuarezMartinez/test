@@ -11,8 +11,8 @@
 //***********************************************************************
 using System;
 using System.Windows.Forms;
-using Orbita.VAControl;
 using Orbita.VAComun;
+using Orbita.VAControl;
 
 namespace Orbita.Controles.VA
 {
@@ -22,7 +22,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Control de monitorización de la variable
         /// </summary>
-        private OVariableChartBase CtrlVariableChart;
+        private OGraficaVariableBase CtrlVariableChart;
 
         /// <summary>
         /// Código de la variable
@@ -42,39 +42,39 @@ namespace Orbita.Controles.VA
             this.Codigo = codigo;
             this.Text = "Monitorización termporal de variables [" + codigo + "]";
 
-            VariableItem variable = VariableRuntime.GetVariable(codigo);
+            OVariable variable = OVariablesManager.GetVariable(codigo);
             if (variable != null)
             {
                 switch (variable.Tipo)
                 {
-                    case EnumTipoDato.SinDefinir:
+                    case OEnumTipoDato.SinDefinir:
                     default:
                         throw new Exception("El tipo de variable no está definida");
                         break;
-                    case EnumTipoDato.Bit:
-                        this.CtrlVariableChart = new OVariableChartBool();
+                    case OEnumTipoDato.Bit:
+                        this.CtrlVariableChart = new OGraficaVariableBool();
                         this.CtrlVariableChart.Parent = this.pnlPanelPrincipalPadre;
                         this.CtrlVariableChart.Dock = DockStyle.Fill;
                         break;
-                    case EnumTipoDato.Entero:
+                    case OEnumTipoDato.Entero:
                         throw new Exception("No se ha implementado todavía el formulario de monitorización temporal para el tipo de variable Entero");
                         break;
-                    case EnumTipoDato.Texto:
+                    case OEnumTipoDato.Texto:
                         throw new Exception("No se ha implementado todavía el formulario de monitorización temporal para el tipo de variable Texto");
                         break;
-                    case EnumTipoDato.Decimal:
+                    case OEnumTipoDato.Decimal:
                         throw new Exception("No se ha implementado todavía el formulario de monitorización temporal para el tipo de variable decimal");
                         break;
-                    case EnumTipoDato.Fecha:
+                    case OEnumTipoDato.Fecha:
                         throw new Exception("No se ha implementado todavía el formulario de monitorización temporal para el tipo de variable fecha");
                         break;
-                    case EnumTipoDato.Imagen:
+                    case OEnumTipoDato.Imagen:
                         throw new Exception("No se ha implementado todavía el formulario de monitorización temporal para el tipo de variable Imagen");
                         break;
-                    case EnumTipoDato.Grafico:
+                    case OEnumTipoDato.Grafico:
                         throw new Exception("No se ha implementado todavía el formulario de monitorización temporal para el tipo de variable gráfica");
                         break;
-                    case EnumTipoDato.Flag:
+                    case OEnumTipoDato.Flag:
                         throw new Exception("No se ha implementado todavía el formulario de monitorización temporal para el tipo de variable Flag");
                         break;
                 }

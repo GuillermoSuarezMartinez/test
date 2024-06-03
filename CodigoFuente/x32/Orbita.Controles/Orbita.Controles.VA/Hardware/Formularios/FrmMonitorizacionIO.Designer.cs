@@ -85,8 +85,6 @@
             this.grbTerminales.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbTerminales.Location = new System.Drawing.Point(0, 0);
             this.grbTerminales.Name = "grbTerminales";
-            this.grbTerminales.OrbColorBorde = System.Drawing.Color.Empty;
-            this.grbTerminales.OrbColorCabecera = System.Drawing.Color.Empty;
             this.grbTerminales.Size = new System.Drawing.Size(772, 403);
             this.grbTerminales.TabIndex = 16;
             this.grbTerminales.Text = "Listado de terminales del módulo";
