@@ -252,7 +252,7 @@ Namespace Orbita.Winsock
         End Property
 
         ''' <summary>
-        ''' Gets or sets a value indicating the port the <see cref="WinsockBase" /> control should listen on.
+        ''' Gets or sets a value indicating the port the see cref="WinsockBase"  control should listen on.
         ''' </summary>
         ''' <remarks>Cannot change while listening, connected, or connecting - but can change while closing.</remarks>
         Public Property LocalPort() As Integer
@@ -350,7 +350,7 @@ Namespace Orbita.Winsock
         End Property
 
         ''' <summary>
-        ''' Gets the state of the <see cref="WinsockBase">WinsockBase</see> control.
+        ''' Gets the state of the see cref="WinsockBase" WinsockBase control.
         ''' </summary>
         <Browsable(False)> _
         Public ReadOnly Property State() As WinsockStates Implements IWinsock.State
@@ -364,15 +364,15 @@ Namespace Orbita.Winsock
 #Region " Public Methods "
 
         ''' <summary>
-        ''' Places a <see cref="WinsockBase">WinsockBase</see> in a listening state.
+        ''' Places a  see cref="WinsockBase" WinsockBase see   in a listening state.
         ''' </summary>
         Public Sub Listen()
             _asSock.Listen(LocalPort, MaxPendingConnections)
         End Sub
         ''' <summary>
-        ''' Places a <see cref="WinsockBase">WinsockBase</see> in a listening state.
+        ''' Places a  see cref="WinsockBase" WinsockBase see  in a listening state.
         ''' </summary>
-        ''' <param name="port">The port <see cref="WinsockBase">WinsockBase</see> should listen on.</param>
+        ''' <param name="port">The port  see cref="WinsockBase" WinsockBase see  should listen on.</param>
         Public Sub Listen(ByVal port As Integer)
             If port < 0 Then
                 Throw New ArgumentException("Port cannot be less than zero.", "port")
@@ -381,9 +381,9 @@ Namespace Orbita.Winsock
             Listen()
         End Sub
         ''' <summary>
-        ''' Places a <see cref="WinsockBase">WinsockBase</see> in a listening state.
+        ''' Places a  see cref="WinsockBase" WinsockBase see  in a listening state.
         ''' </summary>
-        ''' <param name="ip">The IP address the <see cref="WinsockBase">WinsockBase</see> should listen on.  This must be an ip address.</param>
+        ''' <param name="ip">The IP address the  see cref="WinsockBase" WinsockBase see  should listen on.  This must be an ip address.</param>
         Public Sub Listen(ByVal ip As String)
             If ip Is Nothing Then
                 Listen()
@@ -396,10 +396,10 @@ Namespace Orbita.Winsock
             End If
         End Sub
         ''' <summary>
-        ''' Places a <see cref="WinsockBase">WinsockBase</see> in a listening state.
+        ''' Places a  see cref="WinsockBase" WinsockBase see  in a listening state.
         ''' </summary>
-        ''' <param name="ip">The IP address the <see cref="WinsockBase">WinsockBase</see> should listen on.</param>
-        ''' <param name="port">The port <see cref="WinsockBase">WinsockBase</see> should listen on.</param>
+        ''' <param name="ip">The IP address the  see cref="WinsockBase" WinsockBase see  should listen on.</param>
+        ''' <param name="port">The port  see cref="WinsockBase" WinsockBase see  should listen on.</param>
         Public Sub Listen(ByVal ip As String, ByVal port As Integer)
             If port < 0 Then
                 Throw New ArgumentException("Port cannot be less than zero.", "port")
@@ -428,7 +428,7 @@ Namespace Orbita.Winsock
         End Sub
 
         ''' <summary>
-        ''' Creates an new <see cref="WinsockBase">WinsockBase</see> and accepts the client connection on it.
+        ''' Creates an new  see cref="WinsockBase" WinsockBase see  and accepts the client connection on it.
         ''' </summary>
         ''' <param name="client">A <see cref="System.Net.Sockets.Socket">System.Net.Sockets.Socket</see> that represents the client being accepted.</param>
         ''' <remarks>
@@ -444,7 +444,7 @@ Namespace Orbita.Winsock
         End Function
 
         ''' <summary>
-        ''' Closes an open <see cref="WinsockBase">WinsockBase</see> connection.
+        ''' Closes an open  see cref="WinsockBase" WinsockBase see  connection.
         ''' </summary>
         Public Sub Close()
             _asSock.Close()

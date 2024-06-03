@@ -301,9 +301,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression
 		/// false if more input is needed, true if output window is
 		/// full or the current block ends.
 		/// </returns>
-		/// <exception cref="SharpZipBaseException">
-		/// if deflated stream is invalid.
-		/// </exception>
 		private bool DecodeHuffman()
 		{
 			int free = outputWindow.GetFreeSpace();
@@ -415,9 +412,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression
 		/// <returns>
 		/// false if more input is needed.
 		/// </returns>
-		/// <exception cref="SharpZipBaseException">
-		/// If checksum doesn't match.
-		/// </exception>
 		private bool DecodeChksum()
 		{
 			while (neededBits > 0) {
@@ -444,9 +438,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression
 		/// <returns>
 		/// false if more input is needed, or if finished.
 		/// </returns>
-		/// <exception cref="SharpZipBaseException">
-		/// if deflated stream is invalid.
-		/// </exception>
 		private bool Decode()
 		{
 			switch (mode) {
@@ -588,12 +579,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression
 		/// <param name="count">
 		/// The number of bytes in the dictionary.
 		/// </param>
-		/// <exception cref="System.InvalidOperationException">
-		/// No dictionary is needed.
-		/// </exception>
-		/// <exception cref="SharpZipBaseException">
-		/// The adler checksum for the buffer is invalid
-		/// </exception>
 		public void SetDictionary(byte[] buffer, int index, int count)
 		{
 			if ( buffer == null ) {

@@ -11,6 +11,9 @@
 //***********************************************************************
 namespace Orbita.Utiles
 {
+    /// <summary>
+    /// Interfaz para colas
+    /// </summary>
     public interface ICola
     {
         #region Método(s)

@@ -414,7 +414,7 @@ namespace Orbita.Utiles.Compresion.Zip
 		/// </summary>
 		/// <param name="zipFileName">The zip file to extract from.</param>
 		/// <param name="targetDirectory">The directory to save extracted information in.</param>
-		/// <param name="overwrite">The style of <see cref="Overwrite">overwriting</see> to apply.</param>
+		/// <param name="overwrite">The style of apply.</param>
 		/// <param name="confirmDelegate">A delegate to invoke when confirming overwriting.</param>
 		/// <param name="fileFilter">A filter to apply to files.</param>
 		/// <param name="directoryFilter">A filter to apply to directories.</param>
@@ -432,7 +432,7 @@ namespace Orbita.Utiles.Compresion.Zip
 		/// </summary>
 		/// <param name="inputStream">The seekable input stream containing the zip to extract from.</param>
 		/// <param name="targetDirectory">The directory to save extracted information in.</param>
-		/// <param name="overwrite">The style of <see cref="Overwrite">overwriting</see> to apply.</param>
+		/// <param name="overwrite">The style.</param>
 		/// <param name="confirmDelegate">A delegate to invoke when confirming overwriting.</param>
 		/// <param name="fileFilter">A filter to apply to files.</param>
 		/// <param name="directoryFilter">A filter to apply to directories.</param>

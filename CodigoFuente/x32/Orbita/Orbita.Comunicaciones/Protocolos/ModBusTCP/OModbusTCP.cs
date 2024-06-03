@@ -18,18 +18,12 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// cabecera del mensaje de escritura F16
         /// </summary>
-        private byte[] _cabeceraMensajeEscrituraF16;        
-        /// <summary>
-        /// registro del programa que se desea leer o escribir
-        /// </summary>
-        private byte[] _registro;
-        /// <summary>
-        /// número de lecturas que se desea realizar
-        /// </summary>
-        private byte[] _numLecturas;
+        private byte[] _cabeceraMensajeEscrituraF16; 
 
         #endregion
-
+        /// <summary>
+        /// Cosntructor de clase para el protocolo modbus TCP
+        /// </summary>
         public OModbusTCP()
         { 
             this._cabeceraMensajeLecturaF3 = new byte[8];

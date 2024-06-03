@@ -4,10 +4,15 @@ using System.Text;
 
 namespace Orbita.Comunicaciones
 {
+    /// <summary>
+    /// Protocolo para los dispositivos TSP de siemens
+    /// </summary>
     public class ProtocoloTCPSiemens : IDisposable
     {
         #region Variables
-        // Track whether Dispose has been called.
+        /// <summary>
+        /// Variable para la llamada al método dispose
+        /// </summary>
         public bool disposed = false;
         #endregion
 
@@ -17,7 +22,7 @@ namespace Orbita.Comunicaciones
         /// Procesa el mensaje keep alive del PLC
         /// </summary>
         /// <param name="valor">valor recibido por el PLC</param>
-        /// <param name="fecha">fecha recibida por el PLC</param>
+        /// <param name="lecturas">lecturas recibida por el PLC</param>
         /// <returns></returns>
         public virtual bool KeepAliveProcesar(byte[] valor, out byte[] lecturas)
         {
@@ -35,7 +40,8 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// Escritura de salidas
         /// </summary>
-        /// <param name="salidas"></param>
+        /// <param name="valor">valor a procesar</param>
+        /// <param name="id">identificador del mensaje</param>
         /// <returns></returns>
         public virtual bool SalidasProcesar(byte[] valor, byte id)
         {
@@ -44,7 +50,8 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// Escritura de salidas
         /// </summary>
-        /// <param name="salidas"></param>
+        /// <param name="salidas">salidas a procesar</param>
+        /// <param name="idMensaje">identificador del mensaje</param>
         /// <returns></returns>
         public virtual byte[] SalidasEnviar(byte salidas, byte idMensaje)
         {

@@ -666,9 +666,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression.Streams
 		/// The number of bytes to decompress
 		/// </param>
 		/// <returns>The number of bytes read.  Zero signals the end of stream</returns>
-		/// <exception cref="SharpZipBaseException">
-		/// Inflater needs a dictionary
-		/// </exception>
 		public override int Read(byte[] buffer, int offset, int count) 
 		{
 			if (inf.IsNeedingDictionary)

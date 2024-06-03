@@ -5,6 +5,9 @@ using Orbita.Comunicaciones;
 
 namespace Orbita.Comunicaciones
 {
+    /// <summary>
+    /// Protocolo para los dispositivos phoenix
+    /// </summary>
     public class ProtocoloTCPPhoenixES : IDisposable
     {
 
@@ -34,7 +37,13 @@ namespace Orbita.Comunicaciones
         #endregion
 
         #region Constructores
-
+        /// <summary>
+        /// Constructor para el protocolo phoenix
+        /// </summary>
+        /// <param name="regIniEntradas"></param>
+        /// <param name="byteEntradas"></param>
+        /// <param name="regIniSalidas"></param>
+        /// <param name="byteSalidas"></param>
         public ProtocoloTCPPhoenixES(int regIniEntradas, int byteEntradas, int regIniSalidas, int byteSalidas)
         {
             this._registroInicialEntradas = regIniEntradas;
@@ -42,7 +51,9 @@ namespace Orbita.Comunicaciones
             this._registroInicialSalidas = regIniSalidas;
             this._tamanyoSalidas = byteSalidas;
         }
-
+        /// <summary>
+        /// Destructor de clase
+        /// </summary>
         ~ProtocoloTCPPhoenixES()
         {
             // Do not re-create Dispose clean-up code here.
@@ -78,6 +89,7 @@ namespace Orbita.Comunicaciones
         /// Procesa el mensaje keep alive del dispositivo
         /// </summary>
         /// <param name="valor">valor recibido por el dispositivo</param>
+        /// <param name="lecturas">lecturas procesadas</param>
         /// <returns></returns>
         public bool KeepAliveProcesar(byte[] valor, out byte[] lecturas)
         {
@@ -110,7 +122,10 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// Procesa el mensaje de ES del PLC
         /// </summary>
-        /// <param name="mensaje"></param>
+        /// <param name="valor"></param>
+        /// <param name="entradas"></param>
+        /// <param name="salidas"></param>
+        /// <returns></returns>
         public bool ESprocesar(byte[] valor, out byte[] entradas, out byte[] salidas)
         {
             bool ret = false;

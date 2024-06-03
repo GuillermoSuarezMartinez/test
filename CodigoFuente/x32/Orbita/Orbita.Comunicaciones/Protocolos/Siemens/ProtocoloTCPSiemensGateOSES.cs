@@ -47,12 +47,16 @@ namespace Orbita.Comunicaciones
         #endregion
 
         #region Constructores
-
+        /// <summary>
+        /// Constructor para el protocolo GATE OS
+        /// </summary>
         public ProtocoloTCPSiemensGateOSES()
         {
 
         }
-
+        /// <summary>
+        /// Destructor para el protocolo GATE OS
+        /// </summary>
         ~ProtocoloTCPSiemensGateOSES()
         {
             Dispose(false);
@@ -101,7 +105,7 @@ namespace Orbita.Comunicaciones
         /// Procesa el mensaje keep alive del PLC
         /// </summary>
         /// <param name="valor">valor recibido por el PLC</param>
-        /// <param name="fecha">fecha recibida por el PLC</param>
+        /// <param name="lecturas">lecturas del PLC</param>
         /// <returns></returns>
         public override bool KeepAliveProcesar(byte[] valor, out byte[] lecturas)
         {
@@ -137,7 +141,8 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// Escritura de salidas
         /// </summary>
-        /// <param name="salidas"></param>
+        /// <param name="salidas">salidas a escribir</param>
+        /// <param name="idMensaje">identificador del mensaje</param>
         /// <returns></returns>
         public override byte[] SalidasEnviar(byte salidas, byte idMensaje)
         {
@@ -148,7 +153,8 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// Escritura de salidas
         /// </summary>
-        /// <param name="salidas"></param>
+        /// <param name="valor">valor a procesar</param>
+        /// <param name="id">identificador del mensaje</param>
         /// <returns></returns>
         public override bool SalidasProcesar(byte[] valor, byte id)
         {

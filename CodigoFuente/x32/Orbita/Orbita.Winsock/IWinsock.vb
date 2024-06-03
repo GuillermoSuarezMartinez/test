@@ -86,7 +86,7 @@ Namespace Orbita.Winsock
         Property RemoteHost() As String
         Property RemotePort() As Integer
         ''' <summary>
-        ''' Gets the state of the <see cref="WinsockBase">WinsockBase</see> control.
+        ''' Gets the state of the  see cref="WinsockBase" WinsockBase see  control.
         ''' </summary>
         ReadOnly Property State() As WinsockStates
 

@@ -11,6 +11,9 @@ using Orbita.Winsock;
 
 namespace Orbita.Comunicaciones
 {
+    /// <summary>
+    /// Clase base para los dispositivos de ES
+    /// </summary>
     public class ODispositivoES : ODispositivo
     {
 

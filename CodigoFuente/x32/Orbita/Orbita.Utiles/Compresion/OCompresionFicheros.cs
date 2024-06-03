@@ -93,7 +93,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
         /// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -166,7 +166,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
 		/// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+		/// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
 		/// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -196,7 +196,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
         /// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -225,7 +225,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
         /// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -252,7 +252,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
         /// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -277,7 +277,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
         /// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -301,7 +301,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
         /// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -323,7 +323,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
         /// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -343,7 +343,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
         /// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -361,7 +361,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarProgreso">Indica si debemos mostrar el progreso de la descompresión. Realmente no muestra nada, sino que ejecuta en cada tick la función manejadorFuncionProgreso</param>
         /// <param name="intervaloProgreso">Indica cada cuanto tiempo se invocará la función manejadorFuncionProgreso, en milisegundos</param>
@@ -381,7 +381,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="mostrarProgreso">Indica si debemos mostrar el progreso de la descompresión. Realmente no muestra nada, sino que ejecuta en cada tick la función manejadorFuncionProgreso</param>
         /// <param name="intervaloProgreso">Indica cada cuanto tiempo se invocará la función manejadorFuncionProgreso, en milisegundos</param>
@@ -399,7 +399,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <param name="contraseña">Contraseña para extraer el fichero comprimido</param>
         /// <returns>Un objeto Returninfo con la información sobre la ejecución del método</returns>
@@ -415,7 +415,7 @@ namespace Orbita.Utiles.Compresion
         /// <summary>
         /// Descomprime un fichero comprimido en una de las extensiones admitidas por la librería de compresión
         /// </summary>
-        /// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+        /// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
         /// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
         /// <returns>Un objeto Returninfo con la información sobre la ejecución del método</returns>
         public static ReturnInfo DescomprimirFichero(string rutaFicheroComprimido, string rutaDirectorioDestino)
@@ -441,7 +441,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo comprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios. Si vale false, los manejadores que ejecutan pueden ser nulos (es decir, los dos siguientes parámetros pueden ser nulos)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -513,7 +513,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo comprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios. Si vale false, los manejadores que ejecutan pueden ser nulos (es decir, los dos siguientes parámetros pueden ser nulos)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -537,7 +537,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo comprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios. Si vale false, los manejadores que ejecutan pueden ser nulos (es decir, los dos siguientes parámetros pueden ser nulos)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -561,7 +561,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo comprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios. Si vale false, los manejadores que ejecutan pueden ser nulos (es decir, los dos siguientes parámetros pueden ser nulos)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -583,7 +583,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo comprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios. Si vale false, los manejadores que ejecutan pueden ser nulos (es decir, los dos siguientes parámetros pueden ser nulos)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -605,7 +605,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo comprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios. Si vale false, los manejadores que ejecutan pueden ser nulos (es decir, los dos siguientes parámetros pueden ser nulos)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -626,7 +626,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo comprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios. Si vale false, los manejadores que ejecutan pueden ser nulos (es decir, los dos siguientes parámetros pueden ser nulos)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -643,7 +643,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo comprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios. Si vale false, los manejadores que ejecutan pueden ser nulos (es decir, los dos siguientes parámetros pueden ser nulos)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -659,7 +659,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarProgreso">Indica si debemos mostrar el progreso de cada uno de los ficheros comprimidos (no del progreso global de compresión). Realmente no muestra nada, sino que ejecuta en cada tick la función manejadorFuncionProgreso. Si vale false, el manejador que ejecuta puede ser nulo, y el intervalo puede ser cualquier valor, puesto que no se utiliza</param>
 		/// <param name="intervaloProgreso">Indica cada cuanto tiempo se invocará la función manejadorFuncionProgreso, en milisegundos</param>
@@ -675,7 +675,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarProgreso">Indica si debemos mostrar el progreso de cada uno de los ficheros comprimidos (no del progreso global de compresión). Realmente no muestra nada, sino que ejecuta en cada tick la función manejadorFuncionProgreso. Si vale false, el manejador que ejecuta puede ser nulo, y el intervalo puede ser cualquier valor, puesto que no se utiliza</param>
 		/// <param name="intervaloProgreso">Indica cada cuanto tiempo se invocará la función manejadorFuncionProgreso, en milisegundos</param>
@@ -690,7 +690,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="contraseña">Contraseña para extraer los ficheros comprimidos</param>
 		/// <returns>Un objeto Returninfo con la información sobre la ejecución del método</returns>
@@ -702,7 +702,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaDirectorioOrigen">Ruta con el directorio a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <returns>Un objeto Returninfo con la información sobre la ejecución del método</returns>
 		public static ReturnInfo ComprimirDirectorioZip(string rutaFicheroZip, string rutaDirectorioOrigen)
@@ -716,7 +716,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaFicheroOrigen">Nombre o ruta (absoluta o relativa) del fichero a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre el archivo que está siendo comprimido. Realmente no se muestra nada, sino que para cada fichero procesado (en este caso, sólo uno) se ejecuta el manejadorFuncionProcesaFicheros. Si vale false, el manejador que ejecuta puede ser nulo (es decir, el siguiente parámetro puede ser nulo)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero (en este caso, sólo uno) siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -797,7 +797,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaFicheroOrigen">Nombre o ruta (absoluta o relativa) del fichero a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre el archivo que está siendo comprimido. Realmente no se muestra nada, sino que para cada fichero procesado (en este caso, sólo uno) se ejecuta el manejadorFuncionProcesaFicheros. Si vale false, el manejador que ejecuta puede ser nulo (es decir, el siguiente parámetro puede ser nulo)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero (en este caso, sólo uno) siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -815,7 +815,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaFicheroOrigen">Nombre o ruta (absoluta o relativa) del fichero a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre el archivo que está siendo comprimido. Realmente no se muestra nada, sino que para cada fichero procesado (en este caso, sólo uno) se ejecuta el manejadorFuncionProcesaFicheros. Si vale false, el manejador que ejecuta puede ser nulo (es decir, el siguiente parámetro puede ser nulo)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero (en este caso, sólo uno) siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -830,7 +830,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaFicheroOrigen">Nombre o ruta (absoluta o relativa) del fichero a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre el archivo que está siendo comprimido. Realmente no se muestra nada, sino que para cada fichero procesado (en este caso, sólo uno) se ejecuta el manejadorFuncionProcesaFicheros. Si vale false, el manejador que ejecuta puede ser nulo (es decir, el siguiente parámetro puede ser nulo)</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero (en este caso, sólo uno) siempre que mostrarInformacionDetallada sea verdadero</param>
@@ -844,7 +844,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaFicheroOrigen">Nombre o ruta (absoluta o relativa) del fichero a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarProgreso">Indica si debemos mostrar el progreso de cada uno de los ficheros comprimidos (en este caso, sólo uno, por lo que se trata del progreso global de compresión). Realmente no muestra nada, sino que ejecuta en cada tick la función manejadorFuncionProgreso. Si vale false, el manejador que ejecuta puede ser nulo, y el intervalo puede ser cualquier valor, puesto que no se utiliza</param>
 		/// <param name="intervaloProgreso">Indica cada cuanto tiempo se invocará la función manejadorFuncionProgreso, en milisegundos</param>
@@ -860,7 +860,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaFicheroOrigen">Nombre o ruta (absoluta o relativa) del fichero a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <param name="mostrarProgreso">Indica si debemos mostrar el progreso de cada uno de los ficheros comprimidos (en este caso, sólo uno, por lo que se trata del progreso global de compresión). Realmente no muestra nada, sino que ejecuta en cada tick la función manejadorFuncionProgreso. Si vale false, el manejador que ejecuta puede ser nulo, y el intervalo puede ser cualquier valor, puesto que no se utiliza</param>
 		/// <param name="intervaloProgreso">Indica cada cuanto tiempo se invocará la función manejadorFuncionProgreso, en milisegundos</param>
@@ -875,8 +875,8 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
-		/// <param name="manejadorFuncionProgreso">Función del tipo "void MostrarProgreso(object sender, ProgressEventArgs e)" que se ejecuta cada vez que hace tick el intervalo del progreso</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+        /// <param name="rutaFicheroOrigen">Función del tipo "void MostrarProgreso(object sender, ProgressEventArgs e)" que se ejecuta cada vez que hace tick el intervalo del progreso</param>
 		/// <param name="contraseña">Contraseña para extraer el fichero comprimido</param>
 		/// <returns>Un objeto Returninfo con la información sobre la ejecución del método</returns>
 		public static ReturnInfo ComprimirFicheroZip(string rutaFicheroZip, string rutaFicheroOrigen, string contraseña)
@@ -887,7 +887,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
+		/// <param name="rutaFicheroComprimido">Nombre o ruta (absoluta o relativa) del fichero .zip a generar o ruta del mismo, con o sin extensión .zip</param>
 		/// <param name="rutaFicheroOrigen">Nombre o ruta (absoluta o relativa) del fichero a comprimir en el fichero rutaFicheroZip.zip</param>
 		/// <returns>Un objeto Returninfo con la información sobre la ejecución del método</returns>
 		public static ReturnInfo ComprimirFicheroZip(string rutaFicheroZip, string rutaFicheroOrigen)
@@ -902,7 +902,7 @@ namespace Orbita.Utiles.Compresion
 		/// <summary>
 		/// Comprime un directorio en un archivo .zip
 		/// </summary>
-		/// <param name="rutaFicheroZip">Nombre del fichero .zip a descomprimir</param>
+		/// <param name="rutaFicheroComprimido">Nombre del fichero .zip a descomprimir</param>
 		/// <param name="rutaDirectorioDestino">Ruta con el directorio donde se extraerán el contenido del fichero comprimido</param>
 		/// <param name="mostrarInformacionDetallada">Muestra información detallada sobre los archivos y directorios que están siendo descomprimidos. Realmente no se muestra nada, sino que para cada fichero se ejecuta el manejadorFuncionProcesaFicheros y para cada diractorio se ejecuta el manejadorFuncionProcesaDirectorios</param>
 		/// <param name="manejadorFuncionProcesaFicheros">Función del tipo "private void ProcesarFichero(object sender, ScanEventArgs e)" que se ejecuta cada vez que se procesa un fichero siempre que mostrarInformacionDetallada sea verdadero</param>

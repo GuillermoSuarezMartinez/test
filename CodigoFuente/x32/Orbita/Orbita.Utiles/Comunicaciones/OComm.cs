@@ -13,6 +13,9 @@ using System.Net;
 using System.Net.NetworkInformation;
 namespace Orbita.Utiles
 {
+    /// <summary>
+    /// Gestión de comunicaciones
+    /// </summary>
     public static class OComm
     {
         #region Método(s) público(s)

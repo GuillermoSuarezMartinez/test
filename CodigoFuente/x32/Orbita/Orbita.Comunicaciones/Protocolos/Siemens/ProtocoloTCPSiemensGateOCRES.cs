@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Orbita.Comunicaciones
 {
+    /// <summary>
+    /// Protocolo para GATE OCR
+    /// </summary>
     public class ProtocoloTCPSiemensGateOCRES : ProtocoloTCPSiemens
     {
         #region Variables
@@ -44,12 +47,16 @@ namespace Orbita.Comunicaciones
         #endregion
 
         #region Constructores
-
+        /// <summary>
+        /// Contructor de clase para GATE OCR
+        /// </summary>
         public ProtocoloTCPSiemensGateOCRES()
         { 
         
         }
-
+        /// <summary>
+        /// Destructor de clase
+        /// </summary>
         ~ProtocoloTCPSiemensGateOCRES()
         {
              Dispose(false);
@@ -98,7 +105,7 @@ namespace Orbita.Comunicaciones
         /// Procesa el mensaje keep alive del PLC
         /// </summary>
         /// <param name="valor">valor recibido por el PLC</param>
-        /// <param name="fecha">fecha recibida por el PLC</param>
+        /// <param name="lecturas">lecturas leídas en el PLC</param>
         /// <returns></returns>
         public override bool KeepAliveProcesar(byte[] valor, out byte[] lecturas)
         {
@@ -134,7 +141,8 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// Escritura de salidas
         /// </summary>
-        /// <param name="salidas"></param>
+        /// <param name="salidas">salidas a procesar</param>
+        /// <param name="idMensaje">identificador del mensaje</param>
         /// <returns></returns>
         public override byte[] SalidasEnviar(byte salidas, byte idMensaje)
         {
@@ -163,7 +171,8 @@ namespace Orbita.Comunicaciones
         /// <summary>
         /// Escritura de salidas
         /// </summary>
-        /// <param name="salidas"></param>
+        /// <param name="valor">valor a preocesar</param>
+        /// <param name="id">identificador del mensaje</param>
         /// <returns></returns>
         public override bool SalidasProcesar(byte[] valor, byte id)
         {

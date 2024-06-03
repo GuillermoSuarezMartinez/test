@@ -12,6 +12,9 @@ using Aladdin.HASP;
 using Orbita.Trazabilidad;
 namespace Orbita.Utiles
 {
+    /// <summary>
+    /// Gestion de llaves
+    /// </summary>
     public class OHaspSN
     {
         #region Dlls
@@ -381,7 +384,7 @@ namespace Orbita.Utiles
         /// <summary>
         /// Comprueba si el producto esta en la llave
         /// </summary>
-        /// <param name="producto">Producto a comprobar</param>
+        /// <param name="cod">Producto a comprobar</param>
         /// <returns>Verdadero si está el producto y falso si no esta</returns>
         private bool ExisteSerial(string cod)
         {
