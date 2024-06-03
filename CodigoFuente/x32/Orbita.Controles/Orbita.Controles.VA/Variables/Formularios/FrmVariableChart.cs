@@ -22,7 +22,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Control de monitorización de la variable
         /// </summary>
-        private OGraficaVariableBase CtrlVariableChart;
+        private OrbitaGraficaVariableBase CtrlVariableChart;
 
         /// <summary>
         /// Código de la variable
@@ -52,7 +52,7 @@ namespace Orbita.Controles.VA
                         throw new Exception("El tipo de variable no está definida");
                         break;
                     case OEnumTipoDato.Bit:
-                        this.CtrlVariableChart = new OGraficaVariableBool();
+                        this.CtrlVariableChart = new OrbitaGraficaVariableBool();
                         this.CtrlVariableChart.Parent = this.pnlPanelPrincipalPadre;
                         this.CtrlVariableChart.Dock = DockStyle.Fill;
                         break;

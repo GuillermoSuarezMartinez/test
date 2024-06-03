@@ -42,7 +42,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Lista de visores
         /// </summary>
-        public List<OVisorBase> ListaDisplays;
+        public List<OrbitaVisorBase> ListaDisplays;
         #endregion
 
         #region Propiedad(es)
@@ -107,7 +107,7 @@ namespace Orbita.Controles.VA
         {
             InitializeComponent();
 
-            this.ListaDisplays = new List<OVisorBase>();
+            this.ListaDisplays = new List<OrbitaVisorBase>();
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace Orbita.Controles.VA
             this._VisualizacionEnVivo = visualiacionEnVivo;
             this._ControlCamara = controlCamara;
 
-            this.ListaDisplays = new List<OVisorBase>();
+            this.ListaDisplays = new List<OrbitaVisorBase>();
         }  
         #endregion
 
@@ -153,9 +153,9 @@ namespace Orbita.Controles.VA
                 for (int col = 0; col < this.layFondoVisores.ColumnCount; col++)
                 {
                     Control control = this.layFondoVisores.GetControlFromPosition(col, row);
-                    if (control is OVisorBase)
+                    if (control is OrbitaVisorBase)
                     {
-                        string codCamaraAux = ((OVisorBase)control).Codigo;
+                        string codCamaraAux = ((OrbitaVisorBase)control).Codigo;
                         if (codCamaraAux == codCamara)
                         {
                             controlEncontrado = true;
@@ -282,7 +282,7 @@ namespace Orbita.Controles.VA
                         object objetoImplementado;
                         if (App.ConstruirClase(camara.EnsambladoClaseImplementadoraDisplay, camara.ClaseImplementadoraDisplay, out objetoImplementado, titulo, camara.Codigo, camara.MaxFrameIntervalVisualizacion, this._ControlCamara, this._VisualizacionEnVivo))
                         {
-                            OVisorBase display = (OVisorBase)objetoImplementado;
+                            OrbitaVisorBase display = (OrbitaVisorBase)objetoImplementado;
                             this.AddDisplay(display);
 
                             // Añado propiedades especificas a los displays para su visualización
@@ -311,7 +311,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         protected virtual void AccionesSalir()
         {
-            foreach (OVisorBase display in this.ListaDisplays)
+            foreach (OrbitaVisorBase display in this.ListaDisplays)
             {
                 if (this._EnlazarCamaras)
                 {
@@ -327,7 +327,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Acción de añadir una cámara al formulario
         /// </summary>
-        public void AddDisplay(OVisorBase display)
+        public void AddDisplay(OrbitaVisorBase display)
         {
             this.NumeroCamaras++;
 

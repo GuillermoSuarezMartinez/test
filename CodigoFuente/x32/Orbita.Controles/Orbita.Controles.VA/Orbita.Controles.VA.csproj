@@ -97,11 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Clases\OTrabajoControles.cs" />
-    <Compile Include="Base\Controles\OCtrlBase.cs">
+    <Compile Include="Base\Controles\OrbitaCtrlBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Base\Controles\OCtrlBase.Designer.cs">
-      <DependentUpon>OCtrlBase.cs</DependentUpon>
+    <Compile Include="Base\Controles\OrbitaCtrlBase.Designer.cs">
+      <DependentUpon>OrbitaCtrlBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Base\Formularios\FrmBase.cs">
       <SubType>Form</SubType>
@@ -161,11 +161,11 @@
     <Compile Include="Label\OAntialiasingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MaquinasEstados\Controles\OVisorMaquinaEstados.cs">
+    <Compile Include="MaquinasEstados\Controles\OrbitaVisorMaquinaEstados.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MaquinasEstados\Controles\OVisorMaquinaEstados.Designer.cs">
-      <DependentUpon>OVisorMaquinaEstados.cs</DependentUpon>
+    <Compile Include="MaquinasEstados\Controles\OrbitaVisorMaquinaEstados.Designer.cs">
+      <DependentUpon>OrbitaVisorMaquinaEstados.cs</DependentUpon>
     </Compile>
     <Compile Include="MaquinasEstados\Formularios\FrmMonitorizacionMaquinaEstados.cs">
       <SubType>Form</SubType>
@@ -191,17 +191,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Variables\Controles\OGraficaVariableBase.cs">
+    <Compile Include="Variables\Controles\OrbitaGraficaVariableBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Variables\Controles\OGraficaVariableBase.Designer.cs">
-      <DependentUpon>OGraficaVariableBase.cs</DependentUpon>
+    <Compile Include="Variables\Controles\OrbitaGraficaVariableBase.Designer.cs">
+      <DependentUpon>OrbitaGraficaVariableBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Variables\Controles\OGraficaVariableBool.cs">
+    <Compile Include="Variables\Controles\OrbitaGraficaVariableBool.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Variables\Controles\OGraficaVariableBool.Designer.cs">
-      <DependentUpon>OGraficaVariableBool.cs</DependentUpon>
+    <Compile Include="Variables\Controles\OrbitaGraficaVariableBool.Designer.cs">
+      <DependentUpon>OrbitaGraficaVariableBool.cs</DependentUpon>
     </Compile>
     <Compile Include="Variables\Formularios\FrmGestionVariables.cs">
       <SubType>Form</SubType>
@@ -227,35 +227,35 @@
     <Compile Include="Variables\Formularios\FrmVariableChart.Designer.cs">
       <DependentUpon>FrmVariableChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorImagenBase.cs">
+    <Compile Include="Visores\Controles\OrbitaVisorImagenBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorImagenBase.designer.cs">
-      <DependentUpon>OVisorImagenBase.cs</DependentUpon>
+    <Compile Include="Visores\Controles\OrbitaVisorImagenBase.designer.cs">
+      <DependentUpon>OrbitaVisorImagenBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorBitmap.cs">
+    <Compile Include="Visores\Controles\OrbitaVisorBitmap.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorBitmap.designer.cs">
-      <DependentUpon>OVisorBitmap.cs</DependentUpon>
+    <Compile Include="Visores\Controles\OrbitaVisorBitmap.designer.cs">
+      <DependentUpon>OrbitaVisorBitmap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorVPro.cs">
+    <Compile Include="Visores\Controles\OrbitaVisorVPro.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorVPro.designer.cs">
-      <DependentUpon>OVisorVPro.cs</DependentUpon>
+    <Compile Include="Visores\Controles\OrbitaVisorVPro.designer.cs">
+      <DependentUpon>OrbitaVisorVPro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorBitmap\Clases\MetodosNativos.cs" />
-    <Compile Include="Visores\Controles\OVisorBitmap\Componentes\ControlVirtualScrollable.cs">
+    <Compile Include="Visores\Controles\OrbitaVisorBitmap\Clases\MetodosNativos.cs" />
+    <Compile Include="Visores\Controles\OrbitaVisorBitmap\Componentes\ControlVirtualScrollable.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorBitmap\Componentes\PropiedadesScroll.cs">
+    <Compile Include="Visores\Controles\OrbitaVisorBitmap\Componentes\PropiedadesScroll.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorBitmap\Componentes\ScrollControl.cs">
+    <Compile Include="Visores\Controles\OrbitaVisorBitmap\Componentes\ScrollControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\OVisorBitmap\Componentes\VisorImagenes.cs">
+    <Compile Include="Visores\Controles\OrbitaVisorBitmap\Componentes\VisorImagenes.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Visores\Formularios\FrmDetalleCamara.cs">
@@ -279,8 +279,8 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Base\Controles\OCtrlBase.resx">
-      <DependentUpon>OCtrlBase.cs</DependentUpon>
+    <EmbeddedResource Include="Base\Controles\OrbitaCtrlBase.resx">
+      <DependentUpon>OrbitaCtrlBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Base\Formularios\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
@@ -314,8 +314,8 @@
     <EmbeddedResource Include="Hardware\Formularios\FrmMonitorizacionIO.resx">
       <DependentUpon>FrmMonitorizacionIO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaquinasEstados\Controles\OVisorMaquinaEstados.resx">
-      <DependentUpon>OVisorMaquinaEstados.cs</DependentUpon>
+    <EmbeddedResource Include="MaquinasEstados\Controles\OrbitaVisorMaquinaEstados.resx">
+      <DependentUpon>OrbitaVisorMaquinaEstados.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MaquinasEstados\Formularios\FrmMonitorizacionMaquinaEstados.resx">
@@ -332,12 +332,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Variables\Controles\OGraficaVariableBase.resx">
-      <DependentUpon>OGraficaVariableBase.cs</DependentUpon>
+    <EmbeddedResource Include="Variables\Controles\OrbitaGraficaVariableBase.resx">
+      <DependentUpon>OrbitaGraficaVariableBase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Variables\Controles\OGraficaVariableBool.resx">
-      <DependentUpon>OGraficaVariableBool.cs</DependentUpon>
+    <EmbeddedResource Include="Variables\Controles\OrbitaGraficaVariableBool.resx">
+      <DependentUpon>OrbitaGraficaVariableBool.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Variables\Formularios\FrmGestionVariables.resx">
@@ -358,14 +358,14 @@
     <None Include="Variables\Formularios\FrmMonitorizacionVariables.Designer.Images.resx">
       <DependentUpon>FrmMonitorizacionVariables.Designer.cs</DependentUpon>
     </None>
-    <EmbeddedResource Include="Visores\Controles\OVisorImagenBase.resx">
-      <DependentUpon>OVisorImagenBase.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\OrbitaVisorImagenBase.resx">
+      <DependentUpon>OrbitaVisorImagenBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visores\Controles\OVisorBitmap.resx">
-      <DependentUpon>OVisorBitmap.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\OrbitaVisorBitmap.resx">
+      <DependentUpon>OrbitaVisorBitmap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visores\Controles\OVisorVPro.resx">
-      <DependentUpon>OVisorVPro.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\OrbitaVisorVPro.resx">
+      <DependentUpon>OrbitaVisorVPro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visores\Formularios\FrmDetalleCamara.resx">
       <DependentUpon>FrmDetalleCamara.cs</DependentUpon>

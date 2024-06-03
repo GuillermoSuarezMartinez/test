@@ -31,7 +31,7 @@ namespace Orbita.Controles.VA
 		{
             this.components = new System.ComponentModel.Container();
             this.splitPrincipal = new Orbita.Controles.OrbitaSplitContainer();
-            this.ctrlStateMachineDisplay = new Orbita.Controles.VA.OVisorMaquinaEstados();
+            this.ctrlStateMachineDisplay = new Orbita.Controles.VA.OrbitaVisorMaquinaEstados();
             this.picMaquinaEstados = new Orbita.Controles.OrbitaPictureBox(this.components);
             this.ListMensajes = new Orbita.Controles.OrbitaListView(this.components);
             this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -166,7 +166,7 @@ namespace Orbita.Controles.VA
         private System.Windows.Forms.ColumnHeader Tipo;
         private System.Windows.Forms.ColumnHeader Descripcion;
         private System.Windows.Forms.ColumnHeader Hora;
-        private Orbita.Controles.VA.OVisorMaquinaEstados ctrlStateMachineDisplay;
+        private Orbita.Controles.VA.OrbitaVisorMaquinaEstados ctrlStateMachineDisplay;
         private Orbita.Controles.OrbitaPictureBox picMaquinaEstados;
         private System.Windows.Forms.ImageList ImageList;
 
