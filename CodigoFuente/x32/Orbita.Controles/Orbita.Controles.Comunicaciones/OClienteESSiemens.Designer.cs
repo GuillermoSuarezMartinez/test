@@ -103,7 +103,6 @@
             this.pnlDispSup.Controls.Add(this.pnlCanalA);
             this.pnlDispSup.Size = new System.Drawing.Size(879, 306);
             this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtVarEscribir, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.lblCom, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.pnlCanalA, 0);

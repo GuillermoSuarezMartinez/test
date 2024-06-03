@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlOutput = new System.Windows.Forms.Panel();
             this.lblOutput = new System.Windows.Forms.Label();
             this.S14 = new System.Windows.Forms.TextBox();
@@ -67,14 +69,40 @@
             this.pnlDispSup.Controls.Add(this.pnlInput2);
             this.pnlDispSup.Controls.Add(this.pnlInput1);
             this.pnlDispSup.Controls.Add(this.pnlOutput);
-            this.pnlDispSup.Size = new System.Drawing.Size(969, 81);
+            this.pnlDispSup.Size = new System.Drawing.Size(969, 176);
+            this.pnlDispSup.Controls.SetChildIndex(this.gbEscrituras, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtVarEscribir, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.lblCom, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.pnlOutput, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.pnlInput1, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.pnlInput2, 0);
+            // 
+            // gbVariables
+            // 
+            this.gbVariables.Location = new System.Drawing.Point(10, 199);
+            this.gbVariables.Size = new System.Drawing.Size(969, 161);
+            // 
+            // gbCDato
+            // 
+            this.gbCDato.Size = new System.Drawing.Size(969, 108);
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 76);
+            this.gbEscrituras.Size = new System.Drawing.Size(969, 100);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // pnlOutput
             // 
@@ -316,5 +344,7 @@
         private System.Windows.Forms.TextBox E13;
         private System.Windows.Forms.TextBox E12;
         private System.Windows.Forms.TextBox E11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

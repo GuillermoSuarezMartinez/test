@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCadenaPLC = new System.Windows.Forms.TextBox();
             this.lblCadenaPLC = new System.Windows.Forms.Label();
             this.txtCadenaOPC = new System.Windows.Forms.TextBox();
@@ -42,7 +44,7 @@
             // gbDispositivo
             // 
             this.gbDispositivo.Location = new System.Drawing.Point(0, 91);
-            this.gbDispositivo.Size = new System.Drawing.Size(807, 452);
+            this.gbDispositivo.Size = new System.Drawing.Size(1020, 452);
             this.gbDispositivo.Text = "Dispositivo OPC";
             // 
             // lblCom
@@ -57,7 +59,7 @@
             this.gbConfig.Controls.Add(this.lblCadenaPLC);
             this.gbConfig.Controls.Add(this.txtCadenaOPC);
             this.gbConfig.Controls.Add(this.lblCadenaOPC);
-            this.gbConfig.Size = new System.Drawing.Size(807, 91);
+            this.gbConfig.Size = new System.Drawing.Size(1020, 91);
             this.gbConfig.Controls.SetChildIndex(this.lblCadenaOPC, 0);
             this.gbConfig.Controls.SetChildIndex(this.txtCadenaOPC, 0);
             this.gbConfig.Controls.SetChildIndex(this.lblCadenaPLC, 0);
@@ -67,12 +69,37 @@
             // 
             this.pnlDispSup.Controls.Add(this.lblPLC);
             this.pnlDispSup.Controls.Add(this.txtPLC);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtVarEscribir, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
+            this.pnlDispSup.Controls.SetChildIndex(this.gbEscrituras, 0);
+            this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.lblCom, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtPLC, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.lblPLC, 0);
+            // 
+            // gbVariables
+            // 
+            this.gbVariables.Size = new System.Drawing.Size(1000, 118);
+            // 
+            // gbCDato
+            // 
+            this.gbCDato.Location = new System.Drawing.Point(10, 334);
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 69);
+            this.gbEscrituras.Size = new System.Drawing.Size(1000, 124);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // txtCadenaPLC
             // 
@@ -146,5 +173,7 @@
         private System.Windows.Forms.Label lblCadenaOPC;
         private System.Windows.Forms.Label lblPLC;
         private System.Windows.Forms.TextBox txtPLC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

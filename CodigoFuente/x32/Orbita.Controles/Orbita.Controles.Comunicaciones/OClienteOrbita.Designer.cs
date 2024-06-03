@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbDispositivo.SuspendLayout();
             this.pnlDispSup.SuspendLayout();
             this.SuspendLayout();
@@ -35,6 +37,23 @@
             // gbDispositivo
             // 
             this.gbDispositivo.Text = "Dispositivo Orbita";
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 44);
+            this.gbEscrituras.Size = new System.Drawing.Size(1000, 149);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // OClienteOrbita
             // 
@@ -49,5 +68,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

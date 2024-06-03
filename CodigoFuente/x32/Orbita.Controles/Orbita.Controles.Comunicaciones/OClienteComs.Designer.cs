@@ -37,11 +37,10 @@
             this.gbCDato = new System.Windows.Forms.GroupBox();
             this.listViewCDato = new System.Windows.Forms.ListView();
             this.pnlDispSup = new System.Windows.Forms.Panel();
+            this.gbEscrituras = new System.Windows.Forms.GroupBox();
+            this.dataGridViewEscrituras = new System.Windows.Forms.DataGridView();
             this.lblCom = new System.Windows.Forms.Label();
-            this.lblVarEscritura = new System.Windows.Forms.Label();
-            this.txtValEscribir = new System.Windows.Forms.TextBox();
             this.txtCom = new System.Windows.Forms.TextBox();
-            this.txtVarEscribir = new System.Windows.Forms.TextBox();
             this.lblVarLectura = new System.Windows.Forms.Label();
             this.btnEscritura = new System.Windows.Forms.Button();
             this.btnLectura = new System.Windows.Forms.Button();
@@ -55,17 +54,15 @@
             this.btnConectar = new System.Windows.Forms.Button();
             this.txtPuertoRemoting = new System.Windows.Forms.TextBox();
             this.lblPuertoRemoting = new System.Windows.Forms.Label();
-            this.gbEscrituras = new System.Windows.Forms.GroupBox();
-            this.dataGridViewEscrituras = new System.Windows.Forms.DataGridView();
             this.gbDispositivo.SuspendLayout();
             this.gbVariables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLecturas)).BeginInit();
             this.pnlLecturas.SuspendLayout();
             this.gbCDato.SuspendLayout();
             this.pnlDispSup.SuspendLayout();
-            this.gbConfig.SuspendLayout();
             this.gbEscrituras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscrituras)).BeginInit();
+            this.gbConfig.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDispositivo
@@ -162,10 +159,7 @@
             // 
             this.pnlDispSup.Controls.Add(this.gbEscrituras);
             this.pnlDispSup.Controls.Add(this.lblCom);
-            this.pnlDispSup.Controls.Add(this.lblVarEscritura);
-            this.pnlDispSup.Controls.Add(this.txtValEscribir);
             this.pnlDispSup.Controls.Add(this.txtCom);
-            this.pnlDispSup.Controls.Add(this.txtVarEscribir);
             this.pnlDispSup.Controls.Add(this.lblVarLectura);
             this.pnlDispSup.Controls.Add(this.btnEscritura);
             this.pnlDispSup.Controls.Add(this.btnLectura);
@@ -177,6 +171,26 @@
             this.pnlDispSup.Size = new System.Drawing.Size(1000, 193);
             this.pnlDispSup.TabIndex = 26;
             // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Controls.Add(this.dataGridViewEscrituras);
+            this.gbEscrituras.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 146);
+            this.gbEscrituras.Name = "gbEscrituras";
+            this.gbEscrituras.Size = new System.Drawing.Size(1000, 47);
+            this.gbEscrituras.TabIndex = 17;
+            this.gbEscrituras.TabStop = false;
+            this.gbEscrituras.Text = "Escrituras";
+            // 
+            // dataGridViewEscrituras
+            // 
+            this.dataGridViewEscrituras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEscrituras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewEscrituras.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewEscrituras.Name = "dataGridViewEscrituras";
+            this.dataGridViewEscrituras.Size = new System.Drawing.Size(994, 28);
+            this.dataGridViewEscrituras.TabIndex = 0;
+            // 
             // lblCom
             // 
             this.lblCom.AutoSize = true;
@@ -186,35 +200,12 @@
             this.lblCom.TabIndex = 16;
             this.lblCom.Text = "Comunicaciones:";
             // 
-            // lblVarEscritura
-            // 
-            this.lblVarEscritura.AutoSize = true;
-            this.lblVarEscritura.Location = new System.Drawing.Point(214, 46);
-            this.lblVarEscritura.Name = "lblVarEscritura";
-            this.lblVarEscritura.Size = new System.Drawing.Size(92, 13);
-            this.lblVarEscritura.TabIndex = 11;
-            this.lblVarEscritura.Text = "Variable Escritura:";
-            // 
-            // txtValEscribir
-            // 
-            this.txtValEscribir.Location = new System.Drawing.Point(511, 43);
-            this.txtValEscribir.Name = "txtValEscribir";
-            this.txtValEscribir.Size = new System.Drawing.Size(100, 20);
-            this.txtValEscribir.TabIndex = 5;
-            // 
             // txtCom
             // 
             this.txtCom.Location = new System.Drawing.Point(106, 17);
             this.txtCom.Name = "txtCom";
             this.txtCom.Size = new System.Drawing.Size(100, 20);
             this.txtCom.TabIndex = 15;
-            // 
-            // txtVarEscribir
-            // 
-            this.txtVarEscribir.Location = new System.Drawing.Point(309, 43);
-            this.txtVarEscribir.Name = "txtVarEscribir";
-            this.txtVarEscribir.Size = new System.Drawing.Size(100, 20);
-            this.txtVarEscribir.TabIndex = 4;
             // 
             // lblVarLectura
             // 
@@ -227,7 +218,7 @@
             // 
             // btnEscritura
             // 
-            this.btnEscritura.Location = new System.Drawing.Point(418, 43);
+            this.btnEscritura.Location = new System.Drawing.Point(658, 15);
             this.btnEscritura.Name = "btnEscritura";
             this.btnEscritura.Size = new System.Drawing.Size(75, 23);
             this.btnEscritura.TabIndex = 3;
@@ -337,26 +328,6 @@
             this.lblPuertoRemoting.TabIndex = 0;
             this.lblPuertoRemoting.Text = "Puerto Remoting:";
             // 
-            // gbEscrituras
-            // 
-            this.gbEscrituras.Controls.Add(this.dataGridViewEscrituras);
-            this.gbEscrituras.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 155);
-            this.gbEscrituras.Name = "gbEscrituras";
-            this.gbEscrituras.Size = new System.Drawing.Size(1000, 38);
-            this.gbEscrituras.TabIndex = 17;
-            this.gbEscrituras.TabStop = false;
-            this.gbEscrituras.Text = "Escrituras";
-            // 
-            // dataGridViewEscrituras
-            // 
-            this.dataGridViewEscrituras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEscrituras.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewEscrituras.Location = new System.Drawing.Point(3, 16);
-            this.dataGridViewEscrituras.Name = "dataGridViewEscrituras";
-            this.dataGridViewEscrituras.Size = new System.Drawing.Size(994, 19);
-            this.dataGridViewEscrituras.TabIndex = 0;
-            // 
             // OClienteComs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,10 +344,10 @@
             this.gbCDato.ResumeLayout(false);
             this.pnlDispSup.ResumeLayout(false);
             this.pnlDispSup.PerformLayout();
-            this.gbConfig.ResumeLayout(false);
-            this.gbConfig.PerformLayout();
             this.gbEscrituras.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscrituras)).EndInit();
+            this.gbConfig.ResumeLayout(false);
+            this.gbConfig.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -388,8 +359,6 @@
         private System.Windows.Forms.Button btnLeerVariables;
         private System.Windows.Forms.Button btnLeerAlarmas;
         private System.Windows.Forms.ListView listViewCDato;
-        private System.Windows.Forms.Label lblVarEscritura;
-        private System.Windows.Forms.TextBox txtValEscribir;
         private System.Windows.Forms.Label lblVarLectura;
         private System.Windows.Forms.Button btnEscritura;
         private System.Windows.Forms.Button btnLectura;
@@ -405,7 +374,6 @@
         public System.Windows.Forms.Label lblCom;
         public System.Windows.Forms.TextBox txtCom;
         public System.Windows.Forms.GroupBox gbConfig;
-        public System.Windows.Forms.TextBox txtVarEscribir;
         public System.Windows.Forms.TextBox txtVarLeer;
         public System.Windows.Forms.Panel pnlDispSup;
         public System.Windows.Forms.GroupBox gbVariables;

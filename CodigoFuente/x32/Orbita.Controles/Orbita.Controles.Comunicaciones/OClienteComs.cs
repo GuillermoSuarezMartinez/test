@@ -334,48 +334,55 @@ namespace Orbita.Controles.Comunicaciones
         /// <param name="e"></param>
         private void btnLeerVariables_Click(object sender, EventArgs e)
         {
-
-            string[] variables = new string[this._servidor.OrbitaGetDatos(this._idDispositivo).Count];
-            int i = 0;
-            foreach (DictionaryEntry item in this._servidor.OrbitaGetDatos(this._idDispositivo))
+            try
             {
-                OInfoDato dato = (OInfoDato)item.Value;
-
-                variables[i] = dato.Texto;
-                i++;
-            }
-
-            object[] resultado = this._servidor.OrbitaLeer(this._idDispositivo, variables, true);
-
-            DataTable dt = new DataTable();
-
-            DataColumn column = new DataColumn();
-            column.DataType = System.Type.GetType("System.String");
-            column.ColumnName = "Variable";
-            dt.Columns.Add(column);
-
-            DataColumn column2 = new DataColumn();
-            column2.DataType = System.Type.GetType("System.String");
-            column2.ColumnName = "Valor";
-            dt.Columns.Add(column2);
-
-            for (int j = 0; j < variables.Length; j++)
-            {
-                DataRow dr = dt.NewRow();
-                dr["Variable"] = variables[j];
-                try
+                string[] variables = new string[this._servidor.OrbitaGetDatos(this._idDispositivo).Count];
+                int i = 0;
+                foreach (DictionaryEntry item in this._servidor.OrbitaGetDatos(this._idDispositivo))
                 {
-                    dr["Valor"] = resultado[j];
-                }
-                catch (Exception)
-                {
-                    dr["Valor"] = "";
+                    OInfoDato dato = (OInfoDato)item.Value;
+
+                    variables[i] = dato.Texto;
+                    i++;
                 }
 
-                dt.Rows.Add(dr);
-            }
+                object[] resultado = this._servidor.OrbitaLeer(this._idDispositivo, variables, true);
 
-            this.dataGridViewLecturas.DataSource = dt;
+                DataTable dt = new DataTable();
+
+                DataColumn column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "Variable";
+                dt.Columns.Add(column);
+
+                DataColumn column2 = new DataColumn();
+                column2.DataType = System.Type.GetType("System.String");
+                column2.ColumnName = "Valor";
+                dt.Columns.Add(column2);
+
+                for (int j = 0; j < variables.Length; j++)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["Variable"] = variables[j];
+                    try
+                    {
+                        dr["Valor"] = resultado[j];
+                    }
+                    catch (Exception)
+                    {
+                        dr["Valor"] = "";
+                    }
+
+                    dt.Rows.Add(dr);
+                }
+
+                this.dataGridViewLecturas.DataSource = dt;
+            }
+            catch (Exception)
+            {                
+               
+            }
+            
         }
         /// <summary>
         /// Lee las alarmas activas

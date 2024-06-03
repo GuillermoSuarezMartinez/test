@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCanalA = new System.Windows.Forms.Panel();
             this.A8 = new System.Windows.Forms.TextBox();
             this.A7 = new System.Windows.Forms.TextBox();
@@ -93,7 +95,6 @@
             this.pnlDispSup.Size = new System.Drawing.Size(1126, 247);
             this.pnlDispSup.Controls.SetChildIndex(this.gbEscrituras, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtVarEscribir, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.lblCom, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.pnlCanalA, 0);
@@ -104,17 +105,29 @@
             // gbVariables
             // 
             this.gbVariables.Location = new System.Drawing.Point(10, 270);
-            this.gbVariables.Size = new System.Drawing.Size(1126, 250);
+            this.gbVariables.Size = new System.Drawing.Size(1126, 238);
             // 
             // gbCDato
             // 
-            this.gbCDato.Location = new System.Drawing.Point(10, 520);
-            this.gbCDato.Size = new System.Drawing.Size(1126, 98);
+            this.gbCDato.Location = new System.Drawing.Point(10, 508);
+            this.gbCDato.Size = new System.Drawing.Size(1126, 110);
             // 
             // gbEscrituras
             // 
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 124);
-            this.gbEscrituras.Size = new System.Drawing.Size(1126, 123);
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 92);
+            this.gbEscrituras.Size = new System.Drawing.Size(1126, 155);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // pnlCanalA
             // 
@@ -129,7 +142,7 @@
             this.pnlCanalA.Controls.Add(this.A3);
             this.pnlCanalA.Controls.Add(this.A2);
             this.pnlCanalA.Controls.Add(this.A1);
-            this.pnlCanalA.Location = new System.Drawing.Point(15, 77);
+            this.pnlCanalA.Location = new System.Drawing.Point(77, 51);
             this.pnlCanalA.Name = "pnlCanalA";
             this.pnlCanalA.Size = new System.Drawing.Size(174, 31);
             this.pnlCanalA.TabIndex = 52;
@@ -244,7 +257,7 @@
             this.pnlCanalB.Controls.Add(this.B3);
             this.pnlCanalB.Controls.Add(this.B2);
             this.pnlCanalB.Controls.Add(this.B1);
-            this.pnlCanalB.Location = new System.Drawing.Point(217, 77);
+            this.pnlCanalB.Location = new System.Drawing.Point(279, 51);
             this.pnlCanalB.Name = "pnlCanalB";
             this.pnlCanalB.Size = new System.Drawing.Size(174, 31);
             this.pnlCanalB.TabIndex = 53;
@@ -355,7 +368,7 @@
             this.pnlCanalCL.Controls.Add(this.CL3);
             this.pnlCanalCL.Controls.Add(this.CL2);
             this.pnlCanalCL.Controls.Add(this.CL1);
-            this.pnlCanalCL.Location = new System.Drawing.Point(418, 77);
+            this.pnlCanalCL.Location = new System.Drawing.Point(480, 51);
             this.pnlCanalCL.Name = "pnlCanalCL";
             this.pnlCanalCL.Size = new System.Drawing.Size(103, 31);
             this.pnlCanalCL.TabIndex = 54;
@@ -422,7 +435,7 @@
             this.pnlCanalCH.Controls.Add(this.CH3);
             this.pnlCanalCH.Controls.Add(this.CH2);
             this.pnlCanalCH.Controls.Add(this.CH1);
-            this.pnlCanalCH.Location = new System.Drawing.Point(548, 77);
+            this.pnlCanalCH.Location = new System.Drawing.Point(610, 51);
             this.pnlCanalCH.Name = "pnlCanalCH";
             this.pnlCanalCH.Size = new System.Drawing.Size(103, 31);
             this.pnlCanalCH.TabIndex = 55;
@@ -535,5 +548,7 @@
         private System.Windows.Forms.TextBox A3;
         private System.Windows.Forms.TextBox A2;
         private System.Windows.Forms.TextBox A1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }
