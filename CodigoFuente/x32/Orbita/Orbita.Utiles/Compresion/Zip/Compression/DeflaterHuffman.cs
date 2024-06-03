@@ -151,9 +151,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression
 			/// <summary>
 			/// Check that all frequencies are zero
 			/// </summary>
-			/// <exception cref="SharpZipBaseException">
-			/// At least one frequency is non-zero
-			/// </exception>
 			public void CheckEmpty()
 			{
 				bool empty = true;

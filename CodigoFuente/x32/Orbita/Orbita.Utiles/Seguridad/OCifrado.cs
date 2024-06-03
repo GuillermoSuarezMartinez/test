@@ -99,7 +99,7 @@
         /// <summary>
         /// Desencripta un texto con la contraseña y el vector de incio de la librería
         /// </summary>
-        /// <param name="plainText">Texto a desencriptar</param>
+        /// <param name="textoCifrado">Texto a desencriptar</param>
         /// <returns>Texto desencriptado</returns>
         public static string DesencriptarTexto(string textoCifrado)
         {

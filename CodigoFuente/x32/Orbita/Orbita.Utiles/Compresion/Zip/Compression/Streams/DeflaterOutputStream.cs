@@ -134,9 +134,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression.Streams
 		/// <summary>
 		/// Finishes the stream by calling finish() on the deflater. 
 		/// </summary>
-		/// <exception cref="SharpZipBaseException">
-		/// Not all input is deflated
-		/// </exception>
 		public virtual void Finish()
 		{
 			deflater_.Finish();

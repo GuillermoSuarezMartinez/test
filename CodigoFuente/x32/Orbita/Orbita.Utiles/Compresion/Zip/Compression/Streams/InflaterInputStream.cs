@@ -501,9 +501,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression.Streams
 		/// <summary>
 		/// Fills the buffer with more data to decompress.
 		/// </summary>
-		/// <exception cref="SharpZipBaseException">
-		/// Stream ends early
-		/// </exception>
 		protected void Fill()
 		{
 			// Protect against redundant calls

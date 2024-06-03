@@ -237,9 +237,6 @@ namespace Orbita.Utiles.Compresion.Zip.Compression
 		/// <returns>
 		/// False if more input is needed.
 		/// </returns>
-		/// <exception cref="SharpZipBaseException">
-		/// The header is invalid.
-		/// </exception>
 		private bool DecodeHeader()
 		{
 			int header = input.PeekBits(16);

@@ -23,7 +23,12 @@ namespace Orbita.Utiles
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         internal static extern IntPtr GetCurrentProcess();
-
+        /// <summary>
+        /// CheckRemoteDebuggerPresent
+        /// </summary>
+        /// <param name="ProcessHandle"></param>
+        /// <param name="DebuggerPresent"></param>
+        /// <returns></returns>
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool CheckRemoteDebuggerPresent(
@@ -33,9 +38,25 @@ namespace Orbita.Utiles
         #endregion
 
         #region Delegados y eventos
+        /// <summary>
+        /// Delegado cierre aplicación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public delegate void OrbitaCerrarAplicaciontHandler(object sender, OEventArgs e);
+        /// <summary>
+        /// Evento cierre aplicación
+        /// </summary>
         public event OrbitaCerrarAplicaciontHandler OrbitaCerrarAplicacion;
+        /// <summary>
+        /// Delegado mensaje de aplicación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public delegate void OrbitaMensajeAplicaciontHandler(object sender, OEventArgs e);
+        /// <summary>
+        /// Evento mensaje de aplicación
+        /// </summary>
         public event OrbitaMensajeAplicaciontHandler OrbitaMensajeAplicacion;
         #endregion
 
@@ -45,13 +66,37 @@ namespace Orbita.Utiles
         /// </summary>
         public enum OProductos
         {
+            /// <summary>
+            /// Basico
+            /// </summary>
             Basico = 1,
+            /// <summary>
+            /// LPR
+            /// </summary>
             LPR = 2,
+            /// <summary>
+            /// OCR
+            /// </summary>
             OCR = 3,
+            /// <summary>
+            /// ADR
+            /// </summary>
             ADR = 4,
+            /// <summary>
+            /// Alarmas Mails
+            /// </summary>
             AlarmasMails = 5,
+            /// <summary>
+            /// Alarmas SMS
+            /// </summary>
             AlarmasSMS = 6,
+            /// <summary>
+            /// Envasado
+            /// </summary>
             CCEnvasado = 7,
+            /// <summary>
+            /// Lector carin
+            /// </summary>
             LectorCarin = 8
         }
         /// <summary>
@@ -287,6 +332,7 @@ namespace Orbita.Utiles
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 //this.logger.Error("Excepción general. Se cerrará la aplicación. " + ex.ToString());
                 this.CerrarAplicacion();
             }

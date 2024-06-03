@@ -212,7 +212,7 @@ namespace Orbita.Utiles
         }
         /// <summary>
         /// Implementa la interfaz de System.Runtime.Serialization.ISerializable y devuelve
-        //  los datos necesarios para serializar System.Collections.Hashtable.
+        ///  los datos necesarios para serializar System.Collections.Hashtable.
         /// </summary>
         /// <param name="info">Objeto System.Runtime.Serialization.SerializationInfo que contiene 
         /// la información que se requiere para serializar System.Collections.Hashtable.</param>

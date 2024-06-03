@@ -5,8 +5,17 @@
 	/// </summary>
 	public enum Sobreescribir
 	{
+        /// <summary>
+        /// Siempre
+        /// </summary>
 		Siempre,
+        /// <summary>
+        /// Nunca
+        /// </summary>
 		Nunca,
+        /// <summary>
+        /// Preguntar
+        /// </summary>
 		Preguntar
 	}
 }

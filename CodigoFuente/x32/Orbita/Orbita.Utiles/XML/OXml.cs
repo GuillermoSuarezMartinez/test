@@ -165,10 +165,7 @@ namespace Orbita.Utiles
         /// Variable para escribir el XML
         /// </summary>
         XmlTextWriter m_escritorXml;
-        /// <summary>
-        /// Variable para contener el XML para lectura
-        /// </summary>
-        //public Xml m_xml;
+        
 		#endregion Atributos
 
 		#region Constructores

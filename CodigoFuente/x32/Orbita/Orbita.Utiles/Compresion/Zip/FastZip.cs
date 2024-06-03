@@ -40,7 +40,7 @@ using Orbita.Utiles.Compresion.Core;
 namespace Orbita.Utiles.Compresion.Zip
 {
 	/// <summary>
-	/// FastZipEvents supports all events applicable to <see cref="FastZip">FastZip</see> operations.
+	/// FastZipEvents supports all events applicable to operations.
 	/// </summary>
 	public class EventosOrbitaZip
 	{
@@ -210,16 +210,16 @@ namespace Orbita.Utiles.Compresion.Zip
 		
 		#region Constructors
 		/// <summary>
-		/// Initialise a default instance of <see cref="FastZip"/>.
+		/// Initialise a default instance
 		/// </summary>
 		public OrbitaZip()
 		{
 		}
 
 		/// <summary>
-		/// Initialise a new instance of <see cref="FastZip"/>
+		/// Initialise a new instance
 		/// </summary>
-		/// <param name="events">The <see cref="FastZipEvents">events</see> to use during operations.</param>
+		/// <param name="events">The  to use during operations.</param>
 		public OrbitaZip(EventosOrbitaZip events)
 		{
 			events_ = events;
