@@ -411,9 +411,9 @@ namespace Orbita.VAControl
                     this.Habilitado = (bool)dtMaquinaEstados.Rows[0]["HabilitadoMaquinaEstados"];
                     this.VariableEstadoActual = dtMaquinaEstados.Rows[0]["CodVariableEstadoActual"].ToString();
                     this.CodVista = dtMaquinaEstados.Rows[0]["CodVista"].ToString();
-                    this._ForzarColectorBasura = App.EvaluaBooleano(dtMaquinaEstados.Rows[0]["ForzarColectorBasura"], true);
+                    this._ForzarColectorBasura = OBoolRobusto.Validar(dtMaquinaEstados.Rows[0]["ForzarColectorBasura"], true);
 
-                    if (App.IsNumericInt(dtMaquinaEstados.Rows[0]["CadenciaEjecucion"]))
+                    if (OEnteroRobusto.IsNumericInt(dtMaquinaEstados.Rows[0]["CadenciaEjecucion"]))
                     {
                         this.Cadencia = TimeSpan.FromMilliseconds((int)dtMaquinaEstados.Rows[0]["CadenciaEjecucion"]);
                     }
@@ -1226,12 +1226,13 @@ namespace Orbita.VAControl
                     this.Habilitado = (bool)dtEstado.Rows[0]["HabilitadoEstado"];
                     this.Monitorizado = (bool)dtEstado.Rows[0]["Monitorizado"];
                     this.EsEstadoInicial = (bool)dtEstado.Rows[0]["EsEstadoInicial"];
-                    if (App.IsNumericInt(dtEstado.Rows[0]["TimeOut"]))
+                    if (OEnteroRobusto.IsNumericInt(dtEstado.Rows[0]["TimeOut"]))
                     {
                         this.TimeOut = TimeSpan.FromMilliseconds((int)dtEstado.Rows[0]["TimeOut"]);
                     }
 
-                    this.TipoEstado = (OTipoEstado)App.EnumParse(TipoEstado.GetType(), dtEstado.Rows[0]["Tipo"].ToString(), OTipoEstado.EstadoSimple);
+                    this.TipoEstado = OEnumRobusto<OTipoEstado>.Validar(dtEstado.Rows[0]["Tipo"].ToString(), OTipoEstado.EstadoSimple);
+                    //this.TipoEstado = (OTipoEstado)App.EnumParse(TipoEstado.GetType(), dtEstado.Rows[0]["Tipo"].ToString(), OTipoEstado.EstadoSimple);
 
                     // Creación de los cronómetros
                     this.CodCronometroAsociadoActivacion = this.CodigoMaquinaEstados + "." + this.Codigo + ".Activacion";
@@ -1270,7 +1271,7 @@ namespace Orbita.VAControl
         /// </summary>
         public virtual void Finalizar()
         {
-            App.Espera(ref this._EnEjecucion, false, 1000);
+            OThread.Espera(ref this._EnEjecucion, false, 1000);
         }
 
         /// <summary>
@@ -1704,7 +1705,8 @@ namespace Orbita.VAControl
                     this.CodigoEstadoOrigen = dtTransicion.Rows[0]["CodigoEstadoOrigen"].ToString();
                     this.CodigoEstadoDestino = dtTransicion.Rows[0]["CodigoEstadoDestino"].ToString();
 
-                    this.TipoTransicion = (OTipoTransicion)App.EnumParse(TipoTransicion.GetType(), dtTransicion.Rows[0]["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
+                    this.TipoTransicion = OEnumRobusto<OTipoTransicion>.Validar(dtTransicion.Rows[0]["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
+                    //this.TipoTransicion = (OTipoTransicion)App.EnumParse(TipoTransicion.GetType(), dtTransicion.Rows[0]["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
 
                     // Cargamos el código de las variables que se utilizan en la transición
                     DataTable dtVariables = AppBD.GetVariablesTransicion(this._CodigoMaquinaEstados, this._Codigo);

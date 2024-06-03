@@ -99,9 +99,9 @@ namespace Orbita.VAControl
             if (dtSistema.Rows.Count > 0)
             {
                 object objTiempoPermanenciaTrazasEnMemoria = dtSistema.Rows[0]["VarsPermanenciaTrazaMemoria"];
-                TiempoPermanenciaTrazasEnMemoria = TimeSpan.FromMilliseconds(App.EvaluaNumero(objTiempoPermanenciaTrazasEnMemoria, 1, 86400000, 60000));
+                TiempoPermanenciaTrazasEnMemoria = TimeSpan.FromMilliseconds(OEnteroRobusto.Validar(objTiempoPermanenciaTrazasEnMemoria, 1, 86400000, 60000));
 
-                PuertoRemoto = (int)App.EvaluaNumero(dtSistema.Rows[0]["VarsPuertoRemoting"], 1, 65535, 8085);
+                PuertoRemoto = (int)OEnteroRobusto.Validar(dtSistema.Rows[0]["VarsPuertoRemoting"], 1, 65535, 8085);
             }
             else
             {
@@ -923,13 +923,13 @@ namespace Orbita.VAControl
                 this._Nombre = dtVariable.Rows[0]["NombreVariable"].ToString();
                 this._Descripcion = dtVariable.Rows[0]["DescVariable"].ToString();
                 this._Grupo = dtVariable.Rows[0]["Grupo"].ToString();
-                this._Remoto = App.EvaluaBooleano(dtVariable.Rows[0]["Remoto"], false);
+                this._Remoto = OBoolRobusto.Validar(dtVariable.Rows[0]["Remoto"], false);
                 this._ServidorRemoto = dtVariable.Rows[0]["ServidorRemoto"].ToString();
                 this._CodigoRemoto = dtVariable.Rows[0]["CodigoRemoto"].ToString();
-                this._PuertoRemoto = (int)App.EvaluaNumero(dtVariable.Rows[0]["PuertoRemoto"], 1, 65535, 8085);
+                this._PuertoRemoto = (int)OEnteroRobusto.Validar(dtVariable.Rows[0]["PuertoRemoto"], 1, 65535, 8085);
 
                 bool habilitado = (bool)dtVariable.Rows[0]["HabilitadoVariable"];
-                OEnumTipoDato tipo = (OEnumTipoDato)App.EvaluaNumero(dtVariable.Rows[0]["IdTipoVariable"], 0, 99, 0);
+                OEnumTipoDato tipo = (OEnumTipoDato)OEnteroRobusto.Validar(dtVariable.Rows[0]["IdTipoVariable"], 0, 99, 0);
 
                 bool guardarTrazabilidad = (bool)dtVariable.Rows[0]["GuardarTrazabilidad"];
 
@@ -1623,7 +1623,7 @@ namespace Orbita.VAControl
             {
                 // Insertamos la traza
                 this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.CambioValor);
-                OVALogsManager.Debug(OModulosControl.Variables, "SetValor", "La variable " + this.Codigo + " cambia su valor a " + App.ToString(valor));
+                OVALogsManager.Debug(OModulosControl.Variables, "SetValor", "La variable " + this.Codigo + " cambia su valor a " + ORobusto.ToString(valor));
 
                 // Establecimiento del valor
                 this.Valor = valor;
@@ -1748,7 +1748,7 @@ namespace Orbita.VAControl
             {
                 // Insertamos la traza
                 this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.ForzarValor);
-                OVALogsManager.Info(OModulosControl.Variables, "SetValor", "La variable " + this.Codigo + " cambia su valor a " + App.ToString(valor));
+                OVALogsManager.Info(OModulosControl.Variables, "SetValor", "La variable " + this.Codigo + " cambia su valor a " + ORobusto.ToString(valor));
 
                 // Establecimiento del valor
                 this.Valor = valor;
@@ -2390,7 +2390,7 @@ namespace Orbita.VAControl
             }
             if (traza.Valor != null)
             {
-                info += "Valor: " + App.ToString(traza.Valor) + "; ";
+                info += "Valor: " + ORobusto.ToString(traza.Valor) + "; ";
             }
             else
             {
@@ -2458,7 +2458,7 @@ namespace Orbita.VAControl
                 oXML.Add("Descripcion", traza.DescripcionLlamada);
                 if (traza.TipoTraza == OTipoTraza.CambioValor)
                 {
-                    oXML.Add("Valor", App.ToString(traza.Valor));
+                    oXML.Add("Valor", ORobusto.ToString(traza.Valor));
                 }
                 else
                 {

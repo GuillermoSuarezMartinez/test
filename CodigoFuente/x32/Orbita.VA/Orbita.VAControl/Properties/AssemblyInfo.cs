@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Librería dinámica de funciones de autómata")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Órbita Ingeniería")]
-[assembly: AssemblyProduct("Orbita.VAControl")]
+[assembly: AssemblyProduct("Orbita.VA.MaquinasEstados")]
 [assembly: AssemblyCopyright("Copyright © Órbita Ingeniería 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
