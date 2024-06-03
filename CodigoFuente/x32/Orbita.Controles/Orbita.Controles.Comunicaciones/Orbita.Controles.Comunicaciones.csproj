@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D104B7D1-93CB-46AE-8F84-AA68BB3B2C5E}</ProjectGuid>
+    <ProjectGuid>{7E7DAFD4-3823-46B8-917C-FCEA9431A1A9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Orbita.Controles.Shared</RootNamespace>
-    <AssemblyName>Orbita.Controles.Shared</AssemblyName>
+    <RootNamespace>Orbita.Controles.Comunicaciones</RootNamespace>
+    <AssemblyName>Orbita.Controles.Comunicaciones</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -38,10 +38,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
