@@ -186,7 +186,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Información de la configuración de la base de datos
         /// </summary>
-        internal OInformacionBasesDatos InformacionBasesDatos;
+        internal InformacionBasesDatos InformacionBasesDatos;
         #endregion
 
         #region Propiedad(es)
@@ -212,7 +212,7 @@ namespace Orbita.VAComun
         {
             this.Origen = origen;
 
-            this.InformacionBasesDatos = OSistemaManager.Configuracion.ListaInformacionBasesDatos.Find(delegate(OInformacionBasesDatos info) { return info.Origen.Equals(origen.Nombre); });
+            this.InformacionBasesDatos = OSistemaManager.Configuracion.ListaInformacionBasesDatos.Find(delegate(InformacionBasesDatos info) { return info.Origen.Equals(origen.Nombre); });
         }
         #endregion
 
@@ -286,7 +286,7 @@ namespace Orbita.VAComun
     /// Esta clase es recuperada del archivo XML de configuración de la aplicación
     /// </summary>
     [Serializable]
-    internal class OInformacionBasesDatos
+    public class InformacionBasesDatos
     {
         #region Propiedad(es)
 

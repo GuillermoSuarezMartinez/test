@@ -250,27 +250,27 @@ namespace Orbita.VAComun
             this._Codigo = dr["CodClave"].ToString();
             this._Nombre = dr["NombreClave"].ToString();
             this._Descripcion = dr["DescClave"].ToString();
-            this.Tipo = (OEnumTipoDato)App.EvaluaNumero(dr["IdTipoValorClave"], 0, 99, 0);
+            this.Tipo = (OEnumTipoDato)OEnteroRobusto.Validar(dr["IdTipoValorClave"], 0, 99, 0);
             this._Valor = null;
             switch (this.Tipo)
             {
                 case OEnumTipoDato.Bit:
-                    this._Valor = App.EvaluaBooleano(dr["ValorBit"], false);
+                    this._Valor = OBoolRobusto.Validar(dr["ValorBit"], false);
                     break;
                 case OEnumTipoDato.Entero:
-                    this._Valor = App.EvaluaNumero(dr["ValorEntero"], int.MinValue, int.MaxValue, 0);
+                    this._Valor = OEnteroRobusto.Validar(dr["ValorEntero"], int.MinValue, int.MaxValue, 0);
                     break;
                 case OEnumTipoDato.Texto:
                     this._Valor = dr["ValorTexto"].ToString();
                     break;
                 case OEnumTipoDato.Decimal:
-                    this._Valor = App.EvaluaNumero(dr["ValorDecimal"], double.MinValue, double.MaxValue, 0);
+                    this._Valor = ODecimalRobusto.Validar(dr["ValorDecimal"], double.MinValue, double.MaxValue, 0);
                     break;
                 case OEnumTipoDato.Fecha:
-                    this._Valor = App.EvaluaFecha(dr["ValorFecha"], DateTime.Now);
+                    this._Valor = OFechaHoraRobusta.Validar(dr["ValorFecha"], DateTime.Now);
                     break;
             }
-            this._ValorDefinido = App.EvaluaBooleano(dr["ValorFijo"], false);
+            this._ValorDefinido = OBoolRobusto.Validar(dr["ValorFijo"], false);
         }
         #endregion
     }

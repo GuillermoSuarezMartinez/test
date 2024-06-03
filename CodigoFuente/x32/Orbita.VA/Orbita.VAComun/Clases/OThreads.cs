@@ -139,7 +139,7 @@ namespace Orbita.VAComun
         /// <returns>Verdadero si se está ejecutando desde el mismo hilo de ejecución que la aplicación principal</returns>
         public static bool EjecucionEnTrheadPrincipal()
         {
-            return !App.FormularioPrincipalMDI.InvokeRequired;
+            return !App.FormularioPrincipal.InvokeRequired;
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace Orbita.VAComun
         {
             try
             {
-                App.FormularioPrincipalMDI.Invoke(metodo, parametros);
+                App.FormularioPrincipal.Invoke(metodo, parametros);
             }
             catch (Exception exception)
             {
@@ -315,7 +315,7 @@ namespace Orbita.VAComun
                     else
                     {
                         object[] obj = new object[] { finalize };
-                        App.FormularioPrincipalMDI.Invoke(this.OnEjecucion, obj);
+                        App.FormularioPrincipal.Invoke(this.OnEjecucion, obj);
                         finalize = (bool)obj[0];
                     }
                 }
@@ -341,7 +341,7 @@ namespace Orbita.VAComun
                     }
                     else
                     {
-                        App.FormularioPrincipalMDI.Invoke(this.OnFinEjecucion);
+                        App.FormularioPrincipal.Invoke(this.OnFinEjecucion);
                     }
                 }
             }
@@ -415,7 +415,7 @@ namespace Orbita.VAComun
                 DateTime momentoTimeOut = DateTime.Now.AddMilliseconds(milisecondsTimeout);
                 while ((this.Estado != EstadoThread.ThreadEnded) && (DateTime.Now < momentoTimeOut))
                 {
-                    App.Espera(10);
+                    OThread.Espera(10);
                 }
             }
 
@@ -573,6 +573,91 @@ namespace Orbita.VAComun
         protected virtual void FinEjecucion()
         {
             // Implementado en hijos
+        }
+        #endregion
+
+        #region Método(s) estático(s)
+        /// <summary>
+        /// Método que realiza una espera (sin parar la ejecución del sistema) de cierto tiempo en milisegundos
+        /// </summary>
+        /// <param name="timeOut">Tiempo de espera en milisegundos</param>
+        public static void Espera(int timeOut)
+        {
+            // Momento en el que finalizará la espera
+            DateTime momentoTimeOut = DateTime.Now.AddMilliseconds(timeOut);
+
+            while (DateTime.Now < momentoTimeOut)
+            {
+                Application.DoEvents();
+            }
+        }
+
+        /// <summary>
+        /// Método que realiza una espera hasta que cierto valor sea verdadero durante un máximo de tiempo
+        /// </summary>
+        /// <param name="valor">Valor al cual se espera que su estado sea verdadero o falso</param>
+        /// <param name="valorEsperado">Valor de comparación</param>
+        /// <param name="timeOut">Tiempo máximo de la espera en milisegundos</param>
+        /// <returns>Verdadero si el valor a cambiado a verdadero antes de que finalizase el TimeOut</returns>
+        public static bool Espera(DelegadoEspera delegadoEspera, int timeOut)
+        {
+            // Momento en el que finalizará la espera
+            DateTime momentoTimeOut = DateTime.Now.AddMilliseconds(timeOut);
+
+            bool valor = delegadoEspera();
+            while (!valor && (DateTime.Now < momentoTimeOut))
+            {
+                Application.DoEvents();
+                valor = delegadoEspera();
+            }
+
+            return valor;
+        }
+
+        /// <summary>
+        /// Delegado de la espera
+        /// </summary>
+        /// <returns></returns>
+        public delegate bool DelegadoEspera();
+
+        /// <summary>
+        /// Método que realiza una espera hasta que cierto valor sea verdadero durante un máximo de tiempo
+        /// </summary>
+        /// <param name="valor">Valor al cual se espera que su estado sea verdadero o falso</param>
+        /// <param name="valorEsperado">Valor de comparación</param>
+        /// <param name="timeOut">Tiempo máximo de la espera en milisegundos</param>
+        /// <returns>Verdadero si el valor a cambiado a verdadero antes de que finalizase el TimeOut</returns>
+        public static bool Espera(ref bool valor, bool valorEsperado, int timeOut)
+        {
+            // Momento en el que finalizará la espera
+            DateTime momentoTimeOut = DateTime.Now.AddMilliseconds(timeOut);
+
+            while ((valor != valorEsperado) && (DateTime.Now < momentoTimeOut))
+            {
+                Application.DoEvents();
+            }
+
+            return valor == valorEsperado;
+        }
+
+        /// <summary>
+        /// Método que realiza una espera hasta que cierto valor sea verdadero durante un máximo de tiempo
+        /// </summary>
+        /// <param name="valor">Valor al cual se espera que su estado sea verdadero o falso</param>
+        /// <param name="valorEsperado">Valor de comparación</param>
+        /// <param name="timeOut">Tiempo máximo de la espera en milisegundos</param>
+        /// <returns>Verdadero si el valor a cambiado a verdadero antes de que finalizase el TimeOut</returns>
+        public static bool Espera(ref object valor, object valorEsperado, int timeOut)
+        {
+            // Momento en el que finalizará la espera
+            DateTime momentoTimeOut = DateTime.Now.AddMilliseconds(timeOut);
+
+            while ((valor != valorEsperado) && (DateTime.Now < momentoTimeOut))
+            {
+                Application.DoEvents();
+            }
+
+            return valor == valorEsperado;
         }
         #endregion
 
@@ -811,7 +896,7 @@ namespace Orbita.VAComun
                     }
                     else
                     {
-                        App.FormularioPrincipalMDI.Invoke(this.OnEjecucionConsumidor, valor);
+                        App.FormularioPrincipal.Invoke(this.OnEjecucionConsumidor, valor);
                     }
                 }
             }
@@ -838,10 +923,10 @@ namespace Orbita.VAComun
                     }
                     else
                     {
-                        App.FormularioPrincipalMDI.Invoke(this.OnEjecucionProductor, valor);
+                        App.FormularioPrincipal.Invoke(this.OnEjecucionProductor, valor);
 
                         object[] obj = new object[] { encolar, valor };
-                        App.FormularioPrincipalMDI.Invoke(this.OnEjecucionProductor, obj);
+                        App.FormularioPrincipal.Invoke(this.OnEjecucionProductor, obj);
                         encolar = (bool)obj[0];
                         valor = (T)obj[1];
                     }
@@ -871,7 +956,7 @@ namespace Orbita.VAComun
                     else
                     {
                         object[] obj = new object[] { finalize };
-                        App.FormularioPrincipalMDI.Invoke(this.OnMonitorizacion, obj);
+                        App.FormularioPrincipal.Invoke(this.OnMonitorizacion, obj);
                         finalize = (bool)obj[0];
                     }
                 }

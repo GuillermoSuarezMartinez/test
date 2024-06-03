@@ -175,7 +175,7 @@ namespace Orbita.VAComun
             if (dtFuncionVision.Rows.Count == 1)
             {
                 this.Contraseña = dtFuncionVision.Rows[0]["Contraseña"].ToString();
-                this.Permisos = (OPermisos)App.EnumParse(typeof(OPermisos), dtFuncionVision.Rows[0]["Permiso"].ToString(), OPermisos.Operador);
+                this.Permisos = (OPermisos)OEnumRobusto<OPermisos>.EnumParse(typeof(OPermisos), dtFuncionVision.Rows[0]["Permiso"].ToString(), OPermisos.Operador);
             }            
         }
         #endregion

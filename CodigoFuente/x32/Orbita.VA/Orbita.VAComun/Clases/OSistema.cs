@@ -46,7 +46,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Parámetros de la aplicación
         /// </summary>
-        public static OConfiguracionSistema Configuracion
+        public static ConfiguracionSistema Configuracion
         {
             get { return Sistema.Configuracion; }
             set { Sistema.Configuracion = value; }
@@ -112,7 +112,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Parámetros de la aplicación
         /// </summary>
-        public OConfiguracionSistema Configuracion;
+        public ConfiguracionSistema Configuracion;
         #endregion
 
         #region Constructor(es)
@@ -120,7 +120,7 @@ namespace Orbita.VAComun
         /// Constructor de la clase
         /// </summary>
         public OSistema()
-            : this(OConfiguracionSistema.ConfFile)
+            : this(ConfiguracionSistema.ConfFile)
         {
         }
 
@@ -133,13 +133,11 @@ namespace Orbita.VAComun
 
             try
             {
-                this.Configuracion = (OConfiguracionSistema)(new OConfiguracionSistema(configFile).CargarDatos());
+                this.Configuracion = (ConfiguracionSistema)(new ConfiguracionSistema(configFile).CargarDatos());
             }
             catch (FileNotFoundException exception)
             {
-                OVALogsManager.Error(OModulosSistema.Sistema, "Constructor", exception);
-
-                this.Configuracion = new OConfiguracionSistema();
+                this.Configuracion = new ConfiguracionSistema();
                 this.Configuracion.Guardar();
             }
         }
@@ -220,7 +218,7 @@ namespace Orbita.VAComun
     /// Parámetros de la aplicación
     /// </summary>
     [Serializable]
-    public class OConfiguracionSistema: OAlmacenXML
+    public class ConfiguracionSistema: OAlmacenXML
     {
         #region Atributo(s) estáticos
         /// <summary>
@@ -253,29 +251,29 @@ namespace Orbita.VAComun
         /// <summary>
         /// Lista de informaciones de las bases de datos existentes en el sistema
         /// </summary>
-        internal List<OInformacionBasesDatos> ListaInformacionBasesDatos;
+        public List<InformacionBasesDatos> ListaInformacionBasesDatos;
 
         /// <summary>
         /// Opciones de configuración del registro de eventos
         /// </summary>
-        internal OOpcionesLogs OpcionesLogs;
+        public OpcionesLogs OpcionesLogs;
         #endregion
 
         #region Constructor
         /// <summary>
         /// Contructor de la clase
         /// </summary>
-        public OConfiguracionSistema()
+        public ConfiguracionSistema()
             : base(ConfFile)
         {
-            this.ListaInformacionBasesDatos = new List<OInformacionBasesDatos>();
-            this.OpcionesLogs = new OOpcionesLogs();
+            this.ListaInformacionBasesDatos = new List<InformacionBasesDatos>();
+            this.OpcionesLogs = new OpcionesLogs();
         }
 
         /// <summary>
         /// Contructor de la clase
         /// </summary>
-        public OConfiguracionSistema(string rutaFichero)
+        public ConfiguracionSistema(string rutaFichero)
             : base(rutaFichero)
         {
         }

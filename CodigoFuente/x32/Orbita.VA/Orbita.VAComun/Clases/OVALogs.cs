@@ -85,7 +85,7 @@ namespace Orbita.VAComun
         public static void Inicializar()
         {
             // Consulta de la información
-            OOpcionesLogs opcionesLogs = OSistemaManager.Configuracion.OpcionesLogs;
+            OpcionesLogs opcionesLogs = OSistemaManager.Configuracion.OpcionesLogs;
 
             // Creamos el logger por defecto
             LogDefecto = LogManager.SetDebugLogger("Defecto", 
@@ -102,7 +102,7 @@ namespace Orbita.VAComun
             (LogExcepcion as DebugLogger).Separador = opcionesLogs.Separador;
             
             // Creamos los loggers para el ensamblado comun
-            foreach (OOpcionesLog opcionesLog in opcionesLogs.OpcionesLog)
+            foreach (OpcionesLog opcionesLog in opcionesLogs.OpcionesLog)
             {
                 ILogger logger = LogManager.SetDebugLogger(opcionesLog.Identificador,
                 opcionesLog.NivelLog,
@@ -402,7 +402,8 @@ namespace Orbita.VAComun
             ILogger logger = GetLog(modulo.Nombre);
             logger.Error("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
             LogExcepcion.Error("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
-            MensajeError(App.ToString(objeto));
+
+            MensajeError(ORobusto.ToString(objeto));
         }
         /// <summary>
         /// Añade el registro log
@@ -491,7 +492,7 @@ namespace Orbita.VAComun
             ILogger logger = GetLog(modulo.Nombre);
             logger.Fatal("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
             LogExcepcion.Fatal("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
-            MensajeFatal(App.ToString(objeto));
+            MensajeFatal(ORobusto.ToString(objeto));
         }
         /// <summary>
         /// Añade el registro log
@@ -723,7 +724,7 @@ namespace Orbita.VAComun
     /// Opciones de configuración del registro de eventos
     /// </summary>
     [Serializable]
-    internal class OOpcionesLogs
+    public class OpcionesLogs
     {
         #region Atributo(s)
         /// <summary>
@@ -789,16 +790,16 @@ namespace Orbita.VAComun
         /// <summary>
         /// Lista de los logs del sistema
         /// </summary>
-        public List<OOpcionesLog> OpcionesLog;
+        public List<OpcionesLog> OpcionesLog;
         #endregion
 
         #region Constructor
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OOpcionesLogs()
+        public OpcionesLogs()
         {
-            this.OpcionesLog = new List<OOpcionesLog>();
+            this.OpcionesLog = new List<OpcionesLog>();
         }
         #endregion
     }
@@ -807,7 +808,7 @@ namespace Orbita.VAComun
     /// Opciones de configuración del registro de eventos
     /// </summary>
     [Serializable]
-    internal class OOpcionesLog
+    public class OpcionesLog
     {
         #region Atributo(s)
         /// <summary>
