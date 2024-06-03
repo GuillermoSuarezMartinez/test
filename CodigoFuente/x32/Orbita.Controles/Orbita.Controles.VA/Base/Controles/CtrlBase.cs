@@ -4,8 +4,8 @@
 // Created          : 06-09-2012
 //
 // Last Modified By : aibañez
-// Last Modified On : Movido al proyecto Orbita.Controles.VA
-// Description      : 
+// Last Modified On : 16-11-2012
+// Description      : Movido al proyecto Orbita.Controles.VA
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -23,7 +23,7 @@ namespace Orbita.Controles.VA
 {
     /// <summary>
     /// Clase base para controles de formularios
-    /// </summary>
+    /// </summary>          
     public partial class CtrlBase : UserControl, IOrbitaForm, IDisposable
     {
         #region Atributo(s)

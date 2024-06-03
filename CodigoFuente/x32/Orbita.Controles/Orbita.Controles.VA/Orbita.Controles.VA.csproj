@@ -171,11 +171,14 @@
     <Compile Include="Hardware\Formularios\FrmMonitorizacionIO.Designer.cs">
       <DependentUpon>FrmMonitorizacionIO.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaquinasEstados\Controles\CtrlStateMachineDisplay.cs">
+    <Compile Include="Label\OrbitaAntialiasingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MaquinasEstados\Controles\OStateMachineDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MaquinasEstados\Controles\CtrlStateMachineDisplay.Designer.cs">
-      <DependentUpon>CtrlStateMachineDisplay.cs</DependentUpon>
+    <Compile Include="MaquinasEstados\Controles\OStateMachineDisplay.Designer.cs">
+      <DependentUpon>OStateMachineDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="MaquinasEstados\Formularios\FrmMonitorizacionMaquinaEstados.cs">
       <SubType>Form</SubType>
@@ -201,17 +204,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Variables\Controles\CtrlVariableChart.cs">
+    <Compile Include="Variables\Controles\OVariableChartBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Variables\Controles\CtrlVariableChart.Designer.cs">
-      <DependentUpon>CtrlVariableChart.cs</DependentUpon>
+    <Compile Include="Variables\Controles\OVariableChartBase.Designer.cs">
+      <DependentUpon>OVariableChartBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Variables\Controles\CtrlVariableChartBool.cs">
+    <Compile Include="Variables\Controles\OVariableChartBool.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Variables\Controles\CtrlVariableChartBool.Designer.cs">
-      <DependentUpon>CtrlVariableChartBool.cs</DependentUpon>
+    <Compile Include="Variables\Controles\OVariableChartBool.Designer.cs">
+      <DependentUpon>OVariableChartBool.cs</DependentUpon>
     </Compile>
     <Compile Include="Variables\Formularios\FrmGestionVariables.cs">
       <SubType>Form</SubType>
@@ -237,35 +240,35 @@
     <Compile Include="Variables\Formularios\FrmVariableChart.Designer.cs">
       <DependentUpon>FrmVariableChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplay.cs">
+    <Compile Include="Visores\Controles\ODisplayBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplay.designer.cs">
-      <DependentUpon>CtrlDisplay.cs</DependentUpon>
+    <Compile Include="Visores\Controles\ODisplayBase.designer.cs">
+      <DependentUpon>ODisplayBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplayBitmap.cs">
+    <Compile Include="Visores\Controles\ODisplayBitmap.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplayBitmap.designer.cs">
-      <DependentUpon>CtrlDisplayBitmap.cs</DependentUpon>
+    <Compile Include="Visores\Controles\ODisplayBitmap.designer.cs">
+      <DependentUpon>ODisplayBitmap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplayVPro.cs">
+    <Compile Include="Visores\Controles\ODisplayVPro.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplayVPro.designer.cs">
-      <DependentUpon>CtrlDisplayVPro.cs</DependentUpon>
+    <Compile Include="Visores\Controles\ODisplayVPro.designer.cs">
+      <DependentUpon>ODisplayVPro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplayBitmap\Clases\MetodosNativos.cs" />
-    <Compile Include="Visores\Controles\CtrlDisplayBitmap\Componentes\ControlVirtualScrollable.cs">
+    <Compile Include="Visores\Controles\ODisplayBitmap\Clases\MetodosNativos.cs" />
+    <Compile Include="Visores\Controles\ODisplayBitmap\Componentes\ControlVirtualScrollable.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplayBitmap\Componentes\PropiedadesScroll.cs">
+    <Compile Include="Visores\Controles\ODisplayBitmap\Componentes\PropiedadesScroll.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplayBitmap\Componentes\ScrollControl.cs">
+    <Compile Include="Visores\Controles\ODisplayBitmap\Componentes\ScrollControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Visores\Controles\CtrlDisplayBitmap\Componentes\VisorImagenes.cs">
+    <Compile Include="Visores\Controles\ODisplayBitmap\Componentes\VisorImagenes.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Visores\Formularios\FrmDetalleCamara.cs">
@@ -324,8 +327,8 @@
     <EmbeddedResource Include="Hardware\Formularios\FrmMonitorizacionIO.resx">
       <DependentUpon>FrmMonitorizacionIO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MaquinasEstados\Controles\CtrlStateMachineDisplay.resx">
-      <DependentUpon>CtrlStateMachineDisplay.cs</DependentUpon>
+    <EmbeddedResource Include="MaquinasEstados\Controles\OStateMachineDisplay.resx">
+      <DependentUpon>OStateMachineDisplay.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MaquinasEstados\Formularios\FrmMonitorizacionMaquinaEstados.resx">
@@ -342,12 +345,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Variables\Controles\CtrlVariableChart.resx">
-      <DependentUpon>CtrlVariableChart.cs</DependentUpon>
+    <EmbeddedResource Include="Variables\Controles\OVariableChartBase.resx">
+      <DependentUpon>OVariableChartBase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Variables\Controles\CtrlVariableChartBool.resx">
-      <DependentUpon>CtrlVariableChartBool.cs</DependentUpon>
+    <EmbeddedResource Include="Variables\Controles\OVariableChartBool.resx">
+      <DependentUpon>OVariableChartBool.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Variables\Formularios\FrmGestionVariables.resx">
@@ -368,14 +371,14 @@
     <None Include="Variables\Formularios\FrmMonitorizacionVariables.Designer.Images.resx">
       <DependentUpon>FrmMonitorizacionVariables.Designer.cs</DependentUpon>
     </None>
-    <EmbeddedResource Include="Visores\Controles\CtrlDisplay.resx">
-      <DependentUpon>CtrlDisplay.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\ODisplayBase.resx">
+      <DependentUpon>ODisplayBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visores\Controles\CtrlDisplayBitmap.resx">
-      <DependentUpon>CtrlDisplayBitmap.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\ODisplayBitmap.resx">
+      <DependentUpon>ODisplayBitmap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visores\Controles\CtrlDisplayVPro.resx">
-      <DependentUpon>CtrlDisplayVPro.cs</DependentUpon>
+    <EmbeddedResource Include="Visores\Controles\ODisplayVPro.resx">
+      <DependentUpon>ODisplayVPro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visores\Formularios\FrmDetalleCamara.resx">
       <DependentUpon>FrmDetalleCamara.cs</DependentUpon>
@@ -706,6 +709,15 @@
       <Name>Orbita.VAHardware</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgPlay16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgStop16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgSnap16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

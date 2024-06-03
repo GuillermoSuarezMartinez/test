@@ -4,6 +4,10 @@
 // Created          : 06-09-2012
 //
 // Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Movido al proyecto Orbita.Controles.VA
+//
+// Last Modified By : aibañez
 // Last Modified On : 30-10-2012
 // Description      : Movido a VAComun
 //
@@ -16,6 +20,7 @@ using System.Windows.Forms;
 using Orbita.VAComun;
 using System.Data;
 using Orbita.VAHardware;
+using System.ComponentModel;
 
 namespace Orbita.Controles.VA
 {
@@ -26,16 +31,6 @@ namespace Orbita.Controles.VA
     {
         #region Atributo(s)
         /// <summary>
-        /// Enlazamos con las cámaras
-        /// </summary>
-        private bool EnlazarCamaras;
-
-        /// <summary>
-        /// Se requiere visualización en vivo
-        /// </summary>
-        private bool VisualiacionEnVivo;
-
-        /// <summary>
         /// Contador del número de cámaras
         /// </summary>
         private int NumeroCamaras = 0;
@@ -43,22 +38,96 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Lista de visores
         /// </summary>
-        public List<CtrlDisplay> ListaDisplays;
+        public List<ODisplayBase> ListaDisplays;
+        #endregion
+
+        #region Propiedad(es)
+        /// <summary>
+        /// Enlazamos con las cámaras
+        /// </summary>
+        private bool _EnlazarCamaras;
+        /// <summary>
+        /// Enlazamos con las cámaras
+        /// </summary>
+        [Browsable(true),
+        Category("Orbita"),
+        Description("Se enlazan las cámaras dadas de alta en el sistema automáticamente"),
+        DefaultValue(true)]
+        public bool EnlazarCamaras
+        {
+            get { return _EnlazarCamaras; }
+            set { _EnlazarCamaras = value; }
+        }
+        
+        /// <summary>
+        /// Se requiere visualización en vivo
+        /// </summary>
+        private bool _VisualizacionEnVivo;
+        /// <summary>
+        /// Se requiere visualización en vivo
+        /// </summary>
+        [Browsable(true),
+        Category("Orbita"),
+        Description("Se visualizan las imagenes adquiridas por las cámaras automáticamente"),
+        DefaultValue(true)]
+        public bool VisualizacionEnVivo
+        {
+            get { return _VisualizacionEnVivo; }
+            set { _VisualizacionEnVivo = value; }
+        }
+
+        /// <summary>
+        /// Indica que los visores tienen control sobre la adquisición de imágenes de la cámara
+        /// </summary>
+        private bool _ControlCamara;
+        /// <summary>
+        /// Indica que los visores tienen control sobre la adquisición de imágenes de la cámara
+        /// </summary>
+        [Browsable(true),
+        Category("Orbita"),
+        Description("Indica que los visores tienen control sobre la adquisición de imágenes de la cámar"),
+        DefaultValue(true)]
+        public bool ControlCamara
+        {
+            get { return _ControlCamara; }
+            set { _ControlCamara = value; }
+        }
         #endregion
 
         #region Constructor(es)
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public FrmDisplays(string titulo, bool enlazarCamaras, bool visualiacionEnVivo)
-            :base()
+        public FrmDisplays()
+            : this("Monitorización de cámaras", true, true, true)
+        {
+            InitializeComponent();
+
+            this.ListaDisplays = new List<ODisplayBase>();
+        }
+
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        public FrmDisplays(string titulo, bool enlazarCamaras, bool visualiacionEnVivo, bool controlCamara)
+            : this(ModoAperturaFormulario.Modificacion, titulo, enlazarCamaras, visualiacionEnVivo, controlCamara)
+        {
+        }
+
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        public FrmDisplays(ModoAperturaFormulario modoAperturaFormulario, string titulo, bool enlazarCamaras, bool visualiacionEnVivo, bool controlCamara)
+            : base(modoAperturaFormulario)
         {
             InitializeComponent();
 
             this.Text = titulo;
-            this.EnlazarCamaras = enlazarCamaras;
-            this.VisualiacionEnVivo = visualiacionEnVivo;
-            this.ListaDisplays = new List<CtrlDisplay>();
+            this._EnlazarCamaras = enlazarCamaras;
+            this._VisualizacionEnVivo = visualiacionEnVivo;
+            this._ControlCamara = controlCamara;
+
+            this.ListaDisplays = new List<ODisplayBase>();
         }  
         #endregion
 
@@ -80,9 +149,9 @@ namespace Orbita.Controles.VA
                 for (int col = 0; col < this.layFondoVisores.ColumnCount; col++)
                 {
                     Control control = this.layFondoVisores.GetControlFromPosition(col, row);
-                    if (control is CtrlDisplay)
+                    if (control is ODisplayBase)
                     {
-                        string codCamaraAux = ((CtrlDisplay)control).Codigo;
+                        string codCamaraAux = ((ODisplayBase)control).Codigo;
                         if (codCamaraAux == codCamara)
                         {
                             controlEncontrado = true;
@@ -199,35 +268,50 @@ namespace Orbita.Controles.VA
         {
             base.CargarDatosComunes();
 
-            if (this.EnlazarCamaras)
+            if (this._EnlazarCamaras)
             {
                 foreach (CamaraBase camara in CamaraRuntime.ListaCamaras)
                 {
-                    DataTable dt = Orbita.VAHardware.AppBD.GetCamara(camara.Codigo);
-                    if (dt.Rows.Count == 1)
+                    string titulo = camara.Nombre + " [" + camara.Fabricante + "]";
+                    object objetoImplementado;
+                    if (App.ConstruirClase(camara.EnsambladoClaseImplementadora, camara.ClaseImplementadoraDisplay, out objetoImplementado, titulo, camara.Codigo, camara.MaxFrameIntervalVisualizacion, this._ControlCamara, this._VisualizacionEnVivo))
                     {
-                        string titulo = camara.Nombre + " [" + camara.Fabricante + "]";
-                        object objetoImplementado;
-                        if (App.ConstruirClase(camara.EnsambladoClaseImplementadora, camara.ClaseImplementadoraDisplay, out objetoImplementado, titulo, camara.Codigo, camara.MaxFrameIntervalVisualizacion, string.Empty, string.Empty))
-                        {
-                            CtrlDisplay display = (CtrlDisplay)objetoImplementado;
-                            this.AddDisplay(display);
+                        ODisplayBase display = (ODisplayBase)objetoImplementado;
+                        this.AddDisplay(display);
 
-                            // Añado propiedades especificas a los displays para su visualización
-                            display.MostrarBtnAbrir = false;
-                            display.MostrarBtnGuardar = true;
-                            display.MostrarBtnInfo = true;
-                            display.OnInfoDemandada += this.OnInfoDemandada;
-                            display.MostrarStatusMensaje = true;
-                            camara.CrearSuscripcionMensajes(display.MostrarMensaje);
-                            camara.CrearSuscripcionCambioEstado(display.OnCambioEstadoConexionCamara);
-                            if (this.VisualiacionEnVivo)
-	                        {
-                                camara.CrearSuscripcionNuevaFotografia(display.OnNuevaFotografiaCamara);
-	                        }
-                        }
+                        // Añado propiedades especificas a los displays para su visualización
+                        display.MostrarBtnAbrir = false;
+                        display.MostrarBtnGuardar = true;
+                        display.MostrarBtnReproduccion = this._ControlCamara;
+                        display.MostrarBtnSnap = this._ControlCamara;
+                        display.MostrarBtnInfo = true;
+                        display.MostrarBtnMaximinzar = true;
+                        display.MostrarBtnSiguienteAnterior = CamaraRuntime.ListaCamaras.Count > 0;
+                        display.OnInfoDemandada += this.OnInfoDemandada;
+                        display.MostrarLblTitulo = true;
+                        display.MostrarStatusBar = true;
+                        display.MostrarStatusFps = this._VisualizacionEnVivo;
+                        display.MostrarStatusMensaje = true;
+                        display.MostrarToolStrip = true;
+                        display.Inicializar();
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Funciones al salir del formulario
+        /// </summary>
+        protected virtual void AccionesSalir()
+        {
+            foreach (ODisplayBase display in this.ListaDisplays)
+            {
+                if (this._EnlazarCamaras)
+                {
+                    display.OnInfoDemandada -= this.OnInfoDemandada;
+                }
+
+                display.Finalizar();
             }
         }
         #endregion
@@ -236,7 +320,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Acción de añadir una cámara al formulario
         /// </summary>
-        public void AddDisplay(CtrlDisplay display)
+        public void AddDisplay(ODisplayBase display)
         {
             this.NumeroCamaras++;
 
@@ -326,7 +410,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnInfoDemandada(object sender, EventInfoRequiredArgs e)
+        private void OnInfoDemandada(object sender, EventVisorClickButtonArgs e)
         {
             try
             {

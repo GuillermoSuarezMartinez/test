@@ -3,9 +3,9 @@
 // Author           : aibañez
 // Created          : 06-09-2012
 //
-// Last Modified By : 
-// Last Modified On : 
-// Description      : 
+// Last Modified By : aibañez
+// Last Modified On : 16-11-2012
+// Description      : Movido al proyecto Orbita.Controles.VA
 //
 // Copyright        : (c) Orbita Ingenieria. All rights reserved.
 //***********************************************************************
@@ -22,7 +22,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Control de monitorización de la variable
         /// </summary>
-        private CtrlVariableChart CtrlVariableChart;
+        private OVariableChartBase CtrlVariableChart;
 
         /// <summary>
         /// Código de la variable
@@ -52,7 +52,7 @@ namespace Orbita.Controles.VA
                         throw new Exception("El tipo de variable no está definida");
                         break;
                     case EnumTipoDato.Bit:
-                        this.CtrlVariableChart = new CtrlVariableChartBool();
+                        this.CtrlVariableChart = new OVariableChartBool();
                         this.CtrlVariableChart.Parent = this.pnlPanelPrincipalPadre;
                         this.CtrlVariableChart.Dock = DockStyle.Fill;
                         break;
