@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
@@ -19,7 +17,7 @@ namespace Orbita.Controles.Comunicaciones
         /// Delegado para mostar los datos en el formulario
         /// </summary>
         /// <param name="Elemento"></param>
-        internal delegate void Delegado(string Elemento);
+        internal delegate void DelegadoAgregar(string Elemento);
         /// <summary>
         /// Delegado para el cambio de estado
         /// </summary>
@@ -36,19 +34,19 @@ namespace Orbita.Controles.Comunicaciones
         /// <summary>
         /// Puerto de comunicación de remoting
         /// </summary>
-        public int _remotingPuerto = 1852;
+        internal int _remotingPuerto = 1852;
         /// <summary>
         /// Servidor de comunicaciones.
         /// </summary>
-        public IOCommRemoting _servidor;
+        internal IOCommRemoting _servidor;
         /// <summary>
         /// Identificador de dispositivo
         /// </summary>
-        public int _idDispositivo = 1;
+        internal int _idDispositivo = 1;
         /// <summary>
         /// Servidor remoting
         /// </summary>
-        public string _servidorRemoting = "localhost";
+        internal string _servidorRemoting = "localhost";
         #endregion
 
         #region Constructores
@@ -61,7 +59,6 @@ namespace Orbita.Controles.Comunicaciones
         #endregion        
 
         #region Métodos
-
         /// <summary>
         /// Arranca las comunicaciones con el dispositivo
         /// </summary>
@@ -111,7 +108,6 @@ namespace Orbita.Controles.Comunicaciones
                 OMensajes.MostrarError(ex);
             }
         }
-
         /// <summary>
         /// Conectar al servidor vía Remoting.
         /// </summary>
@@ -124,7 +120,6 @@ namespace Orbita.Controles.Comunicaciones
             string canal = "canal" + strHostName + ":" + this._remotingPuerto.ToString();
             this._servidor.OrbitaConectar(canal, estado);
         }
-
         /// <summary>
         /// Desconectar del servidor vía Remoting.
         /// </summary>
@@ -132,7 +127,6 @@ namespace Orbita.Controles.Comunicaciones
         {
             Conectar(false);
         }
-
         /// <summary>
         /// Procesa la información del evento de comunicaciones
         /// </summary>
@@ -150,7 +144,6 @@ namespace Orbita.Controles.Comunicaciones
                 Console.WriteLine(ex);
             }
         }
-
         /// <summary>
         /// Procesa la información para el cambio de estado por pantalla
         /// </summary>
@@ -172,7 +165,6 @@ namespace Orbita.Controles.Comunicaciones
                 }
             }
         }
-
         /// <summary>
         /// Agrega los items a la lista
         /// </summary>
@@ -181,8 +173,8 @@ namespace Orbita.Controles.Comunicaciones
         {
             if (this.listViewCDato.InvokeRequired)
             {
-                Delegado MyDelegado = new Delegado(agregarItemOrbita);
-                this.Invoke(MyDelegado, new object[] { texto });
+                DelegadoAgregar Delegado = new DelegadoAgregar(agregarItemOrbita);
+                this.Invoke(Delegado, new object[] { texto });
             }
             else
             {
@@ -192,12 +184,10 @@ namespace Orbita.Controles.Comunicaciones
                 lvi.Tag = texto;
                 this.listViewCDato.Items.Add(lvi);
             }
-        }
-        
+        }        
         #endregion
 
         #region Eventos
-
         /// <summary>
         /// Evento de cambio de dato.
         /// </summary>
@@ -220,7 +210,6 @@ namespace Orbita.Controles.Comunicaciones
             }
 
         }
-
         /// <summary>
         /// Evento de alarma.
         /// </summary>
@@ -244,7 +233,6 @@ namespace Orbita.Controles.Comunicaciones
             }
 
         }
-
         /// <summary>
         /// Evento de comunicaciones.
         /// </summary>
@@ -261,7 +249,6 @@ namespace Orbita.Controles.Comunicaciones
             }
 
         }
-
         /// <summary>
         /// Inicia el cliente de comunicaciones
         /// </summary>
@@ -271,7 +258,6 @@ namespace Orbita.Controles.Comunicaciones
         {
             this.Iniciar();
         }
-
         /// <summary>
         /// Lee una variable por OPC
         /// </summary>
@@ -294,7 +280,6 @@ namespace Orbita.Controles.Comunicaciones
                 Console.WriteLine(ex.ToString());
             }
         }
-
         /// <summary>
         /// Escribe una variable por OPC
         /// </summary>
@@ -316,7 +301,6 @@ namespace Orbita.Controles.Comunicaciones
                 Console.WriteLine(ex.ToString());
             }
         }
-
         /// <summary>
         /// Lee el valor de todas las variables del dispositivo
         /// </summary>
@@ -367,7 +351,6 @@ namespace Orbita.Controles.Comunicaciones
 
             this.dataGridViewLecturas.DataSource = dt;
         }
-
         /// <summary>
         /// Lee las alarmas activas
         /// </summary>
@@ -414,7 +397,6 @@ namespace Orbita.Controles.Comunicaciones
 
             this.dataGridViewLecturas.DataSource = dt;
         }
-
         #endregion   
     }
 }

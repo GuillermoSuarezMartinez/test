@@ -12,20 +12,31 @@ namespace Orbita.Controles.Comunicaciones
 {
     public partial class OClienteESPhoenixILBK48 : OClienteComs
     {
+        #region Constructores
 
         public OClienteESPhoenixILBK48()
         {
             InitializeComponent();
         }
 
-        #region Métodos
+        #endregion        
 
+        #region Métodos
+        /// <summary>
+        /// Inicia la comunicación con el servidor
+        /// </summary>
         public override void Iniciar()
         {
             base.Iniciar();
-            this.InciarVisualizacion();
+            try
+            {
+                this.InciarVisualizacion();
+            }
+            catch (Exception ex)
+            {
+                OMensajes.MostrarError("Error al iniciar la visualización. " ,ex);
+            }            
         }
-
         /// <summary>
         /// Actualiza las ES del control
         /// </summary>
@@ -167,28 +178,7 @@ namespace Orbita.Controles.Comunicaciones
                         break;
                 }
             }
-        }
-        /// <summary>
-        /// Actualizamos los valores del control
-        /// </summary>
-        /// <param name="e"></param>
-        public override void eventWrapper_OrbitaCambioDato(OEventArgs e)
-        {
-            try
-            {
-                base.eventWrapper_OrbitaCambioDato(e);
-                OInfoDato info = (OInfoDato)e.Argumento;
-                if (info.Dispositivo == this._idDispositivo)
-                {
-                    this.actualizarES(e);
-                }
-            }
-            catch (System.Exception ex)
-            {
-                OMensajes.MostrarError(ex);
-            }
-
-        }
+        }        
         /// <summary>
         /// Actualiza la visualización al arrancar la aplicación
         /// </summary>
@@ -209,10 +199,36 @@ namespace Orbita.Controles.Comunicaciones
             for (int j = 0; j < resultado.Length; j++)
             {
                 OEventArgs e = new OEventArgs();
-                OInfoDato dato = (OInfoDato)resultado[j];
+                OInfoDato dato = new OInfoDato();
+                dato.Texto = variables[j];
+                dato.Valor = resultado[j];
                 e.Argumento = dato;
                 this.actualizarES(e);
             }
+        }
+        #endregion
+
+        #region Eventos
+        /// <summary>
+        /// Actualizamos los valores del control
+        /// </summary>
+        /// <param name="e"></param>
+        public override void eventWrapper_OrbitaCambioDato(OEventArgs e)
+        {
+            try
+            {
+                base.eventWrapper_OrbitaCambioDato(e);
+                OInfoDato info = (OInfoDato)e.Argumento;
+                if (info.Dispositivo == this._idDispositivo)
+                {
+                    this.actualizarES(e);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                OMensajes.MostrarError(ex);
+            }
+
         }
         #endregion
     }
