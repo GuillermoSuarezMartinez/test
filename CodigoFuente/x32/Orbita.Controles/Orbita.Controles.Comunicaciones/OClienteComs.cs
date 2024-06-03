@@ -148,7 +148,7 @@ namespace Orbita.Controles.Comunicaciones
         /// Procesa la información para el cambio de estado por pantalla
         /// </summary>
         /// <param name="estado"></param>
-        private void cambiarEstado(OEstadoComms estado)
+        public virtual void cambiarEstado(OEstadoComms estado)
         {
             if (estado.Estado == "OK")
             {
