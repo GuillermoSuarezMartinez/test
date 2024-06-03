@@ -3,15 +3,6 @@
 // Author           : crodriguez
 // Created          : 03-03-2011
 //
-// Last Modified By : aibañez
-// Last Modified On : 21-12-2012
-// Description      : Añadidos métodos:
-//                    AddFechaUniveral: Añade al xml una fecha en 
-//                     formato universal para no tener problemas 
-//                     con la configuración regional
-//                    Add(Timespan): Añade un valor de tipo timespan al
-//                     xml conviertiendolo en double mediante el método TotalMilliseconds
-//
 // Last Modified By : crodriguez
 // Last Modified On : 03-03-2011
 // Description      : 
@@ -22,8 +13,6 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Xml;
-using System.Xml.XPath;
-
 namespace Orbita.Utiles
 {
     /// <summary>
@@ -163,12 +152,12 @@ namespace Orbita.Utiles
         //}
         //#endregion
         //#endregion
-
+        
         #region Atributos
         /// <summary>
         /// Variable escrita en el Xml.
-        /// NOTA: EL SIGUIENTE COMENTARIO SE HA MOVIDO DE OTRA UBICACIÓN, PERO CREO QUE SE REFIERE A ESTE ATRIBUTO (Vnicolau, 07/02/2011)
-        /// Este atributo indica 'QUE VARIABLES' se van a escribir en Base de datos,
+		/// NOTA: EL SIGUIENTE COMENTARIO SE HA MOVIDO DE OTRA UBICACIÓN, PERO CREO QUE SE REFIERE A ESTE ATRIBUTO (Vnicolau, 07/02/2011)
+		/// Este atributo indica 'QUE VARIABLES' se van a escribir en Base de datos,
         /// es decir, contiene cada uno de los registros que se van a insertar.
         /// </summary>
         StringWriter m_swXml;
@@ -180,10 +169,10 @@ namespace Orbita.Utiles
         /// Variable para contener el XML para lectura
         /// </summary>
         //public Xml m_xml;
-        #endregion Atributos
+		#endregion Atributos
 
-        #region Constructores
-        /// <summary>
+		#region Constructores
+		/// <summary>
         /// Constructor de la clase.
         /// </summary>
         public OXml()
@@ -244,20 +233,9 @@ namespace Orbita.Utiles
         {
             if (!string.IsNullOrEmpty(etiqueta))
             {
-                if (valor is DateTime)
-                {
-                    this.Add(etiqueta, (DateTime)valor);
-                }
-                else if (valor is TimeSpan)
-                {
-                    this.Add(etiqueta, (TimeSpan)valor);
-                }
-                else
-                {
-                    this.m_escritorXml.WriteStartElement(etiqueta.ToString());
-                    this.m_escritorXml.WriteValue(valor);
-                    this.m_escritorXml.WriteEndElement();
-                }
+                this.m_escritorXml.WriteStartElement(etiqueta.ToString());
+                this.m_escritorXml.WriteValue(valor);
+                this.m_escritorXml.WriteEndElement();
             }
         }
         /// <summary>
@@ -307,21 +285,6 @@ namespace Orbita.Utiles
             {
                 this.m_escritorXml.WriteStartElement(etiqueta.ToString());
                 this.m_escritorXml.WriteValue(valor);
-                this.m_escritorXml.WriteEndElement();
-            }
-        }
-        /// <summary>
-        /// Funcion para añadir un campo tipo pasandole un balor tipo datetime.
-        /// En el SQLServer se ha de utilizar la instrucción "convert(fecha, 126)"
-        /// </summary>
-        /// <param name="etiqueta"></param>
-        /// <param name="valor"></param>
-        public void AddFechaUniversal(string etiqueta, DateTime valor)
-        {
-            if (!string.IsNullOrEmpty(etiqueta))
-            {
-                this.m_escritorXml.WriteStartElement(etiqueta.ToString());
-                this.m_escritorXml.WriteValue(valor.ToString("yyyyMMdd' 'HH':'mm':'ss.fff", DateTimeFormatInfo.InvariantInfo));
                 this.m_escritorXml.WriteEndElement();
             }
         }
@@ -382,32 +345,6 @@ namespace Orbita.Utiles
             }
         }
         /// <summary>
-        /// Funcion para añadir un campo tipo pasandole un valor tipo timespan.
-        /// En el SQLServer se ha de utilizar un float puesto que se indica en milisegundos
-        /// </summary>
-        /// <param name="etiqueta"></param>
-        /// <param name="valor"></param>
-        public void Add(string etiqueta, TimeSpan valor)
-        {
-            if (!string.IsNullOrEmpty(etiqueta))
-            {
-                this.m_escritorXml.WriteStartElement(etiqueta.ToString());
-                this.m_escritorXml.WriteValue(valor.TotalMilliseconds);
-                this.m_escritorXml.WriteEndElement();
-            }
-        }
-        /// <summary>
-        /// Funcion para añadir un campo tipo pasandole un valor tipo string
-        /// </summary>
-        /// <param name="etiqueta"></param>
-        public void AddNull(string etiqueta)
-        {
-            this.m_escritorXml.WriteStartElement(etiqueta.ToString());
-            this.m_escritorXml.WriteValue(@"xsi:nil=""true""");
-            this.m_escritorXml.WriteEndElement();
-        }
-
-        /// <summary>
         /// Función para cerrar la etiqueta abierta.
         /// </summary>
         public void CerrarEtiqueta()
@@ -447,10 +384,10 @@ namespace Orbita.Utiles
         /// Función para leer el documento almacenado. 
         /// </summary>
         /// <returns></returns>
-        public XPathDocument LeerXml()
+        public System.Xml.XPath.XPathDocument LeerXml()
         {
             StringReader sr = new StringReader(this.m_swXml.ToString());
-            XPathDocument xpathDoc = new XPathDocument(sr);
+            System.Xml.XPath.XPathDocument xpathDoc = new System.Xml.XPath.XPathDocument(sr);
             sr.Close();
             return (xpathDoc);
         }
@@ -568,29 +505,29 @@ namespace Orbita.Utiles
         //}
         #endregion
 
-        #region IDisposable Members
-        /// <summary>
-        /// Elimina los recursos utilizados
-        /// </summary>
-        public void Dispose()
-        {
-            if (this.m_escritorXml != null)
-            {
-                this.m_escritorXml.Close();
-                this.m_escritorXml = null;
-            }
-            if (this.m_swXml != null)
-            {
-                this.m_swXml.Close();
-                this.m_swXml.Dispose();
-                this.m_swXml = null;
-            }
+		#region IDisposable Members
+		/// <summary>
+		/// Elimina los recursos utilizados
+		/// </summary>
+		public void Dispose()
+		{
+			if (this.m_escritorXml != null)
+			{
+				this.m_escritorXml.Close();
+				this.m_escritorXml = null;
+			}
+			if (this.m_swXml != null)
+			{
+				this.m_swXml.Close();
+				this.m_swXml.Dispose();
+				this.m_swXml = null;
+			}
             //if (this.m_xml != null)
             //{
             //    this.m_xml.Dispose();
             //    this.m_xml = null;
             //}
-        }
-        #endregion
+		}
+		#endregion
     }
 }
