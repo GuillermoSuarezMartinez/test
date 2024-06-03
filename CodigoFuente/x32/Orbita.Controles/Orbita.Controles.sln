@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orbita.Controles.Misc", "Orbita.Controles.Misc\Orbita.Controles.Misc.csproj", "{E9E18F2A-B5B9-4450-A588-BE08E8BB2302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orbita.Controles.Shared", "Orbita.Controles.Shared\Orbita.Controles.Shared.csproj", "{D104B7D1-93CB-46AE-8F84-AA68BB3B2C5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orbita.Controles.VA", "Orbita.Controles.VA\Orbita.Controles.VA.csproj", "{8E66FB77-D4ED-483B-8481-A9B2C7317192}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{035358AF-58D9-4072-B6F5-AA9736F51A75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VA", "VA", "{C5DAF96C-9AE6-4F08-96EA-19B7F1AF0510}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{67CCD657-8734-456A-B5CF-7149D4D5CD1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orbita.Controles.Grid", "Orbita.Controles.Grid\Orbita.Controles.Grid.csproj", "{D0FAAE85-5DA2-4044-908A-587B33DD5B7D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://01x0019:8080/tfs/orbitasoftware
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Orbita.Controles.Grid\\Orbita.Controles.Grid.csproj
+		SccProjectTopLevelParentUniqueName1 = Orbita.Controles.sln
+		SccProjectName1 = Orbita.Controles.Grid
+		SccLocalPath1 = Orbita.Controles.Grid
+		SccProjectUniqueName2 = Orbita.Controles.Misc\\Orbita.Controles.Misc.csproj
+		SccProjectTopLevelParentUniqueName2 = Orbita.Controles.sln
+		SccProjectName2 = Orbita.Controles.Misc
+		SccLocalPath2 = Orbita.Controles.Misc
+		SccProjectUniqueName3 = Orbita.Controles.Shared\\Orbita.Controles.Shared.csproj
+		SccProjectTopLevelParentUniqueName3 = Orbita.Controles.sln
+		SccProjectName3 = Orbita.Controles.Shared
+		SccLocalPath3 = Orbita.Controles.Shared
+		SccProjectUniqueName4 = Orbita.Controles.VA\\Orbita.Controles.VA.csproj
+		SccProjectTopLevelParentUniqueName4 = Orbita.Controles.sln
+		SccProjectName4 = Orbita.Controles.VA
+		SccLocalPath4 = Orbita.Controles.VA
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9E18F2A-B5B9-4450-A588-BE08E8BB2302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E18F2A-B5B9-4450-A588-BE08E8BB2302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E18F2A-B5B9-4450-A588-BE08E8BB2302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E18F2A-B5B9-4450-A588-BE08E8BB2302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D104B7D1-93CB-46AE-8F84-AA68BB3B2C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D104B7D1-93CB-46AE-8F84-AA68BB3B2C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D104B7D1-93CB-46AE-8F84-AA68BB3B2C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D104B7D1-93CB-46AE-8F84-AA68BB3B2C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E66FB77-D4ED-483B-8481-A9B2C7317192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E66FB77-D4ED-483B-8481-A9B2C7317192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E66FB77-D4ED-483B-8481-A9B2C7317192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E66FB77-D4ED-483B-8481-A9B2C7317192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FAAE85-5DA2-4044-908A-587B33DD5B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FAAE85-5DA2-4044-908A-587B33DD5B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FAAE85-5DA2-4044-908A-587B33DD5B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FAAE85-5DA2-4044-908A-587B33DD5B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D104B7D1-93CB-46AE-8F84-AA68BB3B2C5E} = {035358AF-58D9-4072-B6F5-AA9736F51A75}
+		{8E66FB77-D4ED-483B-8481-A9B2C7317192} = {C5DAF96C-9AE6-4F08-96EA-19B7F1AF0510}
+		{E9E18F2A-B5B9-4450-A588-BE08E8BB2302} = {67CCD657-8734-456A-B5CF-7149D4D5CD1D}
+		{D0FAAE85-5DA2-4044-908A-587B33DD5B7D} = {67CCD657-8734-456A-B5CF-7149D4D5CD1D}
+	EndGlobalSection
+EndGlobal
