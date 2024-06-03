@@ -83,8 +83,14 @@
     <Compile Include="OClienteOrbita.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OClienteOrbita.designer.cs">
+    <Compile Include="OClienteOrbita.Designer.cs">
       <DependentUpon>OClienteOrbita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OClienteOrbita1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OClienteOrbita1.designer.cs">
+      <DependentUpon>OClienteOrbita1.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
@@ -105,8 +111,8 @@
     <EmbeddedResource Include="OClienteMCUSB.resx">
       <DependentUpon>OClienteMCUSB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OClienteOrbita.resx">
-      <DependentUpon>OClienteOrbita.cs</DependentUpon>
+    <EmbeddedResource Include="OClienteOrbita1.resx">
+      <DependentUpon>OClienteOrbita1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
