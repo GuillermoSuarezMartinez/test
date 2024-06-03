@@ -16,7 +16,7 @@ using System.Data;
 using Orbita.VAComun;
 using Orbita.VAControl;
 
-namespace CodeGenerator
+namespace Orbita.VAGeneradorEscenarios
 {
     /// <summary>
     /// Programa generador de código automático

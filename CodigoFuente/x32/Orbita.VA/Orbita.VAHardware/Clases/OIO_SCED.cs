@@ -320,11 +320,6 @@ namespace Orbita.VAHardware
         /// Nos indica si el cambio de valor procede del evento al cambio para en ese caso no realizar escrituras en los delegados
         /// </summary>
         public bool ProcedeEventoCambio;
-
-        /// <summary>
-        /// Valor que se envía al SCED
-        /// </summary>
-        private object Valor;
         #endregion
 
         #region Constructor

@@ -561,7 +561,7 @@ namespace Orbita.VAHardware
                         // wait for a while before the next try
                         Thread.Sleep(250);
                     }
-                    catch (ThreadAbortException ex)
+                    catch (ThreadAbortException exception)
                     {
                     }
                     catch (Exception ex)

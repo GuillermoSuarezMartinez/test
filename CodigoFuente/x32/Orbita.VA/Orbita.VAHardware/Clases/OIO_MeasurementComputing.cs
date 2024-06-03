@@ -523,11 +523,6 @@ namespace Orbita.VAHardware
         public DigitalPortType PortType;
 
         /// <summary>
-        /// Tipo de puerto según su acción de entrada o de salida
-        /// </summary>
-        private DigitalPortDirection PortDirection;
-
-        /// <summary>
         /// Driver de la tarjeta
         /// </summary>
         private MccBoard DaqBoard;

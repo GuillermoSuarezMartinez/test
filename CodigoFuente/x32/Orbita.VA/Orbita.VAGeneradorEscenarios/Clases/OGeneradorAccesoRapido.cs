@@ -14,7 +14,7 @@ using System.CodeDom.Compiler;
 using System.IO;
 using Microsoft.CSharp;
 
-namespace CodeGenerator
+namespace Orbita.VAGeneradorEscenarios
 {
     /// <summary>
     /// Clase encargada de escribir el código C# para permitir el acceso rápido a variables.

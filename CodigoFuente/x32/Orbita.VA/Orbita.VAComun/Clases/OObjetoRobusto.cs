@@ -671,8 +671,6 @@ namespace Orbita.VAComun
         public OEnteroRobusto(string codigo, int minValue, int maxValue, int valorDefecto, bool lanzarExcepcionSiValorNoValido)
             : base(codigo, valorDefecto, lanzarExcepcionSiValorNoValido)
         {
-            Nullable<int> a = 1;
-
             this.MinValue = minValue;
             this.MaxValue = maxValue;
             this.Estado = new OEstadoEnteroRobusto(OEstadoEnteroRobusto.EnumEstadoEnteroRobusto.ResultadoCorrecto);

@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Orbita.VAComun;
 using System.Data;
-using System;
+using Orbita.VAComun;
 
 namespace Orbita.VAHardware
 {
@@ -260,7 +258,7 @@ namespace Orbita.VAHardware
         /// <param name="tipo">Tipo de movimiento</param>
         /// <param name="modo">Indica si el movimiento es de tipo absoluto o relativo</param>
         /// <param name="valor">Valor a establecer</param>
-        public new void Add(OEnumTipoMovimientoPTZ tipo, OEnumModoMovimientoPTZ modo, double valor)
+        public void Add(OEnumTipoMovimientoPTZ tipo, OEnumModoMovimientoPTZ modo, double valor)
         {
             OComandoPTZ comandoAux = new OComandoPTZ(tipo, modo, valor);
             this.Add(comandoAux);
@@ -271,7 +269,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="movimiento">Tipo de movimiento</param>
         /// <param name="valor">Valor a establecer</param>
-        public new void Add(OMovimientoPTZ movimiento, double valor)
+        public void Add(OMovimientoPTZ movimiento, double valor)
         {
             OComandoPTZ comandoAux = new OComandoPTZ(movimiento, valor);
             this.Add(comandoAux);
@@ -359,7 +357,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="movimiento">Tipo de movimiento</param>
         /// <param name="valor">Valor a establecer</param>
-        public new void Add(OEnumTipoMovimientoPTZ tipo, double valor)
+        public void Add(OEnumTipoMovimientoPTZ tipo, double valor)
         {
             OPosicionPTZ posicion = new OPosicionPTZ(tipo, valor);
             this.Add(posicion);
@@ -448,7 +446,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="tipo">Tipo de movimiento</param>
         /// <param name="modo">Modo de movimiento</param>
-        public new void Add(OEnumTipoMovimientoPTZ tipo, OEnumModoMovimientoPTZ modo)
+        public void Add(OEnumTipoMovimientoPTZ tipo, OEnumModoMovimientoPTZ modo)
         {
             OMovimientoPTZ movimiento = new OMovimientoPTZ(tipo, modo);
             this.Add(movimiento);

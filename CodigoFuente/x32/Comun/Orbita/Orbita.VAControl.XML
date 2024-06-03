@@ -1,0 +1,2306 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orbita.VAControl</name>
+    </assembly>
+    <members>
+        <member name="T:Orbita.VAControl.OVariablesManager">
+            <summary>
+            Clase estática para acceder a las variables desde cualquier lugar de la aplicacion
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariablesManager.Iniciado">
+            <summary>
+            Indica si la clase estática está iniciada
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariablesManager.ListaVariables">
+            <summary>
+            Lista de todas las variables del sistema
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariablesManager.Vistas">
+            <summary>
+            Lista de todas las vistas de variables del sistema
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariablesManager.Trazabilidad">
+            <summary>
+            Variable que almacena la trazabilidad de las variables
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariablesManager.TiempoPermanenciaTrazasEnMemoria">
+            <summary>
+            Tiempo que permanecen las trazas en memoria
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariablesManager.CadenciaMonitorizacion">
+            <summary>
+            Indica la frecuencia con la que se monitorizan las variables (la variable ha de ser divisible por TiempoPermanenciaTrazasEnMemoria)
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariablesManager.PuertoRemoto">
+            <summary>
+            Puerto de comunicación con la variable remota
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariablesManager.CanalServidor">
+            <summary>
+            Canal de Servidor de remoting
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Constructor">
+            <summary>
+            Construye los objetos
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Destructor">
+            <summary>
+            Destruye los objetos
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Inicializar">
+            <summary>
+            Se cargan los valores de la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Finalizar">
+            <summary>
+            Se finaliza la ejecución
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetValue(System.String)">
+            <summary>
+            Método para acceder al valor de una variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve el valor de la variable con el código correspondientes</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetValue(System.String,System.String)">
+            <summary>
+            Método para acceder al valor de una variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve el valor de la variable con el código correspondientes</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetPermanencia(System.String)">
+            <summary>
+            Método para consultar el tiempo de permanencia del valor de la variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve el tiempo de permanencia del valor de la variable</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetPermanencia(System.String,System.String)">
+            <summary>
+            Método para consultar el tiempo de permanencia del valor de la variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve el tiempo de permanencia del valor de la variable</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetChanged(System.String,System.String)">
+            <summary>
+            Método para comprobar si el valor de la variable ha cambiado
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve verdadero si valor de la variable con el código correspondientes ha cambiado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetChanged(System.String,System.String,System.String)">
+            <summary>
+            Método para comprobar si el valor de la variable ha cambiado
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve verdadero si valor de la variable con el código correspondientes ha cambiado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetType(System.String)">
+            <summary>
+            Método para comprobar si el valor de la variable ha cambiado
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve verdadero si valor de la variable con el código correspondientes ha cambiado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetType(System.String,System.String)">
+            <summary>
+            Método para comprobar si el valor de la variable ha cambiado
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve verdadero si valor de la variable con el código correspondientes ha cambiado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.SetValue(System.String,System.Object,System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.SetValue(System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.SetValueDelayed(System.String,System.Object,System.TimeSpan,System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="retraso">Tiempo de retraso de la actualización del valor</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.SetValueDelayed(System.String,System.String,System.Object,System.TimeSpan,System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="retraso">Tiempo de retraso de la actualización del valor</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Bloquear(System.String,System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada y bloquearla para que no se modifique
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Bloquear(System.String,System.String,System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada y bloquearla para que no se modifique
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Desbloquear(System.String,System.String,System.String)">
+            <summary>
+            Método para desbloquear una variable y que cualquiera pueda modificarla
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Desbloquear(System.String,System.String,System.String,System.String)">
+            <summary>
+            Método para desbloquear una variable y que cualquiera pueda modificarla
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Inhibir(System.String,System.String,System.String)">
+            <summary>
+            Método para inhibir la modificación del valor de una variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Inhibir(System.String,System.String,System.String,System.String)">
+            <summary>
+            Método para inhibir la modificación del valor de una variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Desinhibir(System.String,System.String,System.String)">
+            <summary>
+            Método para desinhibir la modificación del valor de una variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Desinhibir(System.String,System.String,System.String,System.String)">
+            <summary>
+            Método para desinhibir la modificación del valor de una variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.ForzarValor(System.String,System.Object,System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada cuando está bloqueada
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.ForzarValor(System.String,System.String,System.Object,System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada cuando está bloqueada
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetVariable(System.String)">
+            <summary>
+            Obtiene la variable de un determinado código
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>variable</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.GetVariable(System.String,System.String)">
+            <summary>
+            Obtiene la variable de un determinado código
+            </summary>
+            <param name="vista">Vista utilizada</param>
+            <param name="codigo">Código de la variable</param>
+            <returns>variable</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Dispara(System.String,System.String,System.String)">
+            <summary>
+            Método para disparar las suscripciones de una variable a de forma registrada
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.Dispara(System.String,System.String,System.String,System.String)">
+            <summary>
+            Método para disparar las suscripciones de una variable a de forma registrada
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.CrearSuscripcion(System.String,System.String,System.String,Orbita.VAControl.OCambioValorDelegate)">
+            <summary>
+            Suscribe a una determinada variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.CrearSuscripcion(System.String,System.String,System.String,System.String,Orbita.VAControl.OCambioValorDelegate)">
+            <summary>
+            Suscribe a una determinada variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.CrearSuscripcion(System.String,System.String,System.String,Orbita.VAControl.OCambioValorDelegateAdvanced)">
+            <summary>
+            Suscribe a una determinada variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.CrearSuscripcion(System.String,System.String,System.String,System.String,Orbita.VAControl.OCambioValorDelegateAdvanced)">
+            <summary>
+            Suscribe a una determinada variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.EliminarSuscripcion(System.String,System.String,System.String,Orbita.VAControl.OCambioValorDelegate)">
+            <summary>
+            Elimina la suscripción a una determinada variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.EliminarSuscripcion(System.String,System.String,System.String,System.String,Orbita.VAControl.OCambioValorDelegate)">
+            <summary>
+            Elimina la suscripción a una determinada variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.EliminarSuscripcion(System.String,System.String,System.String,Orbita.VAControl.OCambioValorDelegateAdvanced)">
+            <summary>
+            Elimina la suscripción a una determinada variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.EliminarSuscripcion(System.String,System.String,System.String,System.String,Orbita.VAControl.OCambioValorDelegateAdvanced)">
+            <summary>
+            Elimina la suscripción a una determinada variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.NuevaTraza(Orbita.VAControl.OTrazaVariable)">
+            <summary>
+            Añade una nueva traza a la cola
+            </summary>
+            <param name="traza"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariablesManager.TryGetVariable(System.String,System.String,Orbita.VAControl.OVariable@)">
+            <summary>
+            Método para acceder a una variable
+            </summary>
+            <param name="codigo">Vista</param>
+            <param name="codigo">Código o alias de la variable</param>
+            <returns>Devuelve la variable correspondientes</returns>
+        </member>
+        <member name="T:Orbita.VAControl.OVistaVariable">
+            <summary>
+            Clase que implementa las vistas de las variables.
+            Las vistas son agrupaciones de variables que se acceden con un alias en lugar de por su código
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVistaVariable.Codigo">
+            <summary>
+            Código de la vista
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVistaVariable.ListaAlias">
+            <summary>
+            Lista de todos los alias de la vista
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVistaVariable.#ctor(System.String)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="codVista">Código de la vista</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVistaVariable.RellenarAlias(System.String)">
+            <summary>
+            Rellena la lista de alias de la vista
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OVariable">
+            <summary>
+            Clase que contiene un VariableCore que puede ser local o remota.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable.VariableCore">
+            <summary>
+            Nucleo de la variable
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable.CanalCliente">
+            <summary>
+            Canal del ciente
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable.EventWrapper">
+            <summary>
+            Objeto utilizado para enlazar con los eventos del variablecore de forma remota
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable._Codigo">
+            <summary>
+            Código identificativo de la variable
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable._Grupo">
+            <summary>
+            Código identificativo del grupo
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable._Nombre">
+            <summary>
+            Nombre identificativo de la variable
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable._Descripcion">
+            <summary>
+            Descripción de la variable
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable._Remoto">
+            <summary>
+            Indica que se la variable pertenece a otra aplicación
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable._ServidorRemoto">
+            <summary>
+            Dirección del servidor de la variable remota
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable._CodigoRemoto">
+            <summary>
+            Código de la variable remota
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariable._PuertoRemoto">
+            <summary>
+            Puerto de la variable remota
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.#ctor(System.String)">
+            <summary>
+            Constructor de la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.Inicializar">
+            <summary>
+            Carga los valores de la variable
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.Finalizar">
+            <summary>
+            Finaliza la ejecución
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.GetValor">
+            <summary>
+            Lectura de la variable
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.GetPermanencia">
+            <summary>
+            Método para consultar el tiempo de permanencia del valor de la variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve el tiempo de permanencia del valor de la variable</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.GetHayCambio(System.String)">
+            <summary>
+            Método para comprobar si el valor de la variable ha cambiado
+            </summary>
+            <returns>Devuelve verdadero si valor de la variable con el código correspondientes ha cambiado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.SetValor(System.Object,System.String,System.String)">
+            <summary>
+            Escritura de la variable
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.SetValorRetrasado(System.Object,System.TimeSpan,System.String,System.String)">
+            <summary>
+            Escritura de la variable de forma retrasada.
+            Transcurido el tiempo especificado se modifica su valor al deseado
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="retraso">Tiempo de retraso de la actualización del valor</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.Bloquear(System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada y bloquearla para que no se modifique
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.Desbloquear(System.String,System.String)">
+            <summary>
+            Método para desbloquear una variable y que cualquiera pueda modificarla
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.Inhibir(System.String,System.String)">
+            <summary>
+            Método para inhibir la modificación del valor de una variable
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.Desinhibir(System.String,System.String)">
+            <summary>
+            Método para desinhibir la modificación del valor de una variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.ForzarValor(System.Object,System.String,System.String)">
+            <summary>
+            Escritura de la variable cuando está bloqueada
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.GetTipo">
+            <summary>
+            Devuelve el tipo de la variable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.Disparo(System.String,System.String)">
+            <summary>
+            Método que ejecuta los suscriptores
+            </summary>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.CrearSuscripcion(System.String,System.String,Orbita.VAControl.OCambioValorDelegate)">
+            <summary>
+            Crea la suscripción a la variable
+            </summary>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+            <param name="delegadoSuscriptor">Delegado que queremos suscribir</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.CrearSuscripcion(System.String,System.String,Orbita.VAControl.OCambioValorDelegateAdvanced)">
+            <summary>
+            Crea la suscripción a la variable
+            </summary>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+            <param name="delegadoSuscriptor">Delegado que queremos suscribir</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.EliminarSuscripcion(System.String,System.String,Orbita.VAControl.OCambioValorDelegate)">
+            <summary>
+            Elimina la suscripción a la variable
+            </summary>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+            <param name="delegadoSuscriptor">Delegado que queremos desuscribir</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.EliminarSuscripcion(System.String,System.String,Orbita.VAControl.OCambioValorDelegateAdvanced)">
+            <summary>
+            Elimina la suscripción a la variable
+            </summary>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+            <param name="delegadoSuscriptor">Delegado que queremos desuscribir</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariable.EjecutaEventos(Orbita.VAControl.OCambioValorEventArgs)">
+            <summary>
+            Se llama a la ejecución de los delegados
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Codigo">
+            <summary>
+            Código identificativo de la variable
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Grupo">
+            <summary>
+            Código identificativo del grupo
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Nombre">
+            <summary>
+            Nombre identificativo de la variable
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Descripcion">
+            <summary>
+            Descripción de la variable
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Remoto">
+            <summary>
+            Indica que se la variable pertenece a otra aplicación
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.ServidorRemoto">
+            <summary>
+            Dirección del servidor de la variable remota
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.CodigoRemoto">
+            <summary>
+            Código de la variable remota
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.PuertoRemoto">
+            <summary>
+            Puerto de la variable remota
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Bloqueado">
+            <summary>
+            Define si la variable puede modificarse o tiene fijado su valor
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Inhibido">
+            <summary>
+            Define si la variable puede modificarse o tiene fijado su valor
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.GuardarTrazabilidad">
+            <summary>
+            Indica que se ha de guardar la trazabilidad en la base de datos
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariable.Tipo">
+            <summary>
+            Tipo de la variable
+            </summary>
+        </member>
+        <member name="E:Orbita.VAControl.OVariable.CambioValor">
+            <summary>
+            Implementación del delegado que se activa cuando cambia el valor de la variable
+            </summary>
+        </member>
+        <member name="E:Orbita.VAControl.OVariable.CambioValorAvanzado">
+            <summary>
+            Implementación del delegado que se activa cuando cambia el valor de la variable
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OVariable.CambiaValorEnThread">
+            <summary>
+            Delegado usado para ejecutar un cambio de valor desde un thread
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="T:Orbita.VAControl.OVariableCore">
+            <summary>
+            Variable de tipo genérico que se utiliza para que los diferenes módulos del sistema 
+            se suscriban y reciban eventos cada vez que se modifique su valor.
+            Separada de variable item para poder se accedida de forma remota.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore.HiloEjecucionDelegadoRemoto">
+            <summary>
+            Crea y controla un subproceso, establece su prioridad y obtiene su estado.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore.ListaConsultasCambioValor">
+            <summary>
+             Lista de remitentes que ya han consultado el cambio de valor de la variable.
+             Cada vez que un nuevo remitente consulta si la variable ha cambiado se almacena en esta lista 
+              para devolverle true únicamente la primera vez que consulta.
+             Cada vez que hay un cambio de valor de la variable se limpia la lista.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore.Codigo">
+            <summary>
+            Código identificativo de la variable
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore.Valor">
+            <summary>
+            Valor de la variable
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore._Bloqueo">
+            <summary>
+            Define si la variable puede modificarse o tiene fijado su valor
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore._Inhibido">
+            <summary>
+            Define si la variable puede modificarse o tiene fijado su valor
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore._Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore._GuardarTrazabilidad">
+            <summary>
+            Indica que se ha de guardar la trazabilidad en la base de datos
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore._Tipo">
+            <summary>
+            Tipo de la variable
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OVariableCore._Cronometro">
+            <summary>
+            Cronometro del tiempo de permanencia del valor de la variable
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.#ctor(System.String,System.Boolean,Orbita.VAComun.OEnumTipoDato,System.Boolean)">
+            <summary>
+            Constructor de la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.EjecutaDelegado">
+            <summary>
+            Se llama a la ejecución de los delegados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.EjecutaDelegadoRemoto">
+            <summary>
+            Se llama a la ejecución de los delegados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.NuevaTraza(System.String,System.String,Orbita.VAControl.OTipoTraza)">
+            <summary>
+            Guarda la información de la traza en la BBDD o en memoria
+            </summary>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+            <param name="tipoTraza">Tipo de evento que provocó la traza</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.AccionesTrasEstablecerValor">
+            <summary>
+            Acciones a realizar tras establecer un determinado valor a la variable
+            </summary>
+            <param name="valor"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.Inicializar">
+            <summary>
+            Carga los valores de la variable
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.Finalizar">
+            <summary>
+            Finaliza la ejecución
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.GetValor">
+            <summary>
+            Lectura de la variable
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.GetPermanencia">
+            <summary>
+            Método para consultar el tiempo de permanencia del valor de la variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <returns>Devuelve el tiempo de permanencia del valor de la variable</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.GetHayCambio(System.String)">
+            <summary>
+            Método para comprobar si el valor de la variable ha cambiado
+            </summary>
+            <returns>Devuelve verdadero si valor de la variable con el código correspondientes ha cambiado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.SetValor(System.Object,System.String,System.String)">
+            <summary>
+            Escritura de la variable
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.SetValorRetrasado(System.Object,System.TimeSpan,System.String,System.String)">
+            <summary>
+            Escritura de la variable de forma retrasada.
+            Transcurido el tiempo especificado se modifica su valor al deseado
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="retraso">Tiempo de retraso de la actualización del valor</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.Bloquear(System.String,System.String)">
+            <summary>
+            Método para modificar el valor de una variable a de forma registrada y bloquearla para que no se modifique
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.Desbloquear(System.String,System.String)">
+            <summary>
+            Método para desbloquear una variable y que cualquiera pueda modificarla
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.Inhibir(System.String,System.String)">
+            <summary>
+            Método para inhibir la modificación del valor de una variable
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.Desinhibir(System.String,System.String)">
+            <summary>
+            Método para desinhibir la modificación del valor de una variable
+            </summary>
+            <param name="codigo">Código de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.ForzarValor(System.Object,System.String,System.String)">
+            <summary>
+            Escritura de la variable cuando está bloqueada
+            </summary>
+            <param name="valor">Nuevo valor de la variable</param>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.GetTipo">
+            <summary>
+            Devuelve el tipo de la variable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.Disparo(System.String,System.String)">
+            <summary>
+            Método que ejecuta los suscriptores
+            </summary>
+            <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
+            <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableCore.EjecutaDelegadoRemotoThread">
+            <summary>
+            Ejecuta los delegados remotos en un thread
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariableCore.Bloqueado">
+            <summary>
+            Define si la variable puede modificarse o tiene fijado su valor
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariableCore.Inhibido">
+            <summary>
+            Define si la variable puede modificarse o tiene fijado su valor
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariableCore.Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariableCore.GuardarTrazabilidad">
+            <summary>
+            Indica que se ha de guardar la trazabilidad en la base de datos
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariableCore.Tipo">
+            <summary>
+            Tipo de la variable
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OVariableCore.Cronometro">
+            <summary>
+            Cronometro del tiempo de permanencia del valor de la variable
+            </summary>
+        </member>
+        <member name="E:Orbita.VAControl.OVariableCore.CambioValor">
+            <summary>
+            Implementación del evento que se activa cuando cambia el valor de la variable
+            </summary>
+        </member>
+        <member name="E:Orbita.VAControl.OVariableCore.CambioValorRemoto">
+            <summary>
+            Implementación del evento que se activa cuando cambia el valor de la variable de forma remota
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OVariableBroadcastEventWraper">
+            <summary>
+            Clase utilizada para enlazar con los eventos del variablecore de forma remota
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OVariableBroadcastEventWraper.OnCambioValor(Orbita.VAControl.OCambioValorEventArgs)">
+            <summary>
+            Evento de cambio de dato.
+            </summary>
+            <param name="e">Argumento que puede ser utilizado en el manejador de evento.</param>
+        </member>
+        <member name="E:Orbita.VAControl.OVariableBroadcastEventWraper.CambioValor">
+            <summary>
+            Evento de cambio de dato.
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OGetRemoteVariableCore">
+            <summary>
+            Clase para acceder a los objetos VariableCore remotos
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OGetRemoteVariableCore.GetVariableCore(System.String)">
+            <summary>
+            Método para la adquisición de la VariableCore por remoting
+            </summary>
+            <param name="codigo">Código de la varible</param>
+            <returns>Objeto de tipo VariableCore</returns>
+        </member>
+        <member name="T:Orbita.VAControl.CambioOValorEvent">
+            <summary>
+            Evento que se activa cuando cambia el valor de la variable
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Orbita.VAControl.OCambioValorEventArgs">
+            <summary>
+            Argumentos del evento
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OCambioValorEventArgs._Codigo">
+            <summary>
+            Código identificativo de la variable
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OCambioValorEventArgs._Valor">
+            <summary>
+            Valor de la variable
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OCambioValorEventArgs.#ctor(System.String,System.Object)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="codigo">Código identificativo de la variable</param>
+            <param name="valor">Valor de la variable</param>
+        </member>
+        <member name="P:Orbita.VAControl.OCambioValorEventArgs.Codigo">
+            <summary>
+            Código identificativo de la variable
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OCambioValorEventArgs.Valor">
+            <summary>
+            Valor de la variable
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OCambioValorDelegate">
+            <summary>
+            Declaración del delegado que se activa cuando cambia el valor de una variable
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OCambioValorDelegateAdvanced">
+            <summary>
+            Declaración del delegado que se activa cuando cambia el valor de una variable
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OSecuencia">
+            <summary>
+            Listado de secuencias.
+            Se supone que al insertar cada uno de los items de la secuencia, estos tienen que estar ordenados cronológicamente
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuencia.Codigo">
+            <summary>
+            Código identificativo de la secuencia
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuencia.ThreadEjecucion">
+            <summary>
+            Thread de ejecución
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuencia.DuracionEjecucion">
+            <summary>
+            Momento en el que se inicia la ejecución de la secuencia
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuencia.Repeticiones">
+            <summary>
+            Número de repeticiones de la secuencia
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuencia.ContRepeticiones">
+            <summary>
+            Contador de repeticiones de la secuencia
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuencia.ContSecuencias">
+            <summary>
+            Contador de la secuencia actual
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuencia.ThreadPriority">
+            <summary>
+            Prioridad en la ejecución del thread
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuencia.#ctor(System.String,System.Threading.ThreadPriority,System.Int32)">
+            <summary>
+            Constructor de la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuencia.ThreadRun(System.Boolean@)">
+            <summary>
+            Ejecución dentro del thread
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuencia.Start">
+            <summary>
+            Inicia la secuencia
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuencia.Stop">
+            <summary>
+            Finaliza la secuencia
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuencia.Pause">
+            <summary>
+            Pasua la secuencia
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuencia.Resume">
+            <summary>
+            Continua la secuencia
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OSecuenciaItemValor">
+            <summary>
+            Clase base para los elementos de la secuencia
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OSecuenciaItemBase">
+            <summary>
+            Clase base para los elementos de la secuencia
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuenciaItemBase.CodVariable">
+            <summary>
+            Código de la variable sobre la que se aplica el valor
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuenciaItemBase.MomentoEjecucionAleatorio">
+            <summary>
+            Indica que el momento de ejecución se realiza de forma aleatoria
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuenciaItemBase.MomentoMinimoEjecucionAleatorio">
+            <summary>
+            Momento más bajo de la ejecución aleatoria
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuenciaItemBase.MomentoMaximoEjecucionAleatorio">
+            <summary>
+            Momento más alto de la ejecución aleatoria
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuenciaItemBase.Ejecutado">
+            <summary>
+            Indica que la secuencia ya ha sido ejecutada
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuenciaItemBase._MomentoEjecucion">
+            <summary>
+            Momento de ejecución respecto al inicio de la secuencia
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemBase.#ctor(System.String,System.TimeSpan)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="momentoEjecucion"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemBase.#ctor(System.String,System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="momentoMinimoEjecucionAleatoria">Momento mínimo de la ejecución aleatoria</param>
+            <param name="momentoMaximoEjecucionAleatoria">Momento máximio de la ejecución aleatoria</param>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemBase.OnEjecuta">
+            <summary>
+            Evento de ejecución del elemento de la secuencia
+            </summary>
+            <param name="codVariable"></param>
+            <param name="valor"></param>
+            <param name="esComando"></param>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuenciaItemBase.EjecutaElementoSecuencia">
+            <summary>
+            Delegado para la ejecución sincronizada
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OSecuenciaItemBase.MomentoEjecucion">
+            <summary>
+            Momento de ejecución respecto al inicio de la secuencia
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OSecuenciaItemBase.DelegadoEjecutaElementoSecuencia">
+            <summary>
+            Delegado que de la ejecución de un elemento de la secuencia
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OSecuenciaItemValor.Valor">
+            <summary>
+            Valor a establecer en la variable
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemValor.#ctor(System.String,System.Object,System.TimeSpan)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="valor">Valor a establecer en la variable</param>
+            <param name="momentoEjecucion"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemValor.#ctor(System.String,System.Object,System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="valor">Valor a establecer en la variable</param>
+            <param name="momentoMinimoEjecucionAleatoria">Momento mínimo de la ejecución aleatoria</param>
+            <param name="momentoMaximoEjecucionAleatoria">Momento máximio de la ejecución aleatoria</param>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemValor.OnEjecuta">
+            <summary>
+            Evento de ejecución del elemento de la secuencia
+            </summary>
+            <param name="codVariable"></param>
+            <param name="valor"></param>
+            <param name="esComando"></param>
+        </member>
+        <member name="T:Orbita.VAControl.OSecuenciaItemComando">
+            <summary>
+            Clase base para los elementos de la secuencia
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemComando.#ctor(System.String,System.TimeSpan)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="valor">Valor a establecer en la variable</param>
+            <param name="momentoEjecucion"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemComando.#ctor(System.String,System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="valor">Valor a establecer en la variable</param>
+            <param name="momentoMinimoEjecucionAleatoria">Momento mínimo de la ejecución aleatoria</param>
+            <param name="momentoMaximoEjecucionAleatoria">Momento máximio de la ejecución aleatoria</param>
+        </member>
+        <member name="M:Orbita.VAControl.OSecuenciaItemComando.OnEjecuta">
+            <summary>
+            Evento de ejecución del elemento de la secuencia
+            </summary>
+            <param name="codVariable"></param>
+            <param name="valor"></param>
+            <param name="esComando"></param>
+        </member>
+        <member name="F:Orbita.VAControl.OTrazabilidadVariables.ColaTrazas">
+            <summary>
+            Cola de las trazas
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTrazabilidadVariables.TimerEjecucion">
+            <summary>
+            Timer de guardado de las trazas
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OTrazabilidadVariables.Inicializar">
+            <summary>
+            Carga las propiedades de la base de datos
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OTrazabilidadVariables.Finalizar">
+            <summary>
+            Se para la ejecución
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OTrazabilidadVariables.NuevaTraza(Orbita.VAControl.OTrazaVariable)">
+            <summary>
+            Añade una nueva traza a la cola
+            </summary>
+            <param name="traza"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OTrazabilidadVariables.ObtenerTrazasAGuardar">
+            <summary>
+            Extrae las trazas que han de ser almacenadas en la base de datos
+            </summary>
+            <returns>Cola con las trazas a almacenar en la BBDD.</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OTrazabilidadVariables.ConvertirTrazasXML(System.Collections.Generic.Queue{Orbita.VAControl.OTrazaVariable})">
+            <summary>
+            Formatea las trazas que necesiten ser guardadas en un XML
+            </summary>
+            <returns>Objeto de la clase CXML con los datos formateados.</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OTrazabilidadVariables.EventoTimerEjecucion(System.Object,System.EventArgs)">
+            <summary>
+            Evento del timer de ejecución
+            </summary>
+            <param name="source"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Orbita.VAControl.OTipoTraza">
+            <summary>
+            Indica el origen de la inserción de la traza
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.Properties.Resources">
+            <summary>
+              Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.Properties.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.AppBD">
+            <summary>
+            Clase estática que contiene llamadas a los procedimiento almacenados en la base de datos
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetMaquinasEstados">
+            <summary>
+            Consulta todas las máquinas de estados existentes en el sistema
+            </summary>
+            <returns>DataTable con los códigos de las máquinas de estado existentes en el sistema</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetMaquinaEstados(System.String)">
+            <summary>
+            Consulta una máquina de estados
+            </summary>
+            <returns>DataTable con la información de las máquinas de estados</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetEstados(System.String)">
+            <summary>
+            Consulta todos los estados pertenecientes a determinada máquina de estados
+            </summary>
+            <returns>DataTable con los códigos de los estados pertenecientes a determinada máquina de estados</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetTransiciones(System.String)">
+            <summary>
+            Consulta todos las transiciones pertenecientes a determinada máquina de estados
+            </summary>
+            <returns>DataTable con los códigos de las transiciones pertenecientes a determinada máquina de estados</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetEstado(System.String,System.String)">
+            <summary>
+            Consulta un determinado estado
+            </summary>
+            <returns>DataTable con la información de un determinado estado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetEstadoAsincrono(System.String,System.String)">
+            <summary>
+            Consulta un determinado estado de tipo thread
+            </summary>
+            <returns>DataTable con la información de un determinado estado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetTransicion(System.String,System.String)">
+            <summary>
+            Consulta un determinada transicion
+            </summary>
+            <returns>DataTable con la información de una determinada transicion</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetVariablesTransicion(System.String,System.String)">
+            <summary>
+            Consulta las variables de un determinada transicion
+            </summary>
+            <returns>DataTable con la información de una determinada transicion</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetVariables">
+            <summary>
+            Consulta todas variables existentes en el sistema
+            </summary>
+            <returns>DataTable con los códigos de las variables existentes en el sistema</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetVariable(System.String)">
+            <summary>
+            Consulta una variables existente en el sistema
+            </summary>
+            <returns>DataTable con los códigos de las variables existentes en el sistema</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetListaVariables">
+            <summary>
+            Consulta toda la información de las variables existentes en el sistema
+            </summary>
+            <returns>DataTable con los códigos de las variables existentes en el sistema</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetTiposVariables">
+            <summary>
+            Consulta toda la información de los tipos de variables existentes en el sistema
+            </summary>
+            <returns>DataTable con la información de los tipos de variables existentes en el sistema</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetAliasVistaVariables(System.String)">
+            <summary>
+            Consulta el alias de una vista de variables
+            </summary>
+            <param name="codVista"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.GetClavesDeVista(System.String)">
+            <summary>
+            Consulta las claves de una determinada vista
+            </summary>
+            <param name="codVista"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.AddTrazas(Orbita.VAComun.OCXML)">
+            <summary>
+            Añade información de las trazas a la base de datos
+            </summary>
+            <param name="datosTrazas">Objeto CXML con los datos de las trazas</param>
+            <returns>Menor que 0 si ha habido algún error (devuleve un código de errores ente -1 y -7 en función de donde se ha producido)</returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.AddVariable(System.String,System.String,System.String,System.Boolean,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Guarda nueva variable
+            </summary>
+            <param name="codigo"></param>
+            <param name="nombre"></param>
+            <param name="descripcion"></param>
+            <param name="habilitado"></param>
+            <param name="grupo"></param>
+            <param name="trazabilidad"></param>
+            <param name="tipo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.ModificaVariable(System.Int32,System.String,System.String,System.String,System.Boolean,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Guarda la variable modificada
+            </summary>
+            <param name="id"></param>
+            <param name="codigo"></param>
+            <param name="nombre"></param>
+            <param name="descripcion"></param>
+            <param name="habilitado"></param>
+            <param name="grupo"></param>
+            <param name="trazabilidad"></param>
+            <param name="tipo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAControl.AppBD.EliminaVariable(System.Int32)">
+            <summary>
+            Borramos una variable
+            </summary>
+            <param name="idVariable"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Orbita.VAControl.OMaquinasEstadosManager">
+            <summary>
+            Clase de acceso estático que contiene la lista de máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinasEstadosManager.ListaMaquinasEstados">
+            <summary>
+            Lista de máquinas de estado funcionando en el sistema
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.Constructor">
+            <summary>
+            Construye los objetos
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.Destructor">
+            <summary>
+            Construye los objetos
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.Inicializar">
+            <summary>
+            Carga las propiedades de la base de datos
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.Finalizar">
+            <summary>
+            Espera a la finalización de las máquinas de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.IniciarEjecucion">
+            <summary>
+            Inicia la ejecución de todas las máquinas de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.PararEjecucion">
+            <summary>
+            Finaliza la ejecución de todas las máquinas de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.CrearSuscripcionMensajes(System.String,Orbita.VAControl.OMensajeMaquinaEstadosLanzado)">
+            <summary>
+            Creamos la suscripción para los mensajes de la máquina de estados
+            </summary>
+            <param name="codigo">Código de la máquina de estados</param>
+            <param name="funcionProcesadoMensajes">Función que manejara el evento</param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.EliminarSuscripcionMensajes(System.String,Orbita.VAControl.OMensajeMaquinaEstadosLanzado)">
+            <summary>
+            Eliminamos la suscripción para los mensajes de la máquina de estados
+            </summary>
+            <param name="codigo">Código de la máquina de estados</param>
+            <param name="funcionProcesadoMensajes">Función que manejara el evento</param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.CrearSuscripcionCambioEstado(System.String,Orbita.VAControl.OEstadoCambiado)">
+            <summary>
+            Creamos la suscripción para recibir un evento cuando se produzca un cambio de estados
+            </summary>
+            <param name="codigo">Código de la máquina de estados</param>
+            <param name="funcionProcesadoMensajes">Función que manejara el evento</param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.EliminarSuscripcionCambioEstado(System.String,Orbita.VAControl.OEstadoCambiado)">
+            <summary>
+            Eliminamos la suscripción para recibir un evento cuando se produzca un cambio de estados
+            </summary>
+            <param name="codigo">Código de la máquina de estados</param>
+            <param name="funcionProcesadoMensajes">Función que manejara el evento</param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.GetEstadoActual(System.String)">
+            <summary>
+            Devuelve el código del estado actual de la máquina de estados
+            </summary>
+            <param name="codigo">Código de la máquina de estados</param>
+            <returns>Código del estado actual</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinasEstadosManager.GetMaquinaEstados(System.String)">
+            <summary>
+            Devuelve la máquina de estados con el código correspondiente
+            </summary>
+            <param name="codigo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Orbita.VAControl.OMaquinaEstadosBase">
+            <summary>
+            Clase base de todas las máquinas de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.ListaEstados">
+            <summary>
+            Listado del conjunto de estados de la máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.ListaTransiciones">
+            <summary>
+            Listado del conjunto de transiciones de la máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.ListaTransicionesSimples">
+            <summary>
+            Listado del conjunto de transiciones no universales de la máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.ListaTransicionesUniversales">
+            <summary>
+            Listado del conjunto de transiciones de la máquina de estados de tipo universal (se ejecutan independiemente del estado actual)
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.EstadoActual">
+            <summary>
+            Estado actual de la máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.EstadoInicial">
+            <summary>
+            Estado incial de la máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.TimerEjecucion">
+            <summary>
+            Timer de refresco de la máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.VariableEstadoActual">
+            <summary>
+            Variable que informa del estado actual de la aplicación
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.CodVista">
+            <summary>
+            Código de la vista utilizada
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase._Codigo">
+            <summary>
+            Código del estado. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase._Nombre">
+            <summary>
+            Nombre del estado. Texto descriptivo de la funcionalidad del estado.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase._Descripcion">
+            <summary>
+            Texto explicativo de la funcionalidad del estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase._Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase._Cadencia">
+            <summary>
+            Tiempo entre comprobaciones de condiciones
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase._Valido">
+            <summary>
+            Almacena la validez de la máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase._ForzarColectorBasura">
+            <summary>
+            Habilita a la maquina de estados para llamar al colector de basura automáticamente al inicio de cada ciclo
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase._Escenario">
+            <summary>
+            Escenario de la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.#ctor(System.String)">
+            <summary>
+            Constructor de la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.PrepararEjecucion">
+            <summary>
+            Prepara los estadeos y las transiciones para su ejecución
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.EjecutarNuevoEstado(Orbita.VAControl.OEstadoBase)">
+            <summary>
+            Cambia el estado actual de la máquina de estados y realiza su ejecución
+            </summary>
+            <param name="siguienteEstado">Nuevo estado actual</param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.LanzarMensaje(Orbita.VAControl.OTipoMensajeMaquinaEstados,System.String,System.DateTime)">
+            <summary>
+            Enviamos el mensaje a los suscriptores
+            </summary>
+            <param name="tipoMensajeMaquinaEstados">Enumerado del tipo de mensaje que la máquina de estados envía a la monitorización</param>
+            <param name="p"></param>
+            <param name="momentoCambioEstado"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.LanzarCambioEstado(System.String,System.DateTime)">
+            <summary>
+            Enviamos el cambio de estado a los suscriptores
+            </summary>
+            <param name="tipoMensajeMaquinaEstados">Enumerado del tipo de mensaje que la máquina de estados envía a la monitorización</param>
+            <param name="p"></param>
+            <param name="momentoCambioEstado"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.CrearSuscripcionVariables(Orbita.VAControl.OEstadoBase)">
+            <summary>
+            Creamos la suscripcion a las variables necesarias en las transiciones
+            </summary>
+            <param name="estado">Estado del cuyas transiciones de salidas queremos elminar la suscripción a variables</param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.EliminarSuscripcionVariables(Orbita.VAControl.OEstadoBase)">
+            <summary>
+            Eliminamos la suscripcion a las variables necesarias en las transiciones
+            </summary>
+            <param name="estado">Estado del cuyas transiciones de salidas queremos elminar la suscripción a variables</param>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.Validar(System.String@)">
+            <summary>
+            Se valida que la máquina de estados cumple ciertas restricciones para su correcta ejecución
+            </summary>
+            <returns>Verdadero si la máquina de estados es válida</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.BuscaEstadoInicial">
+            <summary>
+            Devuelve el estado inicial de la máquina de estados
+            </summary>
+            <returns>Estado inicial</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.BuscaTransicionesSalientes(Orbita.VAControl.OEstadoBase)">
+            <summary>
+            Busca las transiciones de entrada a un estado
+            </summary>
+            <param name="estado">Estado del cual se buscan las transiciones de salida</param>
+            <returns>Lista de transiciones de salida</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.BuscaTransicionesEntrantes(Orbita.VAControl.OEstadoBase)">
+            <summary>
+            Busca las transiciones de salida de un estado
+            </summary>
+            <param name="estado">Estado del cual se buscan las transiciones de salida</param>
+            <returns>Lista de transiciones de salida</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.BuscaEstado(System.String)">
+            <summary>
+            Busca un estado en la lista de estados
+            </summary>
+            <param name="codigoEstado">Tipo de estado a buscar</param>
+            <returns>Estado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.EjecutarTransiciones">
+            <summary>
+            Ejecuta la comprobación de transiciones
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.IniciarEjecucion">
+            <summary>
+            Inicio de la máquina de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.PararEjecucion">
+            <summary>
+            Parada de la máquina de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.GetEstadoActual">
+            <summary>
+            Devuelve el código del estado actual de la máquina de estados
+            </summary>
+            <param name="codigo">Código de la máquina de estados</param>
+            <returns>Código del estado actual</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.GetEstado(System.String)">
+            <summary>
+            Devuelve el estado con el código buscado
+            </summary>
+            <param name="codigo">Código del estado</param>
+            <returns>Estado buscado</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.GetTransicion(System.String)">
+            <summary>
+            Devuelve la transición con el código buscado
+            </summary>
+            <param name="codigo">Código de la transición</param>
+            <returns>Transición buscada</returns>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.Inicializar">
+            <summary>
+            Método donde se rellenará toda la información de la máquina de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.Finalizar">
+            <summary>
+            Método donde se finaliza la máquina de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.Mensaje(Orbita.VAControl.OTipoMensajeMaquinaEstados,System.String,System.DateTime)">
+            <summary>
+            Método a heredar para procesar los mensajes producidos por la máquina de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.CrearEscenario">
+            <summary>
+            Creación del escenario
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OMaquinaEstadosBase.EventoTimerEjecucion(System.Object,System.EventArgs)">
+            <summary>
+            Evento del timer de ejecución
+            </summary>
+            <param name="source"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.OnMensajeMaquinaEstados">
+            <summary>
+            Delegado que indica de la llegada de un mensaje de la máquina de estados para visualizarse en la monitorización
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OMaquinaEstadosBase.OnEstadoCambiado">
+            <summary>
+            Delegado que indica el cambio de estado
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OMaquinaEstadosBase.Codigo">
+            <summary>
+            Código del estado. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OMaquinaEstadosBase.Nombre">
+            <summary>
+            Nombre del estado. Texto descriptivo de la funcionalidad del estado.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OMaquinaEstadosBase.Descripcion">
+            <summary>
+            Texto explicativo de la funcionalidad del estado
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OMaquinaEstadosBase.Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OMaquinaEstadosBase.Cadencia">
+            <summary>
+            Tiempo entre comprobaciones de condiciones
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OMaquinaEstadosBase.Valido">
+            <summary>
+            Almacena la validez de la máquina de estados
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OMaquinaEstadosBase.ForzarColectorBasura">
+            <summary>
+            Habilita a la maquina de estados para llamar al colector de basura automáticamente al inicio de cada ciclo
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OMaquinaEstadosBase.Escenario">
+            <summary>
+            Escenario de la clase
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OEstadoBase">
+            <summary>
+            Clase base de todos los tipos de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase.ListaTransicionesEntrantes">
+            <summary>
+            Listado del conjunto de transiciones entrantes
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase.ListaTransicionesSalientes">
+            <summary>
+            Listado del conjunto de transiciones salientes
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase.CodCronometroAsociadoActivacion">
+            <summary>
+            Código del crónometro asociado a la cuenta del tiempo de activación del estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase.CodCronometroAsociadoEjecucionEntrada">
+            <summary>
+            Código del crónometro asociado a la cuenta del tiempo de ejecución del estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase.CodCronometroAsociadoEjecucionSalida">
+            <summary>
+            Código del crónometro asociado a la cuenta del tiempo de ejecución de la salida del estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase.TipoEstado">
+            <summary>
+            Tipo de Estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._Codigo">
+            <summary>
+            Código del estado. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._CodigoMaquinaEstados">
+            <summary>
+            Código de la máquina de estados. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._Nombre">
+            <summary>
+            Nombre del estado. Texto descriptivo de la funcionalidad del estado.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._Descripcion">
+            <summary>
+            Texto explicativo de la funcionalidad del estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._Monitorizado">
+            <summary>
+            Informa a la monitorización
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._EsEstadoInicial">
+            <summary>
+            Indica si el estado es el inicial de la máquina de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._TimeOut">
+            <summary>
+            Tiempo máximo que puede durar el estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._EnEjecucion">
+            <summary>
+            Indica si el estado actual está en ejecución
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoBase._Escenario">
+            <summary>
+            Maquina de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoBase.#ctor(System.String,System.String,Orbita.VAControl.OEscenario)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="codigoMaquinaEstados">Código de la máquina de estados</param>
+            <param name="codigo">Código del estado</param>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoBase.Inicializar">
+            <summary>
+            Método donde se rellenará toda la información del estado
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoBase.Finalizar">
+            <summary>
+            Método donde se espera la finalización
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoBase.IniciarEjecucion">
+            <summary>
+            Método que se ejecuta al iniciarse del estado
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoBase.FinalizarEjecucion">
+            <summary>
+            Método que se ha de heredar para realizar las acciones asociadas al estado
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoBase.EjecucionAlEntrar">
+            <summary>
+            Método que se ha de heredar para realizar las acciones asociadas a la entrada al estado
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoBase.EjecucionAlSalir">
+            <summary>
+            Método que se ha de heredar para realizar las acciones asociadas a la salida del estado
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.Codigo">
+            <summary>
+            Código del estado. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.CodigoMaquinaEstados">
+            <summary>
+            Código de la máquina de estados. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.Nombre">
+            <summary>
+            Nombre del estado. Texto descriptivo de la funcionalidad del estado.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.Descripcion">
+            <summary>
+            Texto explicativo de la funcionalidad del estado
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.Monitorizado">
+            <summary>
+            Informa a la monitorización
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.EsEstadoInicial">
+            <summary>
+            Indica si el estado es el inicial de la máquina de estados
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.TimeOut">
+            <summary>
+            Tiempo máximo que puede durar el estado
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.EnEjecucion">
+            <summary>
+            Indica si el estado actual está en ejecución
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.DuracionActivacion">
+            <summary>
+            Duración de la activación del estado
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoBase.Escenario">
+            <summary>
+            Maquina de estados
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OEstadoAsincrono">
+            <summary>
+            Clase base de todos los tipos de estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoAsincrono.ThreadEjecucion">
+            <summary>
+            Trabajo en segundo plano
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEstadoAsincrono._CodVariableEnEjecucion">
+            <summary>
+            Código de la variable asociada a la ejecución del estado.
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoAsincrono.#ctor(System.String,System.String,Orbita.VAControl.OEscenario)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="codigoMaquinaEstados">Código de la máquina de estados</param>
+            <param name="codigo">Código del estado</param>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoAsincrono.EjecucionEnThread(System.Object,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Ejecución del estado a través de otro hilo de ejecución distinto al de la aplicación principal
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoAsincrono.FinEjecucionThread(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+            <summary>
+            Final de la ejecución del estado
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoAsincrono.IniciarEjecucion">
+            <summary>
+            Método que se ejecuta al iniciarse del estado
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEstadoAsincrono.Finalizar">
+            <summary>
+            Método donde se espera la finalización
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OEstadoAsincrono.CodVariableEnEjecucion">
+            <summary>
+            Código de la variable asociada a la ejecución del estado.
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OTransicionBase">
+            <summary>
+            Clase base de todas las transiciones entre estados
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase.CodCronometro">
+            <summary>
+            Código del crónometro asociado a la cuenta del tiempo de ejecución de la transición
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase.TipoTransicion">
+            <summary>
+            Tipo de Transición
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._Codigo">
+            <summary>
+            Código de la transición. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._CodigoMaquinaEstados">
+            <summary>
+            Código de la máquina de estados. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._Nombre">
+            <summary>
+            Nombre de la transición. Texto descriptivo de la funcionalidad del estado.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._ExplicacionCondicionEsperada">
+            <summary>
+            Texto explicativo del condiciones esperadas
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._Monitorizado">
+            <summary>
+            Informa a la monitorización
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase.CodigoEstadoOrigen">
+            <summary>
+            Tipo del estado origen de la transición
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._EstadoOrigen">
+            <summary>
+            Estado origen de la transición
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase.CodigoEstadoDestino">
+            <summary>
+            Tipo del estado destino de la transición
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._EstadoDestino">
+            <summary>
+            Estado destino de la transición
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._VariablesUtilizadas">
+            <summary>
+            Lista de códigos de variables utilizadas en la condición de transición
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTransicionBase._Escenario">
+            <summary>
+            Maquina de estados
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OTransicionBase.#ctor(System.String,System.String,Orbita.VAControl.OEscenario)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="codigoMaquinaEstados">Código de la máquina de estados</param>
+            <param name="codigo">Código de la transición</param>
+        </member>
+        <member name="M:Orbita.VAControl.OTransicionBase.IniciarComprobacionCondiciones">
+            <summary>
+            Ejecuta la comprobación de condiciones
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAControl.OTransicionBase.Inicializar">
+            <summary>
+            Método donde se rellenará toda la información del estado
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OTransicionBase.Finalizar">
+            <summary>
+            Método donde se espera la finalización
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OTransicionBase.ComprobarCondiciones">
+            <summary>
+            Método que se ha de heredar para comprobar si se cumple la transición
+            </summary>
+            <returns>Verdadero si se ha cumplido las condiciones de transición</returns>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.Codigo">
+            <summary>
+            Código de la transición. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.CodigoMaquinaEstados">
+            <summary>
+            Código de la máquina de estados. Texto que lo identifica inequívocamente.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.Nombre">
+            <summary>
+            Nombre de la transición. Texto descriptivo de la funcionalidad del estado.
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.ExplicacionCondicionEsperada">
+            <summary>
+            Texto explicativo del condiciones esperadas
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.Habilitado">
+            <summary>
+            Habilita o deshabilita el funcionamiento
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.Monitorizado">
+            <summary>
+            Informa a la monitorización
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.EstadoOrigen">
+            <summary>
+            Estado origen de la transición
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.EstadoDestino">
+            <summary>
+            Estado destino de la transición
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.VariablesUtilizadas">
+            <summary>
+            Lista de códigos devariables utilizadas en la condición de transición
+            </summary>
+        </member>
+        <member name="P:Orbita.VAControl.OTransicionBase.Escenario">
+            <summary>
+            Maquina de estados
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OTransicionUniversal">
+            <summary>
+            Clase base de todas las transiciones de tipo universal.
+            Se ejecutan independientemente del estado actual de la base de datos.
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OTransicionUniversal.#ctor(System.String,System.String,Orbita.VAControl.OEscenario)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="codigoMaquinaEstados">Código de la máquina de estados</param>
+            <param name="codigo">Código de la transición</param>
+        </member>
+        <member name="T:Orbita.VAControl.OTipoEstado">
+            <summary>
+            Tipo de estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTipoEstado.EstadoSimple">
+            <summary>
+            Estado simple
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTipoEstado.EstadoAsincrono">
+            <summary>
+            Estado que se ejecuta en thread
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OTipoTransicion">
+            <summary>
+            Tipo de transición
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTipoTransicion.TransicionSimple">
+            <summary>
+            Transicion simple
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OTipoTransicion.TransicionUniversal">
+            <summary>
+            Transicion que se ejecuta siempre, independientemente del estado actual
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OEstadoCambiado">
+            <summary>
+            Delegado que indica de la llegada de un mensaje de la máquina de estados para visualizarse en la monitorización
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Orbita.VAControl.OEventStateChanged">
+            <summary>
+            Parametros de retorno del evento que indica de la llegada de un mensaje de la máquina de estados para visualizarse en la monitorización
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEventStateChanged.CodEstado">
+            <summary>
+            Tipo de mensaje
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEventStateChanged.Momento">
+            <summary>
+            Momento en el que se ha producido el mensaje
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEventStateChanged.#ctor(System.String,System.DateTime)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="tipo">Tipo de mensaje</param>
+            <param name="informacion">Texto de la información a visualizar</param>
+            <param name="hora">Momento en el que se ha producido el mensaje</param>
+        </member>
+        <member name="T:Orbita.VAControl.OMensajeMaquinaEstadosLanzado">
+            <summary>
+            Delegado que indica de la llegada de un mensaje de la máquina de estados para visualizarse en la monitorización
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Orbita.VAControl.OEventMessageRaised">
+            <summary>
+            Parametros de retorno del evento que indica de la llegada de un mensaje de la máquina de estados para visualizarse en la monitorización
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEventMessageRaised.Tipo">
+            <summary>
+            Tipo de mensaje
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEventMessageRaised.Informacion">
+            <summary>
+            Texto de la información a visualizar
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEventMessageRaised.Momento">
+            <summary>
+            Momento en el que se ha producido el mensaje
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEventMessageRaised.#ctor(Orbita.VAControl.OTipoMensajeMaquinaEstados,System.String,System.DateTime)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="tipo">Tipo de mensaje</param>
+            <param name="informacion">Texto de la información a visualizar</param>
+            <param name="hora">Momento en el que se ha producido el mensaje</param>
+        </member>
+        <member name="T:Orbita.VAControl.OTipoMensajeMaquinaEstados">
+            <summary>
+            Enumerado del tipo de mensaje que la máquina de estados envía a la monitorización
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OEscenario">
+            <summary>
+            Escenario Base.
+            Permite la utilización de vistas.
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEscenario.Codigo">
+            <summary>
+            Código del escenario
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OEscenario.Claves">
+            <summary>
+            Claves del escenario
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEscenario.#ctor(System.String)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="codigo"></param>
+        </member>
+        <member name="M:Orbita.VAControl.OEscenario.Inicializar">
+            <summary>
+            Inicializa la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAControl.OEscenario.Finalizar">
+            <summary>
+            Finaliza la clase
+            </summary>
+        </member>
+        <member name="T:Orbita.VAControl.OModulosControl">
+            <summary>
+            Define el conjunto de módulos del sistema
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OModulosControl.MaquinasEstado">
+            <summary>
+            Módulo de las máquinas de estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OModulosControl.MonitorizacionMaquinasEstado">
+            <summary>
+            Módulo de las máquinas de estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OModulosControl.GestionMaquinasEstado">
+            <summary>
+            Módulo de edición y gestión de las máquinas de estado
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OModulosControl.Variables">
+            <summary>
+            Módulo de las variables del sistema
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OModulosControl.MonitorizacionVariables">
+            <summary>
+            Módulo de las variables del sistema
+            </summary>
+        </member>
+        <member name="F:Orbita.VAControl.OModulosControl.GestionVariables">
+            <summary>
+            Módulo de edición y gestión de las variables del sistema
+            </summary>
+        </member>
+    </members>
+</doc>

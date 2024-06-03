@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Orbita.VAGeneradorEscenarios</name>
+    </assembly>
+    <members>
+        <member name="T:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido">
+            <summary>
+            Clase encargada de escribir el código C# para permitir el acceso rápido a variables.
+            Lee de la tabla de vistas y crea una clase para cada una de ellas
+            </summary>
+        </member>
+        <member name="F:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.CodeCompileUnit">
+            <summary>
+            Unit de compilación
+            </summary>
+        </member>
+        <member name="F:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.NameSpace">
+            <summary>
+            Espacio de nombres
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.#ctor">
+            <summary>
+            Constructor de la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GenerarUnit(System.String,System.String[])">
+            <summary>
+            Genera la unit
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GenerarClase(System.String,System.String,System.String,System.CodeDom.MemberAttributes,System.Boolean)">
+            <summary>
+            Genera la clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GenerarClase(System.String,System.String,System.CodeDom.CodeTypeDeclaration,System.String,System.CodeDom.MemberAttributes)">
+            <summary>
+            Genera la clase dentro de otra clase
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GenerarMetodo(System.String,System.CodeDom.CodeTypeDeclaration,System.String,System.CodeDom.MemberAttributes,System.CodeDom.CodeParameterDeclarationExpression[],System.CodeDom.CodeStatement[])">
+            <summary>
+            Genera un método
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.Asignacion(System.String,System.String)">
+            <summary>
+            Instrucción de asignación
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.New(System.String,System.String,System.String)">
+            <summary>
+            Instrucción de creación de objeto
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GenerarConstructor(System.CodeDom.CodeTypeDeclaration,System.String,System.CodeDom.MemberAttributes,System.CodeDom.CodeParameterDeclarationExpression[],System.CodeDom.CodeExpression[],System.CodeDom.CodeStatement[])">
+            <summary>
+            Genera un constructor
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GenerarPropiedadReadOnly(System.CodeDom.CodeTypeDeclaration@,System.String,System.String,System.String,System.CodeDom.MemberAttributes,System.String,System.Boolean)">
+            <summary>
+            Genera la propiedad
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GenerarPropiedadReadOnlyRuntime(System.CodeDom.CodeTypeDeclaration@,System.String,System.String,System.String,System.CodeDom.MemberAttributes,System.String,System.String,System.String,System.CodeDom.CodeExpression[])">
+            <summary>
+            Genera la propiedad
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GenerarPropiedadRuntime(System.CodeDom.CodeTypeDeclaration@,System.String,System.String,System.String,System.CodeDom.MemberAttributes,System.String,System.String)">
+            <summary>
+            Genera la propiedad
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.GuardarCodigo(System.String)">
+            <summary>
+            Guarda el codigo en el fichero
+            </summary>
+            <param name="destCodeFilePath"></param>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.Region(System.String,System.CodeDom.CodeTypeDeclaration)">
+            <summary>
+            Añade una región alrededor de la clase
+            </summary>
+            <param name="codeRegionMode"></param>
+            <param name="regionName"></param>
+            <param name="clase"></param>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.RegionStart(System.String,System.CodeDom.CodeTypeDeclaration)">
+            <summary>
+            Inicia una región al principio de la clase
+            </summary>
+            <param name="codeRegionMode"></param>
+            <param name="regionName"></param>
+            <param name="clase"></param>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido.RegionEnd(System.CodeDom.CodeTypeDeclaration)">
+            <summary>
+            Finalzia una región al principio de la clase
+            </summary>
+            <param name="codeRegionMode"></param>
+            <param name="regionName"></param>
+            <param name="clase"></param>
+        </member>
+        <member name="T:Orbita.VAGeneradorEscenarios.Program">
+            <summary>
+            Programa generador de código automático
+            </summary>
+        </member>
+        <member name="F:Orbita.VAGeneradorEscenarios.Program.HabilitadoVariables">
+            <summary>
+            Indica si se han de generar las variables
+            </summary>
+        </member>
+        <member name="F:Orbita.VAGeneradorEscenarios.Program.HabilitadoHardware">
+            <summary>
+            Indica si se han de generar el hardware
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.Program.Main(System.String[])">
+            <summary>
+            Punto de entrada de la aplicación
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.Program.GenerarMaquinaEstados(Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido,System.String,System.String,System.CodeDom.CodeTypeDeclaration@)">
+            <summary>
+            Generación de la clase parcial de la máquina de estados
+            </summary>
+            <param name="generador"></param>
+            <param name="descripcionMaquinaEstados"></param>
+            <param name="claseImplementadora"></param>
+            <param name="claseMaquinaEstados"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.Program.GenerarEscenario(Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido,System.String,System.String,System.CodeDom.CodeTypeDeclaration@)">
+            <summary>
+            Generación de la clase parcial del escenario
+            </summary>
+            <param name="generador"></param>
+            <param name="descripcionMaquinaEstados"></param>
+            <param name="claseImplementadora"></param>
+            <param name="claseEscenario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.Program.GenerarVariables(Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido,System.String,System.CodeDom.CodeTypeDeclaration)">
+            <summary>
+            Generación de la clase interior al escenario que implementa las variables
+            </summary>
+            <param name="generador"></param>
+            <param name="codVista"></param>
+            <param name="claseEscenario"></param>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.Program.GenerarHardware(Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido,System.String,System.CodeDom.CodeTypeDeclaration)">
+            <summary>
+            Generación de la clase interior al escenario que implementa las variables
+            </summary>
+            <param name="generador"></param>
+            <param name="codVista"></param>
+            <param name="claseEscenario"></param>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.Program.GenerarEstados(Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido,System.String,System.String)">
+            <summary>
+            Generador de estados de una determinada máquina de estados
+            </summary>
+            <param name="generador"></param>
+            <param name="codMaquinaEstados"></param>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.Program.GenerarTransiciones(Orbita.VAGeneradorEscenarios.OGeneradorAccesoRapido,System.String,System.String,System.CodeDom.CodeTypeDeclaration@)">
+            <summary>
+            Generador de transiciones de una determinada máquina de estados
+            </summary>
+            <param name="generador"></param>
+            <param name="codMaquinaEstados"></param>
+        </member>
+        <member name="T:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios">
+            <summary>
+            Clase que controla el inicio y la detención del resto de módulos instalados en el sistema
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios.#ctor(System.String)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="panelEstadoImg">Panel de imagen en la barra de estado del formulario principal donde se muestra el estado del sistema</param>
+            <param name="panelEstadoTexto">Panel de texto en la barra de estado del formulario principal donde se muestra el estado del sistema</param>
+            <param name="menu">Menú del formulario principal</param>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios.InicioSistema">
+            <summary>
+            Inicia el sistema de inspección en tiempo real
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios.FinInicioSistema(System.Boolean@)">
+            <summary>
+            Se ejecuta al finalizar el inicio del sistema
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios.ParoSistema">
+            <summary>
+            Detiene el funcionamiento del inspección en tiempo real
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios.FinParoSistema(System.Boolean@)">
+            <summary>
+            Se ejecuta al finalizar la detención del sistema
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios.IniciarSistema(System.Boolean)">
+            <summary>
+            Inicia el sistema de inspección en tiempo real
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios.PararSistema">
+            <summary>
+            Detiene el sistema de inspección en tiempo real
+            </summary>
+        </member>
+        <member name="M:Orbita.VAGeneradorEscenarios.OSistemaGeneradorEscenarios.MensajeInfoArranqueSistema(System.String)">
+            <summary>
+            Se muestra un mensaje en el splash screen de la evolución de arranque del sistema
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+<SmartAssemblyProject ProjectId="{21e26212-21c6-4c2e-bc66-b25ccfa5e41a}" Version="2.0">
+    <MainAssemblyFileName>.\Orbita.VAComun.dll</MainAssemblyFileName>
+    <Configuration Name="Release">
+        <ApplicationName />
+        <Destination DestinationFileName="..\..\..\..\..\General\Dlls\x32\Orbita\Orbita.VAComun.dll" />
+        <Assemblies>
+        </Assemblies>
+        <Options>
+            <Obfuscation FieldsNameMangling="3" NameMangling="3" />
+            <ExceptionReporting Template="res:{SmartExceptions}.1033.dll" />
+            <StrongNameSigning KeyFileName=".\CommonLibrary.snk" Sign="0" />
+            <OtherProtections AddMetadataStream="1" SuppressIldasm="1" />
+            <StringsEncoding />
+            <OtherOptimizations SealClasses="1" />
+            <Debugging />
+            <FeatureUsageReporting Template="res:SmartUsageWithUIConsentFirstRun1033.dll" />
+        </Options>
+    </Configuration>
+</SmartAssemblyProject>

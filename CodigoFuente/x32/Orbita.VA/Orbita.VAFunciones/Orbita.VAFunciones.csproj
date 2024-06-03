@@ -39,71 +39,79 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Bin\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>TRACE;DEBUG;LPR;VISION_PRO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\Bin\Orbita.VAFunciones.XML</DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Bin\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>TRACE;LPR;VISION_PRO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\Bin\Orbita.VAFunciones.XML</DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Forzar32|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\Bin\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>TRACE;DEBUG;LPR;VISION_PRO</DefineConstants>
     <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\Bin\Orbita.VAFunciones.XML</DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\Bin\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\Bin\Orbita.VAFunciones.XML</DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <OutputPath>..\Bin\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Forzar32|x86' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\Bin\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\Bin\Orbita.VAFunciones.XML</DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ofuscado|AnyCPU'">
-    <OutputPath>bin\Ofuscado\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>TRACE;LPR;VISION_PRO</DefineConstants>
-    <DocumentationFile>..\Bin\Orbita.VAFunciones.XML</DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisLogFile>..\Bin\Orbita.VAFunciones.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>..\..\Bin\Orbita.VAFunciones.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
@@ -112,16 +120,16 @@
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Ofuscado|x86'">
-    <OutputPath>..\Bin\</OutputPath>
+    <OutputPath>..\..\Comun\Orbita\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>..\..\Comun\Orbita\Orbita.VAFunciones.XML</DocumentationFile>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>..\Comun\Orbita\Orbita.VAFunciones.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisLogFile>..\..\Comun\Orbita\Orbita.VAFunciones.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
@@ -130,26 +138,32 @@
     <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <NoWarn>1591,1592,1573,1571,1570,1572</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CIDARMTWrapper, Version=3.5.30.1, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\Comun\VA\Neural Labs\CIDARMTWrapper.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\Comun\VA\Neural Labs\CIDARMTWrapper.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Cognex.VisionPro, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=MSIL">
-      <HintPath>..\Comun\VA\Cognex\Cognex.VisionPro.dll</HintPath>
+      <HintPath>..\..\Comun\VA\Cognex\Cognex.VisionPro.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Cognex.VisionPro.Core, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=x86">
-      <HintPath>..\Comun\VA\Cognex\Cognex.VisionPro.Core.dll</HintPath>
+      <HintPath>..\..\Comun\VA\Cognex\Cognex.VisionPro.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Cognex.VisionPro.ToolGroup, Version=45.0.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=MSIL">
-      <HintPath>..\Comun\VA\Cognex\Cognex.VisionPro.ToolGroup.dll</HintPath>
+      <HintPath>..\..\Comun\VA\Cognex\Cognex.VisionPro.ToolGroup.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Orbita.BBDD">
-      <HintPath>..\Comun\Orbita\Orbita.BBDD.dll</HintPath>
+      <HintPath>..\..\Comun\Orbita\Orbita.BBDD.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Orbita.Utiles">
-      <HintPath>..\Comun\Orbita\Orbita.Utiles.dll</HintPath>
+      <HintPath>..\..\Comun\Orbita\Orbita.Utiles.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
@@ -167,7 +181,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="VPARMTWrapper, Version=3.3.4.0, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\Comun\VA\Neural Labs\VPARMTWrapper.dll</HintPath>
+      <HintPath>..\..\Comun\VA\Neural Labs\VPARMTWrapper.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -247,7 +261,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>..\Bin\Orbita.VAFunciones.bat $(ConfigurationName)</PostBuildEvent>
+    <PostBuildEvent>$(TargetDir)OfuscarVisualStudio.bat $(ConfigurationName) $(TargetDir) $(ProjectName) $(TargetExt)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

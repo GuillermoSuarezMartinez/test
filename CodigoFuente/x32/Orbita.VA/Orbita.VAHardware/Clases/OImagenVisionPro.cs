@@ -318,7 +318,7 @@ namespace Orbita.VAHardware
         /// Método que realiza el empaquetado de un objeto para ser enviado por remoting
         /// </summary>
         /// <returns></returns>
-        public virtual byte[] ToArray(ImageFormat formato, double escalado)
+        public override byte[] ToArray(ImageFormat formato, double escalado)
         {
             byte[] resultado = new byte[0];
             if (this.Image is ICogImage)
@@ -345,7 +345,7 @@ namespace Orbita.VAHardware
         /// Método que realiza el desempaquetado de un objeto recibido por remoting
         /// </summary>
         /// <returns></returns>
-        public virtual OImage FromArray(byte[] arrayValue)
+        public override OImage FromArray(byte[] arrayValue)
         {
             OImagenVisionPro resultado = null;
 

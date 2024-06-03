@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Generador automático de código")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Órbita Ingeniería")]
-[assembly: AssemblyProduct("OrbitaVA")]
+[assembly: AssemblyProduct("Orbita.VAGeneradorEscenarios")]
 [assembly: AssemblyCopyright("Copyright © Órbita Ingeniería 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -28,5 +28,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("12.278.1.1")]
-[assembly: AssemblyFileVersion("12.278.1.1")]
+[assembly: AssemblyVersion("12.349.1.1")]
+[assembly: AssemblyFileVersion("12.349.1.1")]

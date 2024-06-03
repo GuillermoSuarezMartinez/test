@@ -2398,7 +2398,7 @@ namespace Orbita.VAComun
                 resultado = webResponse.ContentLength > 0;
                 // do something with response.Headers to find out information about the request
             }
-            catch (WebException wex)
+            catch (WebException ex)
             {
                 //set flag if there was a timeout or some other issues
             }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Orbita.VAComun;
 
-namespace CodeGenerator
+namespace Orbita.VAGeneradorEscenarios
 {
     /// <summary>
     /// Clase que controla el inicio y la detención del resto de módulos instalados en el sistema
