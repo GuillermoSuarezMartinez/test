@@ -76,8 +76,9 @@
             // 
             // lblCom
             // 
-            this.lblCom.Size = new System.Drawing.Size(30, 13);
-            this.lblCom.Text = "MCC";
+            this.lblCom.Location = new System.Drawing.Point(70, 20);
+            this.lblCom.Size = new System.Drawing.Size(33, 13);
+            this.lblCom.Text = "MCC:";
             // 
             // gbConfig
             // 
@@ -112,7 +113,7 @@
             this.pnlCanalA.Controls.Add(this.A3);
             this.pnlCanalA.Controls.Add(this.A2);
             this.pnlCanalA.Controls.Add(this.A1);
-            this.pnlCanalA.Location = new System.Drawing.Point(15, 71);
+            this.pnlCanalA.Location = new System.Drawing.Point(15, 77);
             this.pnlCanalA.Name = "pnlCanalA";
             this.pnlCanalA.Size = new System.Drawing.Size(174, 31);
             this.pnlCanalA.TabIndex = 52;
@@ -227,7 +228,7 @@
             this.pnlCanalB.Controls.Add(this.B3);
             this.pnlCanalB.Controls.Add(this.B2);
             this.pnlCanalB.Controls.Add(this.B1);
-            this.pnlCanalB.Location = new System.Drawing.Point(217, 71);
+            this.pnlCanalB.Location = new System.Drawing.Point(217, 77);
             this.pnlCanalB.Name = "pnlCanalB";
             this.pnlCanalB.Size = new System.Drawing.Size(174, 31);
             this.pnlCanalB.TabIndex = 53;
@@ -338,7 +339,7 @@
             this.pnlCanalCL.Controls.Add(this.CL3);
             this.pnlCanalCL.Controls.Add(this.CL2);
             this.pnlCanalCL.Controls.Add(this.CL1);
-            this.pnlCanalCL.Location = new System.Drawing.Point(418, 71);
+            this.pnlCanalCL.Location = new System.Drawing.Point(418, 77);
             this.pnlCanalCL.Name = "pnlCanalCL";
             this.pnlCanalCL.Size = new System.Drawing.Size(103, 31);
             this.pnlCanalCL.TabIndex = 54;
@@ -405,7 +406,7 @@
             this.pnlCanalCH.Controls.Add(this.CH3);
             this.pnlCanalCH.Controls.Add(this.CH2);
             this.pnlCanalCH.Controls.Add(this.CH1);
-            this.pnlCanalCH.Location = new System.Drawing.Point(548, 71);
+            this.pnlCanalCH.Location = new System.Drawing.Point(548, 77);
             this.pnlCanalCH.Name = "pnlCanalCH";
             this.pnlCanalCH.Size = new System.Drawing.Size(103, 31);
             this.pnlCanalCH.TabIndex = 55;
