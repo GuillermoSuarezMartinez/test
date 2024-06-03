@@ -56,16 +56,6 @@
             this.gbCdatoES = new System.Windows.Forms.GroupBox();
             this.listViewES = new System.Windows.Forms.ListView();
             this.pnlOrbitaInf = new System.Windows.Forms.Panel();
-            this.lblSiemens = new System.Windows.Forms.Label();
-            this.lblEscrituraSiemens = new System.Windows.Forms.Label();
-            this.txtValEscribirSiemens = new System.Windows.Forms.TextBox();
-            this.txtSiemens = new System.Windows.Forms.TextBox();
-            this.txtVarEscribirSiemens = new System.Windows.Forms.TextBox();
-            this.lblLecturaSiemens = new System.Windows.Forms.Label();
-            this.btnEscrituraSiemens = new System.Windows.Forms.Button();
-            this.btnLecturaSiemens = new System.Windows.Forms.Button();
-            this.txtVaLeerSiemens = new System.Windows.Forms.TextBox();
-            this.txtVarLeerSiemens = new System.Windows.Forms.TextBox();
             this.lblPhoenix = new System.Windows.Forms.Label();
             this.lblEscrituraPhoenix = new System.Windows.Forms.Label();
             this.txtValEscribirPhoenix = new System.Windows.Forms.TextBox();
@@ -401,16 +391,6 @@
             // 
             // pnlOrbitaInf
             // 
-            this.pnlOrbitaInf.Controls.Add(this.lblSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.lblEscrituraSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtValEscribirSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtVarEscribirSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.lblLecturaSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.btnEscrituraSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.btnLecturaSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtVaLeerSiemens);
-            this.pnlOrbitaInf.Controls.Add(this.txtVarLeerSiemens);
             this.pnlOrbitaInf.Controls.Add(this.lblPhoenix);
             this.pnlOrbitaInf.Controls.Add(this.lblEscrituraPhoenix);
             this.pnlOrbitaInf.Controls.Add(this.txtValEscribirPhoenix);
@@ -426,88 +406,6 @@
             this.pnlOrbitaInf.Name = "pnlOrbitaInf";
             this.pnlOrbitaInf.Size = new System.Drawing.Size(1361, 77);
             this.pnlOrbitaInf.TabIndex = 47;
-            // 
-            // lblSiemens
-            // 
-            this.lblSiemens.AutoSize = true;
-            this.lblSiemens.Location = new System.Drawing.Point(659, 20);
-            this.lblSiemens.Name = "lblSiemens";
-            this.lblSiemens.Size = new System.Drawing.Size(47, 13);
-            this.lblSiemens.TabIndex = 26;
-            this.lblSiemens.Text = "Siemens";
-            // 
-            // lblEscrituraSiemens
-            // 
-            this.lblEscrituraSiemens.AutoSize = true;
-            this.lblEscrituraSiemens.Location = new System.Drawing.Point(830, 46);
-            this.lblEscrituraSiemens.Name = "lblEscrituraSiemens";
-            this.lblEscrituraSiemens.Size = new System.Drawing.Size(85, 13);
-            this.lblEscrituraSiemens.TabIndex = 24;
-            this.lblEscrituraSiemens.Text = "Prueba Escritura";
-            // 
-            // txtValEscribirSiemens
-            // 
-            this.txtValEscribirSiemens.Location = new System.Drawing.Point(1135, 43);
-            this.txtValEscribirSiemens.Name = "txtValEscribirSiemens";
-            this.txtValEscribirSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtValEscribirSiemens.TabIndex = 22;
-            // 
-            // txtSiemens
-            // 
-            this.txtSiemens.Location = new System.Drawing.Point(708, 17);
-            this.txtSiemens.Name = "txtSiemens";
-            this.txtSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtSiemens.TabIndex = 25;
-            // 
-            // txtVarEscribirSiemens
-            // 
-            this.txtVarEscribirSiemens.Location = new System.Drawing.Point(923, 43);
-            this.txtVarEscribirSiemens.Name = "txtVarEscribirSiemens";
-            this.txtVarEscribirSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtVarEscribirSiemens.TabIndex = 21;
-            this.txtVarEscribirSiemens.Text = "stringOrbita1";
-            // 
-            // lblLecturaSiemens
-            // 
-            this.lblLecturaSiemens.AutoSize = true;
-            this.lblLecturaSiemens.Location = new System.Drawing.Point(830, 20);
-            this.lblLecturaSiemens.Name = "lblLecturaSiemens";
-            this.lblLecturaSiemens.Size = new System.Drawing.Size(80, 13);
-            this.lblLecturaSiemens.TabIndex = 23;
-            this.lblLecturaSiemens.Text = "Prueba Lectura";
-            // 
-            // btnEscrituraSiemens
-            // 
-            this.btnEscrituraSiemens.Location = new System.Drawing.Point(1047, 41);
-            this.btnEscrituraSiemens.Name = "btnEscrituraSiemens";
-            this.btnEscrituraSiemens.Size = new System.Drawing.Size(75, 23);
-            this.btnEscrituraSiemens.TabIndex = 20;
-            this.btnEscrituraSiemens.Text = "escribir";
-            this.btnEscrituraSiemens.UseVisualStyleBackColor = true;
-            // 
-            // btnLecturaSiemens
-            // 
-            this.btnLecturaSiemens.Location = new System.Drawing.Point(1047, 15);
-            this.btnLecturaSiemens.Name = "btnLecturaSiemens";
-            this.btnLecturaSiemens.Size = new System.Drawing.Size(75, 23);
-            this.btnLecturaSiemens.TabIndex = 17;
-            this.btnLecturaSiemens.Text = "leer";
-            this.btnLecturaSiemens.UseVisualStyleBackColor = true;
-            // 
-            // txtVaLeerSiemens
-            // 
-            this.txtVaLeerSiemens.Location = new System.Drawing.Point(1135, 17);
-            this.txtVaLeerSiemens.Name = "txtVaLeerSiemens";
-            this.txtVaLeerSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtVaLeerSiemens.TabIndex = 19;
-            // 
-            // txtVarLeerSiemens
-            // 
-            this.txtVarLeerSiemens.Location = new System.Drawing.Point(923, 17);
-            this.txtVarLeerSiemens.Name = "txtVarLeerSiemens";
-            this.txtVarLeerSiemens.Size = new System.Drawing.Size(112, 20);
-            this.txtVarLeerSiemens.TabIndex = 18;
-            this.txtVarLeerSiemens.Text = "stringOrbita1";
             // 
             // lblPhoenix
             // 
@@ -671,13 +569,13 @@
             this.lblPuertoRemoting.TabIndex = 0;
             this.lblPuertoRemoting.Text = "Puerto Remoting:";
             // 
-            // OClienteES
+            // OClienteESPhoenixILBK48
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbES);
             this.Controls.Add(this.gbConfig);
-            this.Name = "OClienteES";
+            this.Name = "OClienteESPhoenixILBK48";
             this.Size = new System.Drawing.Size(1367, 398);
             this.gbES.ResumeLayout(false);
             this.gbLecturasES.ResumeLayout(false);
@@ -729,16 +627,6 @@
         private System.Windows.Forms.GroupBox gbCdatoES;
         private System.Windows.Forms.ListView listViewES;
         private System.Windows.Forms.Panel pnlOrbitaInf;
-        private System.Windows.Forms.Label lblSiemens;
-        private System.Windows.Forms.Label lblEscrituraSiemens;
-        private System.Windows.Forms.TextBox txtValEscribirSiemens;
-        private System.Windows.Forms.TextBox txtSiemens;
-        private System.Windows.Forms.TextBox txtVarEscribirSiemens;
-        private System.Windows.Forms.Label lblLecturaSiemens;
-        private System.Windows.Forms.Button btnEscrituraSiemens;
-        private System.Windows.Forms.Button btnLecturaSiemens;
-        private System.Windows.Forms.TextBox txtVaLeerSiemens;
-        private System.Windows.Forms.TextBox txtVarLeerSiemens;
         private System.Windows.Forms.Label lblPhoenix;
         private System.Windows.Forms.Label lblEscrituraPhoenix;
         private System.Windows.Forms.TextBox txtValEscribirPhoenix;
