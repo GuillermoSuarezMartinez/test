@@ -54,6 +54,8 @@
             this.btnConectar = new System.Windows.Forms.Button();
             this.txtPuertoRemoting = new System.Windows.Forms.TextBox();
             this.lblPuertoRemoting = new System.Windows.Forms.Label();
+            this.lblTpoLect = new System.Windows.Forms.Label();
+            this.lblTpoEsc = new System.Windows.Forms.Label();
             this.gbDispositivo.SuspendLayout();
             this.gbVariables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLecturas)).BeginInit();
@@ -157,6 +159,8 @@
             // 
             // pnlDispSup
             // 
+            this.pnlDispSup.Controls.Add(this.lblTpoEsc);
+            this.pnlDispSup.Controls.Add(this.lblTpoLect);
             this.pnlDispSup.Controls.Add(this.gbEscrituras);
             this.pnlDispSup.Controls.Add(this.lblCom);
             this.pnlDispSup.Controls.Add(this.txtCom);
@@ -218,7 +222,7 @@
             // 
             // btnEscritura
             // 
-            this.btnEscritura.Location = new System.Drawing.Point(658, 15);
+            this.btnEscritura.Location = new System.Drawing.Point(706, 15);
             this.btnEscritura.Name = "btnEscritura";
             this.btnEscritura.Size = new System.Drawing.Size(75, 23);
             this.btnEscritura.TabIndex = 3;
@@ -328,6 +332,22 @@
             this.lblPuertoRemoting.TabIndex = 0;
             this.lblPuertoRemoting.Text = "Puerto Remoting:";
             // 
+            // lblTpoLect
+            // 
+            this.lblTpoLect.AutoSize = true;
+            this.lblTpoLect.Location = new System.Drawing.Point(617, 20);
+            this.lblTpoLect.Name = "lblTpoLect";
+            this.lblTpoLect.Size = new System.Drawing.Size(0, 13);
+            this.lblTpoLect.TabIndex = 18;
+            // 
+            // lblTpoEsc
+            // 
+            this.lblTpoEsc.AutoSize = true;
+            this.lblTpoEsc.Location = new System.Drawing.Point(796, 21);
+            this.lblTpoEsc.Name = "lblTpoEsc";
+            this.lblTpoEsc.Size = new System.Drawing.Size(0, 13);
+            this.lblTpoEsc.TabIndex = 19;
+            // 
             // OClienteComs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,5 +400,7 @@
         public System.Windows.Forms.TextBox txtServidorRemoting;
         public System.Windows.Forms.TextBox txtIdDispositivo;
         public System.Windows.Forms.TextBox txtPuertoRemoting;
+        private System.Windows.Forms.Label lblTpoEsc;
+        private System.Windows.Forms.Label lblTpoLect;
     }
 }

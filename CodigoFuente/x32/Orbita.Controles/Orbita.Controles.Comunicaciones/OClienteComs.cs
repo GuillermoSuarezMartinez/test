@@ -286,12 +286,13 @@ namespace Orbita.Controles.Comunicaciones
         private void btnLectura_Click(object sender, EventArgs e)
         {
             try
-            {
-
+            {                
                 string[] lectura = new string[1];
                 lectura[0] = this.txtVarLeer.Text;
+                DateTime dtini = DateTime.Now;
                 object[] valor = this._servidor.OrbitaLeer(this._idDispositivo, lectura, true);
-
+                TimeSpan ts = DateTime.Now.Subtract(dtini);
+                this.lblTpoLect.Text = ts.TotalMilliseconds.ToString() + " ms.";
                 string svalor = valor[0].ToString();
                 this.txtValLeer.Text = svalor;
             }
@@ -319,8 +320,10 @@ namespace Orbita.Controles.Comunicaciones
                     variable[i] = dt.Rows[i][0].ToString();
                     valor[i] = dt.Rows[i][1];
                 }
-                
+                DateTime dtini = DateTime.Now;
                 bool resp = this._servidor.OrbitaEscribir(this._idDispositivo, variable, valor);
+                TimeSpan ts = DateTime.Now.Subtract(dtini);
+                this.lblTpoEsc.Text = ts.TotalMilliseconds.ToString() + " ms.";
             }
             catch (System.Exception ex)
             {
