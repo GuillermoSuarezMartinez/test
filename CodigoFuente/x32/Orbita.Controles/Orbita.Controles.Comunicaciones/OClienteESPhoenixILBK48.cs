@@ -20,6 +20,12 @@ namespace Orbita.Controles.Comunicaciones
 
         #region Métodos
 
+        public override void Iniciar()
+        {
+            base.Iniciar();
+            this.InciarVisualizacion();
+        }
+
         /// <summary>
         /// Actualiza las ES del control
         /// </summary>
@@ -162,7 +168,10 @@ namespace Orbita.Controles.Comunicaciones
                 }
             }
         }
-
+        /// <summary>
+        /// Actualizamos los valores del control
+        /// </summary>
+        /// <param name="e"></param>
         public override void eventWrapper_OrbitaCambioDato(OEventArgs e)
         {
             try
@@ -180,7 +189,31 @@ namespace Orbita.Controles.Comunicaciones
             }
 
         }
+        /// <summary>
+        /// Actualiza la visualización al arrancar la aplicación
+        /// </summary>
+        private void InciarVisualizacion()
+        {
+            string[] variables = new string[this._servidor.OrbitaGetDatos(this._idDispositivo).Count];
+            int i = 0;
+            foreach (DictionaryEntry item in this._servidor.OrbitaGetDatos(this._idDispositivo))
+            {
+                OInfoDato dato = (OInfoDato)item.Value;
 
+                variables[i] = dato.Texto;
+                i++;
+            }
+
+            object[] resultado = this._servidor.OrbitaLeer(this._idDispositivo, variables, true);
+
+            for (int j = 0; j < resultado.Length; j++)
+            {
+                OEventArgs e = new OEventArgs();
+                OInfoDato dato = (OInfoDato)resultado[j];
+                e.Argumento = dato;
+                this.actualizarES(e);
+            }
+        }
         #endregion
     }
 }

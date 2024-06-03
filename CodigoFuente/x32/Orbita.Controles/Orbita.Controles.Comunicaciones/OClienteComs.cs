@@ -65,7 +65,7 @@ namespace Orbita.Controles.Comunicaciones
         /// <summary>
         /// Arranca las comunicaciones con el dispositivo
         /// </summary>
-        private void Iniciar()
+        public virtual void Iniciar()
         {
             try
             {
@@ -73,9 +73,9 @@ namespace Orbita.Controles.Comunicaciones
                 this._idDispositivo = Convert.ToInt32(this.txtIdDispositivo.Text);
                 this._servidorRemoting = this.txtServidorRemoting.Text;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al convertir los valores de configuración.");
+                OMensajes.MostrarError("Error al convertir los valores de configuración.",ex);
             }
 
             try
@@ -106,9 +106,9 @@ namespace Orbita.Controles.Comunicaciones
                 // Establecer conexión con el servidor.
                 Conectar(true);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                OMensajes.MostrarError(ex);
             }
         }
 
