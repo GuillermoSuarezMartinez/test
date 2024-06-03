@@ -20,7 +20,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Clase utilizada para la instalación/desinstalación de servicios y su inicio y detención
     /// </summary>
-    public class OControlServicio
+    public class OControlServicios
     {
         #region Atributo(s)
         /// <summary>
@@ -67,7 +67,7 @@ namespace Orbita.VAComun
         /// Constructor de la clase
         /// </summary>
         /// <param name="nombre">Nombre del servicio</param>
-        public OControlServicio(string nombre, string ruta)
+        public OControlServicios(string nombre, string ruta)
         {
             this.Nombre = nombre;
             this.Ruta = ruta;

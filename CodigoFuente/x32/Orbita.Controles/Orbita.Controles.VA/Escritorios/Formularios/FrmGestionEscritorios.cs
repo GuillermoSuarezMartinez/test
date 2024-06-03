@@ -238,7 +238,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Guardar datos", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Guardar datos", exception);
                 resultado = false;
             }
             return resultado;
@@ -339,7 +339,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Nuevo escritorio", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Nuevo escritorio", exception);
             }
         }
 
@@ -364,7 +364,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Eliminar escritorio", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Eliminar escritorio", exception);
             }
         }
 
@@ -396,7 +396,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "FinEdicionGridEscritorios", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "FinEdicionGridEscritorios", exception);
             }
         }
 
@@ -426,7 +426,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "ClickEnBarraGridEscritorios", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "ClickEnBarraGridEscritorios", exception);
             }
         }
         #endregion

@@ -247,7 +247,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
-        public static void CrearSuscripcionNuevaFotografia(string codigo, ODelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
+        public static void CrearSuscripcionNuevaFotografia(string codigo, DelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
         {
             OCamaraBase camara = ListaCamaras.Find(delegate(OCamaraBase c) { return (c.Codigo == codigo); });
             if (camara != null)
@@ -260,7 +260,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
-        public static void CrearSuscripcionNuevaFotografia(string codigo, ODelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
+        public static void CrearSuscripcionNuevaFotografia(string codigo, DelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
         {
             OCamaraBase camara = ListaCamaras.Find(delegate(OCamaraBase c) { return (c.Codigo == codigo); });
             if (camara != null)
@@ -274,7 +274,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
-        public static void EliminarSuscripcionNuevaFotografia(string codigo, ODelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
+        public static void EliminarSuscripcionNuevaFotografia(string codigo, DelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
         {
             OCamaraBase camara = ListaCamaras.Find(delegate(OCamaraBase c) { return (c.Codigo == codigo); });
             if (camara != null)
@@ -287,7 +287,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
-        public static void EliminarSuscripcionNuevaFotografia(string codigo, ODelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
+        public static void EliminarSuscripcionNuevaFotografia(string codigo, DelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
         {
             OCamaraBase camara = ListaCamaras.Find(delegate(OCamaraBase c) { return (c.Codigo == codigo); });
             if (camara != null)
@@ -301,7 +301,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
-        public static void CrearSuscripcionCambioEstado(string codigo, ODelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
+        public static void CrearSuscripcionCambioEstado(string codigo, DelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
         {
             OCamaraBase camara = ListaCamaras.Find(delegate(OCamaraBase c) { return (c.Codigo == codigo); });
             if (camara != null)
@@ -314,7 +314,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
-        public static void CrearSuscripcionCambioEstado(string codigo, ODelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
+        public static void CrearSuscripcionCambioEstado(string codigo, DelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
         {
             OCamaraBase camara = ListaCamaras.Find(delegate(OCamaraBase c) { return (c.Codigo == codigo); });
             if (camara != null)
@@ -328,7 +328,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
-        public static void EliminarSuscripcionCambioEstado(string codigo, ODelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
+        public static void EliminarSuscripcionCambioEstado(string codigo, DelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
         {
             OCamaraBase camara = ListaCamaras.Find(delegate(OCamaraBase c) { return (c.Codigo == codigo); });
             if (camara != null)
@@ -341,7 +341,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
-        public static void EliminarSuscripcionCambioEstado(string codigo, ODelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
+        public static void EliminarSuscripcionCambioEstado(string codigo, DelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
         {
             OCamaraBase camara = ListaCamaras.Find(delegate(OCamaraBase c) { return (c.Codigo == codigo); });
             if (camara != null)
@@ -421,7 +421,7 @@ namespace Orbita.VAHardware
 		/// </summary>
         public bool Recording
         {
-            get { return this.VideoFile.Estado == OEstadoProductorConsumidor.EnEjecucion; }
+            get { return this.VideoFile.Estado == EstadoProductorConsumidor.EnEjecucion; }
         }
 		/// <summary>
 		/// Proporciona herramientas para medir la velocidad de adquisición de la cámara
@@ -488,19 +488,19 @@ namespace Orbita.VAHardware
 		/// <summary>
 		/// Tipo de hardware
 		/// </summary>
-		public OTipoHardware TipoHardware
+		public TipoHardware TipoHardware
 		{
-			get { return OTipoHardware.HwCamara; }
+			get { return TipoHardware.HwCamara; }
 		}
 
 		/// <summary>
 		/// Tipo de cámara
 		/// </summary>
-		private OTipoCamara _TipoCamara;
+		private TipoCamara _TipoCamara;
 		/// <summary>
 		/// Tipo de cámara
 		/// </summary>
-		public OTipoCamara TipoCamara
+		public TipoCamara TipoCamara
 		{
 			get { return _TipoCamara; }
 			set { _TipoCamara = value; }
@@ -639,11 +639,11 @@ namespace Orbita.VAHardware
 		/// <summary>
 		/// Tipo de cámara dependiendo de si sus imágenes son a color o monocromáticas
 		/// </summary>
-		private OTipoColorPixel _Color;
+		private TipoColorPixel _Color;
 		/// <summary>
 		/// Tipo de cámara dependiendo de si sus imágenes son a color o monocromáticas
 		/// </summary>
-		public OTipoColorPixel Color
+		public TipoColorPixel Color
 		{
 			get { return _Color; }
 			set { _Color = value; }
@@ -890,11 +890,11 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Estado de la conexión
         /// </summary>
-        public virtual OEstadoConexion EstadoConexion
+        public virtual EstadoConexion EstadoConexion
         {
             get
             {
-                return this.Conectividad != null ? this.Conectividad.EstadoConexion : OEstadoConexion.Desconectado;
+                return this.Conectividad != null ? this.Conectividad.EstadoConexion : EstadoConexion.Desconectado;
             }
             set
             {
@@ -911,22 +911,22 @@ namespace Orbita.VAHardware
         /// Delegado de nueva fotografía
         /// </summary>
         /// <param name="estadoConexion"></param>
-        public ODelegadoNuevaFotografiaCamara OnNuevaFotografiaCamara;
+        public DelegadoNuevaFotografiaCamara OnNuevaFotografiaCamara;
         /// <summary>
         /// Delegado de nueva fotografía
         /// </summary>
         /// <param name="estadoConexion"></param>
-        public ODelegadoNuevaFotografiaCamaraAdv OnNuevaFotografiaCamaraAdv;
+        public DelegadoNuevaFotografiaCamaraAdv OnNuevaFotografiaCamaraAdv;
         /// <summary>
         /// Delegado de cambio de estaco de conexión de la cámara
         /// </summary>
         /// <param name="estadoConexion"></param>
-        public ODelegadoCambioEstadoConexionCamara OnCambioEstadoConexionCamara;
+        public DelegadoCambioEstadoConexionCamara OnCambioEstadoConexionCamara;
         /// <summary>
         /// Delegado de cambio de estaco de conexión de la cámara
         /// </summary>
         /// <param name="estadoConexion"></param>
-        public ODelegadoCambioEstadoConexionCamaraAdv OnCambioEstadoConexionCamaraAdv;
+        public DelegadoCambioEstadoConexionCamaraAdv OnCambioEstadoConexionCamaraAdv;
         /// <summary>
         /// Delegado de mensaje de la cámara
         /// </summary>
@@ -940,11 +940,11 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Delegado de mensaje de cambio de estado de reproducción
         /// </summary>
-        public ODelegadoCambioEstadoReproduccionCamara OnCambioReproduccionCamara;
+        public DelegadoCambioEstadoReproduccionCamara OnCambioReproduccionCamara;
         /// <summary>
         /// Delegado de mensaje de cambio de estado de reproducción
         /// </summary>
-        public ODelegadoCambioEstadoReproduccionCamaraAdv OnCambioReproduccionCamaraAdv;
+        public DelegadoCambioEstadoReproduccionCamaraAdv OnCambioReproduccionCamaraAdv;
         #endregion
 
 		#region Constructor(es)
@@ -971,7 +971,7 @@ namespace Orbita.VAHardware
 					this._Nombre = dt.Rows[0]["NombreHardware"].ToString();
 					this._Descripcion = dt.Rows[0]["DescHardware"].ToString();
 					this._Habilitado = (bool)dt.Rows[0]["HabilitadoHardware"];
-                    this._TipoCamara = OEnumRobusto<OTipoCamara>.Validar(dt.Rows[0]["CodTipoHardware"].ToString(), OTipoCamara.VProBasler);
+                    this._TipoCamara = OEnumRobusto<OTipoCamara>.Validar(dt.Rows[0]["CodTipoHardware"].ToString(), TipoCamara.VProBasler);
                     //this._TipoCamara = (OTipoCamara)App.EnumParse(typeof(OTipoCamara), dt.Rows[0]["CodTipoHardware"].ToString(), OTipoCamara.VProBasler);
 					this._CodigoTipoCamara = dt.Rows[0]["CodTipoHardware"].ToString();
 					this._Fabricante = dt.Rows[0]["Fabricante"].ToString();
@@ -982,7 +982,7 @@ namespace Orbita.VAHardware
 					this._CodVariableSnap = dt.Rows[0]["CodVariableSnap"].ToString();
 					this._Resolucion.Width = OEnteroRobusto.Validar(dt.Rows[0]["ResolucionX"], 1, 100000, 1024);
 					this._Resolucion.Height = OEnteroRobusto.Validar(dt.Rows[0]["ResolucionY"], 1, 100000, 768);
-					this._Color = (OTipoColorPixel)OEnteroRobusto.Validar(dt.Rows[0]["Color"], 0, 1, 0);
+					this._Color = (TipoColorPixel)OEnteroRobusto.Validar(dt.Rows[0]["Color"], 0, 1, 0);
                     this._ExpectedFrameInterval = ODecimalRobusto.Validar(dt.Rows[0]["FrameIntervalMs"], 0.0, 1000.0, 1.0);
                     this._ExpectedFrameRate = this._ExpectedFrameInterval > 0 ? 1000 / this._ExpectedFrameInterval : 25;
                     this._MaxFrameIntervalVisualizacion = ODecimalRobusto.Validar(dt.Rows[0]["MaxFrameIntervalMsVisualizacion"], 0.0, 1000.0, 0.0);
@@ -1021,7 +1021,7 @@ namespace Orbita.VAHardware
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Fatal(OModulosHardware.Camaras, this.Codigo, exception);
+				OVALogsManager.Fatal(ModulosHardware.Camaras, this.Codigo, exception);
 				throw new Exception("Imposible iniciar la cámara " + this.Codigo);
 			}
 		}
@@ -1036,10 +1036,10 @@ namespace Orbita.VAHardware
             bool resultado = false;
 
             if ((this.Existe) && (
-                (!reconexion && this.EstadoConexion == OEstadoConexion.Desconectado) ||
-                (reconexion && this.EstadoConexion == OEstadoConexion.Reconectado)))
+                (!reconexion && this.EstadoConexion == EstadoConexion.Desconectado) ||
+                (reconexion && this.EstadoConexion == EstadoConexion.Reconectado)))
             {
-                this.EstadoConexion = OEstadoConexion.Conectando;
+                this.EstadoConexion = EstadoConexion.Conectando;
 
                 resultado = this.ConectarInterno(false);
 
@@ -1063,11 +1063,11 @@ namespace Orbita.VAHardware
 
                 if (reconexion)
                 {
-                    this.EstadoConexion = resultado ? OEstadoConexion.Conectado : OEstadoConexion.Reconectando;
+                    this.EstadoConexion = resultado ? EstadoConexion.Conectado : EstadoConexion.Reconectando;
                 }
                 else
                 {
-                    this.EstadoConexion = resultado ? OEstadoConexion.Conectado : OEstadoConexion.Desconectado;
+                    this.EstadoConexion = resultado ? EstadoConexion.Conectado : EstadoConexion.Desconectado;
                 }
 
                 // Se tiene en cuenta el autostart definido en la base de datos para iniciar la reproducción continua
@@ -1086,10 +1086,10 @@ namespace Orbita.VAHardware
         {
             bool resultado = false;
             if ((this.Existe) && (
-                    (!errorConexion && this.EstadoConexion == OEstadoConexion.Conectado) ||
-                    (errorConexion && this.EstadoConexion == OEstadoConexion.ErrorConexion)))
+                    (!errorConexion && this.EstadoConexion == EstadoConexion.Conectado) ||
+                    (errorConexion && this.EstadoConexion == EstadoConexion.ErrorConexion)))
             {
-                this.EstadoConexion = OEstadoConexion.Desconectando;
+                this.EstadoConexion = EstadoConexion.Desconectando;
 
                 resultado = this.DesconectarInterno(false);
 
@@ -1108,11 +1108,11 @@ namespace Orbita.VAHardware
 
                 if (errorConexion)
                 {
-                    this.EstadoConexion = resultado ? OEstadoConexion.Reconectando : OEstadoConexion.ErrorConexion;
+                    this.EstadoConexion = resultado ? EstadoConexion.Reconectando : EstadoConexion.ErrorConexion;
                 }
                 else
                 {
-                    this.EstadoConexion = resultado ? OEstadoConexion.Desconectado : OEstadoConexion.Conectado;
+                    this.EstadoConexion = resultado ? EstadoConexion.Desconectado : EstadoConexion.Conectado;
                 }
             }
             return resultado;
@@ -1225,10 +1225,10 @@ namespace Orbita.VAHardware
 		public bool Start()
 		{
             bool resultado = false;
-            if (this.Habilitado && (this.EstadoConexion == VAHardware.OEstadoConexion.Conectado))
+            if (this.Habilitado && (this.EstadoConexion == VAHardware.EstadoConexion.Conectado))
             {
                 // Información extra
-                OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Start de la cámara: " + this.Codigo);
+                OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, "Start de la cámara: " + this.Codigo);
 
                 OVariablesManager.CrearSuscripcion(this._CodVariableSnap, "Camaras", this.Codigo, ComandoSnapPorVariable);
 
@@ -1265,7 +1265,7 @@ namespace Orbita.VAHardware
             if (this.Habilitado)
             {
                 // Información extra
-                OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Stop de la cámara: " + this.Codigo);
+                OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, "Stop de la cámara: " + this.Codigo);
 
                 OVariablesManager.EliminarSuscripcion(this._CodVariableSnap, "Camaras", this.Codigo, ComandoSnapPorVariable);
 
@@ -1300,7 +1300,7 @@ namespace Orbita.VAHardware
 		{
 			bool resultado = false;
 
-            if (this.Habilitado && (this.EstadoConexion == VAHardware.OEstadoConexion.Conectado))
+            if (this.Habilitado && (this.EstadoConexion == VAHardware.EstadoConexion.Conectado))
             {
                 if (!this.SimulacionCamara.Simulacion)
                 { // Modo de funcionamiento normal
@@ -1313,7 +1313,7 @@ namespace Orbita.VAHardware
                 }
 
                 // Información extra
-                OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Snap de la cámara: " + this.Codigo + ". Resultado: " + resultado.ToString());
+                OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, "Snap de la cámara: " + this.Codigo + ". Resultado: " + resultado.ToString());
             }
 
 			return resultado;
@@ -1353,10 +1353,10 @@ namespace Orbita.VAHardware
 		public bool StartREC(string fichero)
 		{
             bool resultado = false;
-            if (this.Habilitado && (this.EstadoConexion == VAHardware.OEstadoConexion.Conectado))
+            if (this.Habilitado && (this.EstadoConexion == VAHardware.EstadoConexion.Conectado))
             {
                 // Información extra
-                OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "REC de la cámara: " + this.Codigo);
+                OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, "REC de la cámara: " + this.Codigo);
 
                 if (!this.SimulacionCamara.Simulacion)
                 {
@@ -1374,10 +1374,10 @@ namespace Orbita.VAHardware
         public bool StopREC()
         {
             bool resultado = false;
-            if (this.Habilitado && (this.EstadoConexion == VAHardware.OEstadoConexion.Conectado))
+            if (this.Habilitado && (this.EstadoConexion == VAHardware.EstadoConexion.Conectado))
             {
                 // Información extra
-                OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "StopREC de la cámara: " + this.Codigo);
+                OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, "StopREC de la cámara: " + this.Codigo);
 
                 if (!this.SimulacionCamara.Simulacion)
                 {
@@ -1393,7 +1393,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
-        public void CrearSuscripcionNuevaFotografia(ODelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
+        public void CrearSuscripcionNuevaFotografia(DelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
         {
             this.OnNuevaFotografiaCamara += delegadoNuevaFotografiaCamara;
         }
@@ -1402,7 +1402,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
-        public void CrearSuscripcionNuevaFotografia(ODelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
+        public void CrearSuscripcionNuevaFotografia(DelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
         {
             this.OnNuevaFotografiaCamaraAdv += delegadoNuevaFotografiaCamara;
         }
@@ -1412,7 +1412,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
-        public void EliminarSuscripcionNuevaFotografia(ODelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
+        public void EliminarSuscripcionNuevaFotografia(DelegadoNuevaFotografiaCamara delegadoNuevaFotografiaCamara)
         {
             this.OnNuevaFotografiaCamara -= delegadoNuevaFotografiaCamara;
         }
@@ -1421,7 +1421,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de fotografía</param>
-        public void EliminarSuscripcionNuevaFotografia(ODelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
+        public void EliminarSuscripcionNuevaFotografia(DelegadoNuevaFotografiaCamaraAdv delegadoNuevaFotografiaCamara)
         {
             this.OnNuevaFotografiaCamaraAdv -= delegadoNuevaFotografiaCamara;
         }
@@ -1431,7 +1431,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
-        public void CrearSuscripcionCambioEstado(ODelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
+        public void CrearSuscripcionCambioEstado(DelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
         {
             this.OnCambioEstadoConexionCamara += delegadoCambioEstadoConexionCamara;
         }
@@ -1440,7 +1440,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
-        public void CrearSuscripcionCambioEstado(ODelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
+        public void CrearSuscripcionCambioEstado(DelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
         {
             this.OnCambioEstadoConexionCamaraAdv += delegadoCambioEstadoConexionCamara;
         }
@@ -1450,7 +1450,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
-        public void EliminarSuscripcionCambioEstado(ODelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
+        public void EliminarSuscripcionCambioEstado(DelegadoCambioEstadoConexionCamara delegadoCambioEstadoConexionCamara)
         {
             this.OnCambioEstadoConexionCamara -= delegadoCambioEstadoConexionCamara;
         }
@@ -1459,7 +1459,7 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="codigo">Código de la cámara</param>
         /// <param name="delegadoNuevaFotografiaCamara">Delegado donde recibir llamadas a cada cambio de estado</param>
-        public void EliminarSuscripcionCambioEstado(ODelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
+        public void EliminarSuscripcionCambioEstado(DelegadoCambioEstadoConexionCamaraAdv delegadoCambioEstadoConexionCamara)
         {
             this.OnCambioEstadoConexionCamaraAdv -= delegadoCambioEstadoConexionCamara;
         }
@@ -1515,7 +1515,7 @@ namespace Orbita.VAHardware
 
                 if (!this.Conectar())
 				{
-					OVALogsManager.Error(OModulosHardware.Camaras, "Inicialización", "Ha sido imposible realizar la conexión de la cámara " + this.Nombre);
+					OVALogsManager.Error(ModulosHardware.Camaras, "Inicialización", "Ha sido imposible realizar la conexión de la cámara " + this.Nombre);
 				}
 			}
 		}
@@ -1538,7 +1538,7 @@ namespace Orbita.VAHardware
 				}
 				else
 				{
-					OVALogsManager.Error(OModulosHardware.Camaras, "Finalización", "Ha sido imposible realizar la desconexión de la cámara " + this.Nombre);
+					OVALogsManager.Error(ModulosHardware.Camaras, "Finalización", "Ha sido imposible realizar la desconexión de la cámara " + this.Nombre);
 				}
 			}
 		}
@@ -1625,7 +1625,7 @@ namespace Orbita.VAHardware
         protected virtual bool ConectarInterno(bool reconexion)
         {
             // Información extra
-            OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Conexión de la cámara: " + this.Codigo);
+            OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, "Conexión de la cámara: " + this.Codigo);
 
             return false;
         }
@@ -1637,7 +1637,7 @@ namespace Orbita.VAHardware
         protected virtual bool DesconectarInterno(bool errorConexion)
         {
             // Información extra
-            OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Desconexión de la cámara: " + this.Codigo);
+            OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, "Desconexión de la cámara: " + this.Codigo);
 
             return false;
         }
@@ -1739,7 +1739,7 @@ namespace Orbita.VAHardware
         /// Evento de cambio en la conexión con la cámara
         /// </summary>
         /// <param name="estadoConexion"></param>
-        protected virtual void OnCambioEstadoConectividadCamara(string codigo, OEstadoConexion estadoConexionActal, OEstadoConexion estadoConexionAnterior)
+        protected virtual void OnCambioEstadoConectividadCamara(string codigo, EstadoConexion estadoConexionActal, EstadoConexion estadoConexionAnterior)
         {
             // Lanzamos el evento de cambio de estado
             if (this.OnCambioEstadoConexionCamara != null)
@@ -1757,7 +1757,7 @@ namespace Orbita.VAHardware
 	/// <summary>
 	/// Enumerado que identifica a los tipos de cámaras
 	/// </summary>
-	public enum OTipoCamara
+	public enum TipoCamara
 	{
 		/// <summary>
 		/// Cámara tipo Axis  con firmware 4
@@ -1772,7 +1772,7 @@ namespace Orbita.VAHardware
 	/// <summary>
 	/// Tipo de la cámara (mono o RGB)
 	/// </summary>
-	public enum OTipoColorPixel
+	public enum TipoColorPixel
 	{
 		/// <summary>
 		/// Cámara monocromática
@@ -1788,7 +1788,7 @@ namespace Orbita.VAHardware
 	/// <summary>
 	/// Acceso a una característica de la cámara de tipo string
 	/// </summary>
-	public interface iCamFeature
+	public interface ICamFeature
 	{
 		#region Método(s)
 		/// <summary>
@@ -1855,11 +1855,11 @@ namespace Orbita.VAHardware
 		/// <summary>
 		/// Indica el tipo de simulación que se realizará en la cámara (con una única foto o con toda una carpeta de fotos)
 		/// </summary>
-		private OTipoSimulacionCamara _TipoSimulacion;
+		private TipoSimulacionCamara _TipoSimulacion;
 		/// <summary>
 		/// Indica el tipo de simulación que se realizará en la cámara (con una única foto o con toda una carpeta de fotos)
 		/// </summary>
-		public OTipoSimulacionCamara TipoSimulacion
+		public TipoSimulacionCamara TipoSimulacion
 		{
 			get { return _TipoSimulacion; }
 			set { _TipoSimulacion = value; }
@@ -1927,7 +1927,7 @@ namespace Orbita.VAHardware
 		{
 			this._Codigo = codigo;
 			this._Simulacion = false;
-			this._TipoSimulacion = OTipoSimulacionCamara.FotografiaSimple;
+			this._TipoSimulacion = TipoSimulacionCamara.FotografiaSimple;
 			this._RutaFotografias = Path.GetDirectoryName(Application.ExecutablePath);
 			this._IntervaloEntreSnaps = 2000;
 			this._Filtro = "*.bmp";
@@ -1954,13 +1954,13 @@ namespace Orbita.VAHardware
 				{
 					switch (this._TipoSimulacion)
 					{
-						case OTipoSimulacionCamara.FotografiaSimple:
+						case TipoSimulacionCamara.FotografiaSimple:
 							if (File.Exists(this.RutaFotografias))
 							{
 								this.Simulacion = true;
 							}
 							break;
-						case OTipoSimulacionCamara.DirectorioFotografias:
+						case TipoSimulacionCamara.DirectorioFotografias:
 							this.ListaRutaFotografias = new List<string>();
 							this.IndiceFotografia = -1;
 
@@ -1978,7 +1978,7 @@ namespace Orbita.VAHardware
 				}
 				catch (Exception exception)
 				{
-					OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+					OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
 				}
 			}
 
@@ -1993,7 +1993,7 @@ namespace Orbita.VAHardware
 		{
 			if (!this.Simulacion)
 			{
-				this.TipoSimulacion = OTipoSimulacionCamara.FotografiaSimple;
+				this.TipoSimulacion = TipoSimulacionCamara.FotografiaSimple;
 				this.RutaFotografias = rutaFotografias;
 				if (File.Exists(rutaFotografias))
 				{
@@ -2012,7 +2012,7 @@ namespace Orbita.VAHardware
 		{
 			if (!this.Simulacion)
 			{
-				this.TipoSimulacion = OTipoSimulacionCamara.DirectorioFotografias;
+				this.TipoSimulacion = TipoSimulacionCamara.DirectorioFotografias;
 				this.RutaFotografias = rutaFotografias;
 				this.ListaRutaFotografias = new List<string>();
 				this.IndiceFotografia = -1;
@@ -2080,7 +2080,7 @@ namespace Orbita.VAHardware
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+				OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
 			}
 		}
 
@@ -2100,11 +2100,11 @@ namespace Orbita.VAHardware
 
 					switch (this.TipoSimulacion)
 					{
-						case OTipoSimulacionCamara.FotografiaSimple:
+						case TipoSimulacionCamara.FotografiaSimple:
 							rutaFotografiaActual = this.RutaFotografias;
 							resultado = true;
 							break;
-						case OTipoSimulacionCamara.DirectorioFotografias:
+						case TipoSimulacionCamara.DirectorioFotografias:
 							if (this.ListaRutaFotografias.Count > 0)
 							{
 								this.IndiceFotografia++;
@@ -2126,7 +2126,7 @@ namespace Orbita.VAHardware
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+				OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
 			}
 
 			return resultado;
@@ -2137,7 +2137,7 @@ namespace Orbita.VAHardware
 	/// <summary>
 	/// Enumerado que informa sobre el tipo de simulación que se está realizando en la cámara
 	/// </summary>
-	public enum OTipoSimulacionCamara
+	public enum TipoSimulacionCamara
 	{
 		/// <summary>
 		/// Se simula siempre con la misma fotografía
@@ -2179,7 +2179,7 @@ namespace Orbita.VAHardware
 	/// <summary>
 	/// Estado de la conexión de la cámara
 	/// </summary>
-	public enum OEstadoConexion
+	public enum EstadoConexion
 	{
 		/// <summary>
 		/// Cámara desconectada
@@ -2217,35 +2217,35 @@ namespace Orbita.VAHardware
     /// Delegado de nueva fotografía
     /// </summary>
     /// <param name="estadoConexion"></param>
-    public delegate void ODelegadoNuevaFotografiaCamara(OImage imagen);
+    public delegate void DelegadoNuevaFotografiaCamara(OImage imagen);
     /// <summary>
     /// Delegado de nueva fotografía
     /// </summary>
     /// <param name="codigo"></param>
     /// <param name="estadoConexion"></param>
-    public delegate void ODelegadoNuevaFotografiaCamaraAdv(string codigo, OImage imagen, DateTime momentoAdquisicion, double velocidadAdquisicion);
+    public delegate void DelegadoNuevaFotografiaCamaraAdv(string codigo, OImage imagen, DateTime momentoAdquisicion, double velocidadAdquisicion);
     /// <summary>
     /// Delegado de cambio de estaco de conexión de la cámara
     /// </summary>
     /// <param name="estadoConexion"></param>
-    public delegate void ODelegadoCambioEstadoConexionCamara(OEstadoConexion estadoConexion);
+    public delegate void DelegadoCambioEstadoConexionCamara(EstadoConexion estadoConexion);
     /// <summary>
     /// Delegado de cambio de estaco de conexión de la cámara
     /// </summary>
     /// <param name="codigo"></param>
     /// <param name="estadoConexion"></param>
-    public delegate void ODelegadoCambioEstadoConexionCamaraAdv(string codigo, OEstadoConexion estadoConexionActual, OEstadoConexion estadoConexionAnterior);
+    public delegate void DelegadoCambioEstadoConexionCamaraAdv(string codigo, EstadoConexion estadoConexionActual, EstadoConexion estadoConexionAnterior);
     /// <summary>
     /// Delegado de cambio de estaco de reproducción de la cámara
     /// </summary>
     /// <param name="estadoConexion"></param>
-    public delegate void ODelegadoCambioEstadoReproduccionCamara(bool modoReproduccionContinua);
+    public delegate void DelegadoCambioEstadoReproduccionCamara(bool modoReproduccionContinua);
     /// <summary>
     /// Delegado de cambio de estaco de reproducción de la cámara
     /// </summary>
     /// <param name="codigo"></param>
     /// <param name="estadoConexion"></param>
-    public delegate void ODelegadoCambioEstadoReproduccionCamaraAdv(string codigo, bool modoReproduccionContinua);
+    public delegate void DelegadoCambioEstadoReproduccionCamaraAdv(string codigo, bool modoReproduccionContinua);
     #endregion
 
 	#region Medición de la tasa de adquisición

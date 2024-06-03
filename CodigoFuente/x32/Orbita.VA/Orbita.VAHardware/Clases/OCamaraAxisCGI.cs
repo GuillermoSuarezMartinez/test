@@ -37,7 +37,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Fatal(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Fatal(ModulosHardware.Camaras, this.Codigo, exception);
                 throw new Exception("Imposible iniciar la cámara " + this.Codigo);
             }
         } 
@@ -54,14 +54,14 @@ namespace Orbita.VAHardware
 
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     base.StartInterno();
                 }
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
 
             return resultado;
@@ -77,14 +77,14 @@ namespace Orbita.VAHardware
 
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     base.StopInterno();
                 }
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
 
             return resultado;
@@ -99,7 +99,7 @@ namespace Orbita.VAHardware
             bool resultado = false;
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     resultado = base.SnapInterno();
                 }
@@ -108,7 +108,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
             return resultado;
         }

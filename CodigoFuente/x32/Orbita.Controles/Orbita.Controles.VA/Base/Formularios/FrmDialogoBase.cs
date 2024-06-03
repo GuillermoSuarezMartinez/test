@@ -505,7 +505,7 @@ namespace Orbita.Controles.VA
                     this.EstablecerModoSistema();
                     break;
                 default:
-                    OVALogsManager.Error(OModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
+                    OVALogsManager.Error(ModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
                     break;
             }
 
@@ -574,7 +574,7 @@ namespace Orbita.Controles.VA
                         this.ResetDeteccionModificaciones();
                         return true;
                     default:
-                        OVALogsManager.Error(OModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
+                        OVALogsManager.Error(ModulosSistema.Escritorios, "Inicio de formulario", "La ejecucion no debería pasar por este punto del código: switch/default");
                         return false;
                 }
             }
@@ -859,7 +859,7 @@ namespace Orbita.Controles.VA
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Error(OModulosSistema.Escritorios, "Apertura de formulario", exception);
+                    OVALogsManager.Error(ModulosSistema.Escritorios, "Apertura de formulario", exception);
                 }
             }
         }
@@ -891,7 +891,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Carga de formulario", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Carga de formulario", exception);
             }
         }
         /// <summary>
@@ -907,7 +907,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Cancelar formulario", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Cancelar formulario", exception);
             }
         }
         /// <summary>
@@ -927,7 +927,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Guardar datos", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Guardar datos", exception);
             }
         }
         /// <summary>
@@ -972,7 +972,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Cierre de formulario", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Cierre de formulario", exception);
             }
         }
         /// <summary>
@@ -992,7 +992,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Cierre de formulario", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Cierre de formulario", exception);
             }
         }
         /// <summary>
@@ -1007,7 +1007,7 @@ namespace Orbita.Controles.VA
             }
             catch (System.Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Activación de formulario", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Activación de formulario", exception);
             }
         }
         /// <summary>
@@ -1026,7 +1026,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Cambio de valor", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Cambio de valor", exception);
             }
         }
         /// <summary>
@@ -1051,7 +1051,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Escritorios, "Clic en botón de ToolTips", exception);
+                OVALogsManager.Error(ModulosSistema.Escritorios, "Clic en botón de ToolTips", exception);
             }
         }
         #endregion Manejadores de eventos

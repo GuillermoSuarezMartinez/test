@@ -28,7 +28,7 @@ namespace Orbita.VAComun
         /// <summary>
         ///  Clase que guarda imagenes en un thread separado
         /// </summary>
-        private static OAlmacenImagenes AlmacenObjetosVisuales;
+        private static AlmacenImagenes AlmacenObjetosVisuales;
         #endregion
 
         #region Método(s) público(s)
@@ -37,7 +37,7 @@ namespace Orbita.VAComun
         /// </summary>
         public static void Constructor()
         {
-            AlmacenObjetosVisuales = new OAlmacenImagenes();
+            AlmacenObjetosVisuales = new AlmacenImagenes();
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Clase que guarda imagenes en un thread separado
     /// </summary>
-    public class OAlmacenImagenes : IDisposable
+    internal class AlmacenImagenes : IDisposable
     {
         #region Constante(s)
         /// <summary>
@@ -122,7 +122,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OAlmacenImagenes()
+        public AlmacenImagenes()
         {
             this.ColaImagenes = new Queue<KeyValuePair<string, OImage>>();
             this.ColaGraficos = new Queue<KeyValuePair<string, OGrafico>>();
@@ -149,7 +149,7 @@ namespace Orbita.VAComun
                     string ruta = pareja.Key;
 
                     imagen.Guardar(ruta);
-                    OVALogsManager.Info(OModulosSistema.ImagenGraficos, "Thread Guardado", "Se procede a guardar la imagen (" + this.ColaImagenes.Count.ToString() + " elementos en la cola)");
+                    OVALogsManager.Info(ModulosSistema.ImagenGraficos, "Thread Guardado", "Se procede a guardar la imagen (" + this.ColaImagenes.Count.ToString() + " elementos en la cola)");
                 }
 
                 if (this.ColaGraficos.Count > 0)
@@ -165,7 +165,7 @@ namespace Orbita.VAComun
                     string ruta = pareja.Key;
 
                     grafico.Guardar(ruta);
-                    OVALogsManager.Info(OModulosSistema.ImagenGraficos, "Thread Guardado", "Se procede a guardar el gráfico (" + this.ColaGraficos.Count.ToString() + " elementos en la cola)");
+                    OVALogsManager.Info(ModulosSistema.ImagenGraficos, "Thread Guardado", "Se procede a guardar el gráfico (" + this.ColaGraficos.Count.ToString() + " elementos en la cola)");
                 }
 
                 if ((this.ColaImagenes.Count > 10) || (this.ColaGraficos.Count > 10))
@@ -179,7 +179,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, "Almacen", exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, "Almacen", exception);
             }
 
             finalize = false;
@@ -235,11 +235,11 @@ namespace Orbita.VAComun
                 if (this.ColaImagenes.Count < MaxCapacidadCola) // Si hay más de 50 no añadimos el elemento a guardar
                 {
                     this.ColaImagenes.Enqueue(pareja);
-                    OVALogsManager.Info(OModulosSistema.ImagenGraficos, "Guardado", "Se apila la imagen en la cola de guardado (" + this.ColaImagenes.Count.ToString() + " elementos en la cola)");
+                    OVALogsManager.Info(ModulosSistema.ImagenGraficos, "Guardado", "Se apila la imagen en la cola de guardado (" + this.ColaImagenes.Count.ToString() + " elementos en la cola)");
                 }
                 else
                 {
-                    OVALogsManager.Warning(OModulosSistema.ImagenGraficos, "Guardado", "Capacidad de la cola de guardado de imágenes sobrepasada (" + this.ColaImagenes.Count.ToString() + " elementos en la cola)");
+                    OVALogsManager.Warning(ModulosSistema.ImagenGraficos, "Guardado", "Capacidad de la cola de guardado de imágenes sobrepasada (" + this.ColaImagenes.Count.ToString() + " elementos en la cola)");
                 }
             }
         }
@@ -263,11 +263,11 @@ namespace Orbita.VAComun
                 if (this.ColaGraficos.Count < MaxCapacidadCola) // Si hay más de 50 no añadimos el elemento a guardar
                 {
                     this.ColaGraficos.Enqueue(pareja);
-                    OVALogsManager.Info(OModulosSistema.ImagenGraficos, "Guardado", "Se apila el gráfico en la cola de guardado (" + this.ColaGraficos.Count.ToString() + " elementos en la cola)");
+                    OVALogsManager.Info(ModulosSistema.ImagenGraficos, "Guardado", "Se apila el gráfico en la cola de guardado (" + this.ColaGraficos.Count.ToString() + " elementos en la cola)");
                 }
                 else
                 {
-                    OVALogsManager.Warning(OModulosSistema.ImagenGraficos, "Guardado", "Capacidad de la cola de guardado de gráficos sobrepasada (" + this.ColaImagenes.Count.ToString() + " elementos en la cola)");
+                    OVALogsManager.Warning(ModulosSistema.ImagenGraficos, "Guardado", "Capacidad de la cola de guardado de gráficos sobrepasada (" + this.ColaImagenes.Count.ToString() + " elementos en la cola)");
                 }
             }
         }

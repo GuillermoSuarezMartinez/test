@@ -121,7 +121,7 @@ namespace Orbita.VAControl
         /// </summary>
         /// <param name="codigo">Código de la máquina de estados</param>
         /// <param name="funcionProcesadoMensajes">Función que manejara el evento</param>
-        public static void CrearSuscripcionMensajes(string codigo, OMensajeMaquinaEstadosLanzado funcionProcesadoMensajes)
+        public static void CrearSuscripcionMensajes(string codigo, MensajeMaquinaEstadosLanzado funcionProcesadoMensajes)
         {
             foreach (OMaquinaEstadosBase maquinaEstados in ListaMaquinasEstados)
             {
@@ -138,7 +138,7 @@ namespace Orbita.VAControl
         /// </summary>
         /// <param name="codigo">Código de la máquina de estados</param>
         /// <param name="funcionProcesadoMensajes">Función que manejara el evento</param>
-        public static void EliminarSuscripcionMensajes(string codigo, OMensajeMaquinaEstadosLanzado funcionProcesadoMensajes)
+        public static void EliminarSuscripcionMensajes(string codigo, MensajeMaquinaEstadosLanzado funcionProcesadoMensajes)
         {
             foreach (OMaquinaEstadosBase maquinaEstados in ListaMaquinasEstados)
             {
@@ -155,7 +155,7 @@ namespace Orbita.VAControl
         /// </summary>
         /// <param name="codigo">Código de la máquina de estados</param>
         /// <param name="funcionProcesadoMensajes">Función que manejara el evento</param>
-        public static void CrearSuscripcionCambioEstado(string codigo, OEstadoCambiado funcionEstadoCambiado)
+        public static void CrearSuscripcionCambioEstado(string codigo, EstadoCambiado funcionEstadoCambiado)
         {
             foreach (OMaquinaEstadosBase maquinaEstados in ListaMaquinasEstados)
             {
@@ -172,7 +172,7 @@ namespace Orbita.VAControl
         /// </summary>
         /// <param name="codigo">Código de la máquina de estados</param>
         /// <param name="funcionProcesadoMensajes">Función que manejara el evento</param>
-        public static void EliminarSuscripcionCambioEstado(string codigo, OEstadoCambiado funcionEstadoCambiado)
+        public static void EliminarSuscripcionCambioEstado(string codigo, EstadoCambiado funcionEstadoCambiado)
         {
             foreach (OMaquinaEstadosBase maquinaEstados in ListaMaquinasEstados)
             {
@@ -583,12 +583,12 @@ namespace Orbita.VAControl
                 // Enviamos el mensaje a los suscriptores
                 if (this.EstadoActual.Monitorizado)
                 {
-                    this.LanzarMensaje(OTipoMensajeMaquinaEstados.CambioEstado, this.EstadoActual.Nombre + ": " + this.EstadoActual.Descripcion, momentoCambioEstado);
+                    this.LanzarMensaje(TipoMensajeMaquinaEstados.CambioEstado, this.EstadoActual.Nombre + ": " + this.EstadoActual.Descripcion, momentoCambioEstado);
                     foreach (OTransicionBase transicion in this.EstadoActual.ListaTransicionesSalientes)
                     {
                         if (transicion.Monitorizado)
                         {
-                            this.LanzarMensaje(OTipoMensajeMaquinaEstados.CondicionesTransicion, transicion.Nombre + ": " + transicion.ExplicacionCondicionEsperada, momentoCambioEstado);
+                            this.LanzarMensaje(TipoMensajeMaquinaEstados.CondicionesTransicion, transicion.Nombre + ": " + transicion.ExplicacionCondicionEsperada, momentoCambioEstado);
                         }
                     }
                 }
@@ -607,11 +607,11 @@ namespace Orbita.VAControl
         /// <param name="tipoMensajeMaquinaEstados">Enumerado del tipo de mensaje que la máquina de estados envía a la monitorización</param>
         /// <param name="p"></param>
         /// <param name="momentoCambioEstado"></param>
-        private void LanzarMensaje(OTipoMensajeMaquinaEstados tipo, string informacion, DateTime momento)
+        private void LanzarMensaje(TipoMensajeMaquinaEstados tipo, string informacion, DateTime momento)
         {
             if (this.OnMensajeMaquinaEstados != null)
             {
-                this.OnMensajeMaquinaEstados(this, new OEventMessageRaised(tipo, informacion, momento));
+                this.OnMensajeMaquinaEstados(this, new EventMessageRaised(tipo, informacion, momento));
             }
         }
 
@@ -625,7 +625,7 @@ namespace Orbita.VAControl
         {
             if (this.OnEstadoCambiado != null)
             {
-                this.OnEstadoCambiado(this, new OEventStateChanged(codEstado, momento));
+                this.OnEstadoCambiado(this, new EventStateChanged(codEstado, momento));
             }
         }
 
@@ -963,7 +963,7 @@ namespace Orbita.VAControl
         /// <summary>
         /// Método a heredar para procesar los mensajes producidos por la máquina de estados
         /// </summary>
-        public virtual void Mensaje(OTipoMensajeMaquinaEstados tipo, string informacion, DateTime hora)
+        public virtual void Mensaje(TipoMensajeMaquinaEstados tipo, string informacion, DateTime hora)
         {
         }
 
@@ -1006,12 +1006,12 @@ namespace Orbita.VAControl
         /// <summary>
         /// Delegado que indica de la llegada de un mensaje de la máquina de estados para visualizarse en la monitorización
         /// </summary>
-        public OMensajeMaquinaEstadosLanzado OnMensajeMaquinaEstados;
+        public MensajeMaquinaEstadosLanzado OnMensajeMaquinaEstados;
 
         /// <summary>
         /// Delegado que indica el cambio de estado
         /// </summary>
-        public OEstadoCambiado OnEstadoCambiado;
+        public EstadoCambiado OnEstadoCambiado;
         #endregion
     }
 
@@ -1050,7 +1050,7 @@ namespace Orbita.VAControl
         /// <summary>
         /// Tipo de Estado
         /// </summary>
-        public OTipoEstado TipoEstado;
+        public TipoEstado TipoEstado;
 
         #endregion
 
@@ -1231,7 +1231,7 @@ namespace Orbita.VAControl
                         this.TimeOut = TimeSpan.FromMilliseconds((int)dtEstado.Rows[0]["TimeOut"]);
                     }
 
-                    this.TipoEstado = OEnumRobusto<OTipoEstado>.Validar(dtEstado.Rows[0]["Tipo"].ToString(), OTipoEstado.EstadoSimple);
+                    this.TipoEstado = OEnumRobusto<OTipoEstado>.Validar(dtEstado.Rows[0]["Tipo"].ToString(), TipoEstado.EstadoSimple);
                     //this.TipoEstado = (OTipoEstado)App.EnumParse(TipoEstado.GetType(), dtEstado.Rows[0]["Tipo"].ToString(), OTipoEstado.EstadoSimple);
 
                     // Creación de los cronómetros
@@ -1531,7 +1531,7 @@ namespace Orbita.VAControl
         /// <summary>
         /// Tipo de Transición
         /// </summary>
-        public OTipoTransicion TipoTransicion;
+        public TipoTransicion TipoTransicion;
         #endregion
 
         #region Propiedad(es)
@@ -1705,7 +1705,7 @@ namespace Orbita.VAControl
                     this.CodigoEstadoOrigen = dtTransicion.Rows[0]["CodigoEstadoOrigen"].ToString();
                     this.CodigoEstadoDestino = dtTransicion.Rows[0]["CodigoEstadoDestino"].ToString();
 
-                    this.TipoTransicion = OEnumRobusto<OTipoTransicion>.Validar(dtTransicion.Rows[0]["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
+                    this.TipoTransicion = OEnumRobusto<OTipoTransicion>.Validar(dtTransicion.Rows[0]["Tipo"].ToString(), TipoTransicion.TransicionSimple);
                     //this.TipoTransicion = (OTipoTransicion)App.EnumParse(TipoTransicion.GetType(), dtTransicion.Rows[0]["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
 
                     // Cargamos el código de las variables que se utilizan en la transición
@@ -1835,7 +1835,7 @@ namespace Orbita.VAControl
     /// <summary>
     /// Tipo de estado
     /// </summary>
-    public enum OTipoEstado
+    public enum TipoEstado
     {
         /// <summary>
         /// Estado simple
@@ -1850,7 +1850,7 @@ namespace Orbita.VAControl
     /// <summary>
     /// Tipo de transición
     /// </summary>
-    public enum OTipoTransicion
+    public enum TipoTransicion
     {
         /// <summary>
         /// Transicion simple
@@ -1868,12 +1868,12 @@ namespace Orbita.VAControl
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public delegate void OEstadoCambiado(object sender, OEventStateChanged e);
+    public delegate void EstadoCambiado(object sender, EventStateChanged e);
 
     /// <summary>
     /// Parametros de retorno del evento que indica de la llegada de un mensaje de la máquina de estados para visualizarse en la monitorización
     /// </summary>
-    public class OEventStateChanged : EventArgs
+    public class EventStateChanged : EventArgs
     {
         #region Atributo(s)
         /// <summary>
@@ -1893,7 +1893,7 @@ namespace Orbita.VAControl
         /// <param name="tipo">Tipo de mensaje</param>
         /// <param name="informacion">Texto de la información a visualizar</param>
         /// <param name="hora">Momento en el que se ha producido el mensaje</param>
-        public OEventStateChanged(string codEstado, DateTime momento)
+        public EventStateChanged(string codEstado, DateTime momento)
         {
             this.CodEstado = codEstado;
             this.Momento = momento;
@@ -1906,18 +1906,18 @@ namespace Orbita.VAControl
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public delegate void OMensajeMaquinaEstadosLanzado(object sender, OEventMessageRaised e);
+    public delegate void MensajeMaquinaEstadosLanzado(object sender, EventMessageRaised e);
 
     /// <summary>
     /// Parametros de retorno del evento que indica de la llegada de un mensaje de la máquina de estados para visualizarse en la monitorización
     /// </summary>
-    public class OEventMessageRaised : EventArgs
+    public class EventMessageRaised : EventArgs
     {
         #region Atributo(s)
         /// <summary>
         /// Tipo de mensaje
         /// </summary>
-        public OTipoMensajeMaquinaEstados Tipo;
+        public TipoMensajeMaquinaEstados Tipo;
         /// <summary>
         /// Texto de la información a visualizar
         /// </summary>
@@ -1935,7 +1935,7 @@ namespace Orbita.VAControl
         /// <param name="tipo">Tipo de mensaje</param>
         /// <param name="informacion">Texto de la información a visualizar</param>
         /// <param name="hora">Momento en el que se ha producido el mensaje</param>
-        public OEventMessageRaised(OTipoMensajeMaquinaEstados tipo, string informacion, DateTime momento)
+        public EventMessageRaised(TipoMensajeMaquinaEstados tipo, string informacion, DateTime momento)
         {
             this.Tipo = tipo;
             this.Informacion = informacion;
@@ -1947,7 +1947,7 @@ namespace Orbita.VAControl
     /// <summary>
     /// Enumerado del tipo de mensaje que la máquina de estados envía a la monitorización
     /// </summary>
-    public enum OTipoMensajeMaquinaEstados
+    public enum TipoMensajeMaquinaEstados
     {
         CambioEstado,
         CondicionesTransicion,
@@ -1956,5 +1956,4 @@ namespace Orbita.VAControl
         Parada
     }
     #endregion
-
 }

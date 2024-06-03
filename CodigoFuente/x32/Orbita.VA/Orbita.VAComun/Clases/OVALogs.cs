@@ -138,7 +138,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Debug(OEnumModulosSistema modulo, string remitente, string mensaje)
+        public static void Debug(EnumModulosSistema modulo, string remitente, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Debug(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -150,7 +150,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Debug(OEnumModulosSistema modulo, string remitente, Exception excepcion)
+        public static void Debug(EnumModulosSistema modulo, string remitente, Exception excepcion)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Debug(excepcion, "Error", (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -162,7 +162,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="objeto">Objeto a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Debug(OEnumModulosSistema modulo, string remitente, object objeto)
+        public static void Debug(EnumModulosSistema modulo, string remitente, object objeto)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Debug("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -175,7 +175,7 @@ namespace Orbita.VAComun
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Debug(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
+        public static void Debug(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Debug(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -188,7 +188,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Debug(OEnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
+        public static void Debug(EnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Debug(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -202,7 +202,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Debug(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
+        public static void Debug(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Debug(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -215,7 +215,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Info(OEnumModulosSistema modulo, string remitente, string mensaje)
+        public static void Info(EnumModulosSistema modulo, string remitente, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Info(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -227,7 +227,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Info(OEnumModulosSistema modulo, string remitente, Exception excepcion)
+        public static void Info(EnumModulosSistema modulo, string remitente, Exception excepcion)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Info(excepcion, "Error", (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -239,7 +239,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="objeto">Objeto a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Info(OEnumModulosSistema modulo, string remitente, object objeto)
+        public static void Info(EnumModulosSistema modulo, string remitente, object objeto)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Info("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -252,7 +252,7 @@ namespace Orbita.VAComun
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Info(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
+        public static void Info(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Info(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -265,7 +265,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Info(OEnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
+        public static void Info(EnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Info(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -279,7 +279,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Info(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
+        public static void Info(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Info(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -292,7 +292,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Warning(OEnumModulosSistema modulo, string remitente, string mensaje)
+        public static void Warning(EnumModulosSistema modulo, string remitente, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Warn(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -304,7 +304,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Warning(OEnumModulosSistema modulo, string remitente, Exception excepcion)
+        public static void Warning(EnumModulosSistema modulo, string remitente, Exception excepcion)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Warn(excepcion, "Error", (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -316,7 +316,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="objeto">Objeto a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Warning(OEnumModulosSistema modulo, string remitente, object objeto)
+        public static void Warning(EnumModulosSistema modulo, string remitente, object objeto)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Warn("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -329,7 +329,7 @@ namespace Orbita.VAComun
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Warning(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
+        public static void Warning(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Warn(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -342,7 +342,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Warning(OEnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
+        public static void Warning(EnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Warn(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -356,7 +356,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Warning(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
+        public static void Warning(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Warn(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -369,7 +369,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Error(OEnumModulosSistema modulo, string remitente, string mensaje)
+        public static void Error(EnumModulosSistema modulo, string remitente, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Error(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -383,7 +383,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Error(OEnumModulosSistema modulo, string remitente, Exception excepcion)
+        public static void Error(EnumModulosSistema modulo, string remitente, Exception excepcion)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Error(excepcion, "Error", (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -397,7 +397,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="objeto">Objeto a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Error(OEnumModulosSistema modulo, string remitente, object objeto)
+        public static void Error(EnumModulosSistema modulo, string remitente, object objeto)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Error("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -413,7 +413,7 @@ namespace Orbita.VAComun
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Error(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
+        public static void Error(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Error(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -428,7 +428,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Error(OEnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
+        public static void Error(EnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Error(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -444,7 +444,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Error(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
+        public static void Error(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Error(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -459,7 +459,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Fatal(OEnumModulosSistema modulo, string remitente, string mensaje)
+        public static void Fatal(EnumModulosSistema modulo, string remitente, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Fatal(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -473,7 +473,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Fatal(OEnumModulosSistema modulo, string remitente, Exception excepcion)
+        public static void Fatal(EnumModulosSistema modulo, string remitente, Exception excepcion)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Fatal(excepcion, "Error", (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -487,7 +487,7 @@ namespace Orbita.VAComun
         /// <param name="remitente">Código del objeto que realiza la llamada</param>
         /// <param name="objeto">Objeto a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Fatal(OEnumModulosSistema modulo, string remitente, object objeto)
+        public static void Fatal(EnumModulosSistema modulo, string remitente, object objeto)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Fatal("Dato", objeto, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -502,7 +502,7 @@ namespace Orbita.VAComun
         /// <param name="excepcion">Excepción a guardar</param>
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Fatal(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
+        public static void Fatal(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Fatal(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente);
@@ -517,7 +517,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Fatal(OEnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
+        public static void Fatal(EnumModulosSistema modulo, string remitente, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Fatal(mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -533,7 +533,7 @@ namespace Orbita.VAComun
         /// <param name="mensaje">Mensaje a guardar</param>
         /// <param name="args">Argumento(s) a guardar</param>
         /// <param name="NivelLog">Nivel del registro a guardar</param>
-        public static void Fatal(OEnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
+        public static void Fatal(EnumModulosSistema modulo, string remitente, Exception excepcion, string mensaje, params object[] args)
         {
             ILogger logger = GetLog(modulo.Nombre);
             logger.Fatal(excepcion, mensaje, (modulo.Nombre == logger.Identificador ? modulo.Nombre : string.Format("{0}({1})", logger.Identificador, modulo.Nombre)), remitente, args);
@@ -655,66 +655,66 @@ namespace Orbita.VAComun
     /// <summary>
     /// Define el conjunto de módulos del sistema
     /// </summary>
-    public class OModulosSistema : OEnumeradosHeredable
+    public class ModulosSistema : OEnumeradosHeredable
     {
         #region Atributo(s)
         /// <summary>
         /// Módulo de funciones comunes del sistema. 
         /// </summary>
-        public static OEnumModulosSistema Comun = new OEnumModulosSistema("Común", "Módulo de funciones comunes", 1);
+        public static EnumModulosSistema Comun = new EnumModulosSistema("Común", "Módulo de funciones comunes", 1);
         /// <summary>
         /// Módulo de funciones propias del inicio y la finalización del sistema. 
         /// </summary>
-        public static OEnumModulosSistema Sistema = new OEnumModulosSistema("Sistema", "Módulo de funciones propias del inicio y la finalización del sistema", 2);
+        public static EnumModulosSistema Sistema = new EnumModulosSistema("Sistema", "Módulo de funciones propias del inicio y la finalización del sistema", 2);
         /// <summary>
         /// Módulo de funciones accesos a bases de datos. 
         /// </summary>
-        public static OEnumModulosSistema BBDD = new OEnumModulosSistema("BBDD", "Módulo de funciones de acceso a bases de datos", 3);
+        public static EnumModulosSistema BBDD = new EnumModulosSistema("BBDD", "Módulo de funciones de acceso a bases de datos", 3);
         /// <summary>
         /// Módulo de cronómetros del sistema. 
         /// </summary>
-        public static OEnumModulosSistema Cronometros = new OEnumModulosSistema("Cronómetros", "Módulo de cronómetros del sistema", 4);
+        public static EnumModulosSistema Cronometros = new EnumModulosSistema("Cronómetros", "Módulo de cronómetros del sistema", 4);
         /// <summary>
         /// Módulo de Threads del sistema. 
         /// </summary>
-        public static OEnumModulosSistema Threads = new OEnumModulosSistema("Threads", "Módulo de control de hilos del sistema", 5);
+        public static EnumModulosSistema Threads = new EnumModulosSistema("Threads", "Módulo de control de hilos del sistema", 5);
         /// <summary>
         /// Módulo de monitorización del sistema. 
         /// </summary>
-        public static OEnumModulosSistema Monitorizacion = new OEnumModulosSistema("Monitorización", "Módulo de monitorización de hilos del sistema", 6);
+        public static EnumModulosSistema Monitorizacion = new EnumModulosSistema("Monitorización", "Módulo de monitorización de hilos del sistema", 6);
         /// <summary>
         /// Módulo de protección del código. 
         /// </summary>
-        public static OEnumModulosSistema Proteccion = new OEnumModulosSistema("Protección", "Módulo de protección del código", 7);
+        public static EnumModulosSistema Proteccion = new EnumModulosSistema("Protección", "Módulo de protección del código", 7);
         /// <summary>
         /// Módulo de gestión de formularios. 
         /// </summary>
-        public static OEnumModulosSistema Escritorios = new OEnumModulosSistema("Escritorios", "Módulo de gestión de formularios", 8);
+        public static EnumModulosSistema Escritorios = new EnumModulosSistema("Escritorios", "Módulo de gestión de formularios", 8);
         /// <summary>
         /// Módulo de funciones base para las imagenes y gráficos
         /// </summary>
-        public static OEnumModulosSistema ImagenGraficos = new OEnumModulosSistema("ImagenGraficos", "Módulo de funciones base para las imagenes y gráficos", 9);
+        public static EnumModulosSistema ImagenGraficos = new EnumModulosSistema("ImagenGraficos", "Módulo de funciones base para las imagenes y gráficos", 9);
         /// <summary>
         /// Módulo de funciones base para el almacenamientod de información
         /// </summary>
-        public static OEnumModulosSistema AlmacenInformacion = new OEnumModulosSistema("AlmacenInformacion", "Módulo de funciones base para el almacenamientod de información", 10);
+        public static EnumModulosSistema AlmacenInformacion = new EnumModulosSistema("AlmacenInformacion", "Módulo de funciones base para el almacenamientod de información", 10);
         /// <summary>
         /// Módulo de funciones encargadas de monitorizar la creación y destrucción de objetos de origen propio que ocupan gran cantidad de memoria y de creación frecuente, así como la gestión del colector de basura de .net
         /// </summary>
-        public static OEnumModulosSistema GestionMemoria = new OEnumModulosSistema("GestionMemoria", "Módulo de funciones encargadas de monitorizar la creación y destrucción de objetos de origen propio que ocupan gran cantidad de memoria y de creación frecuente, así como la gestión del colector de basura de .net", 11);
+        public static EnumModulosSistema GestionMemoria = new EnumModulosSistema("GestionMemoria", "Módulo de funciones encargadas de monitorizar la creación y destrucción de objetos de origen propio que ocupan gran cantidad de memoria y de creación frecuente, así como la gestión del colector de basura de .net", 11);
         #endregion
     }
 
     /// <summary>
     /// Clase que implementa el enumerado de los módulos del sistema
     /// </summary>
-    public class OEnumModulosSistema : OEnumeradoHeredable
+    public class EnumModulosSistema : OEnumeradoHeredable
     {
         #region Constructor
         /// <summary>
         /// Constuctor de la clase
         /// </summary>
-        public OEnumModulosSistema(string nombre, string descripcion, int valor) :
+        public EnumModulosSistema(string nombre, string descripcion, int valor) :
             base(nombre, descripcion, valor)
         { }
         #endregion

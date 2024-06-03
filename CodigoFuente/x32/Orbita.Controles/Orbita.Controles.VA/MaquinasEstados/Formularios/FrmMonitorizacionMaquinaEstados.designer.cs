@@ -85,7 +85,7 @@ namespace Orbita.Controles.VA
             this.ctrlStateMachineDisplay.Name = "ctrlStateMachineDisplay";
             this.ctrlStateMachineDisplay.Size = new System.Drawing.Size(851, 357);
             this.ctrlStateMachineDisplay.TabIndex = 15;
-            this.ctrlStateMachineDisplay.OnMensajeMaquinaEstados += new OMensajeMaquinaEstadosLanzado(this.ctrlStateMachineDisplay_OnMensajeMaquinaEstadosRecibido);
+            this.ctrlStateMachineDisplay.OnMensajeMaquinaEstados += new MensajeMaquinaEstadosLanzado(this.ctrlStateMachineDisplay_OnMensajeMaquinaEstadosRecibido);
             // 
             // picMaquinaEstados
             // 

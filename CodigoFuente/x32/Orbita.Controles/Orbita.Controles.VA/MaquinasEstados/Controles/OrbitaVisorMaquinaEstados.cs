@@ -136,7 +136,7 @@ namespace Orbita.Controles.VA
         /// <summary>
         /// Refresca la visualización del estado actual
         /// </summary>
-        private void RefrescarEstadoActual(object sender, OEventStateChanged e)
+        private void RefrescarEstadoActual(object sender, EventStateChanged e)
         {
             try
             {
@@ -410,7 +410,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ProcMensajeMaquinaEstados(object sender, OEventMessageRaised e)
+        private void ProcMensajeMaquinaEstados(object sender, EventMessageRaised e)
         {
             try
             {
@@ -433,7 +433,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ProcEstadoCambiado(object sender, OEventStateChanged e)
+        private void ProcEstadoCambiado(object sender, EventStateChanged e)
         {
             try
             {
@@ -505,7 +505,7 @@ namespace Orbita.Controles.VA
         /// <param name="e"></param>
         [Category("Orbita")]
         [Description("Se dispara cuando se recibe un mensaje de la máquina de estados.")]
-        public event OMensajeMaquinaEstadosLanzado OnMensajeMaquinaEstados;
+        public event MensajeMaquinaEstadosLanzado OnMensajeMaquinaEstados;
 
         /// <summary>
         /// Evento que indica el cambio de estado en la máquina de estados para visualizarse en la monitorización
@@ -514,7 +514,7 @@ namespace Orbita.Controles.VA
         /// <param name="e"></param>
         [Category("Orbita")]
         [Description("Se dispara cuando se produce un cambio de estado en la máquina de estados.")]
-        public event OEstadoCambiado OnEstadoCambiado; 
+        public event EstadoCambiado OnEstadoCambiado; 
         #endregion
     }
 
@@ -804,13 +804,13 @@ namespace Orbita.Controles.VA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public OMensajeMaquinaEstadosLanzado OnMensajeMaquinaEstados;
+        public MensajeMaquinaEstadosLanzado OnMensajeMaquinaEstados;
         /// <summary>
         /// Evento que indica el cambio de estado en la máquina de estados para visualizarse en la monitorización
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public OEstadoCambiado OnEstadoCambiado; 
+        public EstadoCambiado OnEstadoCambiado; 
         #endregion
     }
 

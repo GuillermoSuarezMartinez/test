@@ -237,7 +237,7 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Tipo de hardware
         /// </summary>
-        OTipoHardware TipoHardware { get; }
+        TipoHardware TipoHardware { get; }
 
         /// <summary>
         /// Lista de todos los terminales de la tarjeta de IO
@@ -272,7 +272,7 @@ namespace Orbita.VAHardware
         #endregion
     }
 
-        /// <summary>
+    /// <summary>
     /// Clase que implementa las vistas del hardware
     /// </summary>
     public class OVistaHardware
@@ -331,7 +331,7 @@ namespace Orbita.VAHardware
     /// <summary>
     /// Tipo de hardware dispoinble
     /// </summary>
-    public enum OTipoHardware
+    public enum TipoHardware
     {
         /// <summary>
         /// Cámara: Dispositivo de adquisición de imágenes

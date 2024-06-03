@@ -231,7 +231,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(ModulosHardware.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -256,7 +256,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(ModulosHardware.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -295,7 +295,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(ModulosHardware.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -326,7 +326,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(ModulosHardware.Monitorizacion, this.Name, exception);
             }
         }
 
@@ -344,7 +344,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Monitorizacion, this.Name, exception);
+                OVALogsManager.Error(ModulosHardware.Monitorizacion, this.Name, exception);
             }
             this.timerRefresco.Enabled = true;
         }

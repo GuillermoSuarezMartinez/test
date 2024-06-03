@@ -181,7 +181,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Estado del cronómetro
         /// </summary>
-        public OEstadoCronometro EstadoCronometro;
+        public EstadoCronometro EstadoCronometro;
         #endregion
 
         #region Propiedad(es)
@@ -347,7 +347,7 @@ namespace Orbita.VAComun
             this._Nombre = nombre;
             this._Descripcion = descripcion;
             this._ContadorEjecuciones = 0;
-            this.EstadoCronometro = OEstadoCronometro.Detenido;
+            this.EstadoCronometro = EstadoCronometro.Detenido;
             this.MomentoUltimaEjecucion = DateTime.Now;
             this.CronometroEjecucion = new Stopwatch();
             this._DuracionTotalEjecucion = new TimeSpan();
@@ -361,7 +361,7 @@ namespace Orbita.VAComun
             this._Nombre = string.Empty;
             this._Descripcion = string.Empty;
             this._ContadorEjecuciones = 0;
-            this.EstadoCronometro = OEstadoCronometro.Detenido;
+            this.EstadoCronometro = EstadoCronometro.Detenido;
             this.MomentoUltimaEjecucion = DateTime.Now;
             this.CronometroEjecucion = new Stopwatch();
             this._DuracionTotalEjecucion = new TimeSpan();
@@ -374,13 +374,13 @@ namespace Orbita.VAComun
         /// </summary>
         public void Start()
         {
-            if (this.EstadoCronometro == OEstadoCronometro.Detenido)
+            if (this.EstadoCronometro == EstadoCronometro.Detenido)
             {
                 this.ContadorEjecuciones++;
                 this._MomentoUltimaEjecucion = DateTime.Now;
                 this.CronometroEjecucion.Reset();
                 this.CronometroEjecucion.Start();
-                this.EstadoCronometro = OEstadoCronometro.Iniciado;
+                this.EstadoCronometro = EstadoCronometro.Iniciado;
             }
         }
         /// <summary>
@@ -388,12 +388,12 @@ namespace Orbita.VAComun
         /// </summary>
         public void StartPaused()
         {
-            if (this.EstadoCronometro == OEstadoCronometro.Detenido)
+            if (this.EstadoCronometro == EstadoCronometro.Detenido)
             {
                 this.ContadorEjecuciones++;
                 this._MomentoUltimaEjecucion = DateTime.Now;
                 this.CronometroEjecucion.Reset();
-                this.EstadoCronometro = OEstadoCronometro.Pausado;
+                this.EstadoCronometro = EstadoCronometro.Pausado;
             }
         }
         /// <summary>
@@ -401,11 +401,11 @@ namespace Orbita.VAComun
         /// </summary>
         public void Stop()
         {
-            if ((this.EstadoCronometro == OEstadoCronometro.Iniciado) || (this.EstadoCronometro == OEstadoCronometro.Pausado))
+            if ((this.EstadoCronometro == EstadoCronometro.Iniciado) || (this.EstadoCronometro == EstadoCronometro.Pausado))
             {
                 this.CronometroEjecucion.Stop();
                 this._DuracionTotalEjecucion += this.DuracionUltimaEjecucion;
-                this.EstadoCronometro = OEstadoCronometro.Detenido;
+                this.EstadoCronometro = EstadoCronometro.Detenido;
             }
         }
         /// <summary>
@@ -413,10 +413,10 @@ namespace Orbita.VAComun
         /// </summary>
         public void Pause()
         {
-            if (this.EstadoCronometro == OEstadoCronometro.Iniciado)
+            if (this.EstadoCronometro == EstadoCronometro.Iniciado)
             {
                 this.CronometroEjecucion.Stop();
-                this.EstadoCronometro = OEstadoCronometro.Pausado;
+                this.EstadoCronometro = EstadoCronometro.Pausado;
             }
         }
         /// <summary>
@@ -424,10 +424,10 @@ namespace Orbita.VAComun
         /// </summary>
         public void Resume()
         {
-            if (this.EstadoCronometro == OEstadoCronometro.Pausado)
+            if (this.EstadoCronometro == EstadoCronometro.Pausado)
             {
                 this.CronometroEjecucion.Start();
-                this.EstadoCronometro = OEstadoCronometro.Iniciado;
+                this.EstadoCronometro = EstadoCronometro.Iniciado;
             }
         }
 
@@ -437,7 +437,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Enumerado que describe el esatado de un cronómetro
     /// </summary>
-    public enum OEstadoCronometro
+    public enum EstadoCronometro
     {
         /// <summary>
         /// Detenido

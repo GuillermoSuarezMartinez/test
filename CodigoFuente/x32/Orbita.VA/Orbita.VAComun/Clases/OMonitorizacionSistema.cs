@@ -70,24 +70,24 @@ namespace Orbita.VAComun
         /// Añade una nueva monitorización al runtime
         /// </summary>
         /// <param name="tipoMonitorizacion">Tipo de Monitorización a cargar</param>
-        public static void NuevaMonitorizacion(OTipoMonitorizacion tipoMonitorizacion)
+        public static void NuevaMonitorizacion(TipoMonitorizacion tipoMonitorizacion)
         {
             OMonitorizacionSistemaBase monitorizacion;
 
             switch (tipoMonitorizacion)
             {
-                case OTipoMonitorizacion.MonitorizacionProcesos:
+                case TipoMonitorizacion.MonitorizacionProcesos:
                 default:
-                    monitorizacion = new OMonitorizacionProcesos();
+                    monitorizacion = new MonitorizacionProcesos();
                     break;
-                case OTipoMonitorizacion.MonitorizacionCpuRam:
-                    monitorizacion = new OMonitorizacionCpuRam();
+                case TipoMonitorizacion.MonitorizacionCpuRam:
+                    monitorizacion = new MonitorizacionCpuRam();
                     break;
-                case OTipoMonitorizacion.MonitorizacionDiscos:
-                    monitorizacion = new OMonitorizacionDiscos();
+                case TipoMonitorizacion.MonitorizacionDiscos:
+                    monitorizacion = new MonitorizacionDiscos();
                     break;
-                case OTipoMonitorizacion.MonitorizacionConexiones:
-                    monitorizacion = new OMonitorizacionConexiones();
+                case TipoMonitorizacion.MonitorizacionConexiones:
+                    monitorizacion = new MonitorizacionConexiones();
                     break;
             }
 
@@ -119,7 +119,7 @@ namespace Orbita.VAComun
 
             foreach (string info in listaLogs)
             {
-                OVALogsManager.Info(OModulosSistema.Monitorizacion, "MonitorizaciónSistema", info);
+                OVALogsManager.Info(ModulosSistema.Monitorizacion, "MonitorizaciónSistema", info);
             }
         }
         #endregion
@@ -170,7 +170,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Clase utilizada para monitorizar los procesos
     /// </summary>
-    public class OMonitorizacionProcesos: OMonitorizacionSistemaBase
+    internal class MonitorizacionProcesos : OMonitorizacionSistemaBase
     {
         #region Estructuras internas
         /// <summary>
@@ -272,7 +272,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OMonitorizacionProcesos()
+        public MonitorizacionProcesos()
         {
             this.ListaProcesos = new Dictionary<int, InformacionProceso>();
         }
@@ -346,7 +346,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Clase utilizada para monitorizar la CPU y la RAM
     /// </summary>
-    public class OMonitorizacionCpuRam : OMonitorizacionSistemaBase
+    internal class MonitorizacionCpuRam : OMonitorizacionSistemaBase
     {
         #region Atributo(s)
         /// <summary>
@@ -374,7 +374,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OMonitorizacionCpuRam()
+        public MonitorizacionCpuRam()
         {
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             ramCounter = new PerformanceCounter("Memory", "Available MBytes");
@@ -417,7 +417,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Clase utilizada para monitorizar los discos duros
     /// </summary>
-    public class OMonitorizacionDiscos: OMonitorizacionSistemaBase
+    internal class MonitorizacionDiscos : OMonitorizacionSistemaBase
     {
         #region Estructuras internas
         /// <summary>
@@ -469,7 +469,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OMonitorizacionDiscos()
+        public MonitorizacionDiscos()
         {
             this.ListaInfoDisco = new Dictionary<string, InfoDisco>();
         }
@@ -525,7 +525,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Clase utilizada para monitorizar las conexiones TCP/IP
     /// </summary>
-    public class OMonitorizacionConexiones : OMonitorizacionSistemaBase
+    internal class MonitorizacionConexiones : OMonitorizacionSistemaBase
     {
         #region Atributo(s)
         /// <summary>
@@ -538,7 +538,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OMonitorizacionConexiones()
+        public MonitorizacionConexiones()
         {
             this.ListaInfoConexiones = new List<string>();
         }
@@ -580,13 +580,13 @@ namespace Orbita.VAComun
     /// <summary>
     /// Monitorización de los objetos en memoria
     /// </summary>
-    public class OMonitorizacionObjetosMemoria : OMonitorizacionSistemaBase
+    internal class MonitorizacionObjetosMemoria : OMonitorizacionSistemaBase
     {
         #region Constructor
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OMonitorizacionObjetosMemoria()
+        public MonitorizacionObjetosMemoria()
         {
         }
         #endregion
@@ -623,7 +623,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Enumerado que describe el tiepo de monitorización
     /// </summary>
-    public enum OTipoMonitorizacion
+    public enum TipoMonitorizacion
     {
         /// <summary>
         /// Monitorización de procesos

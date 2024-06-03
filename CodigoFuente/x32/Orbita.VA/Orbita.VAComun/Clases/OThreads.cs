@@ -155,7 +155,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosSistema.Threads, "SincronizarConThreadPrincipal", exception);
+                OVALogsManager.Info(ModulosSistema.Threads, "SincronizarConThreadPrincipal", exception);
             }
         }
         #endregion
@@ -322,7 +322,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosSistema.Threads, "LanzarEventoEjecucion", exception);
+                OVALogsManager.Info(ModulosSistema.Threads, "LanzarEventoEjecucion", exception);
             }
         }
 
@@ -347,7 +347,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosSistema.Threads, "LanzarEventoFinEjecucion", exception);
+                OVALogsManager.Info(ModulosSistema.Threads, "LanzarEventoFinEjecucion", exception);
             }
         }
         #endregion
@@ -399,7 +399,7 @@ namespace Orbita.VAComun
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Error(OModulosSistema.Threads, "Stop", exception);
+                    OVALogsManager.Error(ModulosSistema.Threads, "Stop", exception);
                 }
             }
         }
@@ -474,7 +474,7 @@ namespace Orbita.VAComun
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Info(OModulosSistema.Threads, "Wait", exception);
+                    OVALogsManager.Info(ModulosSistema.Threads, "Wait", exception);
                 }
             }
 
@@ -514,7 +514,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Creación de la suscripción al evento de ejecución
         /// </summary>
-        public void CrearSuscripcionRun(OThreadRun threadRun, bool ejecutarEnThread)
+        public void CrearSuscripcionRun(ThreadRun threadRun, bool ejecutarEnThread)
         {
             this.OnEjecucion = threadRun; // Este método no puede ser nunca múltiple
             this.EjecutarRunEnThread = ejecutarEnThread;
@@ -691,7 +691,7 @@ namespace Orbita.VAComun
                     }
                     catch (Exception exception)
                     {
-                        OVALogsManager.Info(OModulosSistema.Threads, "EjecucionInterna: " + this._Codigo, exception);
+                        OVALogsManager.Info(ModulosSistema.Threads, "EjecucionInterna: " + this._Codigo, exception);
                     }
                     Thread.Sleep(this._TiempoSleep);
                 }
@@ -711,7 +711,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Delegado que de la ejecución del thread
         /// </summary>
-        protected OThreadRun OnEjecucion;
+        protected ThreadRun OnEjecucion;
 
         /// <summary>
         /// Delegado que de la ejecución del fin del thread
@@ -808,11 +808,11 @@ namespace Orbita.VAComun
         /// <summary>
         /// Posibles estados del productor / consumidor
         /// </summary>
-        private OEstadoProductorConsumidor _Estado;
+        private EstadoProductorConsumidor _Estado;
         /// <summary>
         /// Posibles estados del productor / consumidor
         /// </summary>
-	    public OEstadoProductorConsumidor Estado
+	    public EstadoProductorConsumidor Estado
 	    {
 		    get { return _Estado;}
 		    set { _Estado = value;}
@@ -867,7 +867,7 @@ namespace Orbita.VAComun
             this._Total = 0;
             this.CapacidadMaxima = capacidadMaxima;
             this.LockObject = new object();
-            this.Estado = OEstadoProductorConsumidor.Detenido;
+            this.Estado = EstadoProductorConsumidor.Detenido;
             this.Thread = new OThread(codigo, tiempoSleep, threadPriority);
 
             this.CrearSuscripcionConsumidor(EjecucionConsumidor, true);
@@ -902,7 +902,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosSistema.Threads, "LanzarEventoConsumidor", exception);
+                OVALogsManager.Info(ModulosSistema.Threads, "LanzarEventoConsumidor", exception);
             }
         }
 
@@ -934,7 +934,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosSistema.Threads, "LanzarEventoProductor", exception);
+                OVALogsManager.Info(ModulosSistema.Threads, "LanzarEventoProductor", exception);
             }
         }
 
@@ -963,7 +963,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosSistema.Threads, "LanzarEventoMonitorizacion", exception);
+                OVALogsManager.Info(ModulosSistema.Threads, "LanzarEventoMonitorizacion", exception);
             }
         }
         #endregion
@@ -976,7 +976,7 @@ namespace Orbita.VAComun
         public bool Encolar(T valor)
         {
             bool resultado = false;
-            if ((this.Estado == OEstadoProductorConsumidor.EnEjecucion) && (valor is T))
+            if ((this.Estado == EstadoProductorConsumidor.EnEjecucion) && (valor is T))
             {
                 lock (this.LockObject)
                 {
@@ -1000,7 +1000,7 @@ namespace Orbita.VAComun
             bool resultado = false;
             valor = default(T);
 
-            if (this.Estado == OEstadoProductorConsumidor.EnEjecucion)
+            if (this.Estado == EstadoProductorConsumidor.EnEjecucion)
             {
                 lock (this.LockObject)
                 {
@@ -1020,9 +1020,9 @@ namespace Orbita.VAComun
         /// </summary>
         public void Start()
         {
-            if (this.Estado == OEstadoProductorConsumidor.Detenido)
+            if (this.Estado == EstadoProductorConsumidor.Detenido)
             {
-                this.Estado = OEstadoProductorConsumidor.EnEjecucion;
+                this.Estado = EstadoProductorConsumidor.EnEjecucion;
                 this._Total = 0;
                 this.Thread.Start();
             }
@@ -1033,9 +1033,9 @@ namespace Orbita.VAComun
         /// </summary>
         public void Stop()
         {
-            if (this.Estado == OEstadoProductorConsumidor.EnEjecucion)
+            if (this.Estado == EstadoProductorConsumidor.EnEjecucion)
             {
-                this.Estado = OEstadoProductorConsumidor.Deteniendo;
+                this.Estado = EstadoProductorConsumidor.Deteniendo;
             }        
         }
 
@@ -1097,7 +1097,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Creación de la suscripción al evento de monitorización del productor / consumidor
         /// </summary>
-        public void CrearSuscripcionMonitorizacion(OThreadRun monitorizacionRun, bool ejecutarEnThread)
+        public void CrearSuscripcionMonitorizacion(ThreadRun monitorizacionRun, bool ejecutarEnThread)
         {
             this.OnMonitorizacion = monitorizacionRun; // Este método no puede ser nunca múltiple
             this.EjecutarMonitorizacionEnThread = ejecutarEnThread;
@@ -1158,7 +1158,7 @@ namespace Orbita.VAComun
             finalize = false;
 
             // Comprobación del estado de la cola
-            if ((this.Estado == OEstadoProductorConsumidor.Deteniendo) && (this.Count == 0))
+            if ((this.Estado == EstadoProductorConsumidor.Deteniendo) && (this.Count == 0))
 	        {
                 finalize = true;
 	        }
@@ -1191,7 +1191,7 @@ namespace Orbita.VAComun
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Info(OModulosSistema.Threads, "EjecucionProductor", exception);
+                    OVALogsManager.Info(ModulosSistema.Threads, "EjecucionProductor", exception);
                 }
 
                 // Llamada al consumidor
@@ -1211,14 +1211,14 @@ namespace Orbita.VAComun
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Info(OModulosSistema.Threads, "EjecucionConsumidor", exception);
+                    OVALogsManager.Info(ModulosSistema.Threads, "EjecucionConsumidor", exception);
                 }
             }
 
             // Actualicamos el estado del productor / consumidor
             if (finalize)
             {
-                this.Estado = OEstadoProductorConsumidor.Detenido;
+                this.Estado = EstadoProductorConsumidor.Detenido;
             }
         }
         #endregion
@@ -1245,19 +1245,19 @@ namespace Orbita.VAComun
         /// <summary>
         /// Delegado que de la ejecución del monitor del productor / consumidor
         /// </summary>
-        protected OThreadRun OnMonitorizacion;
+        protected ThreadRun OnMonitorizacion;
         #endregion
     }
 
     /// <summary>
     /// Delegado que de la ejecución del thread
     /// </summary>
-    public delegate void OThreadRun(ref bool finalize);
+    public delegate void ThreadRun(ref bool finalize);
 
     /// <summary>
     /// Enumerado de los posibles estados del productor / consumidor
     /// </summary>
-    public enum OEstadoProductorConsumidor
+    public enum EstadoProductorConsumidor
     {
         /// <summary>
         /// Estado inicial del thread

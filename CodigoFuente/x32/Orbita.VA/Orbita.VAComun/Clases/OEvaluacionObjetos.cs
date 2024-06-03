@@ -213,7 +213,7 @@ namespace Orbita.VAComun
                 if (!this.Valido)
                 {
                     // Registro
-                    OVALogsManager.Debug(OModulosSistema.Comun, "Obtener Valor de forma segura", "No admite el valor " + ORobusto.ToString(value));
+                    OVALogsManager.Debug(ModulosSistema.Comun, "Obtener Valor de forma segura", "No admite el valor " + ORobusto.ToString(value));
                 }
             }
         }

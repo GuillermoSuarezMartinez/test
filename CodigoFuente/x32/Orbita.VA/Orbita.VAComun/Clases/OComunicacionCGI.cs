@@ -149,7 +149,7 @@ namespace Orbita.VAComun
                 catch (Exception exception)
                 {
                     resultado = TipoContenidoRespuestaCGI.Desconocido;
-                    OVALogsManager.Error(OModulosSistema.Comun, "ExtraeTipoContenidoRespuestaComandoCGI", exception);
+                    OVALogsManager.Error(ModulosSistema.Comun, "ExtraeTipoContenidoRespuestaComandoCGI", exception);
                 }
 
                 return resultado;
@@ -177,7 +177,7 @@ namespace Orbita.VAComun
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Error(OModulosSistema.Comun, "ExtraeLimiteRespuestaComandoCGI", exception);
+                    OVALogsManager.Error(ModulosSistema.Comun, "ExtraeLimiteRespuestaComandoCGI", exception);
                 }
 
                 return resultado;
@@ -257,7 +257,7 @@ namespace Orbita.VAComun
                 this.Request = null;
                 this.Response = null;
                 this.Stream = null;
-                OVALogsManager.Info(OModulosSistema.Comun, "StartComandoCGI", exception);
+                OVALogsManager.Info(ModulosSistema.Comun, "StartComandoCGI", exception);
             }
 
             this.Conectado = resultado;
@@ -294,7 +294,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Comun, "StopComandoCGI", exception);
+                OVALogsManager.Error(ModulosSistema.Comun, "StopComandoCGI", exception);
             }
 
             return resultado;
@@ -383,7 +383,7 @@ namespace Orbita.VAComun
             {
                 resultado = false;
                 respuesta = string.Empty;
-                OVALogsManager.Info(OModulosSistema.Comun, "EjecucionComandoCGITexto", exception);
+                OVALogsManager.Info(ModulosSistema.Comun, "EjecucionComandoCGITexto", exception);
             }
 
             return resultado;

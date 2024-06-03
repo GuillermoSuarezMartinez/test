@@ -31,7 +31,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Comun, "MatarProceso", exception);
+                OVALogsManager.Error(ModulosSistema.Comun, "MatarProceso", exception);
             }
 
             return resultado;
@@ -84,7 +84,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Comun, "MatarProceso", exception);
+                OVALogsManager.Error(ModulosSistema.Comun, "MatarProceso", exception);
             }
 
             return resultado;
@@ -110,7 +110,7 @@ namespace Orbita.VAComun
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.Comun, "MatarProceso", exception);
+                OVALogsManager.Error(ModulosSistema.Comun, "MatarProceso", exception);
             }
 
             return resultado;

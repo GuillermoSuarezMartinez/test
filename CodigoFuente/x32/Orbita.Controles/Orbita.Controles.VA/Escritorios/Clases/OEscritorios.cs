@@ -79,7 +79,7 @@ namespace Orbita.Controles.VA
                 }
                 catch (FileNotFoundException exception)
                 {
-                    OVALogsManager.Error(OModulosSistema.Sistema, "Constructor", exception);
+                    OVALogsManager.Error(ModulosSistema.Sistema, "Constructor", exception);
 
                     OpcionesEscritorios = new OpcionesEscritorios();
                     OpcionesEscritorios.Guardar();
@@ -333,7 +333,7 @@ namespace Orbita.Controles.VA
                     }
                     catch (Exception exception)
                     {
-                        OVALogsManager.Error(OModulosSistema.Escritorios, "Carga del formulario por reflexión", exception, String.Format("Ensamblado: {0}, Clase: {1}", posicionFormulario.Ensamblado, posicionFormulario.Clase));
+                        OVALogsManager.Error(ModulosSistema.Escritorios, "Carga del formulario por reflexión", exception, String.Format("Ensamblado: {0}, Clase: {1}", posicionFormulario.Ensamblado, posicionFormulario.Clase));
                     }
                 }
             }

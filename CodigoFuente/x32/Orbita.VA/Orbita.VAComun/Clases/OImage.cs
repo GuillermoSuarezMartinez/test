@@ -52,11 +52,11 @@ namespace Orbita.VAComun
         /// <summary>
         /// Tipo de imagen que almacena
         /// </summary>
-        private OTipoImagen _TipoImagen;
+        private TipoImagen _TipoImagen;
         /// <summary>
         /// Tipo de imagen que almacena
         /// </summary>
-        public OTipoImagen TipoImagen
+        public TipoImagen TipoImagen
         {
             get { return _TipoImagen; }
             set { _TipoImagen = value; }
@@ -107,7 +107,7 @@ namespace Orbita.VAComun
             base(codigo)
         {
             this._Image = null;
-            this._TipoImagen = OTipoImagen.Bitmap; // Valor por defecto
+            this._TipoImagen = TipoImagen.Bitmap; // Valor por defecto
             this.MomentoCreacion = DateTime.Now;
         }
         /// <summary>
@@ -126,7 +126,7 @@ namespace Orbita.VAComun
             base(codigo)
         {
             this._Image = imagen;
-            this._TipoImagen = OTipoImagen.Bitmap; // Valor por defecto
+            this._TipoImagen = TipoImagen.Bitmap; // Valor por defecto
             this.MomentoCreacion = DateTime.Now;
         }
         #endregion
@@ -304,41 +304,41 @@ namespace Orbita.VAComun
         /// <param name="width">Ancho de la imagen resultado</param>
         /// <param name="height">Alto de la imagen resultado</param>
         /// <returns>Imagen reducida</returns>
-        public OImage EscalarImagen(OImage img, OResolucionesImagenEstandar resolucion)
+        public OImage EscalarImagen(OImage img, ResolucionesImagenEstandar resolucion)
         {
             int width;
             int height;
             switch (resolucion)
             {
-                case OResolucionesImagenEstandar.VGA:
+                case ResolucionesImagenEstandar.VGA:
                     width = 640;
                     height = 480;
                     break;
-                case OResolucionesImagenEstandar.SVGA:
+                case ResolucionesImagenEstandar.SVGA:
                     width = 800;
                     height = 600;
                     break;
-                case OResolucionesImagenEstandar.Mpx1:
+                case ResolucionesImagenEstandar.Mpx1:
                     width = 1280;
                     height = 800;
                     break;
-                case OResolucionesImagenEstandar.Mpx1_3:
+                case ResolucionesImagenEstandar.Mpx1_3:
                     width = 1440;
                     height = 900;
                     break;
-                case OResolucionesImagenEstandar.Mpx2:
+                case ResolucionesImagenEstandar.Mpx2:
                     width = 1600;
                     height = 1200;
                     break;
-                case OResolucionesImagenEstandar.Mpx3:
+                case ResolucionesImagenEstandar.Mpx3:
                     width = 2048;
                     height = 1536;
                     break;
-                case OResolucionesImagenEstandar.Mpx4:
+                case ResolucionesImagenEstandar.Mpx4:
                     width = 640;
                     height = 480;
                     break;
-                case OResolucionesImagenEstandar.Mpx5:
+                case ResolucionesImagenEstandar.Mpx5:
                     width = 2560;
                     height = 1920;
                     break;
@@ -394,11 +394,11 @@ namespace Orbita.VAComun
         /// <summary>
         /// Tipo de imagen que almacena
         /// </summary>
-        private OTipoImagen _TipoGrafico;
+        private TipoImagen _TipoGrafico;
         /// <summary>
         /// Tipo de imagen que almacena
         /// </summary>
-        public OTipoImagen TipoGrafico
+        public TipoImagen TipoGrafico
         {
             get { return _TipoGrafico; }
             set { _TipoGrafico = value; }
@@ -412,7 +412,7 @@ namespace Orbita.VAComun
         public OGrafico(object grafico)
         {
             this._Grafico = grafico;
-            this._TipoGrafico = OTipoImagen.Bitmap; // Valor por defecto
+            this._TipoGrafico = TipoImagen.Bitmap; // Valor por defecto
         }
         /// <summary>
         /// Constructor de la clase
@@ -420,7 +420,7 @@ namespace Orbita.VAComun
         public OGrafico()
         {
             this._Grafico = null;
-            this._TipoGrafico = OTipoImagen.Bitmap; // Valor por defecto
+            this._TipoGrafico = TipoImagen.Bitmap; // Valor por defecto
         }
         /// <summary>
         /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
@@ -435,7 +435,7 @@ namespace Orbita.VAComun
             }
 
             this._Grafico = null;
-            this._TipoGrafico = OTipoImagen.Bitmap; // Valor por defecto
+            this._TipoGrafico = TipoImagen.Bitmap; // Valor por defecto
         }
         #endregion
 
@@ -567,7 +567,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Enumerado de los formatos de imagen soportados por el sistema
     /// </summary>
-    public enum OTipoImagen
+    public enum TipoImagen
     {
         /// <summary>
         /// Bitmap de Windows
@@ -581,7 +581,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Resoluciones frecuentes de imagenes
     /// </summary>
-    public enum OResolucionesImagenEstandar
+    public enum ResolucionesImagenEstandar
     {
         /// <summary>
         /// VGA

@@ -86,7 +86,7 @@ namespace Orbita.VAComun
         public OImagenBitmap(string codigo)
             : base(codigo)
         {
-            this.TipoImagen = OTipoImagen.Bitmap;
+            this.TipoImagen = TipoImagen.Bitmap;
         }
         /// <summary>
         /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
@@ -103,7 +103,7 @@ namespace Orbita.VAComun
         public OImagenBitmap(string codigo, object imagen)
             : base(codigo, imagen)
         {
-            this.TipoImagen = OTipoImagen.Bitmap;
+            this.TipoImagen = TipoImagen.Bitmap;
         }
         #endregion
 

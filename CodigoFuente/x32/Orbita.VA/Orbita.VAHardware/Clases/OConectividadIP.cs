@@ -74,7 +74,7 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Estado de la conexión
         /// </summary>
-        public override OEstadoConexion EstadoConexion
+        public override EstadoConexion EstadoConexion
         {
             get { return base.EstadoConexion; }
             set
@@ -86,8 +86,8 @@ namespace Orbita.VAHardware
 
                 switch (value)
                 {
-                    case OEstadoConexion.Reconectado:
-                    case OEstadoConexion.Conectado:
+                    case EstadoConexion.Reconectado:
+                    case EstadoConexion.Conectado:
                         // Actualizo el tiempo sin respuesta de la cámara
                         this.CronometroTiempoSinRespuestaCamara.Stop();
                         this.CronometroTiempoSinRespuestaCamara.Reset();
@@ -161,7 +161,7 @@ namespace Orbita.VAHardware
             // Lanzamos el evento de error de conexión
             if (!resultado)
             {
-                this.EstadoConexion = OEstadoConexion.ErrorConexion;
+                this.EstadoConexion = EstadoConexion.ErrorConexion;
             }
 
             return resultado;
@@ -188,7 +188,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, "Conectividad " + this.IP.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, "Conectividad " + this.IP.ToString(), exception);
             }
             this.TimerComprobacionConexion.Start();
         }
@@ -206,20 +206,20 @@ namespace Orbita.VAHardware
                 {
                     if (e.Reply.Status == IPStatus.Success)
                     {
-                        if (this.EstadoConexion == OEstadoConexion.Reconectando)
+                        if (this.EstadoConexion == EstadoConexion.Reconectando)
                         {
-                            this.EstadoConexion = OEstadoConexion.Reconectado;
+                            this.EstadoConexion = EstadoConexion.Reconectado;
                         }
                         else
                         {
-                            this.EstadoConexion = OEstadoConexion.Conectado;
+                            this.EstadoConexion = EstadoConexion.Conectado;
                         }
                     }
                     else
                     {
-                        if (this.EstadoConexion == OEstadoConexion.Conectado)
+                        if (this.EstadoConexion == EstadoConexion.Conectado)
                         {
-                            this.EstadoConexion = OEstadoConexion.ErrorConexion;
+                            this.EstadoConexion = EstadoConexion.ErrorConexion;
                         }
                     }
 
@@ -228,7 +228,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, "Conectividad " + this.IP.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, "Conectividad " + this.IP.ToString(), exception);
             }
         }
         #endregion

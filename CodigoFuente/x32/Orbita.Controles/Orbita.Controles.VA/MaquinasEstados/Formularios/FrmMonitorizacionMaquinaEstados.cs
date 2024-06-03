@@ -83,7 +83,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ctrlStateMachineDisplay_OnMensajeMaquinaEstadosRecibido(object sender, OEventMessageRaised e)
+        private void ctrlStateMachineDisplay_OnMensajeMaquinaEstadosRecibido(object sender, EventMessageRaised e)
         {
             try
             {
@@ -108,19 +108,19 @@ namespace Orbita.Controles.VA
                 item.Tag = null;
                 switch (e.Tipo)
                 {
-                    case OTipoMensajeMaquinaEstados.CambioEstado:
+                    case TipoMensajeMaquinaEstados.CambioEstado:
                         item.ImageKey = "ImgNuevoEstado24";
                         break;
-                    case OTipoMensajeMaquinaEstados.CondicionesTransicion:
+                    case TipoMensajeMaquinaEstados.CondicionesTransicion:
                         item.ImageKey = "ImgNuevaTransicion24";
                         break;
-                    case OTipoMensajeMaquinaEstados.Informacion:
+                    case TipoMensajeMaquinaEstados.Informacion:
                         item.ImageKey = "ImgInfo24";
                         break;
-                    case OTipoMensajeMaquinaEstados.Warning:
+                    case TipoMensajeMaquinaEstados.Warning:
                         item.ImageKey = "ImgWarning24";
                         break;
-                    case OTipoMensajeMaquinaEstados.Parada:
+                    case TipoMensajeMaquinaEstados.Parada:
                         item.ImageKey = "ImgStop24";
                         break;
                 }

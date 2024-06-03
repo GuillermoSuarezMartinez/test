@@ -29,9 +29,9 @@ namespace Orbita.VAGeneradorEscenarios
         {
             bool resultado = false;
 
-            if (this.EstadoSistema == OEstadoSistema.Detenido)
+            if (this.EstadoSistema == EstadoSistema.Detenido)
             {
-                this.EstadoSistema = OEstadoSistema.Arrancando;
+                this.EstadoSistema = EstadoSistema.Arrancando;
                 resultado = true;
 
                 // Fase 1: Se obtiene la conexión con la BBDD y se inicia el registro de eventos
@@ -43,7 +43,7 @@ namespace Orbita.VAGeneradorEscenarios
                         MensajeInfoArranqueSistema("Creando log de eventos");
                         OVALogsManager.Constructor(this.OnShowLogMessage, this.OnShowLogException);
                         OVALogsManager.Inicializar();
-                        OVALogsManager.Info(OModulosSistema.Sistema, "IniciarSistema", "Inicio del sistema");
+                        OVALogsManager.Info(ModulosSistema.Sistema, "IniciarSistema", "Inicio del sistema");
 
                         // Conexión con la base de datos
                         if (this.Configuracion.UtilizaBaseDeDatos)
@@ -57,7 +57,7 @@ namespace Orbita.VAGeneradorEscenarios
                     }
                     catch (Exception exception)
                     {
-                        OVALogsManager.Error(OModulosSistema.Sistema, "IniciarSistema", exception);
+                        OVALogsManager.Error(ModulosSistema.Sistema, "IniciarSistema", exception);
                         resultado = false;
                     }
                 }
@@ -79,11 +79,11 @@ namespace Orbita.VAGeneradorEscenarios
 
                     // Ocultamos el formulario Splash
                     MensajeInfoArranqueSistema("Inicio finalizado con éxito");
-                    OVALogsManager.Info(OModulosSistema.Sistema, "IniciarSistema", "Inicio finalizado con éxito");
+                    OVALogsManager.Info(ModulosSistema.Sistema, "IniciarSistema", "Inicio finalizado con éxito");
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Error(OModulosSistema.Sistema, "IniciarSistema", "Error: " + exception.ToString());
+                    OVALogsManager.Error(ModulosSistema.Sistema, "IniciarSistema", "Error: " + exception.ToString());
                     resultado = false;
                 }
             }
@@ -91,11 +91,11 @@ namespace Orbita.VAGeneradorEscenarios
             // Cambiamos el estado del sistema según el resultado del arranque
             if (resultado)
             {
-                this.EstadoSistema = OEstadoSistema.Iniciado;
+                this.EstadoSistema = EstadoSistema.Iniciado;
             }
             else
             {
-                this.EstadoSistema = OEstadoSistema.Detenido;
+                this.EstadoSistema = EstadoSistema.Detenido;
             }
         }
         /// <summary>
@@ -105,12 +105,12 @@ namespace Orbita.VAGeneradorEscenarios
         {
             bool resultado = false;
 
-            if (this.EstadoSistema == OEstadoSistema.Iniciado)
+            if (this.EstadoSistema == EstadoSistema.Iniciado)
             {
-                this.EstadoSistema = OEstadoSistema.Deteniendo;
+                this.EstadoSistema = EstadoSistema.Deteniendo;
                 resultado = true;
 
-                OVALogsManager.Info(OModulosSistema.Sistema, "PararSistema", "Paro del sistema");
+                OVALogsManager.Info(ModulosSistema.Sistema, "PararSistema", "Paro del sistema");
             }
 
             return resultado;
@@ -129,7 +129,7 @@ namespace Orbita.VAGeneradorEscenarios
                     OBaseDatosManager.Destructor();
 
                     // Finalización del log de eventos
-                    OVALogsManager.Info(OModulosSistema.Sistema, "PararSistema", "Paro del sistema finalizado con éxito");
+                    OVALogsManager.Info(ModulosSistema.Sistema, "PararSistema", "Paro del sistema finalizado con éxito");
                     OVALogsManager.Finalizar();
                     OVALogsManager.Destructor();
                 }
@@ -141,11 +141,11 @@ namespace Orbita.VAGeneradorEscenarios
                 // Cambiamos el estado del sistema según el resultado del arranque
                 if (resultado)
                 {
-                    this.EstadoSistema = OEstadoSistema.Detenido;
+                    this.EstadoSistema = EstadoSistema.Detenido;
                 }
                 else
                 {
-                    this.EstadoSistema = OEstadoSistema.Iniciado;
+                    this.EstadoSistema = EstadoSistema.Iniciado;
                 }
             }
         }

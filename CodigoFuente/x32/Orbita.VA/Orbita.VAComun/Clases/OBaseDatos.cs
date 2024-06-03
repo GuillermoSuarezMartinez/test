@@ -139,7 +139,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Extrae la información de conexión con la base de datos y comprueba que existe comunicación
         /// </summary>
-        public static void NuevaBaseDatos(OEnumOrigenBaseDatos enumOrigenBaseDatos)
+        public static void NuevaBaseDatos(EnumOrigenBaseDatos enumOrigenBaseDatos)
         {
             OBaseDatos baseDatos = new OBaseDatos(enumOrigenBaseDatos);
             baseDatos.CompruebaAccesoBasesDatos();
@@ -150,7 +150,7 @@ namespace Orbita.VAComun
         /// <summary>
         ///  Acceso a la base de datos SQL Server
         /// </summary>
-        public static OSqlServer SQLServer(OEnumOrigenBaseDatos origenBaseDatos)
+        public static OSqlServer SQLServer(EnumOrigenBaseDatos origenBaseDatos)
         {
             OBaseDatos baseDatos = ListaBaseDatos.Find(delegate(OBaseDatos bd) { return bd.Origen == origenBaseDatos; });
             if (baseDatos != null)
@@ -164,7 +164,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Obtiene la cadena de conexión a la base de datos
         /// </summary>
-        public static string ObtenerConnectionString(OEnumOrigenBaseDatos origenBaseDatos)
+        public static string ObtenerConnectionString(EnumOrigenBaseDatos origenBaseDatos)
         {
             OBaseDatos basedatos = ListaBaseDatos.Find(delegate(OBaseDatos bd) { return bd.Origen == origenBaseDatos; });
             return basedatos.ObtenerConnectionString();
@@ -181,7 +181,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Origen de la base de datos
         /// </summary>
-        public OEnumOrigenBaseDatos Origen;
+        public EnumOrigenBaseDatos Origen;
 
         /// <summary>
         /// Información de la configuración de la base de datos
@@ -208,7 +208,7 @@ namespace Orbita.VAComun
         /// Constructor de la clase
         /// </summary>
         /// <param name="origen"></param>
-        public OBaseDatos(OEnumOrigenBaseDatos origen)
+        public OBaseDatos(EnumOrigenBaseDatos origen)
         {
             this.Origen = origen;
 
@@ -327,7 +327,7 @@ namespace Orbita.VAComun
         /// El tamaño de esta base de datos es bajo y su velocidad de acceso alta.
         /// El mantenimiento de esta BBDD se basa en realizar copias de seguridad.
         /// </summary>
-        public static OEnumOrigenBaseDatos Parametrizacion = new OEnumOrigenBaseDatos("Parametrización", "Base de datos de parametrización", 1);
+        public static EnumOrigenBaseDatos Parametrizacion = new EnumOrigenBaseDatos("Parametrización", "Base de datos de parametrización", 1);
         /// <summary>
         /// Base de datos de almacenamiento del histórico de inspecciones. 
         /// En esta BBDD está definida toda la información que genera la ejecución del sistema.
@@ -335,20 +335,20 @@ namespace Orbita.VAComun
         /// El tamaño de esta base de datos es alto y su velocidad de acceso baja.
         /// El mantenimiento de esta BBDD se basa en elimnar registros antiguos.
         /// </summary>
-        public static OEnumOrigenBaseDatos Almacen = new OEnumOrigenBaseDatos("Almacen", "Base de datos de almacenamietno", 2);
+        public static EnumOrigenBaseDatos Almacen = new EnumOrigenBaseDatos("Almacen", "Base de datos de almacenamietno", 2);
         #endregion    
     }
 
     /// <summary>
     /// Clase que implementa el enumerado del origen de la base de datos
     /// </summary>
-    public class OEnumOrigenBaseDatos : OEnumeradoHeredable
+    public class EnumOrigenBaseDatos : OEnumeradoHeredable
     {        
         #region Constructor
         /// <summary>
         /// Constuctor de la clase
         /// </summary>
-        public OEnumOrigenBaseDatos(string nombre, string descripcion, int valor): 
+        public EnumOrigenBaseDatos(string nombre, string descripcion, int valor): 
             base(nombre, descripcion, valor)
         {}
         #endregion

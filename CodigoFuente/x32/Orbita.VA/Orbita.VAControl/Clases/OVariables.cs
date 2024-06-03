@@ -741,7 +741,7 @@ namespace Orbita.VAControl
         /// <summary>
         /// Nucleo de la variable
         /// </summary>
-        internal OVariableCore VariableCore;
+        internal VariableCore VariableCore;
         /// <summary>
         /// Canal del ciente
         /// </summary>
@@ -970,7 +970,7 @@ namespace Orbita.VAControl
                 }
                 else // Servidor Remoting
                 {
-                    this.VariableCore = new OVariableCore(this._Codigo, habilitado, tipo, guardarTrazabilidad);
+                    this.VariableCore = new VariableCore(this._Codigo, habilitado, tipo, guardarTrazabilidad);
                     this.VariableCore.CambioValor += this.EjecutaEventos;
                 }
             }
@@ -1328,7 +1328,7 @@ namespace Orbita.VAControl
     /// Separada de variable item para poder se accedida de forma remota.
     /// </summary>
     [Serializable]
-    internal class OVariableCore : MarshalByRefObject
+    internal class VariableCore : MarshalByRefObject
     {
         #region Atributo(s)
         /// <summary>
@@ -1442,7 +1442,7 @@ namespace Orbita.VAControl
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OVariableCore(string codigo, bool habilitado, OEnumTipoDato tipo, bool guardarTrazabilidad)
+        public VariableCore(string codigo, bool habilitado, OEnumTipoDato tipo, bool guardarTrazabilidad)
         {
             // Inicialiamos los valores
             this._Bloqueo = false;
@@ -1520,7 +1520,7 @@ namespace Orbita.VAControl
         /// <param name="codigoModuloLlamada">Código identificativo del módulo que modifica a la variable</param>
         /// <param name="descripcionLlamada">Descripción de la modificación de la variable</param>
         /// <param name="tipoTraza">Tipo de evento que provocó la traza</param>
-        private void NuevaTraza(string codigoModuloLlamada, string descripcionLlamada, OTipoTraza tipoTraza)
+        private void NuevaTraza(string codigoModuloLlamada, string descripcionLlamada, TipoTraza tipoTraza)
         {
             // Trazabilidad en BBDD
             if (this._GuardarTrazabilidad)
@@ -1622,7 +1622,7 @@ namespace Orbita.VAControl
             if ((this._Habilitado) && (this.Valor != valor) && (!this._Bloqueo) && (!this._Inhibido))
             {
                 // Insertamos la traza
-                this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.CambioValor);
+                this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, TipoTraza.CambioValor);
                 OVALogsManager.Debug(OModulosControl.Variables, "SetValor", "La variable " + this.Codigo + " cambia su valor a " + ORobusto.ToString(valor));
 
                 // Establecimiento del valor
@@ -1667,7 +1667,7 @@ namespace Orbita.VAControl
                     this._Bloqueo = true;
 
                     // Insertamos la traza
-                    this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.Bloqueo);
+                    this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, TipoTraza.Bloqueo);
                 }
             }
         }
@@ -1688,7 +1688,7 @@ namespace Orbita.VAControl
                     this._Bloqueo = false;
 
                     // Insertamos la traza
-                    this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.Desbloqueo);
+                    this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, TipoTraza.Desbloqueo);
                 }
             }
         }
@@ -1709,7 +1709,7 @@ namespace Orbita.VAControl
                     this._Inhibido = true;
 
                     // Insertamos la traza
-                    this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.Inhibicion);
+                    this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, TipoTraza.Inhibicion);
                 }
             }
         }
@@ -1730,7 +1730,7 @@ namespace Orbita.VAControl
                     this._Inhibido = false;
 
                     // Insertamos la traza
-                    this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.DesInhibicion);
+                    this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, TipoTraza.DesInhibicion);
                 }
             }
         }
@@ -1747,7 +1747,7 @@ namespace Orbita.VAControl
             if ((this._Habilitado) && (this.Valor != valor) && (this._Bloqueo))
             {
                 // Insertamos la traza
-                this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.ForzarValor);
+                this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, TipoTraza.ForzarValor);
                 OVALogsManager.Info(OModulosControl.Variables, "SetValor", "La variable " + this.Codigo + " cambia su valor a " + ORobusto.ToString(valor));
 
                 // Establecimiento del valor
@@ -1777,7 +1777,7 @@ namespace Orbita.VAControl
             if (this._Habilitado)
             {
                 // Insertamos la traza
-                this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, OTipoTraza.DisparoSuscripciones);
+                this.NuevaTraza(codigoModuloLlamada, descripcionLlamada, TipoTraza.DisparoSuscripciones);
                 OVALogsManager.Debug(OModulosControl.Variables, "SetValor", "La variable " + this.Codigo + " realiza un disparo");
 
                 // Establecimiento del valor
@@ -1876,7 +1876,7 @@ namespace Orbita.VAControl
         /// </summary>
         /// <param name="codigo">Código de la varible</param>
         /// <returns>Objeto de tipo VariableCore</returns>
-        public OVariableCore GetVariableCore(string codigo)
+        public VariableCore GetVariableCore(string codigo)
         {
             OVariable variable;
             if (OVariablesManager.ListaVariables.TryGetValue(codigo, out variable))
@@ -2381,10 +2381,10 @@ namespace Orbita.VAControl
             info += "Descripción: " + traza.DescripcionLlamada + "; ";
             switch (traza.TipoTraza)
             {
-                case OTipoTraza.CambioValor:
+                case TipoTraza.CambioValor:
                     info += "Tipo: Cambio de valor; ";
                     break;
-                case OTipoTraza.DisparoSuscripciones:
+                case TipoTraza.DisparoSuscripciones:
                     info += "Tipo: Disparo suscripciones; ";
                     break;
             }
@@ -2456,7 +2456,7 @@ namespace Orbita.VAControl
                 oXML.Add("CodVariable", traza.CodVariable);
                 oXML.Add("CodModulo", traza.CodModuloLlamada);
                 oXML.Add("Descripcion", traza.DescripcionLlamada);
-                if (traza.TipoTraza == OTipoTraza.CambioValor)
+                if (traza.TipoTraza == TipoTraza.CambioValor)
                 {
                     oXML.Add("Valor", ORobusto.ToString(traza.Valor));
                 }
@@ -2520,12 +2520,12 @@ namespace Orbita.VAControl
         public string CodModuloLlamada;
         public string DescripcionLlamada;
         public object Valor;
-        public OTipoTraza TipoTraza;
+        public TipoTraza TipoTraza;
         public DateTime Fecha;
         #endregion
 
         #region Constructor
-        public OTrazaVariable(string codVariable, object valor, OTipoTraza tipoTraza, string codModuloLlamada, string descripcionLlamada)
+        public OTrazaVariable(string codVariable, object valor, TipoTraza tipoTraza, string codModuloLlamada, string descripcionLlamada)
         {
             this.CodVariable = codVariable;
             this.Valor = valor;
@@ -2540,7 +2540,7 @@ namespace Orbita.VAControl
     /// <summary>
     /// Indica el origen de la inserción de la traza
     /// </summary>
-    internal enum OTipoTraza
+    internal enum TipoTraza
     {
         CambioValor = 1,
         DisparoSuscripciones = 2,

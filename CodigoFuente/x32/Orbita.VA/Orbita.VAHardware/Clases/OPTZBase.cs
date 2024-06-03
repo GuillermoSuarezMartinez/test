@@ -89,7 +89,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Fatal(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Fatal(ModulosHardware.Camaras, this.Codigo, exception);
                 throw new Exception("Imposible iniciar el PTZ " + this.Codigo);
             }
         }

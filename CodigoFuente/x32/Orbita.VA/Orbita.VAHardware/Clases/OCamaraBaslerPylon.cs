@@ -168,7 +168,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Fatal(OModulosHardware.CamaraBalserPylon, this.Codigo, exception);
+                OVALogsManager.Fatal(ModulosHardware.CamaraBalserPylon, this.Codigo, exception);
                 throw new Exception("Imposible iniciar la cámara " + this.Codigo);
             }
         }
@@ -237,11 +237,11 @@ namespace Orbita.VAHardware
             }
             catch (OCameraConectionException exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, "Problema de conexión con la cámara " + this.Codigo + ": " + exception.ToString());
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, "Problema de conexión con la cámara " + this.Codigo + ": " + exception.ToString());
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, "Error al conectarse a la cámara " + this.Codigo + ": " + exception.ToString());
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, "Error al conectarse a la cámara " + this.Codigo + ": " + exception.ToString());
             }
 
             return resultado;
@@ -264,7 +264,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, exception);
             }
 
             return resultado;
@@ -280,7 +280,7 @@ namespace Orbita.VAHardware
 
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     base.StartInterno();
 
@@ -295,12 +295,12 @@ namespace Orbita.VAHardware
             }
             catch (OCameraConectionException exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, "Problema de conexión con la cámara " + this.Codigo + ": " + exception.ToString());
-                this.EstadoConexion = OEstadoConexion.ErrorConexion;
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, "Problema de conexión con la cámara " + this.Codigo + ": " + exception.ToString());
+                this.EstadoConexion = EstadoConexion.ErrorConexion;
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, exception);
             }
 
             return resultado;
@@ -317,7 +317,7 @@ namespace Orbita.VAHardware
             try
             {
 
-                if (this.EstadoConexion != OEstadoConexion.Desconectado)
+                if (this.EstadoConexion != EstadoConexion.Desconectado)
                 {
                     //this.TimerScan.Stop();
 
@@ -331,7 +331,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, exception);
             }
 
             return resultado;
@@ -346,7 +346,7 @@ namespace Orbita.VAHardware
             bool resultado = false;
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     base.SnapInterno();
 
@@ -355,12 +355,12 @@ namespace Orbita.VAHardware
             }
             catch (OCameraConectionException exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, "Problema de conexión con la cámara " + this.Codigo + ": " + exception.ToString());
-                this.EstadoConexion = OEstadoConexion.ErrorConexion;
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, "Problema de conexión con la cámara " + this.Codigo + ": " + exception.ToString());
+                this.EstadoConexion = EstadoConexion.ErrorConexion;
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, exception);
             }
             return resultado;
         }
@@ -390,7 +390,7 @@ namespace Orbita.VAHardware
                 return;
             }
 
-            OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, "Error de adquisición", grabException, additionalErrorMessage);
+            OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, "Error de adquisición", grabException, additionalErrorMessage);
         }
 
         /// <summary>
@@ -478,7 +478,7 @@ namespace Orbita.VAHardware
 
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     /* Acquire the image from the image provider. */
                     ImagePylon image = this.ImageProvider.GetCurrentImage();
@@ -513,7 +513,7 @@ namespace Orbita.VAHardware
                     }
 
                     // Actualizo la conectividad
-                    this.Conectividad.EstadoConexion = OEstadoConexion.Conectado;
+                    this.Conectividad.EstadoConexion = EstadoConexion.Conectado;
 
                     // Actualizo el Frame Rate
                     this.MedidorVelocidadAdquisicion.NuevaCaptura();
@@ -530,7 +530,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.CamaraBalserPylon, this.Codigo, exception, this.ImageProvider.GetLastErrorMessage());
+                OVALogsManager.Error(ModulosHardware.CamaraBalserPylon, this.Codigo, exception, this.ImageProvider.GetLastErrorMessage());
             }
 
             // indicamos se ha finalizado la adquisición

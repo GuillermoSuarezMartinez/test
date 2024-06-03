@@ -64,45 +64,45 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Estado de la conexión
         /// </summary>
-        protected OEstadoConexion _EstadoConexion;
+        protected EstadoConexion _EstadoConexion;
         /// <summary>
         /// Estado de la conexión
         /// </summary>
-        public virtual OEstadoConexion EstadoConexion
+        public virtual EstadoConexion EstadoConexion
         {
             get { return _EstadoConexion; }
             set
             {
                 if (this._EstadoConexion != value)
                 {
-                    OEstadoConexion estadoConexionAnterior = this._EstadoConexion;
+                    EstadoConexion estadoConexionAnterior = this._EstadoConexion;
 
                     this._EstadoConexion = value;
 
                     // Guardamos el log
                     switch (value)
                     {
-                        case OEstadoConexion.Desconectado:
+                        case EstadoConexion.Desconectado:
                         default:
-                            OVALogsManager.Info(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo desconectado");
+                            OVALogsManager.Info(ModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo desconectado");
                             break;
-                        case OEstadoConexion.Desconectando:
-                            OVALogsManager.Info(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo en proceso de desconexión");
+                        case EstadoConexion.Desconectando:
+                            OVALogsManager.Info(ModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo en proceso de desconexión");
                             break;
-                        case OEstadoConexion.Conectado:
-                            OVALogsManager.Info(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo conectado");
+                        case EstadoConexion.Conectado:
+                            OVALogsManager.Info(ModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo conectado");
                             break;
-                        case OEstadoConexion.Conectando:
-                            OVALogsManager.Info(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo en proceso de conexión");
+                        case EstadoConexion.Conectando:
+                            OVALogsManager.Info(ModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo en proceso de conexión");
                             break;
-                        case OEstadoConexion.ErrorConexion:
-                            OVALogsManager.Error(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Problema de conexión con el dispositivo.");
+                        case EstadoConexion.ErrorConexion:
+                            OVALogsManager.Error(ModulosHardware.Camaras, "Conectividad" + this.Codigo, "Problema de conexión con el dispositivo.");
                             break;
-                        case OEstadoConexion.Reconectando:
-                            OVALogsManager.Error(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo en proceso de reconexión.");
+                        case EstadoConexion.Reconectando:
+                            OVALogsManager.Error(ModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo en proceso de reconexión.");
                             break;
-                        case OEstadoConexion.Reconectado:
-                            OVALogsManager.Error(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo reconectado.");
+                        case EstadoConexion.Reconectado:
+                            OVALogsManager.Error(ModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo reconectado.");
                             break;
                     }
 
@@ -120,7 +120,7 @@ namespace Orbita.VAHardware
         /// Delegado de error de conexión con la cámara
         /// </summary>
         /// <param name="estadoConexion"></param>
-        public ODelegadoCambioEstadoConexionCamaraAdv OnCambioEstadoConexion;
+        public DelegadoCambioEstadoConexionCamaraAdv OnCambioEstadoConexion;
         #endregion
 
         #region Constructor(es)
@@ -130,7 +130,7 @@ namespace Orbita.VAHardware
         public OConectividad(string codigo)
         {
             this.Codigo = codigo;
-            this.EstadoConexion = OEstadoConexion.Desconectado;
+            this.EstadoConexion = EstadoConexion.Desconectado;
             this._Habilitado = false;
         }
         #endregion

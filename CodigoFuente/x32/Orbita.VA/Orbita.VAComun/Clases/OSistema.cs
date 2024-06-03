@@ -37,7 +37,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Enumerado que describe el estado del sistema
         /// </summary>
-        public static OEstadoSistema EstadoSistema
+        public static EstadoSistema EstadoSistema
         {
             get { return Sistema.EstadoSistema; }
             set { Sistema.EstadoSistema = value; }
@@ -107,7 +107,7 @@ namespace Orbita.VAComun
         /// <summary>
         /// Enumerado que describe el estado del sistema
         /// </summary>
-        public OEstadoSistema EstadoSistema;
+        public EstadoSistema EstadoSistema;
 
         /// <summary>
         /// Parámetros de la aplicación
@@ -129,7 +129,7 @@ namespace Orbita.VAComun
         /// </summary>
         public OSistema(string configFile)
         {
-            this.EstadoSistema = OEstadoSistema.Detenido;
+            this.EstadoSistema = EstadoSistema.Detenido;
 
             try
             {
@@ -194,7 +194,7 @@ namespace Orbita.VAComun
     /// <summary>
     /// Enumerado que describe el estado del sistema
     /// </summary>
-    public enum OEstadoSistema
+    public enum EstadoSistema
     {
         /// <summary>
         /// El sistema se encuentra detenido

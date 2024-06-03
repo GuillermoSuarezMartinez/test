@@ -125,7 +125,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Fatal(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Fatal(ModulosHardware.Camaras, this.Codigo, exception);
                 throw new Exception("Imposible iniciar el PTZ " + this.Codigo);
             }
         }
@@ -412,7 +412,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.PTZ, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.PTZ, this.Codigo, exception);
             }
 
             return resultado;
@@ -440,7 +440,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosHardware.PTZ, this.Codigo, exception);
+                OVALogsManager.Info(ModulosHardware.PTZ, this.Codigo, exception);
             }
 
             return resultado;
@@ -465,7 +465,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.PTZ, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.PTZ, this.Codigo, exception);
             }
 
             return resultado;

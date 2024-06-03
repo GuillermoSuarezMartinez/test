@@ -521,7 +521,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -538,7 +538,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -555,7 +555,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -573,7 +573,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -593,7 +593,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -613,7 +613,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -630,7 +630,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -647,7 +647,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -664,7 +664,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
             this.TimerUpdateFps.Stop();
         }
@@ -675,7 +675,7 @@ namespace Orbita.Controles.VA
         /// Delegado de cambio de estaco de conexión de la cámara
         /// </summary>
         /// <param name="estadoConexion"></param>
-        public override void OnCambioEstadoConexionCamara(OEstadoConexion estadoConexion)
+        public override void OnCambioEstadoConexionCamara(EstadoConexion estadoConexion)
         {
             base.OnCambioEstadoConexionCamara(estadoConexion);
 
@@ -683,13 +683,13 @@ namespace Orbita.Controles.VA
             {
                 switch (estadoConexion)
                 {
-                    case OEstadoConexion.Desconectado:
-                    case OEstadoConexion.ErrorConexion:
+                    case EstadoConexion.Desconectado:
+                    case EstadoConexion.ErrorConexion:
                     default:
                         this.btnPlayStop.Enabled = false;
                         this.btnSnap.Enabled = false;
                         break;
-                    case OEstadoConexion.Conectado:
+                    case EstadoConexion.Conectado:
                         this.btnPlayStop.Enabled = true;
                         this.btnSnap.Enabled = true;
                         break;
@@ -697,7 +697,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
         #endregion

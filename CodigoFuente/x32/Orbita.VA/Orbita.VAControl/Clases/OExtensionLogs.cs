@@ -16,33 +16,33 @@ namespace Orbita.VAControl
     /// <summary>
     /// Define el conjunto de módulos del sistema
     /// </summary>
-    public class OModulosControl: OModulosSistema
+    public class OModulosControl: ModulosSistema
     {
         #region Atributo(s)
         /// <summary>
         /// Módulo de las máquinas de estado
         /// </summary>
-        public static OEnumModulosSistema MaquinasEstado = new OEnumModulosSistema("MaquinasEstado", "Módulo de funcionamiento de las máquinas de estado", 101);
+        public static EnumModulosSistema MaquinasEstado = new EnumModulosSistema("MaquinasEstado", "Módulo de funcionamiento de las máquinas de estado", 101);
         /// <summary>
         /// Módulo de las máquinas de estado
         /// </summary>
-        public static OEnumModulosSistema MonitorizacionMaquinasEstado = new OEnumModulosSistema("MonitorizacionMaquinasEstado", "Módulo de monitorización de las máquinas de estado", 102);
+        public static EnumModulosSistema MonitorizacionMaquinasEstado = new EnumModulosSistema("MonitorizacionMaquinasEstado", "Módulo de monitorización de las máquinas de estado", 102);
         /// <summary>
         /// Módulo de edición y gestión de las máquinas de estado
         /// </summary>
-        public static OEnumModulosSistema GestionMaquinasEstado = new OEnumModulosSistema("GestionMaquinasEstado", "Módulo de gestión de las máquinas de estado", 103);
+        public static EnumModulosSistema GestionMaquinasEstado = new EnumModulosSistema("GestionMaquinasEstado", "Módulo de gestión de las máquinas de estado", 103);
         /// <summary>
         /// Módulo de las variables del sistema
         /// </summary>
-        public static OEnumModulosSistema Variables = new OEnumModulosSistema("Variables", "Módulo de funcionamiento de las variables del sistema", 104);
+        public static EnumModulosSistema Variables = new EnumModulosSistema("Variables", "Módulo de funcionamiento de las variables del sistema", 104);
         /// <summary>
         /// Módulo de las variables del sistema
         /// </summary>
-        public static OEnumModulosSistema MonitorizacionVariables = new OEnumModulosSistema("MonitorizacionVariables", "Módulo de monitorización de las variables del sistema", 105);
+        public static EnumModulosSistema MonitorizacionVariables = new EnumModulosSistema("MonitorizacionVariables", "Módulo de monitorización de las variables del sistema", 105);
         /// <summary>
         /// Módulo de edición y gestión de las variables del sistema
         /// </summary>
-        public static OEnumModulosSistema GestionVariables = new OEnumModulosSistema("GestionVariables", "Módulo de gestión de las variables del sistema", 106);
+        public static EnumModulosSistema GestionVariables = new EnumModulosSistema("GestionVariables", "Módulo de gestión de las variables del sistema", 106);
         #endregion
     }
 }

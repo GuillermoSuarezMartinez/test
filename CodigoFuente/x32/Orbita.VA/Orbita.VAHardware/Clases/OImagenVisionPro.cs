@@ -85,7 +85,7 @@ namespace Orbita.VAHardware
         public OImagenVisionPro(string codigo)
             : base(codigo)
         {
-            this.TipoImagen = OTipoImagen.VisionPro;
+            this.TipoImagen = TipoImagen.VisionPro;
         }
         /// <summary>
         /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
@@ -102,7 +102,7 @@ namespace Orbita.VAHardware
         public OImagenVisionPro(string codigo, object imagen)
             : base(codigo, imagen)
         {
-            this.TipoImagen = OTipoImagen.VisionPro;
+            this.TipoImagen = TipoImagen.VisionPro;
         }
         #endregion
 
@@ -148,7 +148,7 @@ namespace Orbita.VAHardware
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProImage_Clone", exception);
+                    OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProImage_Clone", exception);
                 }
             }
             return imagenResultado;
@@ -190,7 +190,7 @@ namespace Orbita.VAHardware
                     }
                     catch (Exception exception)
                     {
-                        OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProImage", exception);
+                        OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProImage", exception);
                     }
                     stream.Close();
 
@@ -199,7 +199,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProImage", exception);
+                OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProImage", exception);
             }
 
             return false;
@@ -235,7 +235,7 @@ namespace Orbita.VAHardware
                         }
                         catch (Exception exception)
                         {
-                            OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProImage", exception);
+                            OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProImage", exception);
                         }
                         stream.Close();
                         this.Image.PixelFromRootTransform = extras.PixelFromRootTransform;
@@ -247,7 +247,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProImage", exception);
+                OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProImage", exception);
             }
 
             return false;
@@ -403,7 +403,7 @@ namespace Orbita.VAHardware
         public OVisionProGrafico(object grafico)
             : base(grafico)
         {
-            this.TipoGrafico = OTipoImagen.VisionPro;
+            this.TipoGrafico = TipoImagen.VisionPro;
         }
         /// <summary>
         /// Constructor de la clase
@@ -411,7 +411,7 @@ namespace Orbita.VAHardware
         public OVisionProGrafico()
             : base()
         {
-            this.TipoGrafico = OTipoImagen.VisionPro;
+            this.TipoGrafico = TipoImagen.VisionPro;
         }
         /// <summary>
         /// Constructor de la clase que además se encarga de liberar la memoria de la variable que se le pasa por parámetro
@@ -421,7 +421,7 @@ namespace Orbita.VAHardware
         public OVisionProGrafico(OImage graficoALiberar)
             : base(graficoALiberar)
         {
-            this.TipoGrafico = OTipoImagen.VisionPro;
+            this.TipoGrafico = TipoImagen.VisionPro;
         }
         #endregion
 
@@ -554,7 +554,7 @@ namespace Orbita.VAHardware
                     }
                     catch (Exception exception)
                     {
-                        OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProGrafico", exception);
+                        OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProGrafico", exception);
                     }
                     stream.Close();
 
@@ -563,7 +563,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProGrafico", exception);
+                OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProGrafico", exception);
             }
 
             return false;
@@ -590,7 +590,7 @@ namespace Orbita.VAHardware
                     }
                     catch (Exception exception)
                     {
-                        OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProGrafico", exception);
+                        OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProGrafico", exception);
                     }
                     stream.Close();
                     this.Grafico = graficoVPro;
@@ -600,7 +600,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ImagenGraficosVPro, "VisionProGrafico", exception);
+                OVALogsManager.Error(ModulosHardware.ImagenGraficosVPro, "VisionProGrafico", exception);
             }
 
             return false;

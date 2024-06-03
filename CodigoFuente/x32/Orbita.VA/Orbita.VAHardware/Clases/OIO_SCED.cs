@@ -147,7 +147,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
 
         }
@@ -175,7 +175,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
         #endregion
@@ -187,7 +187,7 @@ namespace Orbita.VAHardware
         private void Desconectar()
         {
             Conectar(false);
-            OVALogsManager.Info(OModulosHardware.ES_SCED, this.Servidor.ToString(), "Desconectado del Servicio");
+            OVALogsManager.Info(ModulosHardware.ES_SCED, this.Servidor.ToString(), "Desconectado del Servicio");
         }
         /// <summary>
         /// Conectar al servidor vía Remoting.
@@ -225,11 +225,11 @@ namespace Orbita.VAHardware
                 // Establecer conexión con el servidor.
                 Conectar(true);
 
-                OVALogsManager.Info(OModulosHardware.ES_SCED, this.Servidor.ToString(), "Conectado al servicio");
+                OVALogsManager.Info(ModulosHardware.ES_SCED, this.Servidor.ToString(), "Conectado al servicio");
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
         /// <summary>
@@ -270,7 +270,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
 
@@ -468,7 +468,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
 
@@ -499,7 +499,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
 
@@ -523,7 +523,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
 
@@ -547,7 +547,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
         
@@ -583,7 +583,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
         #endregion
@@ -678,7 +678,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
+                OVALogsManager.Error(ModulosHardware.ES_SCED, this.Servidor.ToString(), exception);
             }
         }
         #endregion

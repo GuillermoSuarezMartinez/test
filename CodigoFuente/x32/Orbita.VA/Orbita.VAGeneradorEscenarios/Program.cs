@@ -300,18 +300,18 @@ namespace Orbita.VAGeneradorEscenarios
                 string codEstado = drEstado["CodEstado"].ToString();
                 string descEstado = "Estado: " + drEstado["DescEstado"].ToString();
                 string claseImplementadora = drEstado["ClaseImplementadora"].ToString();
-                OTipoEstado tipoEstado = OEnumRobusto<OTipoEstado>.Validar(drEstado["Tipo"].ToString(), OTipoEstado.EstadoSimple);
+                TipoEstado tipoEstado = OEnumRobusto<OTipoEstado>.Validar(drEstado["Tipo"].ToString(), TipoEstado.EstadoSimple);
                 //OTipoEstado tipoEstado = (OTipoEstado)App.EnumParse(typeof(OTipoEstado), drEstado["Tipo"].ToString(), OTipoEstado.EstadoSimple);
 
                 // Generación de la clase parcial del estado
                 string claseEstadoPadre;
                 switch (tipoEstado)
                 {
-                    case OTipoEstado.EstadoSimple:
+                    case TipoEstado.EstadoSimple:
                     default:
                         claseEstadoPadre = typeof (OEstadoBase).Name; //"OEstadoBase";
                         break;
-                    case OTipoEstado.EstadoAsincrono:
+                    case TipoEstado.EstadoAsincrono:
                         claseEstadoPadre = typeof (OEstadoAsincrono).Name; //"OEstadoAsincrono";
                         break;
                 }
@@ -362,18 +362,18 @@ namespace Orbita.VAGeneradorEscenarios
                 string codTransicion = drTransicion["CodTransicion"].ToString();
                 string descTransicion = "Transición: " + drTransicion["ExplicacionCondicionEsperada"].ToString();
                 string claseImplementadora = drTransicion["ClaseImplementadora"].ToString();
-                OTipoTransicion tipoTransicion = OEnumRobusto<OTipoTransicion>.Validar(drTransicion["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
+                TipoTransicion tipoTransicion = OEnumRobusto<OTipoTransicion>.Validar(drTransicion["Tipo"].ToString(), TipoTransicion.TransicionSimple);
                 //OTipoTransicion tipoTransicion = (OTipoTransicion)App.EnumParse(typeof(OTipoTransicion), drTransicion["Tipo"].ToString(), OTipoTransicion.TransicionSimple);
 
                 // Generación de la clase parcial del transicion
                 string claseTransicionPadre;
                 switch (tipoTransicion)
                 {
-                    case OTipoTransicion.TransicionSimple:
+                    case TipoTransicion.TransicionSimple:
                     default:
                         claseTransicionPadre = typeof (OTransicionBase).Name; //"OTransicionBase";
                         break;
-                    case OTipoTransicion.TransicionUniversal:
+                    case TipoTransicion.TransicionUniversal:
                         claseTransicionPadre = typeof (OTransicionUniversal).Name; //"OTransicionUniversal";
                         break;
                 }

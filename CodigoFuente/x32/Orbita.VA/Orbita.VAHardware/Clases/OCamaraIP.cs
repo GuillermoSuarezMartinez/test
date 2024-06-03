@@ -114,7 +114,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Fatal(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Fatal(ModulosHardware.Camaras, this.Codigo, exception);
                 throw new Exception("Imposible iniciar la cámara " + this.Codigo);
             }
         } 
@@ -148,7 +148,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
 
             return resultado;
@@ -177,7 +177,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
 
             return resultado;
@@ -193,7 +193,7 @@ namespace Orbita.VAHardware
 
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     base.StartInterno();
 
@@ -205,7 +205,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
 
             return resultado;
@@ -221,7 +221,7 @@ namespace Orbita.VAHardware
 
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     // Detengo videosource actual
                     this.VideoSource.SignalToStop();
@@ -235,7 +235,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
 
             return resultado;
@@ -250,14 +250,14 @@ namespace Orbita.VAHardware
             bool resultado = false;
             try
             {
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     resultado = base.SnapInterno();
 
                     // Verificamos que la cámara está preparada para adquirir la imagen
                     if (!this.VideoSource.Running)
                     {
-                        OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "La cámara no está preparada para adquirir imágenes");
+                        OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, "La cámara no está preparada para adquirir imágenes");
                         return false;
                     }
 
@@ -276,7 +276,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
             return resultado;
         }
@@ -309,13 +309,13 @@ namespace Orbita.VAHardware
 
                 this.HayNuevaImagen = true;
             
-                if (this.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.EstadoConexion == EstadoConexion.Conectado)
                 {
                     this.ImagenActual = new OImagenBitmap(this.Codigo);
                     this.ImagenActual.Image = (Bitmap)e.Bitmap.Clone();
 
                     // Actualizo la conectividad
-                    this.Conectividad.EstadoConexion = OEstadoConexion.Conectado;
+                    this.Conectividad.EstadoConexion = EstadoConexion.Conectado;
 
                     // Actualizo el Frame Rate
                     this.MedidorVelocidadAdquisicion.NuevaCaptura();
@@ -332,7 +332,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
         }
 
@@ -343,7 +343,7 @@ namespace Orbita.VAHardware
         /// <param name="e"></param>
         private void ErrorAdquisicion(object sender, CameraErrorEventArgs e)
         {
-            this.OnCambioEstadoConexionCamara(OEstadoConexion.ErrorConexion);
+            this.OnCambioEstadoConexionCamara(EstadoConexion.ErrorConexion);
         }
         #endregion
 
@@ -353,24 +353,24 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected override void OnCambioEstadoConectividadCamara(string codigo, OEstadoConexion estadoConexionActal, OEstadoConexion estadoConexionAnterior)
+        protected override void OnCambioEstadoConectividadCamara(string codigo, EstadoConexion estadoConexionActal, EstadoConexion estadoConexionAnterior)
         {
             try
             {
                 if (!OThreadManager.EjecucionEnTrheadPrincipal())
                 {
-                    OThreadManager.SincronizarConThreadPrincipal(new ODelegadoCambioEstadoConexionCamaraAdv(this.OnCambioEstadoConectividadCamara), new object[] {codigo, estadoConexionActal, estadoConexionAnterior});
+                    OThreadManager.SincronizarConThreadPrincipal(new DelegadoCambioEstadoConexionCamaraAdv(this.OnCambioEstadoConectividadCamara), new object[] {codigo, estadoConexionActal, estadoConexionAnterior});
                     return;
                 }
 
                 base.OnCambioEstadoConectividadCamara(codigo, estadoConexionActal, estadoConexionAnterior);
 
-                if ((estadoConexionActal == OEstadoConexion.Reconectado) && (estadoConexionAnterior == OEstadoConexion.Reconectando))
+                if ((estadoConexionActal == EstadoConexion.Reconectado) && (estadoConexionAnterior == EstadoConexion.Reconectando))
                 {
                     this.Conectar(true);
                 }
                 else 
-                if ((estadoConexionActal == OEstadoConexion.ErrorConexion) && (estadoConexionAnterior == OEstadoConexion.Conectado))
+                if ((estadoConexionActal == EstadoConexion.ErrorConexion) && (estadoConexionAnterior == EstadoConexion.Conectado))
                 {
                     this.Stop();
                     this.Desconectar(true);
@@ -378,7 +378,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, this.Codigo, exception);
             }
         }
         #endregion

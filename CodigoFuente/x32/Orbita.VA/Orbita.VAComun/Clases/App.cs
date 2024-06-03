@@ -85,7 +85,7 @@ namespace Orbita.VAComun
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "CreacionDirectorio", exception);
+				OVALogsManager.Error(ModulosSistema.Comun, "CreacionDirectorio", exception);
 			}
 
 			return false;
@@ -203,7 +203,7 @@ namespace Orbita.VAComun
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "DirectoryCopy", exception);
+				OVALogsManager.Error(ModulosSistema.Comun, "DirectoryCopy", exception);
 			}
 			return resultado;
 		}
@@ -259,7 +259,7 @@ namespace Orbita.VAComun
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "DirectoryMove", exception);
+				OVALogsManager.Error(ModulosSistema.Comun, "DirectoryMove", exception);
 			}
 			return resultado;
 		}
@@ -307,7 +307,7 @@ namespace Orbita.VAComun
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "ConversionFicheroImagen", exception);
+				OVALogsManager.Error(ModulosSistema.Comun, "ConversionFicheroImagen", exception);
 			}
 			return resultado;
 		}
@@ -431,7 +431,7 @@ namespace Orbita.VAComun
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "GetDiskSpace", exception);
+				OVALogsManager.Error(ModulosSistema.Comun, "GetDiskSpace", exception);
 			}
 
 			return space;
@@ -894,7 +894,7 @@ namespace Orbita.VAComun
 				Type tipoClaseImplementadora = assembly.GetType(claseImplementadora);
 				if (tipoClaseImplementadora == null)
 				{
-					OVALogsManager.Fatal(OModulosSistema.Comun, "Constructor clase", "No se encuentra la clase implementadora " + claseImplementadora);
+					OVALogsManager.Fatal(ModulosSistema.Comun, "Constructor clase", "No se encuentra la clase implementadora " + claseImplementadora);
 				}
 				else
 				{
@@ -904,7 +904,7 @@ namespace Orbita.VAComun
 			}
 			catch (Exception exception)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "ConstruirClasePorReflexión", exception, string.Format("Ensamblado: {0}, Clase: {1}", ensamblado, claseImplementadora));
+				OVALogsManager.Error(ModulosSistema.Comun, "ConstruirClasePorReflexión", exception, string.Format("Ensamblado: {0}, Clase: {1}", ensamblado, claseImplementadora));
 			}
 			return resultado;
 		}
@@ -938,11 +938,11 @@ namespace Orbita.VAComun
 				encryptStream.Close();
 				inputFileStream.Close();
 				outputFileStream.Close();
-				OVALogsManager.Info(OModulosSistema.Comun, "Encriptar fichero", "OK");
+				OVALogsManager.Info(ModulosSistema.Comun, "Encriptar fichero", "OK");
 			}
 			catch (Exception ex)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "Encriptar fichero", ex);
+				OVALogsManager.Error(ModulosSistema.Comun, "Encriptar fichero", ex);
 				return;
 			}
 		}
@@ -972,11 +972,11 @@ namespace Orbita.VAComun
 				decryptStream.Close();
 				inputFileStream.Close();
 				outputFileStream.Close();
-				OVALogsManager.Info(OModulosSistema.Comun, "Des-Encriptar fichero", "OK");
+				OVALogsManager.Info(ModulosSistema.Comun, "Des-Encriptar fichero", "OK");
 			}
 			catch (Exception ex)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "Des-Encriptar fichero", ex);
+				OVALogsManager.Error(ModulosSistema.Comun, "Des-Encriptar fichero", ex);
 				return;
 			}
 		}
@@ -1002,12 +1002,12 @@ namespace Orbita.VAComun
 				rijndaelCSP.Clear();
 				decryptStream.Close();
 				inputFileStream.Close();
-				OVALogsManager.Info(OModulosSistema.Comun, "Desencriptar fichero", "OK");
+				OVALogsManager.Info(ModulosSistema.Comun, "Desencriptar fichero", "OK");
 				return inputFileData;
 			}
 			catch (Exception ex)
 			{
-				OVALogsManager.Error(OModulosSistema.Comun, "Desencriptar fichero", ex);
+				OVALogsManager.Error(ModulosSistema.Comun, "Desencriptar fichero", ex);
 				return null;
 			}
 		}

@@ -418,7 +418,7 @@ namespace Orbita.Controles.VA
         {
             if (this.CamaraAsociada is OCamaraBase)
 	        {
-                if (this.CamaraAsociada.EstadoConexion == OEstadoConexion.Conectado)
+                if (this.CamaraAsociada.EstadoConexion == EstadoConexion.Conectado)
                 {
                     this.CamaraAsociada.Grab = !this.CamaraAsociada.Grab;
                 }
@@ -430,7 +430,7 @@ namespace Orbita.Controles.VA
         /// </summary>
         protected void BotonSnapPulsado()
         {
-            if (this.CamaraAsociada.EstadoConexion == OEstadoConexion.Conectado)
+            if (this.CamaraAsociada.EstadoConexion == EstadoConexion.Conectado)
             {
                 this.CamaraAsociada.Snap();
             }
@@ -712,7 +712,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -734,7 +734,7 @@ namespace Orbita.Controles.VA
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
 
@@ -745,13 +745,13 @@ namespace Orbita.Controles.VA
         /// Delegado de cambio de estaco de conexión de la cámara
         /// </summary>
         /// <param name="estadoConexion"></param>
-        public virtual void OnCambioEstadoConexionCamara(OEstadoConexion estadoConexion)
+        public virtual void OnCambioEstadoConexionCamara(EstadoConexion estadoConexion)
         {
             try
             {
                 switch (estadoConexion)
                 {
-                    case OEstadoConexion.Desconectado:
+                    case EstadoConexion.Desconectado:
                     default:
                         this.ImagenActual = this.NuevaImagen();
                         this.ImagenActual.ConvertFromBitmap(global::Orbita.Controles.VA.Properties.Resources.CamaraDesConectada);
@@ -759,10 +759,10 @@ namespace Orbita.Controles.VA
                         this.ZoomFit();
                         this.MostrarMensaje("Cámara desconectada");
                         break;
-                    case OEstadoConexion.Desconectando:
+                    case EstadoConexion.Desconectando:
                         this.MostrarMensaje("Cámara en proceso de desconexión");
                         break;
-                    case OEstadoConexion.Conectado:
+                    case EstadoConexion.Conectado:
                         this.ImagenActual = this.NuevaImagen();
                         this.ImagenActual.ConvertFromBitmap(global::Orbita.Controles.VA.Properties.Resources.CamaraConectada);
                         this.Visualizar(this.ImagenActual);
@@ -770,27 +770,27 @@ namespace Orbita.Controles.VA
                         this.MostrarMensaje("Cámara conectada");
                         this.PrimerFoto = false;
                         break;
-                    case OEstadoConexion.Conectando:
+                    case EstadoConexion.Conectando:
                         this.MostrarMensaje("Cámara en proceso de conexión");
                         break;
-                    case OEstadoConexion.ErrorConexion:
+                    case EstadoConexion.ErrorConexion:
                         this.MostrarMensaje("Error de conexión");
                         break;
-                    case OEstadoConexion.Reconectando:
+                    case EstadoConexion.Reconectando:
                         this.ImagenActual = this.NuevaImagen();
                         this.ImagenActual.ConvertFromBitmap(global::Orbita.Controles.VA.Properties.Resources.CamaraDesConectada);
                         this.Visualizar(this.ImagenActual);
                         this.ZoomFit();
                         this.MostrarMensaje("Intentando reconexión");
                         break;
-                    case OEstadoConexion.Reconectado:
+                    case EstadoConexion.Reconectado:
                         this.MostrarMensaje("Reconexión realizada");
                         break;
                 }
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosSistema.ImagenGraficos, this.Codigo, exception);
+                OVALogsManager.Error(ModulosSistema.ImagenGraficos, this.Codigo, exception);
             }
         }
         #endregion

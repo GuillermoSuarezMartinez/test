@@ -134,7 +134,7 @@ namespace Orbita.VAComun
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Error(OModulosSistema.Comun, "Compilar", exception);
+                    OVALogsManager.Error(ModulosSistema.Comun, "Compilar", exception);
                 }
             }
 

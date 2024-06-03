@@ -90,7 +90,7 @@ namespace Orbita.VAHardware
                 }
                 catch (Exception exception)
                 {
-                    OVALogsManager.Error(OModulosHardware.Camaras, "Consultar la validez de la ruta: " + this.Codigo, exception);
+                    OVALogsManager.Error(ModulosHardware.Camaras, "Consultar la validez de la ruta: " + this.Codigo, exception);
                 }
             }
         }
@@ -183,7 +183,7 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Estado de la ejecución de la grabación de video
         /// </summary>
-        public OEstadoProductorConsumidor Estado
+        public EstadoProductorConsumidor Estado
         {
             get { return this.ThreadConsumidor.Estado; }
         }
@@ -226,7 +226,7 @@ namespace Orbita.VAHardware
         {
             bool resultado = false;
 
-            if ((this.Estado == OEstadoProductorConsumidor.EnEjecucion) && (imagen is OImage))
+            if ((this.Estado == EstadoProductorConsumidor.EnEjecucion) && (imagen is OImage))
             {
                 DateTime momentoCapturaActual = imagen.MomentoCreacion;
                 bool primeraCaptura = this.ThreadConsumidor.Total == 0;
@@ -270,7 +270,7 @@ namespace Orbita.VAHardware
 
             try
             {
-                if ((this.Estado == OEstadoProductorConsumidor.Detenido) &&
+                if ((this.Estado == EstadoProductorConsumidor.Detenido) &&
                     this.Valido)
                 {
                     this.AVIWriter.Open(this._Ruta, this.Resolucion.Width, this.Resolucion.Height, this.FrameRate, this.Codec, this.BitRate);
@@ -284,7 +284,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, "Inicio de la grabación de video: " + this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, "Inicio de la grabación de video: " + this.Codigo, exception);
             }
 
             return resultado;
@@ -297,14 +297,14 @@ namespace Orbita.VAHardware
         {
             try
             {
-                if (this.Estado == OEstadoProductorConsumidor.EnEjecucion)
+                if (this.Estado == EstadoProductorConsumidor.EnEjecucion)
                 {
                     this.ThreadConsumidor.Stop();
                 }
             }
             catch (Exception exception)
             {
-                OVALogsManager.Error(OModulosHardware.Camaras, "Fin de la grabación de video: " + this.Codigo, exception);
+                OVALogsManager.Error(ModulosHardware.Camaras, "Fin de la grabación de video: " + this.Codigo, exception);
             }
         }
         #endregion
@@ -325,7 +325,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosHardware.Camaras, "Añadir Frame al video: " + this.Codigo, exception);
+                OVALogsManager.Info(ModulosHardware.Camaras, "Añadir Frame al video: " + this.Codigo, exception);
             }
         }
 
@@ -337,7 +337,7 @@ namespace Orbita.VAHardware
         {
             finalize = false;
 
-            if (((this.Estado == OEstadoProductorConsumidor.Deteniendo) && (this.ThreadConsumidor.Count == 0)) || 
+            if (((this.Estado == EstadoProductorConsumidor.Deteniendo) && (this.ThreadConsumidor.Count == 0)) || 
                 (this.CronometroDuracion.Elapsed > this._TiempoMaxGrabacion))
             {
                 finalize = true;
@@ -357,7 +357,7 @@ namespace Orbita.VAHardware
             }
             catch (Exception exception)
             {
-                OVALogsManager.Info(OModulosHardware.Camaras, "Guardado en disco del video: " + this.Codigo, exception);
+                OVALogsManager.Info(ModulosHardware.Camaras, "Guardado en disco del video: " + this.Codigo, exception);
             }
         }
         #endregion

@@ -214,9 +214,9 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Tipo de hardware
         /// </summary>
-        public OTipoHardware TipoHardware
+        public TipoHardware TipoHardware
         {
-            get { return OTipoHardware.HwModuloIO; }
+            get { return TipoHardware.HwModuloIO; }
         }
 
         /// <summary>
@@ -602,7 +602,7 @@ namespace Orbita.VAHardware
         public virtual void LeerEntrada()
         {
             // Información extra
-            OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, string.Format("Lectura de entrada del terminal: {0} de la tarjeta {1}. Valor: {2}", this.Codigo, this.CodTarjeta, ORobusto.ToString(this.Valor)));
+            OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, string.Format("Lectura de entrada del terminal: {0} de la tarjeta {1}. Valor: {2}", this.Codigo, this.CodTarjeta, ORobusto.ToString(this.Valor)));
         }
 
         /// <summary>
@@ -611,7 +611,7 @@ namespace Orbita.VAHardware
         public virtual void EscribirEntrada(string codigoVariable, object valor)
         {
             // Información extra
-            OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, string.Format("Escritura de entrada del terminal: {0} de la tarjeta {1}. Valor: {2}", this.Codigo, this.CodTarjeta, ORobusto.ToString(this.Valor)));
+            OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, string.Format("Escritura de entrada del terminal: {0} de la tarjeta {1}. Valor: {2}", this.Codigo, this.CodTarjeta, ORobusto.ToString(this.Valor)));
         }
 
         /// <summary>
@@ -620,7 +620,7 @@ namespace Orbita.VAHardware
         public virtual void EscribirSalida(string codigoVariable, object valor)
         {
             // Información extra
-            OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, string.Format("Escritura de salida del terminal: {0} de la tarjeta {1}. Valor: {2}", this.Codigo, this.CodTarjeta, ORobusto.ToString(this.Valor)));
+            OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, string.Format("Escritura de salida del terminal: {0} de la tarjeta {1}. Valor: {2}", this.Codigo, this.CodTarjeta, ORobusto.ToString(this.Valor)));
         }
 
         /// <summary>
@@ -629,7 +629,7 @@ namespace Orbita.VAHardware
         public virtual void LeerSalida()
         {
             // Información extra
-            OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, string.Format("Lectura de salida del terminal: {0} de la tarjeta {1}. Valor: {2}", this.Codigo, this.CodTarjeta, ORobusto.ToString(this.Valor)));
+            OVALogsManager.Debug(ModulosHardware.Camaras, this.Codigo, string.Format("Lectura de salida del terminal: {0} de la tarjeta {1}. Valor: {2}", this.Codigo, this.CodTarjeta, ORobusto.ToString(this.Valor)));
         }
         #endregion
     }
