@@ -37,6 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Orbita.Comunicaciones">
+      <HintPath>..\..\Comun\Orbita\Orbita.Comunicaciones.dll</HintPath>
+    </Reference>
+    <Reference Include="Orbita.Utiles">
+      <HintPath>..\..\Comun\Orbita\Orbita.Utiles.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -44,8 +50,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OClienteComsOPC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OClienteComsOPC.designer.cs">
+      <DependentUpon>OClienteComsOPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OClienteES.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OClienteES.designer.cs">
+      <DependentUpon>OClienteES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OClienteOrbita.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OClienteOrbita.designer.cs">
+      <DependentUpon>OClienteOrbita.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OClienteComsOPC.resx">
+      <DependentUpon>OClienteComsOPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OClienteES.resx">
+      <DependentUpon>OClienteES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OClienteOrbita.resx">
+      <DependentUpon>OClienteOrbita.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
