@@ -54,7 +54,7 @@ namespace Orbita.Controles.Comunicaciones
 
                 switch (dato.Texto)
                 {
-                    case "E01":
+                    case "E00":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB00.BackColor = Color.Orange;
@@ -64,7 +64,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB00.BackColor = Color.Beige;
                         }
                         break;
-                    case "E02":
+                    case "E01":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB01.BackColor = Color.Orange;
@@ -74,7 +74,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB01.BackColor = Color.Beige;
                         }
                         break;
-                    case "E03":
+                    case "E02":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB02.BackColor = Color.Orange;
@@ -84,7 +84,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB02.BackColor = Color.Beige;
                         }
                         break;
-                    case "E04":
+                    case "E03":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB03.BackColor = Color.Orange;
@@ -94,7 +94,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB03.BackColor = Color.Beige;
                         }
                         break;
-                    case "E05":
+                    case "E04":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB04.BackColor = Color.Orange;
@@ -104,7 +104,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB04.BackColor = Color.Beige;
                         }
                         break;
-                    case "E06":
+                    case "E05":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB05.BackColor = Color.Orange;
@@ -114,7 +114,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB05.BackColor = Color.Beige;
                         }
                         break;
-                    case "E07":
+                    case "E06":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB06.BackColor = Color.Orange;
@@ -124,7 +124,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB06.BackColor = Color.Beige;
                         }
                         break;
-                    case "E11":
+                    case "E10":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB10.BackColor = Color.Orange;
@@ -134,7 +134,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB10.BackColor = Color.Beige;
                         }
                         break;
-                    case "E12":
+                    case "E11":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB11.BackColor = Color.Orange;
@@ -144,7 +144,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB11.BackColor = Color.Beige;
                         }
                         break;
-                    case "E13":
+                    case "E12":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB12.BackColor = Color.Orange;
@@ -154,7 +154,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB12.BackColor = Color.Beige;
                         }
                         break;
-                    case "E14":
+                    case "E13":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB13.BackColor = Color.Orange;
@@ -164,7 +164,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB13.BackColor = Color.Beige;
                         }
                         break;
-                    case "E15":
+                    case "E14":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB14.BackColor = Color.Orange;
@@ -174,7 +174,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB14.BackColor = Color.Beige;
                         }
                         break;
-                    case "E16":
+                    case "E15":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB15.BackColor = Color.Orange;
@@ -184,7 +184,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB15.BackColor = Color.Beige;
                         }
                         break;
-                    case "E17":
+                    case "E16":
                         if ((int)dato.Valor == 1)
                         {
                             this.EB16.BackColor = Color.Orange;
@@ -194,7 +194,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.EB16.BackColor = Color.Beige;
                         }
                         break;
-                    case "S01":
+                    case "S00":
                         if ((int)dato.Valor == 1)
                         {
                             this.SB00.BackColor = Color.Orange;
@@ -204,7 +204,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.SB00.BackColor = Color.Beige;
                         }
                         break;
-                    case "S02":
+                    case "S01":
                         if ((int)dato.Valor == 1)
                         {
                             this.SB01.BackColor = Color.Orange;
@@ -214,7 +214,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.SB01.BackColor = Color.Beige;
                         }
                         break;
-                    case "S03":
+                    case "S02":
                         if ((int)dato.Valor == 1)
                         {
                             this.SB02.BackColor = Color.Orange;
@@ -224,7 +224,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.SB02.BackColor = Color.Beige;
                         }
                         break;
-                    case "S04":
+                    case "S03":
                         if ((int)dato.Valor == 1)
                         {
                             this.SB03.BackColor = Color.Orange;
@@ -234,7 +234,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.SB03.BackColor = Color.Beige;
                         }
                         break;
-                    case "S05":
+                    case "S04":
                         if ((int)dato.Valor == 1)
                         {
                             this.SB04.BackColor = Color.Orange;
@@ -244,7 +244,7 @@ namespace Orbita.Controles.Comunicaciones
                             this.SB04.BackColor = Color.Beige;
                         }
                         break;
-                    case "S06":
+                    case "S05":
                         if ((int)dato.Valor == 1)
                         {
                             this.SB05.BackColor = Color.Orange;

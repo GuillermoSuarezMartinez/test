@@ -74,12 +74,6 @@
     <Compile Include="OClienteESSiemens.Designer.cs">
       <DependentUpon>OClienteESSiemens.cs</DependentUpon>
     </Compile>
-    <Compile Include="OClienteESSiemens1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="OClienteESSiemens1.Designer.cs">
-      <DependentUpon>OClienteESSiemens1.cs</DependentUpon>
-    </Compile>
     <Compile Include="OClienteMCUSB.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,9 +101,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OClienteESSiemens.resx">
       <DependentUpon>OClienteESSiemens.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OClienteESSiemens1.resx">
-      <DependentUpon>OClienteESSiemens1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OClienteMCUSB.resx">
       <DependentUpon>OClienteMCUSB.cs</DependentUpon>
