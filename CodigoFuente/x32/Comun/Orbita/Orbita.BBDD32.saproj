@@ -1,0 +1,52 @@
+<SmartAssemblyProject ProjectId="{4c192eff-77da-4d82-bf1d-7c55f9822b37}" Version="2.0">
+    <MainAssemblyFileName>.\Orbita.BBDD.dll</MainAssemblyFileName>
+    <Configuration Name="Release">
+        <ApplicationName />
+        <Destination DestinationFileName="..\..\..\..\..\..\Orbita\General\Dlls\x32\Orbita\Orbita.BBDD.dll" />
+        <Assemblies>
+            <Assembly AssemblyName="MySql.Data, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="IBM.Data.DB2, Culture=neutral, PublicKeyToken=7c307b91aa13d208">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="IBM.Data.U2.Ucinet, Culture=neutral, PublicKeyToken=8934f56ec52178f6">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Npgsql, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Mono.Security, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Oracle.DataAccess, Culture=neutral, PublicKeyToken=89b483f429c47342">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Orbita.BBDD, Culture=neutral, PublicKeyToken=null">
+                <Merging>
+                    <MemberRefsProxy />
+                    <Pruning />
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" ObfuscationLevel="3" />
+                </Merging>
+            </Assembly>
+        </Assemblies>
+        <Options>
+            <Obfuscation FieldsNameMangling="3" NameMangling="3" />
+            <ExceptionReporting />
+            <StrongNameSigning />
+            <OtherProtections AddMetadataStream="1" SuppressIldasm="1" />
+            <StringsEncoding />
+            <OtherOptimizations />
+            <Debugging />
+        </Options>
+    </Configuration>
+</SmartAssemblyProject>

@@ -1,0 +1,80 @@
+<SmartAssemblyProject ProjectId="{5855b053-b25b-4fef-a1b4-bedc637ee0dc}" Version="2.0">
+    <MainAssemblyFileName>.\Orbita.Comunicaciones.dll</MainAssemblyFileName>
+    <Configuration Name="Release">
+        <ApplicationName />
+        <Destination DestinationFileName="..\..\..\..\..\..\Orbita\General\Dlls\x32\Orbita\Orbita.Comunicaciones.dll" />
+        <Assemblies>
+            <Assembly AssemblyName="OpcRcw.Da, Culture=neutral, PublicKeyToken=9a40e993cbface53" HintPath="..\Comunicaciones\opcrcw.da.dll">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Orbita.Utiles, Culture=neutral, PublicKeyToken=null" HintPath=".\Orbita.Utiles.dll">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Orbita.Trazabilidad, Culture=neutral, PublicKeyToken=null">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Orbita.BBDD, Culture=neutral, PublicKeyToken=null">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="MySql.Data, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="IBM.Data.DB2, Culture=neutral, PublicKeyToken=7c307b91aa13d208">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="IBM.Data.U2.Ucinet, Culture=neutral, PublicKeyToken=8934f56ec52178f6">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Npgsql, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Mono.Security, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Oracle.DataAccess, Culture=neutral, PublicKeyToken=89b483f429c47342">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="hasp_net_windows, Culture=neutral, PublicKeyToken=56120be447701319" HintPath="..\Utiles\hasp_net_windows.dll">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Orbita.Winsock, Culture=neutral, PublicKeyToken=null">
+                <Merging />
+                <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="OpcRcw.Comn, Culture=neutral, PublicKeyToken=9a40e993cbface53">
+                <Embedding />
+                <Merging />
+            </Assembly>
+            <Assembly AssemblyName="Orbita.Comunicaciones, Culture=neutral, PublicKeyToken=null">
+                <Merging>
+                    <MemberRefsProxy />
+                    <Pruning />
+                    <Obfuscation Obfuscate="1">
+                        <Exclusion />
+                    </Obfuscation>
+                    <ControlFlow Obfuscate="1" ObfuscationLevel="3" />
+                </Merging>
+            </Assembly>
+        </Assemblies>
+        <Options>
+            <Obfuscation FieldsNameMangling="3" NameMangling="3" />
+            <ExceptionReporting />
+            <StrongNameSigning />
+            <StringsEncoding />
+            <OtherProtections AddMetadataStream="1" SuppressIldasm="1" />
+            <OtherOptimizations />
+            <Debugging />
+        </Options>
+    </Configuration>
+</SmartAssemblyProject>
