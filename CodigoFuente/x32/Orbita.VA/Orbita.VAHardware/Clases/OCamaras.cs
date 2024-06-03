@@ -584,6 +584,19 @@ namespace Orbita.VAHardware
 			}
 		}
 
+        /// <summary>
+        /// Indica que la reproducción continua se ha de ejecutar en el momento de conexión
+        /// </summary>
+        private bool _AutoStart;
+        /// <summary>
+        /// Indica que la reproducción continua se ha de ejecutar en el momento de conexión
+        /// </summary>
+        public bool AutoStart
+        {
+            get { return _AutoStart; }
+            set { _AutoStart = value; }
+        }
+
 		/// <summary>
 		/// Código de la variable que guarda la imagen
 		/// </summary>
@@ -958,26 +971,28 @@ namespace Orbita.VAHardware
 					this._Nombre = dt.Rows[0]["NombreHardware"].ToString();
 					this._Descripcion = dt.Rows[0]["DescHardware"].ToString();
 					this._Habilitado = (bool)dt.Rows[0]["HabilitadoHardware"];
-					this._TipoCamara = (OTipoCamara)App.EnumParse(typeof(OTipoCamara), dt.Rows[0]["CodTipoHardware"].ToString(), OTipoCamara.VProBasler);
+                    this._TipoCamara = OEnumRobusto<OTipoCamara>.Validar(dt.Rows[0]["CodTipoHardware"].ToString(), OTipoCamara.VProBasler);
+                    //this._TipoCamara = (OTipoCamara)App.EnumParse(typeof(OTipoCamara), dt.Rows[0]["CodTipoHardware"].ToString(), OTipoCamara.VProBasler);
 					this._CodigoTipoCamara = dt.Rows[0]["CodTipoHardware"].ToString();
 					this._Fabricante = dt.Rows[0]["Fabricante"].ToString();
 					this._Modelo = dt.Rows[0]["Modelo"].ToString();
 					this._DescripcionTipoCamara = dt.Rows[0]["DescTipoHardware"].ToString();
 					this._CodVariableImagen = dt.Rows[0]["CodVariableImagen"].ToString();
-					this._LanzarEventoAlSnap = App.EvaluaBooleano(dt.Rows[0]["LanzarEventoAlSnap"], false);
+					this._LanzarEventoAlSnap = OBoolRobusto.Validar(dt.Rows[0]["LanzarEventoAlSnap"], false);
 					this._CodVariableSnap = dt.Rows[0]["CodVariableSnap"].ToString();
-					this._Resolucion.Width = App.EvaluaNumero(dt.Rows[0]["ResolucionX"], 1, 100000, 1024);
-					this._Resolucion.Height = App.EvaluaNumero(dt.Rows[0]["ResolucionY"], 1, 100000, 768);
-					this._Color = (OTipoColorPixel)App.EvaluaNumero(dt.Rows[0]["Color"], 0, 1, 0);
-                    this._ExpectedFrameInterval = App.EvaluaDecimal(dt.Rows[0]["FrameIntervalMs"], 0.0, 1000.0, 1.0);
+					this._Resolucion.Width = OEnteroRobusto.Validar(dt.Rows[0]["ResolucionX"], 1, 100000, 1024);
+					this._Resolucion.Height = OEnteroRobusto.Validar(dt.Rows[0]["ResolucionY"], 1, 100000, 768);
+					this._Color = (OTipoColorPixel)OEnteroRobusto.Validar(dt.Rows[0]["Color"], 0, 1, 0);
+                    this._ExpectedFrameInterval = ODecimalRobusto.Validar(dt.Rows[0]["FrameIntervalMs"], 0.0, 1000.0, 1.0);
                     this._ExpectedFrameRate = this._ExpectedFrameInterval > 0 ? 1000 / this._ExpectedFrameInterval : 25;
-                    this._MaxFrameIntervalVisualizacion = App.EvaluaDecimal(dt.Rows[0]["MaxFrameIntervalMsVisualizacion"], 0.0, 1000.0, 0.0);
+                    this._MaxFrameIntervalVisualizacion = ODecimalRobusto.Validar(dt.Rows[0]["MaxFrameIntervalMsVisualizacion"], 0.0, 1000.0, 0.0);
                     this._EnsambladoClaseImplementadoraDisplay = dt.Rows[0]["EnsambladoClaseImplementadoraDisplay"].ToString();
                     this._ClaseImplementadoraDisplay = string.Format("{0}.{1}", this._EnsambladoClaseImplementadoraDisplay, dt.Rows[0]["ClaseImplementadoraDisplay"].ToString());
+                    this._AutoStart = OBoolRobusto.Validar(dt.Rows[0]["AutoStart"], false);
 
                     // Construcción del PTZ
-                    this._EnsambladoClaseImplementadoraPTZ = App.EvaluaTexto(dt.Rows[0]["EnsambladoClaseImplementadoraPTZ"], 100, false, Assembly.GetExecutingAssembly().GetName().Name);
-                    this._ClaseImplementadoraPTZ = string.Format("{0}.{1}", this._EnsambladoClaseImplementadoraPTZ, App.EvaluaTexto(dt.Rows[0]["ClaseImplementadoraPTZ"], 100, false, typeof(OPTZBase).Name));
+                    this._EnsambladoClaseImplementadoraPTZ = OTextoRobusto.Validar(dt.Rows[0]["EnsambladoClaseImplementadoraPTZ"], 100, false, false, Assembly.GetExecutingAssembly().GetName().Name);
+                    this._ClaseImplementadoraPTZ = string.Format("{0}.{1}", this._EnsambladoClaseImplementadoraPTZ, OTextoRobusto.Validar(dt.Rows[0]["ClaseImplementadoraPTZ"], 100, false, false, typeof(OPTZBase).Name));
                     object objetoImplementado;
                     if (App.ConstruirClase(this._EnsambladoClaseImplementadoraPTZ, this._ClaseImplementadoraPTZ, out objetoImplementado, this._Codigo))
                     {
@@ -989,13 +1004,14 @@ namespace Orbita.VAHardware
                     }
 
                     // Construcción del Grabador de videos
-                    TimeSpan tiempoMaxGrabacion = TimeSpan.FromMilliseconds(App.EvaluaNumero(dt.Rows[0]["GrabacionTiempoMaxMs"], 1, int.MaxValue, 60));
+                    TimeSpan tiempoMaxGrabacion = TimeSpan.FromMilliseconds(OEnteroRobusto.Validar(dt.Rows[0]["GrabacionTiempoMaxMs"], 1, int.MaxValue, 60));
                     Size resolucionGrabacion = new Size();
-                    resolucionGrabacion.Width = App.EvaluaNumero(dt.Rows[0]["GrabacionResolucionX"], 1, 100000, 1024);
-                    resolucionGrabacion.Height = App.EvaluaNumero(dt.Rows[0]["GrabacionResolucionY"], 1, 100000, 768);
-                    VideoCodec codecGrabacion = (VideoCodec)App.EnumParse(typeof(VideoCodec), dt.Rows[0]["GrabacionCodec"].ToString(), VideoCodec.MPEG4);
-                    int bitRateGrabacion = App.EvaluaNumero(dt.Rows[0]["GrabacionBitRate"], 1, int.MaxValue, 1000);
-                    double grabacionFrameIntervalMs = App.EvaluaNumero(dt.Rows[0]["GrabacionFrameIntervalMs"], 0.0, 1000.0, 1.0);
+                    resolucionGrabacion.Width = OEnteroRobusto.Validar(dt.Rows[0]["GrabacionResolucionX"], 1, 100000, 1024);
+                    resolucionGrabacion.Height = OEnteroRobusto.Validar(dt.Rows[0]["GrabacionResolucionY"], 1, 100000, 768);
+                    VideoCodec codecGrabacion = OEnumRobusto<VideoCodec>.Validar(dt.Rows[0]["GrabacionCodec"].ToString(), VideoCodec.MPEG4);
+                    //VideoCodec codecGrabacion = (VideoCodec)App.EnumParse(typeof(VideoCodec), dt.Rows[0]["GrabacionCodec"].ToString(), VideoCodec.MPEG4);
+                    int bitRateGrabacion = OEnteroRobusto.Validar(dt.Rows[0]["GrabacionBitRate"], 1, int.MaxValue, 1000);
+                    double grabacionFrameIntervalMs = ODecimalRobusto.Validar(dt.Rows[0]["GrabacionFrameIntervalMs"], 0.0, 1000.0, 1.0);
                     this.VideoFile = new OVideoFile(this.Codigo, resolucionGrabacion, tiempoMaxGrabacion, grabacionFrameIntervalMs, bitRateGrabacion, codecGrabacion);
 				}
 				else
@@ -1011,7 +1027,150 @@ namespace Orbita.VAHardware
 		}
 		#endregion
 
-		#region Método(s) público(s)
+        #region Método(s) privados(s)
+        /// <summary>
+        /// Se conecta a la cámara
+        /// </summary>
+        protected bool Conectar(bool reconexion)
+        {
+            bool resultado = false;
+
+            if ((this.Existe) && (
+                (!reconexion && this.EstadoConexion == OEstadoConexion.Desconectado) ||
+                (reconexion && this.EstadoConexion == OEstadoConexion.Reconectado)))
+            {
+                this.EstadoConexion = OEstadoConexion.Conectando;
+
+                resultado = this.ConectarInterno(false);
+
+                if (resultado)
+                {
+                    if (!reconexion)
+                    {
+                        // Verificamos que la cámara está conectada
+                        this.Conectividad.OnCambioEstadoConexion += this.OnCambioEstadoConectividadCamara;
+                        if (!this.Conectividad.ForzarVerificacionConectividad())
+                        {
+                            resultado = false;
+                        }
+                        // Iniciamos la comprobación de la conectividad con la cámara
+                        this.Conectividad.Start();
+                    }
+
+                    // Iniciamos el PTZ
+                    this.PTZ.Inicializar();
+                }
+
+                if (reconexion)
+                {
+                    this.EstadoConexion = resultado ? OEstadoConexion.Conectado : OEstadoConexion.Reconectando;
+                }
+                else
+                {
+                    this.EstadoConexion = resultado ? OEstadoConexion.Conectado : OEstadoConexion.Desconectado;
+                }
+
+                // Se tiene en cuenta el autostart definido en la base de datos para iniciar la reproducción continua
+                if (resultado && this._AutoStart)
+                {
+                    this.Start();
+                }
+            }
+            return resultado;
+        }
+
+        /// <summary>
+        /// Se desconecta a la cámara
+        /// </summary>
+        protected bool Desconectar(bool errorConexion)
+        {
+            bool resultado = false;
+            if ((this.Existe) && (
+                    (!errorConexion && this.EstadoConexion == OEstadoConexion.Conectado) ||
+                    (errorConexion && this.EstadoConexion == OEstadoConexion.ErrorConexion)))
+            {
+                this.EstadoConexion = OEstadoConexion.Desconectando;
+
+                resultado = this.DesconectarInterno(false);
+
+                if (resultado)
+                {
+                    if (!errorConexion)
+                    {
+                        // Finalizamos la comprobación de la conectividad con la cámara
+                        this.Conectividad.OnCambioEstadoConexion -= this.OnCambioEstadoConectividadCamara;
+                        this.Conectividad.Stop();
+                    }
+
+                    // Finalizamos el PTZ
+                    this.PTZ.Finalizar();
+                }
+
+                if (errorConexion)
+                {
+                    this.EstadoConexion = resultado ? OEstadoConexion.Reconectando : OEstadoConexion.ErrorConexion;
+                }
+                else
+                {
+                    this.EstadoConexion = resultado ? OEstadoConexion.Desconectado : OEstadoConexion.Conectado;
+                }
+            }
+            return resultado;
+        }
+
+        /// <summary>
+        /// Se ejecuta cuando se ha completado la adquisición de una imagen
+        /// </summary>
+        protected virtual void AdquisicionCompletada(OImage imagen)
+        {
+            // Se añade la foto al video
+            if (this.Recording)
+            {
+                this.VideoFile.Add(this.ImagenActual);
+            }
+
+            // Se dispara el delegado de nueva fotografía
+            if (this.OnNuevaFotografiaCamara != null)
+            {
+                this.OnNuevaFotografiaCamara(imagen);
+            }
+            if (this.OnNuevaFotografiaCamaraAdv != null)
+            {
+                this.OnNuevaFotografiaCamaraAdv(this.Codigo, imagen, DateTime.Now, this.MedidorVelocidadAdquisicion.UltimaTasa);
+            }
+        }
+
+        /// <summary>
+        /// Establece el valor de la imagen a la variable asociada
+        /// </summary>
+        /// <param name="imagen">Imagen a establecer en la variable</param>
+        protected void EstablecerVariableAsociada(OImage imagen)
+        {
+            // Se asigna el valor de la variable asociada
+            OVariablesManager.SetValue(this.CodVariableImagen, imagen, "Camaras", this.Codigo);
+        }
+
+        /// <summary>
+        /// Simulación de la realización de un snap
+        /// </summary>
+        protected bool SnapSimulado(string rutaFotografia)
+        {
+            OImage imagen;
+
+            // Se carga la fotografía de disco
+            bool resultado = this.CargarImagenDeDisco(out imagen, rutaFotografia);
+
+            // Se asigna el valor de la variable asociada
+            if (resultado)
+            {
+                this.EstablecerVariableAsociada(imagen);
+            }
+
+            return resultado;
+        }
+        #endregion
+
+        #region Método(s) público(s)
         /// <summary>
         /// Se conecta a la cámara
         /// </summary>
@@ -1076,7 +1235,7 @@ namespace Orbita.VAHardware
                 this._Grab = true;
                 if (!this.SimulacionCamara.Simulacion)
                 {
-                    resultado = this.InternalStart();
+                    resultado = this.StartInterno();
                 }
                 else
                 {
@@ -1113,7 +1272,7 @@ namespace Orbita.VAHardware
                 this._Grab = false;
                 if (!this.SimulacionCamara.Simulacion)
                 {
-                    resultado = this.InternalStop();
+                    resultado = this.StopInterno();
                 }
                 else
                 {
@@ -1145,7 +1304,7 @@ namespace Orbita.VAHardware
             {
                 if (!this.SimulacionCamara.Simulacion)
                 { // Modo de funcionamiento normal
-                    resultado = this.InternalSnap();
+                    resultado = this.SnapInterno();
                 }
                 else
                 { // Modo de funcionamiento en modo simulación (por ahora de 1 sola fotografía)
@@ -1191,7 +1350,7 @@ namespace Orbita.VAHardware
 		/// </summary>
 		/// <param name="fichero">Ruta y nombre del fichero que contendra el video</param>
 		/// <returns></returns>
-		public bool REC(string fichero)
+		public bool StartREC(string fichero)
 		{
             bool resultado = false;
             if (this.Habilitado && (this.EstadoConexion == VAHardware.OEstadoConexion.Conectado))
@@ -1201,7 +1360,7 @@ namespace Orbita.VAHardware
 
                 if (!this.SimulacionCamara.Simulacion)
                 {
-                    resultado = this.InternalREC(fichero);
+                    resultado = this.StartRECInterno(fichero);
                 }
             }
             //this.Recording = resultado;
@@ -1222,7 +1381,7 @@ namespace Orbita.VAHardware
 
                 if (!this.SimulacionCamara.Simulacion)
                 {
-                    resultado = this.InternalStopREC();
+                    resultado = this.StopRECInterno();
                 }
             }
             //this.Recording = false;
@@ -1344,60 +1503,7 @@ namespace Orbita.VAHardware
         }
 		#endregion
 
-		#region Método(s) privado(s)
-        /// <summary>
-        /// Se ejecuta cuando se ha completado la adquisición de una imagen
-        /// </summary>
-        protected virtual void AdquisicionCompletada(OImage imagen)
-        {
-            // Se añade la foto al video
-            if (this.Recording)
-            {
-                this.VideoFile.Add(this.ImagenActual);
-            }
-
-            // Se dispara el delegado de nueva fotografía
-            if (this.OnNuevaFotografiaCamara != null)
-            {
-                this.OnNuevaFotografiaCamara(imagen);
-            }
-            if (this.OnNuevaFotografiaCamaraAdv != null)
-            {
-                this.OnNuevaFotografiaCamaraAdv(this.Codigo, imagen, DateTime.Now, this.MedidorVelocidadAdquisicion.UltimaTasa);
-            }
-        }
-
-		/// <summary>
-		/// Establece el valor de la imagen a la variable asociada
-		/// </summary>
-		/// <param name="imagen">Imagen a establecer en la variable</param>
-		protected void EstablecerVariableAsociada(OImage imagen)
-		{
-			// Se asigna el valor de la variable asociada
-			OVariablesManager.SetValue(this.CodVariableImagen, imagen, "Camaras", this.Codigo);
-		}
-
-		/// <summary>
-		/// Simulación de la realización de un snap
-		/// </summary>
-		protected bool SnapSimulado(string rutaFotografia)
-		{
-			OImage imagen;
-
-			// Se carga la fotografía de disco
-			bool resultado = this.CargarImagenDeDisco(out imagen, rutaFotografia);
-
-			// Se asigna el valor de la variable asociada
-			if (resultado)
-			{
-				this.EstablecerVariableAsociada(imagen);
-			}
-
-			return resultado;
-		}
-		#endregion
-
-		#region Método(s) virtual(es)
+		#region Método(s) virtual(es) público(s)
 		/// <summary>
 		/// Carga los valores de la cámara
 		/// </summary>
@@ -1405,6 +1511,8 @@ namespace Orbita.VAHardware
 		{
 			if (this.Habilitado)
 			{
+			    this.CrearConectividad();
+
                 if (!this.Conectar())
 				{
 					OVALogsManager.Error(OModulosHardware.Camaras, "Inicialización", "Ha sido imposible realizar la conexión de la cámara " + this.Nombre);
@@ -1433,68 +1541,6 @@ namespace Orbita.VAHardware
 					OVALogsManager.Error(OModulosHardware.Camaras, "Finalización", "Ha sido imposible realizar la desconexión de la cámara " + this.Nombre);
 				}
 			}
-		}
-
-		/// <summary>
-		/// Se toma el control de la cámara
-		/// </summary>
-		/// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-		protected virtual bool Conectar(bool reconexion)
-		{
-			// Información extra
-			OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Conexión de la cámara: " + this.Codigo);
-
-			return false;
-		}
-
-		/// <summary>
-		/// Se deja el control de la cámara
-		/// </summary>
-		/// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-		protected virtual bool Desconectar(bool errorConexion)
-		{
-			// Información extra
-			OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Desconexión de la cámara: " + this.Codigo);
-
-			return false;
-		}
-
-		/// <summary>
-		/// Comienza una reproducción continua de la cámara
-		/// </summary>
-		/// <returns></returns>
-		protected virtual bool InternalStart()
-		{
-			this._Grab = true;
-
-			this.MedidorVelocidadAdquisicion.ResetearMediciones();
-
-			// Método implementado en las clases hijas
-			return true;
-		}
-
-		/// <summary>
-		/// Termina una reproducción continua de la cámara
-		/// </summary>
-		/// <returns></returns>
-		protected virtual bool InternalStop()
-		{
-			this._Grab = false;
-
-			// Método implementado en las clases hijas
-			return true;
-		}
-
-		/// <summary>
-		/// Realiza una fotografía de forma sincrona
-		/// </summary>
-		/// <returns></returns>
-		protected virtual bool InternalSnap()
-		{
-			this.MedidorVelocidadAdquisicion.ResetearMediciones();
-
-			// Método implementado en las clases hijas
-			return true;
 		}
 
 		/// <summary>
@@ -1569,13 +1615,77 @@ namespace Orbita.VAHardware
 		public virtual void VisualizarImagen(OImage imagen, OGrafico graficos)
 		{
 		}
+        #endregion
+
+        #region Método(s) virtual(es) privado(s)
+        /// <summary>
+        /// Se toma el control de la cámara
+        /// </summary>
+        /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
+        protected virtual bool ConectarInterno(bool reconexion)
+        {
+            // Información extra
+            OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Conexión de la cámara: " + this.Codigo);
+
+            return false;
+        }
+
+        /// <summary>
+        /// Se deja el control de la cámara
+        /// </summary>
+        /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
+        protected virtual bool DesconectarInterno(bool errorConexion)
+        {
+            // Información extra
+            OVALogsManager.Debug(OModulosHardware.Camaras, this.Codigo, "Desconexión de la cámara: " + this.Codigo);
+
+            return false;
+        }
+
+        /// <summary>
+        /// Comienza una reproducción continua de la cámara
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool StartInterno()
+        {
+            this._Grab = true;
+
+            this.MedidorVelocidadAdquisicion.ResetearMediciones();
+
+            // Método implementado en las clases hijas
+            return true;
+        }
+
+        /// <summary>
+        /// Termina una reproducción continua de la cámara
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool StopInterno()
+        {
+            this._Grab = false;
+
+            // Método implementado en las clases hijas
+            return true;
+        }
+
+        /// <summary>
+        /// Realiza una fotografía de forma sincrona
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool SnapInterno()
+        {
+            this.MedidorVelocidadAdquisicion.ResetearMediciones();
+
+            // Método implementado en las clases hijas
+            return false;
+        }
 
 		/// <summary>
 		/// Comienza una grabacion continua de la cámara
 		/// </summary>
 		/// <param name="fichero">Ruta y nombre del fichero que contendra el video</param>
 		/// <returns></returns>
-		protected virtual bool InternalREC(string fichero)
+		protected virtual bool StartRECInterno(string fichero)
 		{
             bool resultado = false;
 
@@ -1587,12 +1697,12 @@ namespace Orbita.VAHardware
 
             return resultado;
 		}
-
+        
 		/// <summary>
 		/// Termina una grabación continua de la cámara
 		/// </summary>
 		/// <returns></returns>
-		protected virtual bool InternalStopREC()
+		protected virtual bool StopRECInterno()
 		{
             bool resultado = false;
 
@@ -1604,6 +1714,14 @@ namespace Orbita.VAHardware
 
             return resultado;
 		}
+
+        /// <summary>
+        /// Crea el objeto de conectividad adecuado para la cámara
+        /// </summary>
+        protected virtual void CrearConectividad()
+        {
+            // Implementado en heredados
+        }
 		#endregion
 
 		#region Eventos
@@ -1990,7 +2108,7 @@ namespace Orbita.VAHardware
 							if (this.ListaRutaFotografias.Count > 0)
 							{
 								this.IndiceFotografia++;
-								resultado = App.InRange(this.IndiceFotografia, 0, this.ListaRutaFotografias.Count - 1);
+                                resultado = OEnteroRobusto.InRange(this.IndiceFotografia, 0, this.ListaRutaFotografias.Count - 1);
 								if (resultado)
 								{
 									rutaFotografiaActual = this.ListaRutaFotografias[this.IndiceFotografia];
@@ -2086,7 +2204,11 @@ namespace Orbita.VAHardware
         /// <summary>
 		/// La cámara tiene un error de conexión y está intentando reconectarse
 		/// </summary>
-		Reconectando = 5
+		Reconectando = 5,
+        /// <summary>
+		/// La cámara ha logrado reconectarse
+		/// </summary>
+		Reconectado = 6
 	}
 	#endregion
 

@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Librería dinámica de funciones de hardware")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Órbita Ingeniería")]
-[assembly: AssemblyProduct("Orbita.VAHardware")]
+[assembly: AssemblyProduct("Orbita.VA.Hardware")]
 [assembly: AssemblyCopyright("Copyright © Órbita Ingeniería 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

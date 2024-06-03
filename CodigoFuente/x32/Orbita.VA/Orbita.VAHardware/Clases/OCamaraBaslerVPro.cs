@@ -152,8 +152,7 @@ namespace Orbita.VAHardware
                     this.TimerScan.Tick += new EventHandler(EventoScan);
 
                     // Creación de la comprobación de la conexión con la cámara IP
-                    this.IntervaloComprobacionConectividadMS = App.EvaluaNumero(dt.Rows[0]["IPCam_IntervaloComprobacionConectividadMS"], 1, int.MaxValue, 100);
-                    this.Conectividad = new OConectividadGigE(this.Codigo, this.Ajustes.FeatureLineStatusAll, this.IntervaloComprobacionConectividadMS);
+                    this.IntervaloComprobacionConectividadMS = OEnteroRobusto.Validar(dt.Rows[0]["IPCam_IntervaloComprobacionConectividadMS"], 1, int.MaxValue, 100);
 
                     // Se construye la lista de cámaras GigE
                     if (PrimeraInstancia)
@@ -253,14 +252,6 @@ namespace Orbita.VAHardware
 
         #region Método(s) heredado(s)
         /// <summary>
-        /// Carga los valores de la cámara
-        /// </summary>
-        public override void Inicializar()
-        {
-            base.Inicializar();
-        }
-
-        /// <summary>
         /// Finaliza la cámara
         /// </summary>
         public override void Finalizar()
@@ -269,10 +260,7 @@ namespace Orbita.VAHardware
 
             this.Ajustes = null;
             this.AcqFifo = null;
-            //if (this.EstadoConexion == Orbita.VAHardware.EstadoConexion.Conectado)
-            //{
-                this.FrameGrabber.Disconnect(true);                
-            //}
+            this.FrameGrabber.Disconnect(true);                
             this.FrameGrabber = null;
         }
 
@@ -280,53 +268,42 @@ namespace Orbita.VAHardware
         /// Se toma el control de la cámara
         /// </summary>
         /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-        protected override bool Conectar(bool reconexion)
+        protected override bool ConectarInterno(bool reconexion)
         {
-            bool resultado = base.Conectar(reconexion);
+            bool resultado = base.ConectarInterno(reconexion);
             try
             {
-                if ((this.Existe) && (this.EstadoConexion != OEstadoConexion.Conectado))
+                if (this.FrameGrabber.OwnedGigEAccess == null) // Check for GigE Access support.
                 {
-                    if (this.FrameGrabber.OwnedGigEAccess == null)  // Check for GigE Access support.
-                        resultado = false;  // Exit if no GigE Access support on this Frame-Grabber.
-
-                    this.Ajustes.Inicializar(this.FrameGrabber.OwnedGigEAccess);
-
-                    // Create a CogAcqFifo object for this Camara.
-                    this.AcqFifo = (CogAcqFifoGigE)this.FrameGrabber.CreateAcqFifo(this.Ajustes.FeatureAcquisitionFormat.Valor, this.Ajustes.ImageFormat, 0, false);
-
-                    this.AcqFifo.TimeoutEnabled = true; // Opcional
-
-                    // Inicializamos las características de la cámara
-                    this.Ajustes.Configurar(this.FrameGrabber, this.AcqFifo, this.Color);
-
-                    // Se configuran los terminales dinamicamente
-                    foreach (OTerminalIOBaslerVproBit terminalIO in this._ListaTerminales)
-                    {
-                        terminalIO.Inicializar(this.Ajustes.FeatureLineSelector, this.Ajustes.FeatureLineSource, this.Ajustes.FeatureLineStatusAll, this.Ajustes.FeatureUserOutputSelector, this.Ajustes.FeatureUserOutputValue);
-                    }
-
-                    OImage inicio = new OImage();
-
-                    if (!reconexion)
-                    {
-                        this.EstadoConexion = OEstadoConexion.Conectado;
-
-                        // Iniciamos la comprobación de la conectividad con la cámara
-                        this.Conectividad.OnCambioEstadoConexion += this.OnCambioEstadoConectividadCamara;
-                        this.Conectividad.Start();
-                    }
-
-                    // Ponemos en marcha el timer de escaneo
-                    this.TimerScan.Enabled = true;
-
-                    resultado = true;
+                    throw new Exception("No hay soporte para cámaras GigE") ; // Exit if no GigE Access support on this Frame-Grabber.
                 }
+
+                this.Ajustes.Inicializar(this.FrameGrabber.OwnedGigEAccess);
+
+                // Create a CogAcqFifo object for this Camara.
+                this.AcqFifo = (CogAcqFifoGigE)this.FrameGrabber.CreateAcqFifo(this.Ajustes.FeatureAcquisitionFormat.Valor, this.Ajustes.ImageFormat, 0, false);
+
+                this.AcqFifo.TimeoutEnabled = true; // Opcional
+
+                // Inicializamos las características de la cámara
+                this.Ajustes.Configurar(this.FrameGrabber, this.AcqFifo, this.Color);
+
+                // Se configuran los terminales dinamicamente
+                foreach (OTerminalIOBaslerVproBit terminalIO in this._ListaTerminales)
+                {
+                    terminalIO.Inicializar(this.Ajustes.FeatureLineSelector, this.Ajustes.FeatureLineSource, this.Ajustes.FeatureLineStatusAll, this.Ajustes.FeatureUserOutputSelector, this.Ajustes.FeatureUserOutputValue);
+                }
+
+                OImage inicio = new OImage();
+
+                // Ponemos en marcha el timer de escaneo
+                this.TimerScan.Enabled = true;
+
+                resultado = true;
             }
             catch (OCameraConectionException exception)
             {
                 OVALogsManager.Error(OModulosHardware.CamaraBaslerVPro, this.Codigo, "Problema de conexión con la cámara " + this.Codigo + ": " + exception.ToString());
-                this.EstadoConexion = OEstadoConexion.ErrorConexion;
             }
             catch (Exception exception)
             {
@@ -340,35 +317,19 @@ namespace Orbita.VAHardware
         /// Se deja el control de la cámara
         /// </summary>
         /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-        protected override bool Desconectar(bool errorConexion)
+        protected override bool DesconectarInterno(bool errorConexion)
         {
-            bool resultado = false;
+            bool resultado = base.DesconectarInterno(errorConexion);
 
             try
             {
-                if ((this.Existe) && (
-                        (this.EstadoConexion == OEstadoConexion.Conectado) ||
-                        ((this.EstadoConexion != OEstadoConexion.ErrorConexion) && errorConexion)))
-                {
-                    this.EstadoConexion = OEstadoConexion.Desconectando;
+                // Paramos el timer de escaneo
+                this.TimerScan.Enabled = false;
 
-                    // Paramos el timer de escaneo
-                    this.TimerScan.Enabled = false;
+                this.Ajustes.Stop();
+                this.VaciarBuffer();
 
-                    this.Ajustes.Stop();
-
-                    this.VaciarBuffer();
-
-                    if (!errorConexion)
-                    {
-                        // Finalizamos la comprobación de la conectividad con la cámara
-                        this.Conectividad.OnCambioEstadoConexion -= this.OnCambioEstadoConectividadCamara;
-                        this.Conectividad.Stop();
-                    }
-
-                    this.EstadoConexion = OEstadoConexion.Desconectado;
-                    resultado = true;
-                }
+                resultado = true;
             }
             catch (Exception exception)
             {
@@ -382,7 +343,7 @@ namespace Orbita.VAHardware
         /// Comienza una reproducción continua de la cámara
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalStart()
+        protected override bool StartInterno()
         {
             bool resultado = false;
 
@@ -390,7 +351,7 @@ namespace Orbita.VAHardware
             {
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    base.InternalStart();
+                    base.StartInterno();
 
                     // Indicamos que no existe ninguna adquisición ejecutandose en estos momentos
                     this.AdquisicionEnProceso = false;
@@ -400,6 +361,8 @@ namespace Orbita.VAHardware
 
                     // Acquisition configuration
                     this.Ajustes.Start();
+
+                    resultado = true;
                 }
             }
             catch (OCameraConectionException exception)
@@ -419,7 +382,7 @@ namespace Orbita.VAHardware
         /// Termina una reproducción continua de la cámara
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalStop()
+        protected override bool StopInterno()
         {
             bool resultado = false;
 
@@ -439,7 +402,9 @@ namespace Orbita.VAHardware
                     // Indicamos que no existe ninguna adquisición ejecutandose en estos momentos
                     this.AdquisicionEnProceso = false;
 
-                    base.InternalStop();
+                    base.StopInterno();
+
+                    resultado = true;
                 }
             }
             catch (Exception exception)
@@ -454,16 +419,18 @@ namespace Orbita.VAHardware
         /// Realiza una fotografía de forma sincrona
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalSnap()
+        protected override bool SnapInterno()
         {
             bool resultado = false;
             try
             {
                 if ((this.EstadoConexion == OEstadoConexion.Conectado) && (this.Ajustes.AcquisitionMode == OModoAdquisicion.DisparoSoftware))
                 {
-                    base.InternalSnap();
+                    base.SnapInterno();
 
                     this.AcqFifo.StartAcquire();
+
+                    resultado = true;
                 }
             }
             catch (OCameraConectionException exception)
@@ -544,6 +511,15 @@ namespace Orbita.VAHardware
         public override OImage NuevaImagen()
         {
             return new OImagenVisionPro();
+        }
+
+        /// <summary>
+        /// Crea el objeto de conectividad adecuado para la cámara
+        /// </summary>
+        protected override void CrearConectividad()
+        {
+            // Creación de la comprobación de la conexión con la cámara Basler
+            this.Conectividad = new OConectividadGigE(this.Codigo, this.Ajustes.FeatureLineStatusAll, this.IntervaloComprobacionConectividadMS);
         }
         #endregion
 
@@ -672,17 +648,16 @@ namespace Orbita.VAHardware
             {
                 base.OnCambioEstadoConectividadCamara(codigo, estadoConexionActal, estadoConexionAnterior);
 
-                if ((estadoConexionActal == OEstadoConexion.Conectado) && (estadoConexionAnterior == OEstadoConexion.ErrorConexion))
+                if ((estadoConexionActal == OEstadoConexion.Reconectado) && (estadoConexionAnterior == OEstadoConexion.Reconectando))
                 {
                     this.Conectar(true);
                 }
-
-                if ((estadoConexionActal == OEstadoConexion.ErrorConexion) && (estadoConexionAnterior == OEstadoConexion.Conectado))
-                {
-                    this.Stop();
-                    this.Desconectar(true);
-                    this.EstadoConexion = OEstadoConexion.Reconectando;
-                }
+                else
+                    if ((estadoConexionActal == OEstadoConexion.ErrorConexion) && (estadoConexionAnterior == OEstadoConexion.Conectado))
+                    {
+                        this.Stop();
+                        this.Desconectar(true);
+                    }
             }
             catch (Exception exception)
             {
@@ -1439,7 +1414,7 @@ namespace Orbita.VAHardware
 
             // Acquisition configuration
             this.ConfigureTrigger();
-            //App.Espera(10000); // Tiempo necesario para que la cámara se configure
+            //OThread.Espera(10000); // Tiempo necesario para que la cámara se configure
 
             // Strobe Configuration
             //JAIConfig.ConfigureStrobe(gigEAccess);
@@ -1538,8 +1513,8 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Constructor de la clase
         /// </summary>
-        public OGigEStringFeature(string codigo, int maxLength, bool admiteVacio, string defaultValue, int timeOutMilis)
-            : base(codigo, maxLength, admiteVacio, defaultValue, false)
+        public OGigEStringFeature(string codigo, int maxLength, bool admiteVacio, bool limitarLongitud, string defaultValue, int timeOutMilis)
+            : base(codigo, maxLength, admiteVacio, true, defaultValue, false)
         {
             this.TimeOut = TimeSpan.FromMilliseconds(timeOutMilis);
         }
@@ -1669,7 +1644,7 @@ namespace Orbita.VAHardware
                         ok = (strValue == strOutValue);
                         if (!ok)
                         {
-                            App.Espera(10);
+                            OThread.Espera(10);
                         }
                     }
 
@@ -1776,7 +1751,7 @@ namespace Orbita.VAHardware
                         ok = (intValue == intOutValue);
                         if (!ok)
                         {
-                            App.Espera(10);
+                            OThread.Espera(10);
                         }
                     }
 
@@ -1883,7 +1858,7 @@ namespace Orbita.VAHardware
                         ok = (Math.Round(doubleValue, 2) == Math.Round(doubleOutValue, 2));
                         if (!ok)
                         {
-                            App.Espera(10);
+                            OThread.Espera(10);
                         }
                     }
 
@@ -2000,7 +1975,7 @@ namespace Orbita.VAHardware
                         ok = (boolValue == boolOutValue);
                         if (!ok)
                         {
-                            App.Espera(10);
+                            OThread.Espera(10);
                         }
                     }
 
@@ -2166,7 +2141,7 @@ namespace Orbita.VAHardware
                         // Leo la entrada fisica
                         this.FeatureLineStatusAll.Receive();
                         uint intValor = (uint)this.FeatureLineStatusAll.Valor;
-                        bool boolValor = App.GetBit(intValor, this.Numero);
+                        bool boolValor = OBinario.GetBit(intValor, this.Numero);
 
                         if (this.Valor != boolValor)
                         {

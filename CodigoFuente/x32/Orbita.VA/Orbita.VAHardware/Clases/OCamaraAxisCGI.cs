@@ -45,46 +45,10 @@ namespace Orbita.VAHardware
 
         #region Método(s) heredado(s)
         /// <summary>
-        /// Carga los valores de la cámara
-        /// </summary>
-        public override void Inicializar()
-        {
-            base.Inicializar();
-        }
-
-        /// <summary>
-        /// Finaliza la cámara
-        /// </summary>
-        public override void Finalizar()
-        {          
-            base.Finalizar();
-        }
-
-        /// <summary>
-        /// Se toma el control de la cámara
-        /// </summary>
-        /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-        protected override bool Conectar(bool reconexion)
-        {
-            bool resultado = base.Conectar(reconexion);
-            return resultado;
-        }
-
-        /// <summary>
-        /// Se deja el control de la cámara
-        /// </summary>
-        /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-        protected override bool Desconectar(bool errorConexion)
-        {
-            bool resultado = false;
-            return resultado;
-        }
-
-        /// <summary>
         /// Comienza una reproducción continua de la cámara
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalStart()
+        protected override bool StartInterno()
         {
             bool resultado = false;
 
@@ -92,7 +56,7 @@ namespace Orbita.VAHardware
             {
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    base.InternalStart();
+                    base.StartInterno();
                 }
             }
             catch (Exception exception)
@@ -107,7 +71,7 @@ namespace Orbita.VAHardware
         /// Termina una reproducción continua de la cámara
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalStop()
+        protected override bool StopInterno()
         {
             bool resultado = false;
 
@@ -115,7 +79,7 @@ namespace Orbita.VAHardware
             {
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    base.InternalStop();
+                    base.StopInterno();
                 }
             }
             catch (Exception exception)
@@ -130,14 +94,14 @@ namespace Orbita.VAHardware
         /// Realiza una fotografía de forma sincrona
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalSnap()
+        protected override bool SnapInterno()
         {
             bool resultado = false;
             try
             {
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    resultado = base.InternalSnap();
+                    resultado = base.SnapInterno();
                 }
 
                 return resultado;

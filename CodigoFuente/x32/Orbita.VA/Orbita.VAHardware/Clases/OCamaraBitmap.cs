@@ -30,9 +30,9 @@ namespace Orbita.VAHardware
         /// <summary>
         /// Propieadad a heredar donde se accede a la imagen
         /// </summary>
-        public new OBitmapImage ImagenActual
+        public new OImagenBitmap ImagenActual
         {
-            get { return (OBitmapImage)this._ImagenActual; }
+            get { return (OImagenBitmap)this._ImagenActual; }
             set { this._ImagenActual = value; }
         }
         #endregion
@@ -56,7 +56,7 @@ namespace Orbita.VAHardware
         /// Se extrae la imagen actual de la cámara
         /// </summary>
         /// <returns></returns>
-        protected bool GetCurrentImage(out OBitmapImage bitmapImage)
+        protected bool GetCurrentImage(out OImagenBitmap bitmapImage)
         {
             bool resultado = false;
             bitmapImage = null;
@@ -75,7 +75,7 @@ namespace Orbita.VAHardware
         /// Se importa una imagen a la cámara
         /// </summary>
         /// <returns></returns>
-        protected bool SetCurrentImage(OBitmapImage bitmapImage)
+        protected bool SetCurrentImage(OImagenBitmap bitmapImage)
         {
             this.ImagenActual = bitmapImage;
             return true;
@@ -110,7 +110,7 @@ namespace Orbita.VAHardware
             bool resultado = base.CargarImagenDeDisco(out imagen, ruta);
 
             // Se carga la imagen
-            OBitmapImage bitmapImage = new OBitmapImage(this.Codigo);
+            OImagenBitmap bitmapImage = new OImagenBitmap(this.Codigo);
             bitmapImage.Cargar(ruta);
             if (bitmapImage.EsValida())
             {
@@ -134,7 +134,7 @@ namespace Orbita.VAHardware
             // Valores por defecto
             bool resultado = base.GuardarImagenADisco(ruta);
 
-            OBitmapImage bitmapImage = new OBitmapImage();
+            OImagenBitmap bitmapImage = new OImagenBitmap();
 
             // Se carga en el display
             if (this.GetCurrentImage(out bitmapImage))
@@ -156,7 +156,7 @@ namespace Orbita.VAHardware
         /// <returns>Imagen del tipo adecuado al trabajo con la cámara</returns>
         public override OImage NuevaImagen()
         {
-            OBitmapImage bitmapImage = new OBitmapImage(new Bitmap(this.Resolucion.Width, this.Resolucion.Height));
+            OImagenBitmap bitmapImage = new OImagenBitmap(new Bitmap(this.Resolucion.Width, this.Resolucion.Height));
             return bitmapImage;
         }
         #endregion

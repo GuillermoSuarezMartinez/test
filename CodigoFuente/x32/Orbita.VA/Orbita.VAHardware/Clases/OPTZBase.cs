@@ -82,7 +82,7 @@ namespace Orbita.VAHardware
 			    DataTable dt = AppBD.GetCamara(codigo);
                 if (dt.Rows.Count == 1)
                 {
-                    this.Habilitado = App.EvaluaBooleano(dt.Rows[0]["PTZ_Habilitado"], false);
+                    this.Habilitado = OBoolRobusto.Validar(dt.Rows[0]["PTZ_Habilitado"], false);
                 }
 
                 this._Posicion = new OPosicionesPTZ();

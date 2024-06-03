@@ -59,6 +59,10 @@ namespace Orbita.VAHardware
         /// Módulo de funcionamiento de los PTZs
         /// </summary>
         public static OEnumModulosSistema PTZ = new OEnumModulosSistema("PTZ", "Módulo de funcionamiento de los controladores PTZ", 210);
+        /// <summary>
+        /// Módulo de funcionamiento de las cámaras Basler mediante el driver propio de Pylon
+        /// </summary>
+        public static OEnumModulosSistema CamaraBalserPylon = new OEnumModulosSistema("CamaraBalserPylon", "Módulo de funcionamiento de las cámaras Basler mediante el driver de Pylon", 211);
         #endregion
     }
 }

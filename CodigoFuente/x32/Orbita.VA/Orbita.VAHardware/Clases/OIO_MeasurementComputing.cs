@@ -69,7 +69,7 @@ namespace Orbita.VAHardware
             DataTable dtTarjetaIO = AppBD.GetTarjetaIO(this.Codigo);
             if (dtTarjetaIO.Rows.Count == 1)
             {
-                this._BoardNum = App.EvaluaNumero(dtTarjetaIO.Rows[0]["DAQ_NumBoard"], 0, 1000, 0);
+                this._BoardNum = OEnteroRobusto.Validar(dtTarjetaIO.Rows[0]["DAQ_NumBoard"], 0, 1000, 0);
 
                 this.CrearTerminales();
             }
@@ -494,12 +494,12 @@ namespace Orbita.VAHardware
 
             // Se comprueba que el valor sea correcto
             bool valorOK = false;
-            if (App.IsNumericInt(valor))
+            if (OEnteroRobusto.IsNumericInt(valor))
             {
                 int intValor = Convert.ToInt32(valor);
                 int maxvalor = (int)Math.Pow(2, this.NumBits) - 1;
 
-                if (App.InRange(intValor, 0x00, maxvalor))
+                if (OEnteroRobusto.InRange(intValor, 0x00, maxvalor))
                 {
                     ushortValor = (ushort)intValor;
                     valorOK = true;
@@ -619,7 +619,7 @@ namespace Orbita.VAHardware
         {
             if (this.Habilitado && this.Existe)
             {
-                bool boolValor = App.GetBit(ushortValor, this.Numero);
+                bool boolValor = OBinario.GetBit(ushortValor, this.Numero);
                 if (this.Valor != boolValor)
                 {
                     this.Valor = boolValor;
@@ -659,7 +659,7 @@ namespace Orbita.VAHardware
                 if (this.Habilitado && this.Existe)
                 {
                     ushort ushortValor = this.TerminalPerteneciente.Valor;
-                    App.SetBit(ref ushortValor, this.Numero, boolValor);
+                    OBinario.SetBit(ref ushortValor, this.Numero, boolValor);
 
                     //this.TerminalPerteneciente.EscribirSalida(codigoVariable, ushortValor);
 
@@ -678,7 +678,7 @@ namespace Orbita.VAHardware
         public void EscribirSalida(ushort valor)
         {
             // Si el valor es correcto se escribe la salida física
-            this.Valor = App.GetBit(valor, this.Numero);
+            this.Valor = OBinario.GetBit(valor, this.Numero);
         }
 
         /// <summary>

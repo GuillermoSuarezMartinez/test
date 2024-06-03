@@ -104,13 +104,13 @@ namespace Orbita.VAHardware
                 if (dt.Rows.Count == 1)
                 {
                     this.IP = IPAddress.Parse(dt.Rows[0]["IPCam_IP"].ToString());
-                    this.URLOriginal = App.EvaluaTexto(dt.Rows[0]["PTZAxis_URL"], 200, false, "http:\\%IP%");
-                    this.Puerto = App.EvaluaNumero(dt.Rows[0]["IPCam_Puerto"], 0, int.MaxValue, 80);
+                    this.URLOriginal = OTextoRobusto.Validar(dt.Rows[0]["PTZAxis_URL"], 200, false, false, "http:\\%IP%");
+                    this.Puerto = OEnteroRobusto.Validar(dt.Rows[0]["IPCam_Puerto"], 0, int.MaxValue, 80);
                     this.Usuario = dt.Rows[0]["IPCam_Usuario"].ToString();
                     this.Contraseña = dt.Rows[0]["IPCam_Contraseña"].ToString();
-                    this.TimeOutMs = App.EvaluaNumero(dt.Rows[0]["PTZAxis_TimeOutMs"], 1, int.MaxValue, 1000);
-                    this.Pooling = App.EvaluaBooleano(dt.Rows[0]["PTZAxis_Pooling"], false);
-                    this.IntervaloPoolingMs = App.EvaluaNumero(dt.Rows[0]["PTZAxis_Intervalo_PoolingMs"], 1, int.MaxValue, 250);
+                    this.TimeOutMs = OEnteroRobusto.Validar(dt.Rows[0]["PTZAxis_TimeOutMs"], 1, int.MaxValue, 1000);
+                    this.Pooling = OBoolRobusto.Validar(dt.Rows[0]["PTZAxis_Pooling"], false);
+                    this.IntervaloPoolingMs = OEnteroRobusto.Validar(dt.Rows[0]["PTZAxis_Intervalo_PoolingMs"], 1, int.MaxValue, 250);
 
                     // Construcción de la url
                     string url = this.URLOriginal;
@@ -187,11 +187,11 @@ namespace Orbita.VAHardware
                     switch (modo)
 	                {
                         case OEnumModoMovimientoPTZ.Absoluto:
-                            float valorPanA = (float)App.EvaluaDecimal(valor, -180, 180, 0);
+                            float valorPanA = (float)ODecimalRobusto.Validar(valor, -180, 180, 0);
                             resultado = valorPanA.ToString("{0:0.0}"); //float
                             break;
                         case OEnumModoMovimientoPTZ.Relativo:
-                            float valorPanR = (float)App.EvaluaDecimal(valor, -360, 360, 0);
+                            float valorPanR = (float)ODecimalRobusto.Validar(valor, -360, 360, 0);
                             resultado = valorPanR.ToString("{0:0.0}"); //float
                             break;
 	                }
@@ -200,11 +200,11 @@ namespace Orbita.VAHardware
                     switch (modo)
 	                {
                         case OEnumModoMovimientoPTZ.Absoluto:
-                            float valorTiltA = (float)App.EvaluaDecimal(valor, -180, 180, 0);
+                            float valorTiltA = (float)ODecimalRobusto.Validar(valor, -180, 180, 0);
                             resultado = valorTiltA.ToString("{0:0.0}"); //float
                             break;
                         case OEnumModoMovimientoPTZ.Relativo:
-                            float valorTiltR = (float)App.EvaluaDecimal(valor, -360, 360, 0);
+                            float valorTiltR = (float)ODecimalRobusto.Validar(valor, -360, 360, 0);
                             resultado = valorTiltR.ToString("{0:0.0}"); //float
                             break;
 	                }
@@ -213,11 +213,11 @@ namespace Orbita.VAHardware
                     switch (modo)
 	                {
                         case OEnumModoMovimientoPTZ.Absoluto:
-                            int valorZoomA = (int)App.EvaluaDecimal(valor, 1, 9999, 0);
+                            int valorZoomA = (int)ODecimalRobusto.Validar(valor, 1, 9999, 0);
                             resultado = valorZoomA.ToString(); //int
                             break;
                         case OEnumModoMovimientoPTZ.Relativo:
-                            int valorZoomR = (int)App.EvaluaDecimal(valor, -9999, 9999, 0);
+                            int valorZoomR = (int)ODecimalRobusto.Validar(valor, -9999, 9999, 0);
                             resultado = valorZoomR.ToString(); //int
                             break;
 	                }
@@ -226,11 +226,11 @@ namespace Orbita.VAHardware
                     switch (modo)
 	                {
                         case OEnumModoMovimientoPTZ.Absoluto:
-                            int valorIrisA = (int)App.EvaluaDecimal(valor, 1, 9999, 0);
+                            int valorIrisA = (int)ODecimalRobusto.Validar(valor, 1, 9999, 0);
                             resultado = valorIrisA.ToString(); //int
                             break;
                         case OEnumModoMovimientoPTZ.Relativo:
-                            int valorIrisR = (int)App.EvaluaDecimal(valor, -9999, 9999, 0);
+                            int valorIrisR = (int)ODecimalRobusto.Validar(valor, -9999, 9999, 0);
                             resultado = valorIrisR.ToString(); //int
                             break;
 	                }
@@ -239,11 +239,11 @@ namespace Orbita.VAHardware
                     switch (modo)
 	                {
                         case OEnumModoMovimientoPTZ.Absoluto:
-                            int valorFocusA = (int)App.EvaluaDecimal(valor, 1, 9999, 0);
+                            int valorFocusA = (int)ODecimalRobusto.Validar(valor, 1, 9999, 0);
                             resultado = valorFocusA.ToString(); //int
                             break;
                         case OEnumModoMovimientoPTZ.Relativo:
-                            int valorFocusR = (int)App.EvaluaDecimal(valor, -9999, 9999, 0);
+                            int valorFocusR = (int)ODecimalRobusto.Validar(valor, -9999, 9999, 0);
                             resultado = valorFocusR.ToString(); //int
                             break;
 	                }
@@ -279,7 +279,7 @@ namespace Orbita.VAHardware
 
             OEnumRobusto<OEnumTipoMovimientoPTZ> tipo = new OEnumRobusto<OEnumTipoMovimientoPTZ>("TipoPosicion", OEnumTipoMovimientoPTZ.Focus, false);
             tipo.ValorGenerico = strTipo;
-            if (tipo.Estado.Valido)
+            if (tipo.Valido)
             {
                 resultado.Tipo = tipo.Valor;
             }
@@ -290,7 +290,7 @@ namespace Orbita.VAHardware
                 case OEnumTipoMovimientoPTZ.Tilt:
                     ODecimalRobusto valorDouble = new ODecimalRobusto("ValorDouble", -180, 180, 0, false);
                     valorDouble.ValorGenerico = strValor;
-                    if (valorDouble.Estado.Valido)
+                    if (valorDouble.Valido)
                     {
                         resultado.Valor = valorDouble.Valor;
                     }
@@ -300,7 +300,7 @@ namespace Orbita.VAHardware
                 case OEnumTipoMovimientoPTZ.Focus:
                     OEnteroRobusto valorEntero = new OEnteroRobusto("ValorEntero", 1, 9999, 1, false);
                     valorEntero.ValorGenerico = strValor;
-                    if (valorEntero.Estado.Valido)
+                    if (valorEntero.Valido)
                     {
                         resultado.Valor = valorEntero.Valor;
                     }

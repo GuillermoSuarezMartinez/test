@@ -80,7 +80,7 @@ namespace Orbita.VAHardware
             if (dtTarjetaIO.Rows.Count == 1)
             {
                 this._ServidorSced = dtTarjetaIO.Rows[0]["SCED_Server"].ToString();
-                this._PuertoRemoto = App.EvaluaNumero(dtTarjetaIO.Rows[0]["SCED_Puerto"], 0, int.MaxValue, 1851);
+                this._PuertoRemoto = OEnteroRobusto.Validar(dtTarjetaIO.Rows[0]["SCED_Puerto"], 0, int.MaxValue, 1851);
             }
 
             // Cargamos valores de la base de datos buscamos terminales IO
@@ -95,7 +95,7 @@ namespace Orbita.VAHardware
                         OTerminalIOSCED terminal;
 
                         OEnumTipoDispositivoSCED tipoDispositivo = (OEnumTipoDispositivoSCED)OStringValueAttribute.FindStringValue(typeof(OEnumTipoDispositivoSCED), dr["SCED_TipoDispositivo"].ToString(), OEnumTipoDispositivoSCED.OPC_SimaticNET);
-                        int intTipoTerminalIO = App.EvaluaNumero(dr["IdTipoTerminalIO"], 1, 4, 1);
+                        int intTipoTerminalIO = OEnteroRobusto.Validar(dr["IdTipoTerminalIO"], 1, 4, 1);
 
                         OTipoTerminalIO tipoTerminalIO = (OTipoTerminalIO)intTipoTerminalIO;
 
@@ -335,8 +335,8 @@ namespace Orbita.VAHardware
             DataTable dtTerminalIO = AppBD.GetTerminalIO(codTarjetaIO, codTerminalIO);
             if (dtTerminalIO.Rows.Count == 1)
             {
-                this.IdDispositivo = App.EvaluaNumero(dtTerminalIO.Rows[0]["SCED_ID"], 0, 999, 0);
-                this.EscrituraInmediata = App.EvaluaBooleano(dtTerminalIO.Rows[0]["SCED_EscrituraInmediata"], true);
+                this.IdDispositivo = OEnteroRobusto.Validar(dtTerminalIO.Rows[0]["SCED_ID"], 0, 999, 0);
+                this.EscrituraInmediata = OBoolRobusto.Validar(dtTerminalIO.Rows[0]["SCED_EscrituraInmediata"], true);
                 this.CodigoVariableSCED = dtTerminalIO.Rows[0]["SCED_CodVariable"].ToString();
             }
             this.TipoDispositivo = tipoDispositivoSCED;
@@ -350,11 +350,11 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="valorSCED"></param>
         /// <returns></returns>
-        private object SCEDAFormatoCorrecto(object valorSCED)
+        internal static object SCEDAFormatoCorrecto(object valorSCED, OEnumTipoDato tipoDato)
         {
             object resultado = null;
 
-            switch (this.TipoDato)
+            switch (tipoDato)
             {
                 case OEnumTipoDato.Bit:
                 case OEnumTipoDato.Entero:
@@ -386,7 +386,7 @@ namespace Orbita.VAHardware
                     try
                     {
                         byte[] valorByte = (byte[])valorSCED;
-                        OBitmapImage bmp = new OBitmapImage();
+                        OImagenBitmap bmp = new OImagenBitmap();
 
                         resultado = bmp.FromArray(valorByte);
                     }
@@ -405,11 +405,11 @@ namespace Orbita.VAHardware
         /// </summary>
         /// <param name="valorObj"></param>
         /// <returns></returns>
-        private object FormatoCorrectoASCED(object valorObj)
+        internal static object FormatoCorrectoASCED(object valorObj, OEnumTipoDato tipoDato)
         {
             object resultado = null;
 
-            switch (this.TipoDato)
+            switch (tipoDato)
             {
                 case OEnumTipoDato.Bit:
                 case OEnumTipoDato.Entero:
@@ -456,10 +456,10 @@ namespace Orbita.VAHardware
                 // Se devuelve el objeto tal cual
                 object valorSCED = ((OInfoDato)eventArgs.Argumento).Valor;
 
-                if (!App.CompararObjetos(this.Valor, valorSCED))
+                if (!ORobusto.CompararObjetos(this.Valor, valorSCED))
                 {
                     // Conversión
-                    this.Valor = this.SCEDAFormatoCorrecto(valorSCED);
+                    this.Valor = SCEDAFormatoCorrecto(valorSCED, this.TipoDato);
 
                     // Se lanza desde un thread distino.
                     OSimpleMethod setVariableEnThread = new OSimpleMethod(this.EstablecerValorVariable);
@@ -479,7 +479,7 @@ namespace Orbita.VAHardware
         /// <returns></returns>
         internal object ValorFormateado()
         {
-            return this.FormatoCorrectoASCED(this.Valor);
+            return FormatoCorrectoASCED(this.Valor, this.TipoDato);
         }
         #endregion
 
@@ -515,7 +515,7 @@ namespace Orbita.VAHardware
                 if (this.EscrituraInmediata)
                 {
                     // Conversión
-                    this.Valor = this.FormatoCorrectoASCED(valor);
+                    this.Valor = FormatoCorrectoASCED(valor, this.TipoDato);
 
                     // Escritura en el sced
                     this.Servidor.OrbitaEscribir(this.IdDispositivo, new string[1] { this.CodigoVariableSCED }, new object[1] { this.Valor });
@@ -539,7 +539,7 @@ namespace Orbita.VAHardware
                 if (this.EscrituraInmediata)
                 {
                     // Conversión
-                    this.Valor = this.FormatoCorrectoASCED(valor);
+                    this.Valor = FormatoCorrectoASCED(valor, this.TipoDato);
 
                     // Escritura en el sced
                     this.Servidor.OrbitaEscribir(this.IdDispositivo, new string[1] { this.CodigoVariableSCED }, new object[1] { this.Valor });
@@ -569,10 +569,10 @@ namespace Orbita.VAHardware
                     {
                         object valorSCED = infoDato[0];
 
-                        if (!App.CompararObjetos(this.Valor, valorSCED))
+                        if (!ORobusto.CompararObjetos(this.Valor, valorSCED))
                         {
                             // Conversión
-                            this.Valor = this.SCEDAFormatoCorrecto(valorSCED);
+                            this.Valor = SCEDAFormatoCorrecto(valorSCED, this.TipoDato);
 
                             // Se lanza desde un thread distino.
                             OSimpleMethod setVariableEnThread = new OSimpleMethod(this.EstablecerValorVariable);
@@ -629,55 +629,6 @@ namespace Orbita.VAHardware
         }
         #endregion
 
-        #region Método(s) privado(s)
-        /// <summary>
-        /// Convierte el string devuelto por el servidor de sced al formato correcto de trabajo
-        /// </summary>
-        /// <param name="valorObj"></param>
-        /// <returns></returns>
-        private string FormatoCorrectoASCED(object valorObj)
-        {
-            string resultado = string.Empty;
-
-            switch (this.TipoDato)
-            {
-                case OEnumTipoDato.SinDefinir:
-                case OEnumTipoDato.Imagen:
-                case OEnumTipoDato.Grafico:
-                default:
-                    resultado = valorObj.ToString();
-                    break;
-                case OEnumTipoDato.Bit:
-                    resultado = "0";
-                    if ((valorObj is bool) && ((bool)valorObj))
-                    {
-                        resultado = "1";
-                    }
-                    break;
-                case OEnumTipoDato.Entero:
-                    resultado = App.EvaluaNumero(valorObj, int.MinValue, int.MaxValue, 0).ToString();
-                    break;
-                case OEnumTipoDato.Texto:
-                    resultado = valorObj.ToString();
-                    break;
-                case OEnumTipoDato.Decimal:
-                    resultado = App.EvaluaNumero(valorObj, double.MinValue, double.MaxValue, 0D).ToString();
-                    break;
-                case OEnumTipoDato.Fecha:
-                    if (valorObj is DateTime)
-                    {
-                        resultado = valorObj.ToString();
-                    }
-                    break;
-                case OEnumTipoDato.Flag:
-                    resultado = string.Empty;
-                    break;
-            }
-
-            return resultado;
-        }
-        #endregion
-
         #region Método(s) heredado(s)
         /// <summary>
         /// Inicialización de los terminales
@@ -719,11 +670,8 @@ namespace Orbita.VAHardware
                     bool resultado = this.Servidor.OrbitaEscribir(this.IdDispositivo, variables.ToArray(), valores.ToArray());
 
                     // Conversión a string
-                    string valorSCED = this.FormatoCorrectoASCED(valor);
+                    object valorSCED = FormatoCorrectoASCED(valor, this.TipoDato);
                     
-                    // TODO : REVISAR :
-                    //Thread.Sleep(2000);
-
                     // Escritura en el sced de la variable tipo Comando Salida, para que sea escrita en ultimo lugar
                     resultado = this.Servidor.OrbitaEscribir(this.IdDispositivo, new string[1] { this.CodigoVariableSCED }, new object[1] { valorSCED });
                 }

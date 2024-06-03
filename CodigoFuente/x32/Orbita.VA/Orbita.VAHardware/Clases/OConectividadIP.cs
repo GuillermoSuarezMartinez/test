@@ -76,6 +76,7 @@ namespace Orbita.VAHardware
         /// </summary>
         public override OEstadoConexion EstadoConexion
         {
+            get { return base.EstadoConexion; }
             set
             {
                 if (this._EstadoConexion != value)
@@ -85,11 +86,8 @@ namespace Orbita.VAHardware
 
                 switch (value)
                 {
-                    case OEstadoConexion.Desconectado:
-                    default:
-                        break;
+                    case OEstadoConexion.Reconectado:
                     case OEstadoConexion.Conectado:
-                    case OEstadoConexion.ErrorConexion:
                         // Actualizo el tiempo sin respuesta de la cámara
                         this.CronometroTiempoSinRespuestaCamara.Stop();
                         this.CronometroTiempoSinRespuestaCamara.Reset();
@@ -208,11 +206,21 @@ namespace Orbita.VAHardware
                 {
                     if (e.Reply.Status == IPStatus.Success)
                     {
-                        this.EstadoConexion = OEstadoConexion.Conectado;
+                        if (this.EstadoConexion == OEstadoConexion.Reconectando)
+                        {
+                            this.EstadoConexion = OEstadoConexion.Reconectado;
+                        }
+                        else
+                        {
+                            this.EstadoConexion = OEstadoConexion.Conectado;
+                        }
                     }
                     else
                     {
-                        this.EstadoConexion = OEstadoConexion.ErrorConexion;
+                        if (this.EstadoConexion == OEstadoConexion.Conectado)
+                        {
+                            this.EstadoConexion = OEstadoConexion.ErrorConexion;
+                        }
                     }
 
                     this.PingEnProceso = false;

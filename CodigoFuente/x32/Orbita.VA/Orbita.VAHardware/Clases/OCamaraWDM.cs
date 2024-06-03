@@ -70,54 +70,26 @@ namespace Orbita.VAHardware
 
         #region Método(s) heredado(s)
         /// <summary>
-        /// Carga los valores de la cámara
-        /// </summary>
-        public override void Inicializar()
-        {
-            base.Inicializar();
-        }
-
-        /// <summary>
-        /// Finaliza la cámara
-        /// </summary>
-        public override void Finalizar()
-        {
-            base.Finalizar();
-        }
-
-        /// <summary>
         /// Se toma el control de la cámara
         /// </summary>
         /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-        protected override bool Conectar(bool reconexion)
+        protected override bool ConectarInterno(bool reconexion)
         {
-            bool resultado = base.Conectar();
+            bool resultado = base.ConectarInterno(reconexion);
             try
             {
-                if ((this.Existe) && (
-                        (this.EstadoConexion == OEstadoConexion.Desconectado) ||
-                        ((this.EstadoConexion != OEstadoConexion.Reconectando) && reconexion)))
-                {
-                    this.EstadoConexion = OEstadoConexion.Conectando;
+                this.VideoSource.VideoSource = this.Dispostivo;
 
-                    this.VideoSource.VideoSource = this.Dispostivo;
+                // Detengo videosource actual
+                this.VideoSource.SignalToStop();
+                OThread.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
+                this.VideoSource.Stop();
 
-                    // Detengo videosource actual
-                    this.VideoSource.SignalToStop();
-                    App.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
-                    this.VideoSource.Stop();
+                // Nos suscribimos a la recepción de imágenes de la cámara
+                this.VideoSource.NewFrame += this.ImagenAdquirida;
+                this.VideoSource.OnCameraError += ErrorAdquisicion;
 
-                    // Nos suscribimos a la recepción de imágenes de la cámara
-                    this.VideoSource.NewFrame += this.ImagenAdquirida;
-                    this.VideoSource.OnCameraError += ErrorAdquisicion;
-
-                    if (!reconexion)
-                    {
-                        this.EstadoConexion = OEstadoConexion.Conectado;
-                    }
-
-                    resultado = true;
-                }
+                resultado = true;
             }
             catch (Exception exception)
             {
@@ -131,30 +103,22 @@ namespace Orbita.VAHardware
         /// Se deja el control de la cámara
         /// </summary>
         /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-        protected override bool Desconectar(bool errorConexion)
+        protected override bool DesconectarInterno(bool errorConexion)
         {
-            bool resultado = false;
+            bool resultado = base.DesconectarInterno(errorConexion);
 
             try
             {
-                if ((this.Existe) && (
-                        (this.EstadoConexion == OEstadoConexion.Conectado) ||
-                        ((this.EstadoConexion != OEstadoConexion.ErrorConexion) && errorConexion)))
-                {
-                    this.EstadoConexion = OEstadoConexion.Desconectando;
+                // Nos dessuscribimos a la recepción de imágenes de la cámara
+                this.VideoSource.NewFrame -= this.ImagenAdquirida;
+                this.VideoSource.OnCameraError -= ErrorAdquisicion;
 
-                    // Nos dessuscribimos a la recepción de imágenes de la cámara
-                    this.VideoSource.NewFrame -= this.ImagenAdquirida;
-                    this.VideoSource.OnCameraError -= ErrorAdquisicion;
+                // Detengo videosource actual
+                this.VideoSource.SignalToStop();
+                OThread.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
+                this.VideoSource.Stop();
 
-                    // Detengo videosource actual
-                    this.VideoSource.SignalToStop();
-                    App.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
-                    this.VideoSource.Stop();
-
-                    this.EstadoConexion = OEstadoConexion.Desconectado;
-                    resultado = true;
-                }
+                resultado = true;
             }
             catch (Exception exception)
             {
@@ -168,7 +132,7 @@ namespace Orbita.VAHardware
         /// Comienza una reproducción continua de la cámara
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalStart()
+        protected override bool StartInterno()
         {
             bool resultado = false;
 
@@ -176,10 +140,12 @@ namespace Orbita.VAHardware
             {
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    base.InternalStart();
+                    base.StartInterno();
 
                     this.HayNuevaImagen = false;
                     this.VideoSource.Start();
+
+                    resultado = true;
                 }
             }
             catch (Exception exception)
@@ -194,7 +160,7 @@ namespace Orbita.VAHardware
         /// Termina una reproducción continua de la cámara
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalStop()
+        protected override bool StopInterno()
         {
             bool resultado = false;
 
@@ -204,10 +170,12 @@ namespace Orbita.VAHardware
                 {
                     // Detengo videosource actual
                     this.VideoSource.SignalToStop();
-                    App.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
+                    OThread.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
                     this.VideoSource.Stop();
 
-                    base.InternalStop();
+                    base.StopInterno();
+
+                    resultado = true;
                 }
             }
             catch (Exception exception)
@@ -222,14 +190,14 @@ namespace Orbita.VAHardware
         /// Realiza una fotografía de forma sincrona
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalSnap()
+        protected override bool SnapInterno()
         {
             bool resultado = false;
             try
             {
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    resultado = base.InternalSnap();
+                    resultado = base.SnapInterno();
 
                     // Verificamos que la cámara está preparada para adquirir la imagen
                     if (!this.VideoSource.Running)
@@ -239,7 +207,7 @@ namespace Orbita.VAHardware
                     }
 
                     // Se consulta la imágen de la cámara
-                    OBitmapImage bitmapImage;
+                    OImagenBitmap bitmapImage;
                     resultado = this.GetCurrentImage(out bitmapImage);
 
                     // Se asigna el valor de la variable asociada
@@ -279,7 +247,7 @@ namespace Orbita.VAHardware
             
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    this.ImagenActual = new OBitmapImage();
+                    this.ImagenActual = new OImagenBitmap();
                     this.ImagenActual.Image = (Bitmap)e.Bitmap.Clone();
 
                     // Actualizo el Frame Rate

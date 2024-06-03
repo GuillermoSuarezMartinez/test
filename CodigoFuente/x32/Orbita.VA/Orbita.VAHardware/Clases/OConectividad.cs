@@ -75,6 +75,10 @@ namespace Orbita.VAHardware
             {
                 if (this._EstadoConexion != value)
                 {
+                    OEstadoConexion estadoConexionAnterior = this._EstadoConexion;
+
+                    this._EstadoConexion = value;
+
                     // Guardamos el log
                     switch (value)
                     {
@@ -97,14 +101,15 @@ namespace Orbita.VAHardware
                         case OEstadoConexion.Reconectando:
                             OVALogsManager.Error(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo en proceso de reconexión.");
                             break;
+                        case OEstadoConexion.Reconectado:
+                            OVALogsManager.Error(OModulosHardware.Camaras, "Conectividad" + this.Codigo, "Dispositivo reconectado.");
+                            break;
                     }
 
                     if (this.OnCambioEstadoConexion != null)
                     {
-                        this.OnCambioEstadoConexion(this.Codigo, value, this._EstadoConexion);
+                        this.OnCambioEstadoConexion(this.Codigo, value, estadoConexionAnterior);
                     }
-
-                    this._EstadoConexion = value;
                 }
             }
         }

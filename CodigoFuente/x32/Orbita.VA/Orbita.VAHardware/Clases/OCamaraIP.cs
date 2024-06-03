@@ -75,10 +75,11 @@ namespace Orbita.VAHardware
                 if (dt.Rows.Count == 1)
                 {
                     this.IP = IPAddress.Parse(dt.Rows[0]["IPCam_IP"].ToString());
-                    this.Puerto = App.EvaluaNumero(dt.Rows[0]["IPCam_Puerto"], 0, int.MaxValue, 80);
+                    this.Puerto = OEnteroRobusto.Validar(dt.Rows[0]["IPCam_Puerto"], 0, int.MaxValue, 80);
                     this.Usuario = dt.Rows[0]["IPCam_Usuario"].ToString();
                     this.Contraseña = dt.Rows[0]["IPCam_Contraseña"].ToString();
                     this.URLOriginal = dt.Rows[0]["IPCam_URL"].ToString();
+                    this.IntervaloComprobacionConectividadMS = OEnteroRobusto.Validar(dt.Rows[0]["IPCam_IntervaloComprobacionConectividadMS"], 1, int.MaxValue, 100);
 
                     // Construcción de la url
                     string url = this.URLOriginal;
@@ -95,7 +96,8 @@ namespace Orbita.VAHardware
 
                     // Creación del vido source
                     string strVideoSource = dt.Rows[0]["IPCam_OrigenVideo"].ToString();
-                    TipoOrigenVideo tipoOrigenVideo = (TipoOrigenVideo)App.EnumParse(typeof(TipoOrigenVideo), strVideoSource, TipoOrigenVideo.JPG);
+                    TipoOrigenVideo tipoOrigenVideo = OEnumRobusto<TipoOrigenVideo>.Validar(strVideoSource, TipoOrigenVideo.JPG);
+                    //TipoOrigenVideo tipoOrigenVideo = (TipoOrigenVideo)App.EnumParse(typeof(TipoOrigenVideo), strVideoSource, TipoOrigenVideo.JPG);
                     switch (tipoOrigenVideo)
                     {
                         case TipoOrigenVideo.MJPG:
@@ -106,10 +108,6 @@ namespace Orbita.VAHardware
                             this.VideoSource = new JPEGSource();
                             break;
                     }
-
-                    // Creación de la comprobación de la conexión con la cámara IP
-                    this.IntervaloComprobacionConectividadMS = App.EvaluaNumero(dt.Rows[0]["IPCam_IntervaloComprobacionConectividadMS"], 1, int.MaxValue, 100);
-                    this.Conectividad = new OConectividadIP(this.IP, this.IntervaloComprobacionConectividadMS);
 
                     this.Existe = true;
                 }
@@ -124,71 +122,29 @@ namespace Orbita.VAHardware
 
         #region Método(s) heredado(s)
         /// <summary>
-        /// Carga los valores de la cámara
-        /// </summary>
-        public override void Inicializar()
-        {
-            base.Inicializar();
-        }
-
-        /// <summary>
-        /// Finaliza la cámara
-        /// </summary>
-        public override void Finalizar()
-        {          
-            base.Finalizar();
-        }
-
-        /// <summary>
         /// Se toma el control de la cámara
         /// </summary>
         /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-        protected override bool Conectar(bool reconexion)
+        protected override bool ConectarInterno(bool reconexion)
         {
-            bool resultado = base.Conectar(reconexion);
+            bool resultado = base.ConectarInterno(reconexion);
             try
             {
-                if ((this.Existe) && (
-                        (this.EstadoConexion == OEstadoConexion.Desconectado) ||
-                        ((this.EstadoConexion != OEstadoConexion.Reconectando) && reconexion)))
-                {
-                    this.EstadoConexion = OEstadoConexion.Conectando;
-                    
-                    // Parametrización del videosource
-                    this.VideoSource.Login = this.Usuario;
-                    this.VideoSource.Password = this.Contraseña;
-                    this.VideoSource.VideoSource = this.URL;
+                // Parametrización del videosource
+                this.VideoSource.Login = this.Usuario;
+                this.VideoSource.Password = this.Contraseña;
+                this.VideoSource.VideoSource = this.URL;
 
-                    // Detengo videosource actual
-                    this.VideoSource.SignalToStop();
-                    App.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
-                    this.VideoSource.Stop();
+                // Detengo videosource actual
+                this.VideoSource.SignalToStop();
+                OThread.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
+                this.VideoSource.Stop();
 
-                    // Nos suscribimos a la recepción de imágenes de la cámara
-                    this.VideoSource.NewFrame += this.ImagenAdquirida;
-                    this.VideoSource.OnCameraError += ErrorAdquisicion;
+                // Nos suscribimos a la recepción de imágenes de la cámara
+                this.VideoSource.NewFrame += this.ImagenAdquirida;
+                this.VideoSource.OnCameraError += ErrorAdquisicion;
 
-                    if (!reconexion)
-                    {
-                        this.EstadoConexion = OEstadoConexion.Conectado;
-
-                        // Verificamos que la cámara está conectada
-                        this.Conectividad.OnCambioEstadoConexion += this.OnCambioEstadoConectividadCamara;
-                        if (!this.Conectividad.ForzarVerificacionConectividad())
-                        {
-                            this.EstadoConexion = OEstadoConexion.ErrorConexion;
-                            resultado = false;
-                        }
-
-                        // Iniciamos la comprobación de la conectividad con la cámara
-                        this.Conectividad.Start();
-                    }
-
-                    // Iniciamos el PTZ
-                    this.PTZ.Inicializar();
-
-                    resultado = true;
-                }
+                resultado = true;
             }
             catch (Exception exception)
             {
@@ -202,40 +158,22 @@ namespace Orbita.VAHardware
         /// Se deja el control de la cámara
         /// </summary>
         /// <returns>Verdadero si la operación ha funcionado correctamente</returns>
-        protected override bool Desconectar(bool errorConexion)
+        protected override bool DesconectarInterno(bool errorConexion)
         {
-            bool resultado = false;
+            bool resultado = base.DesconectarInterno(errorConexion);
 
             try
             {
-                if ((this.Existe) && (
-                        (this.EstadoConexion == OEstadoConexion.Conectado) ||
-                        ((this.EstadoConexion != OEstadoConexion.ErrorConexion) && errorConexion)))
-                {
-                    this.EstadoConexion = OEstadoConexion.Desconectando;
+                // Nos dessuscribimos a la recepción de imágenes de la cámara
+                this.VideoSource.NewFrame -= this.ImagenAdquirida;
+                this.VideoSource.OnCameraError -= ErrorAdquisicion;
 
-                    // Nos dessuscribimos a la recepción de imágenes de la cámara
-                    this.VideoSource.NewFrame -= this.ImagenAdquirida;
-                    this.VideoSource.OnCameraError -= ErrorAdquisicion;
+                // Detengo videosource actual
+                this.VideoSource.SignalToStop();
+                OThread.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
+                this.VideoSource.Stop();
 
-                    // Detengo videosource actual
-                    this.VideoSource.SignalToStop();
-                    App.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
-                    this.VideoSource.Stop();
-
-                    if (!errorConexion)
-                    {
-                        // Finalizamos la comprobación de la conectividad con la cámara
-                        this.Conectividad.OnCambioEstadoConexion -= this.OnCambioEstadoConectividadCamara;
-                        this.Conectividad.Stop();
-                    }
-
-                    // Finalizamos el PTZ
-                    this.PTZ.Finalizar();
-
-                    this.EstadoConexion = OEstadoConexion.Desconectado;
-                    resultado = true;
-                }
+                resultado = true;
             }
             catch (Exception exception)
             {
@@ -249,7 +187,7 @@ namespace Orbita.VAHardware
         /// Comienza una reproducción continua de la cámara
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalStart()
+        protected override bool StartInterno()
         {
             bool resultado = false;
 
@@ -257,10 +195,12 @@ namespace Orbita.VAHardware
             {
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    base.InternalStart();
+                    base.StartInterno();
 
                     this.HayNuevaImagen = false;
                     this.VideoSource.Start();
+
+                    resultado = true;
                 }
             }
             catch (Exception exception)
@@ -275,7 +215,7 @@ namespace Orbita.VAHardware
         /// Termina una reproducción continua de la cámara
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalStop()
+        protected override bool StopInterno()
         {
             bool resultado = false;
 
@@ -285,10 +225,12 @@ namespace Orbita.VAHardware
                 {
                     // Detengo videosource actual
                     this.VideoSource.SignalToStop();
-                    App.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
+                    OThread.Espera(delegate() { return !this.VideoSource.Running; }, 1000);
                     this.VideoSource.Stop();
 
-                    base.InternalStop();
+                    base.StopInterno();
+
+                    resultado = true;
                 }
             }
             catch (Exception exception)
@@ -303,14 +245,14 @@ namespace Orbita.VAHardware
         /// Realiza una fotografía de forma sincrona
         /// </summary>
         /// <returns></returns>
-        protected override bool InternalSnap()
+        protected override bool SnapInterno()
         {
             bool resultado = false;
             try
             {
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    resultado = base.InternalSnap();
+                    resultado = base.SnapInterno();
 
                     // Verificamos que la cámara está preparada para adquirir la imagen
                     if (!this.VideoSource.Running)
@@ -320,7 +262,7 @@ namespace Orbita.VAHardware
                     }
 
                     // Se consulta la imágen de la cámara
-                    OBitmapImage bitmapImage;
+                    OImagenBitmap bitmapImage;
                     resultado = this.GetCurrentImage(out bitmapImage);
 
                     // Se asigna el valor de la variable asociada
@@ -337,6 +279,15 @@ namespace Orbita.VAHardware
                 OVALogsManager.Error(OModulosHardware.Camaras, this.Codigo, exception);
             }
             return resultado;
+        }
+
+        /// <summary>
+        /// Crea el objeto de conectividad adecuado para la cámara
+        /// </summary>
+        protected override void CrearConectividad()
+        {
+            // Creación de la comprobación de la conexión con la cámara IP
+            this.Conectividad = new OConectividadIP(this.IP, this.IntervaloComprobacionConectividadMS);
         }
         #endregion
 
@@ -360,7 +311,7 @@ namespace Orbita.VAHardware
             
                 if (this.EstadoConexion == OEstadoConexion.Conectado)
                 {
-                    this.ImagenActual = new OBitmapImage(this.Codigo);
+                    this.ImagenActual = new OImagenBitmap(this.Codigo);
                     this.ImagenActual.Image = (Bitmap)e.Bitmap.Clone();
 
                     // Actualizo la conectividad
@@ -414,16 +365,15 @@ namespace Orbita.VAHardware
 
                 base.OnCambioEstadoConectividadCamara(codigo, estadoConexionActal, estadoConexionAnterior);
 
-                if ((estadoConexionActal == OEstadoConexion.Conectado) && (estadoConexionAnterior == OEstadoConexion.ErrorConexion))
+                if ((estadoConexionActal == OEstadoConexion.Reconectado) && (estadoConexionAnterior == OEstadoConexion.Reconectando))
                 {
                     this.Conectar(true);
                 }
-
+                else 
                 if ((estadoConexionActal == OEstadoConexion.ErrorConexion) && (estadoConexionAnterior == OEstadoConexion.Conectado))
                 {
                     this.Stop();
                     this.Desconectar(true);
-                    this.EstadoConexion = OEstadoConexion.Reconectando;
                 }
             }
             catch (Exception exception)
