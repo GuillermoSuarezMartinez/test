@@ -65,8 +65,14 @@
     <Compile Include="OClienteESPhoenixILBK48.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="OClienteESPhoenixILBK48.designer.cs">
+    <Compile Include="OClienteESPhoenixILBK48.Designer.cs">
       <DependentUpon>OClienteESPhoenixILBK48.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OClienteESPhoenixILBK482.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OClienteESPhoenixILBK482.designer.cs">
+      <DependentUpon>OClienteESPhoenixILBK482.cs</DependentUpon>
     </Compile>
     <Compile Include="OClienteESSiemens.cs">
       <SubType>UserControl</SubType>
@@ -96,8 +102,8 @@
     <EmbeddedResource Include="OClienteComsOPC.resx">
       <DependentUpon>OClienteComsOPC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OClienteESPhoenixILBK48.resx">
-      <DependentUpon>OClienteESPhoenixILBK48.cs</DependentUpon>
+    <EmbeddedResource Include="OClienteESPhoenixILBK482.resx">
+      <DependentUpon>OClienteESPhoenixILBK482.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OClienteESSiemens.resx">
       <DependentUpon>OClienteESSiemens.cs</DependentUpon>

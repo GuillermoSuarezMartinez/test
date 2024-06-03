@@ -118,6 +118,7 @@
             this.btnLeerVariables.TabIndex = 14;
             this.btnLeerVariables.Text = "Leer Variables";
             this.btnLeerVariables.UseVisualStyleBackColor = true;
+            this.btnLeerVariables.Click += new System.EventHandler(this.btnLeerVariables_Click);
             // 
             // btnLeerAlarmas
             // 
@@ -127,6 +128,7 @@
             this.btnLeerAlarmas.TabIndex = 25;
             this.btnLeerAlarmas.Text = "Leer Alarmas";
             this.btnLeerAlarmas.UseVisualStyleBackColor = true;
+            this.btnLeerAlarmas.Click += new System.EventHandler(this.btnLeerAlarmas_Click);
             // 
             // gbCDato
             // 
@@ -173,20 +175,20 @@
             // lblCom
             // 
             this.lblCom.AutoSize = true;
-            this.lblCom.Location = new System.Drawing.Point(3, 20);
+            this.lblCom.Location = new System.Drawing.Point(12, 20);
             this.lblCom.Name = "lblCom";
-            this.lblCom.Size = new System.Drawing.Size(85, 13);
+            this.lblCom.Size = new System.Drawing.Size(88, 13);
             this.lblCom.TabIndex = 16;
-            this.lblCom.Text = "Comunicaciones";
+            this.lblCom.Text = "Comunicaciones:";
             // 
             // lblVarEscritura
             // 
             this.lblVarEscritura.AutoSize = true;
-            this.lblVarEscritura.Location = new System.Drawing.Point(210, 46);
+            this.lblVarEscritura.Location = new System.Drawing.Point(214, 46);
             this.lblVarEscritura.Name = "lblVarEscritura";
-            this.lblVarEscritura.Size = new System.Drawing.Size(89, 13);
+            this.lblVarEscritura.Size = new System.Drawing.Size(92, 13);
             this.lblVarEscritura.TabIndex = 11;
-            this.lblVarEscritura.Text = "Variable Escritura";
+            this.lblVarEscritura.Text = "Variable Escritura:";
             // 
             // txtValEscribir
             // 
@@ -204,20 +206,19 @@
             // 
             // txtVarEscribir
             // 
-            this.txtVarEscribir.Location = new System.Drawing.Point(302, 43);
+            this.txtVarEscribir.Location = new System.Drawing.Point(309, 43);
             this.txtVarEscribir.Name = "txtVarEscribir";
-            this.txtVarEscribir.Size = new System.Drawing.Size(98, 20);
+            this.txtVarEscribir.Size = new System.Drawing.Size(100, 20);
             this.txtVarEscribir.TabIndex = 4;
-            this.txtVarEscribir.Text = "stringprueba";
             // 
             // lblVarLectura
             // 
             this.lblVarLectura.AutoSize = true;
-            this.lblVarLectura.Location = new System.Drawing.Point(210, 20);
+            this.lblVarLectura.Location = new System.Drawing.Point(219, 20);
             this.lblVarLectura.Name = "lblVarLectura";
-            this.lblVarLectura.Size = new System.Drawing.Size(84, 13);
+            this.lblVarLectura.Size = new System.Drawing.Size(87, 13);
             this.lblVarLectura.TabIndex = 10;
-            this.lblVarLectura.Text = "Variable Lectura";
+            this.lblVarLectura.Text = "Variable Lectura:";
             // 
             // btnEscritura
             // 
@@ -227,6 +228,7 @@
             this.btnEscritura.TabIndex = 3;
             this.btnEscritura.Text = "escribir";
             this.btnEscritura.UseVisualStyleBackColor = true;
+            this.btnEscritura.Click += new System.EventHandler(this.btnEscritura_Click);
             // 
             // btnLectura
             // 
@@ -236,6 +238,7 @@
             this.btnLectura.TabIndex = 0;
             this.btnLectura.Text = "leer";
             this.btnLectura.UseVisualStyleBackColor = true;
+            this.btnLectura.Click += new System.EventHandler(this.btnLectura_Click);
             // 
             // txtValLeer
             // 
@@ -246,11 +249,10 @@
             // 
             // txtVarLeer
             // 
-            this.txtVarLeer.Location = new System.Drawing.Point(300, 17);
+            this.txtVarLeer.Location = new System.Drawing.Point(309, 17);
             this.txtVarLeer.Name = "txtVarLeer";
             this.txtVarLeer.Size = new System.Drawing.Size(100, 20);
             this.txtVarLeer.TabIndex = 1;
-            this.txtVarLeer.Text = "stringprueba";
             // 
             // gbConfig
             // 
@@ -288,7 +290,7 @@
             // 
             // txtIdDispositivo
             // 
-            this.txtIdDispositivo.Location = new System.Drawing.Point(310, 25);
+            this.txtIdDispositivo.Location = new System.Drawing.Point(319, 25);
             this.txtIdDispositivo.Name = "txtIdDispositivo";
             this.txtIdDispositivo.Size = new System.Drawing.Size(100, 20);
             this.txtIdDispositivo.TabIndex = 21;
@@ -297,7 +299,7 @@
             // lblIdDispositivo
             // 
             this.lblIdDispositivo.AutoSize = true;
-            this.lblIdDispositivo.Location = new System.Drawing.Point(233, 29);
+            this.lblIdDispositivo.Location = new System.Drawing.Point(241, 29);
             this.lblIdDispositivo.Name = "lblIdDispositivo";
             this.lblIdDispositivo.Size = new System.Drawing.Size(75, 13);
             this.lblIdDispositivo.TabIndex = 20;
@@ -311,6 +313,7 @@
             this.btnConectar.TabIndex = 19;
             this.btnConectar.Text = "Conectar";
             this.btnConectar.UseVisualStyleBackColor = true;
+            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
             // 
             // txtPuertoRemoting
             // 
@@ -323,7 +326,7 @@
             // lblPuertoRemoting
             // 
             this.lblPuertoRemoting.AutoSize = true;
-            this.lblPuertoRemoting.Location = new System.Drawing.Point(20, 29);
+            this.lblPuertoRemoting.Location = new System.Drawing.Point(22, 28);
             this.lblPuertoRemoting.Name = "lblPuertoRemoting";
             this.lblPuertoRemoting.Size = new System.Drawing.Size(89, 13);
             this.lblPuertoRemoting.TabIndex = 0;
@@ -362,12 +365,10 @@
         private System.Windows.Forms.Panel pnlDispSup;
         private System.Windows.Forms.Label lblVarEscritura;
         private System.Windows.Forms.TextBox txtValEscribir;
-        private System.Windows.Forms.TextBox txtVarEscribir;
         private System.Windows.Forms.Label lblVarLectura;
         private System.Windows.Forms.Button btnEscritura;
         private System.Windows.Forms.Button btnLectura;
         private System.Windows.Forms.TextBox txtValLeer;
-        private System.Windows.Forms.TextBox txtVarLeer;
         private System.Windows.Forms.TextBox txtServidorRemoting;
         private System.Windows.Forms.Label lblServidorRemoting;
         private System.Windows.Forms.TextBox txtIdDispositivo;
@@ -379,5 +380,7 @@
         public System.Windows.Forms.Label lblCom;
         public System.Windows.Forms.TextBox txtCom;
         public System.Windows.Forms.GroupBox gbConfig;
+        public System.Windows.Forms.TextBox txtVarEscribir;
+        public System.Windows.Forms.TextBox txtVarLeer;
     }
 }

@@ -11,9 +11,10 @@ using Orbita.Comunicaciones;
 using Orbita.Utiles;
 
 namespace Orbita.Controles.Comunicaciones
-{    
-    public partial class OClienteComs : UserControl
+{
+    public partial class OClienteESPhoenixILBK482 : UserControl
     {
+
         #region Delegados
         /// <summary>
         /// Delegado para mostar los datos en el formulario
@@ -44,24 +45,19 @@ namespace Orbita.Controles.Comunicaciones
         /// <summary>
         /// Identificador de dispositivo
         /// </summary>
-        int _idDispositivo = 1;
+        int _idDispositivo = 4;
         /// <summary>
         /// Servidor remoting
         /// </summary>
         string _servidorRemoting = "localhost";
         #endregion
 
-        #region Constructores
-
-        public OClienteComs()
+        public OClienteESPhoenixILBK482()
         {
             InitializeComponent();
         }
 
-        #endregion        
-
         #region Métodos
-
         /// <summary>
         /// Arranca las comunicaciones con el dispositivo
         /// </summary>
@@ -124,7 +120,6 @@ namespace Orbita.Controles.Comunicaciones
             string canal = "canal" + strHostName + ":" + this._remotingPuerto.ToString();
             this._servidor.OrbitaConectar(canal, estado);
         }
-
         /// <summary>
         /// Desconectar del servidor vía Remoting.
         /// </summary>
@@ -132,7 +127,6 @@ namespace Orbita.Controles.Comunicaciones
         {
             Conectar(false);
         }
-
         /// <summary>
         /// Procesa la información del evento de comunicaciones
         /// </summary>
@@ -144,13 +138,13 @@ namespace Orbita.Controles.Comunicaciones
                 OEstadoComms estado = (OEstadoComms)e.Argumento;
                 DelegadoCambioEstado MyDelegado = new DelegadoCambioEstado(cambiarEstado);
                 this.Invoke(MyDelegado, new object[] { estado });
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
         }
-
         /// <summary>
         /// Procesa la información para el cambio de estado por pantalla
         /// </summary>
@@ -161,25 +155,24 @@ namespace Orbita.Controles.Comunicaciones
             {
                 if (estado.Id == this._idDispositivo)
                 {
-                    this.txtCom.BackColor = System.Drawing.Color.Green;
+                    this.txtPhoenix.BackColor = System.Drawing.Color.Green;
                 }
             }
             else
             {
                 if (estado.Id == this._idDispositivo)
                 {
-                    this.txtCom.BackColor = System.Drawing.Color.Red;
+                    this.txtPhoenix.BackColor = System.Drawing.Color.Red;
                 }
             }
         }
-
         /// <summary>
         /// Agrega los items a la lista
         /// </summary>
         /// <param name="texto"></param>
         private void agregarItemOrbita(string texto)
         {
-            if (this.listViewCDato.InvokeRequired)
+            if (this.listViewES.InvokeRequired)
             {
                 Delegado MyDelegado = new Delegado(agregarItemOrbita);
                 this.Invoke(MyDelegado, new object[] { texto });
@@ -190,10 +183,151 @@ namespace Orbita.Controles.Comunicaciones
                 lvi.Text = texto;
                 //lvi.ImageIndex = 0;
                 lvi.Tag = texto;
-                this.listViewCDato.Items.Add(lvi);
+                this.listViewES.Items.Add(lvi);
             }
         }
-        
+        /// <summary>
+        /// Actualiza las ES del control
+        /// </summary>
+        /// <param name="e"></param>
+        private void actualizarES(OEventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                DelegadoES delegado = new DelegadoES(actualizarES);
+                this.Invoke(delegado, new object[] { e });
+            }
+            else
+            {
+                OInfoDato dato = (OInfoDato)e.Argumento;
+
+                switch (dato.Texto)
+                {
+                    case "E11":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.E11.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.E11.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E12":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.E12.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.E12.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E13":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.E13.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.E13.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E14":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.E14.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.E14.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S11":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.S11.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.S11.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S12":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.S12.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.S12.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S13":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.S13.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.S13.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "S14":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.S14.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.S14.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E21":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.E21.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.E21.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E22":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.E22.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.E22.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E23":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.E23.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.E23.BackColor = Color.Beige;
+                        }
+                        break;
+                    case "E24":
+                        if ((int)dato.Valor == 1)
+                        {
+                            this.E24.BackColor = Color.Orange;
+                        }
+                        else
+                        {
+                            this.E24.BackColor = Color.Beige;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         #endregion
 
         #region Eventos
@@ -202,7 +336,7 @@ namespace Orbita.Controles.Comunicaciones
         /// Evento de cambio de dato.
         /// </summary>
         /// <param name="e"></param>
-        public void eventWrapper_OrbitaCambioDato(OEventArgs e)
+        void eventWrapper_OrbitaCambioDato(OEventArgs e)
         {
             try
             {
@@ -212,15 +346,14 @@ namespace Orbita.Controles.Comunicaciones
                 if (info.Dispositivo == this._idDispositivo)
                 {
                     this.agregarItemOrbita(texto);
+                    this.actualizarES(e);
                 }
             }
             catch (System.Exception ex)
             {
-                OMensajes.MostrarError(ex);
             }
 
         }
-
         /// <summary>
         /// Evento de alarma.
         /// </summary>
@@ -240,11 +373,10 @@ namespace Orbita.Controles.Comunicaciones
             }
             catch (System.Exception ex)
             {
-                OMensajes.MostrarError(ex);
+
             }
 
         }
-
         /// <summary>
         /// Evento de comunicaciones.
         /// </summary>
@@ -257,11 +389,10 @@ namespace Orbita.Controles.Comunicaciones
             }
             catch (System.Exception ex)
             {
-                OMensajes.MostrarError(ex);
+
             }
 
         }
-
         /// <summary>
         /// Inicia el cliente de comunicaciones
         /// </summary>
@@ -271,43 +402,41 @@ namespace Orbita.Controles.Comunicaciones
         {
             this.Iniciar();
         }
-
         /// <summary>
         /// Lee una variable por OPC
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnLectura_Click(object sender, EventArgs e)
+        private void btnLecturaOPC_Click(object sender, EventArgs e)
         {
             try
             {
 
                 string[] lectura = new string[1];
-                lectura[0] = this.txtVarLeer.Text;
+                lectura[0] = this.txtVarLeerPhoenix.Text;
                 object[] valor = this._servidor.OrbitaLeer(this._idDispositivo, lectura, true);
 
                 string svalor = valor[0].ToString();
-                this.txtVarLeer.Text = svalor;
+                this.txtVaLeerPhoenix.Text = svalor;
             }
             catch (System.Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
         }
-
         /// <summary>
         /// Escribe una variable por OPC
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnEscritura_Click(object sender, EventArgs e)
+        private void btnEscrituraOPC_Click(object sender, EventArgs e)
         {
             try
             {
                 string[] variable = new string[1];
-                variable[0] = this.txtVarEscribir.Text;
+                variable[0] = this.txtVarEscribirPhoenix.Text;
                 object[] valor = new object[1];
-                valor[0] = this.txtValEscribir.Text;
+                valor[0] = this.txtValEscribirPhoenix.Text;
                 //valor[0] = dt;
                 bool resp = this._servidor.OrbitaEscribir(this._idDispositivo, variable, valor);
             }
@@ -316,13 +445,12 @@ namespace Orbita.Controles.Comunicaciones
                 Console.WriteLine(ex.ToString());
             }
         }
-
         /// <summary>
         /// Lee el valor de todas las variables del dispositivo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnLeerVariables_Click(object sender, EventArgs e)
+        private void btnLeerVariablesOPC_Click(object sender, EventArgs e)
         {
 
             string[] variables = new string[this._servidor.OrbitaGetDatos(this._idDispositivo).Count];
@@ -365,22 +493,24 @@ namespace Orbita.Controles.Comunicaciones
                 dt.Rows.Add(dr);
             }
 
-            this.dataGridViewLecturas.DataSource = dt;
+            this.dataGridViewES.DataSource = dt;
         }
-
         /// <summary>
         /// Lee las alarmas activas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnLeerAlarmas_Click(object sender, EventArgs e)
+        private void btnLeerAlarmasOPC_Click(object sender, EventArgs e)
         {
+
             ArrayList alarmas = this._servidor.OrbitaGetAlarmasActivas(this._idDispositivo);
             string[] variables = new string[alarmas.Count];
             for (int i = 0; i < alarmas.Count; i++)
             {
                 variables[i] = alarmas[i].ToString();
             }
+
+
 
             object[] resultado = this._servidor.OrbitaLeer(this._idDispositivo, variables, true);
 
@@ -412,9 +542,10 @@ namespace Orbita.Controles.Comunicaciones
                 dt.Rows.Add(dr);
             }
 
-            this.dataGridViewLecturas.DataSource = dt;
+            this.dataGridViewES.DataSource = dt;
         }
 
         #endregion   
+        
     }
 }
