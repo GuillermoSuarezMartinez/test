@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCadenaPLC = new System.Windows.Forms.TextBox();
@@ -44,7 +48,7 @@
             // gbDispositivo
             // 
             this.gbDispositivo.Location = new System.Drawing.Point(0, 91);
-            this.gbDispositivo.Size = new System.Drawing.Size(1020, 452);
+            this.gbDispositivo.Size = new System.Drawing.Size(1020, 582);
             this.gbDispositivo.Text = "Dispositivo OPC";
             // 
             // lblCom
@@ -60,6 +64,9 @@
             this.gbConfig.Controls.Add(this.txtCadenaOPC);
             this.gbConfig.Controls.Add(this.lblCadenaOPC);
             this.gbConfig.Size = new System.Drawing.Size(1020, 91);
+            this.gbConfig.Controls.SetChildIndex(this.txtPuertoRemoting, 0);
+            this.gbConfig.Controls.SetChildIndex(this.txtIdDispositivo, 0);
+            this.gbConfig.Controls.SetChildIndex(this.txtServidorRemoting, 0);
             this.gbConfig.Controls.SetChildIndex(this.lblCadenaOPC, 0);
             this.gbConfig.Controls.SetChildIndex(this.txtCadenaOPC, 0);
             this.gbConfig.Controls.SetChildIndex(this.lblCadenaPLC, 0);
@@ -78,16 +85,45 @@
             // 
             // gbVariables
             // 
-            this.gbVariables.Size = new System.Drawing.Size(1000, 118);
+            this.gbVariables.Size = new System.Drawing.Size(1000, 209);
             // 
             // gbCDato
             // 
-            this.gbCDato.Location = new System.Drawing.Point(10, 334);
+            this.gbCDato.Location = new System.Drawing.Point(10, 425);
             // 
             // gbEscrituras
             // 
             this.gbEscrituras.Location = new System.Drawing.Point(0, 69);
             this.gbEscrituras.Size = new System.Drawing.Size(1000, 124);
+            // 
+            // pnlInf
+            // 
+            this.pnlInf.Location = new System.Drawing.Point(0, 673);
+            this.pnlInf.Size = new System.Drawing.Size(1020, 10);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -156,6 +192,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteComsOPC";
+            this.Size = new System.Drawing.Size(1020, 683);
             this.gbDispositivo.ResumeLayout(false);
             this.gbConfig.ResumeLayout(false);
             this.gbConfig.PerformLayout();
@@ -175,5 +212,9 @@
         private System.Windows.Forms.TextBox txtPLC;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

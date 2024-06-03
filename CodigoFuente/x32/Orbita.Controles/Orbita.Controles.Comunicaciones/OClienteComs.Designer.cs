@@ -37,6 +37,8 @@
             this.gbCDato = new System.Windows.Forms.GroupBox();
             this.listViewCDato = new System.Windows.Forms.ListView();
             this.pnlDispSup = new System.Windows.Forms.Panel();
+            this.lblTpoEsc = new System.Windows.Forms.Label();
+            this.lblTpoLect = new System.Windows.Forms.Label();
             this.gbEscrituras = new System.Windows.Forms.GroupBox();
             this.dataGridViewEscrituras = new System.Windows.Forms.DataGridView();
             this.lblCom = new System.Windows.Forms.Label();
@@ -54,8 +56,8 @@
             this.btnConectar = new System.Windows.Forms.Button();
             this.txtPuertoRemoting = new System.Windows.Forms.TextBox();
             this.lblPuertoRemoting = new System.Windows.Forms.Label();
-            this.lblTpoLect = new System.Windows.Forms.Label();
-            this.lblTpoEsc = new System.Windows.Forms.Label();
+            this.pnlInf = new System.Windows.Forms.Panel();
+            this.pnlComs = new System.Windows.Forms.Panel();
             this.gbDispositivo.SuspendLayout();
             this.gbVariables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLecturas)).BeginInit();
@@ -65,6 +67,7 @@
             this.gbEscrituras.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscrituras)).BeginInit();
             this.gbConfig.SuspendLayout();
+            this.pnlComs.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDispositivo
@@ -76,7 +79,7 @@
             this.gbDispositivo.Location = new System.Drawing.Point(0, 65);
             this.gbDispositivo.Name = "gbDispositivo";
             this.gbDispositivo.Padding = new System.Windows.Forms.Padding(10);
-            this.gbDispositivo.Size = new System.Drawing.Size(1020, 478);
+            this.gbDispositivo.Size = new System.Drawing.Size(1020, 378);
             this.gbDispositivo.TabIndex = 32;
             this.gbDispositivo.TabStop = false;
             this.gbDispositivo.Text = "Dispositivo";
@@ -89,7 +92,7 @@
             this.gbVariables.Location = new System.Drawing.Point(10, 216);
             this.gbVariables.Name = "gbVariables";
             this.gbVariables.Padding = new System.Windows.Forms.Padding(10);
-            this.gbVariables.Size = new System.Drawing.Size(1000, 144);
+            this.gbVariables.Size = new System.Drawing.Size(1000, 5);
             this.gbVariables.TabIndex = 27;
             this.gbVariables.TabStop = false;
             this.gbVariables.Text = "Lecturas";
@@ -100,7 +103,7 @@
             this.dataGridViewLecturas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewLecturas.Location = new System.Drawing.Point(10, 68);
             this.dataGridViewLecturas.Name = "dataGridViewLecturas";
-            this.dataGridViewLecturas.Size = new System.Drawing.Size(980, 66);
+            this.dataGridViewLecturas.Size = new System.Drawing.Size(980, 0);
             this.dataGridViewLecturas.TabIndex = 12;
             // 
             // pnlLecturas
@@ -137,10 +140,10 @@
             // 
             this.gbCDato.Controls.Add(this.listViewCDato);
             this.gbCDato.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbCDato.Location = new System.Drawing.Point(10, 360);
+            this.gbCDato.Location = new System.Drawing.Point(10, 221);
             this.gbCDato.Name = "gbCDato";
             this.gbCDato.Padding = new System.Windows.Forms.Padding(10);
-            this.gbCDato.Size = new System.Drawing.Size(1000, 108);
+            this.gbCDato.Size = new System.Drawing.Size(1000, 147);
             this.gbCDato.TabIndex = 28;
             this.gbCDato.TabStop = false;
             this.gbCDato.Text = "Cambio Dato";
@@ -152,36 +155,46 @@
             this.listViewCDato.Location = new System.Drawing.Point(10, 23);
             this.listViewCDato.MultiSelect = false;
             this.listViewCDato.Name = "listViewCDato";
-            this.listViewCDato.Size = new System.Drawing.Size(980, 75);
+            this.listViewCDato.Size = new System.Drawing.Size(980, 114);
             this.listViewCDato.TabIndex = 13;
             this.listViewCDato.UseCompatibleStateImageBehavior = false;
             this.listViewCDato.View = System.Windows.Forms.View.List;
             // 
             // pnlDispSup
             // 
+            this.pnlDispSup.Controls.Add(this.pnlComs);
             this.pnlDispSup.Controls.Add(this.lblTpoEsc);
             this.pnlDispSup.Controls.Add(this.lblTpoLect);
             this.pnlDispSup.Controls.Add(this.gbEscrituras);
-            this.pnlDispSup.Controls.Add(this.lblCom);
-            this.pnlDispSup.Controls.Add(this.txtCom);
-            this.pnlDispSup.Controls.Add(this.lblVarLectura);
-            this.pnlDispSup.Controls.Add(this.btnEscritura);
-            this.pnlDispSup.Controls.Add(this.btnLectura);
-            this.pnlDispSup.Controls.Add(this.txtValLeer);
-            this.pnlDispSup.Controls.Add(this.txtVarLeer);
             this.pnlDispSup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDispSup.Location = new System.Drawing.Point(10, 23);
             this.pnlDispSup.Name = "pnlDispSup";
             this.pnlDispSup.Size = new System.Drawing.Size(1000, 193);
             this.pnlDispSup.TabIndex = 26;
             // 
+            // lblTpoEsc
+            // 
+            this.lblTpoEsc.AutoSize = true;
+            this.lblTpoEsc.Location = new System.Drawing.Point(796, 21);
+            this.lblTpoEsc.Name = "lblTpoEsc";
+            this.lblTpoEsc.Size = new System.Drawing.Size(0, 13);
+            this.lblTpoEsc.TabIndex = 19;
+            // 
+            // lblTpoLect
+            // 
+            this.lblTpoLect.AutoSize = true;
+            this.lblTpoLect.Location = new System.Drawing.Point(617, 20);
+            this.lblTpoLect.Name = "lblTpoLect";
+            this.lblTpoLect.Size = new System.Drawing.Size(0, 13);
+            this.lblTpoLect.TabIndex = 18;
+            // 
             // gbEscrituras
             // 
             this.gbEscrituras.Controls.Add(this.dataGridViewEscrituras);
             this.gbEscrituras.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 146);
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 61);
             this.gbEscrituras.Name = "gbEscrituras";
-            this.gbEscrituras.Size = new System.Drawing.Size(1000, 47);
+            this.gbEscrituras.Size = new System.Drawing.Size(1000, 132);
             this.gbEscrituras.TabIndex = 17;
             this.gbEscrituras.TabStop = false;
             this.gbEscrituras.Text = "Escrituras";
@@ -192,13 +205,13 @@
             this.dataGridViewEscrituras.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewEscrituras.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewEscrituras.Name = "dataGridViewEscrituras";
-            this.dataGridViewEscrituras.Size = new System.Drawing.Size(994, 28);
+            this.dataGridViewEscrituras.Size = new System.Drawing.Size(994, 113);
             this.dataGridViewEscrituras.TabIndex = 0;
             // 
             // lblCom
             // 
             this.lblCom.AutoSize = true;
-            this.lblCom.Location = new System.Drawing.Point(12, 20);
+            this.lblCom.Location = new System.Drawing.Point(23, 17);
             this.lblCom.Name = "lblCom";
             this.lblCom.Size = new System.Drawing.Size(88, 13);
             this.lblCom.TabIndex = 16;
@@ -206,7 +219,7 @@
             // 
             // txtCom
             // 
-            this.txtCom.Location = new System.Drawing.Point(106, 17);
+            this.txtCom.Location = new System.Drawing.Point(117, 14);
             this.txtCom.Name = "txtCom";
             this.txtCom.Size = new System.Drawing.Size(100, 20);
             this.txtCom.TabIndex = 15;
@@ -214,7 +227,7 @@
             // lblVarLectura
             // 
             this.lblVarLectura.AutoSize = true;
-            this.lblVarLectura.Location = new System.Drawing.Point(219, 20);
+            this.lblVarLectura.Location = new System.Drawing.Point(230, 17);
             this.lblVarLectura.Name = "lblVarLectura";
             this.lblVarLectura.Size = new System.Drawing.Size(87, 13);
             this.lblVarLectura.TabIndex = 10;
@@ -222,7 +235,7 @@
             // 
             // btnEscritura
             // 
-            this.btnEscritura.Location = new System.Drawing.Point(706, 15);
+            this.btnEscritura.Location = new System.Drawing.Point(717, 12);
             this.btnEscritura.Name = "btnEscritura";
             this.btnEscritura.Size = new System.Drawing.Size(75, 23);
             this.btnEscritura.TabIndex = 3;
@@ -232,7 +245,7 @@
             // 
             // btnLectura
             // 
-            this.btnLectura.Location = new System.Drawing.Point(418, 15);
+            this.btnLectura.Location = new System.Drawing.Point(429, 12);
             this.btnLectura.Name = "btnLectura";
             this.btnLectura.Size = new System.Drawing.Size(75, 23);
             this.btnLectura.TabIndex = 0;
@@ -242,14 +255,14 @@
             // 
             // txtValLeer
             // 
-            this.txtValLeer.Location = new System.Drawing.Point(511, 17);
+            this.txtValLeer.Location = new System.Drawing.Point(522, 14);
             this.txtValLeer.Name = "txtValLeer";
             this.txtValLeer.Size = new System.Drawing.Size(100, 20);
             this.txtValLeer.TabIndex = 2;
             // 
             // txtVarLeer
             // 
-            this.txtVarLeer.Location = new System.Drawing.Point(309, 17);
+            this.txtVarLeer.Location = new System.Drawing.Point(320, 14);
             this.txtVarLeer.Name = "txtVarLeer";
             this.txtVarLeer.Size = new System.Drawing.Size(100, 20);
             this.txtVarLeer.TabIndex = 1;
@@ -332,21 +345,28 @@
             this.lblPuertoRemoting.TabIndex = 0;
             this.lblPuertoRemoting.Text = "Puerto Remoting:";
             // 
-            // lblTpoLect
+            // pnlInf
             // 
-            this.lblTpoLect.AutoSize = true;
-            this.lblTpoLect.Location = new System.Drawing.Point(617, 20);
-            this.lblTpoLect.Name = "lblTpoLect";
-            this.lblTpoLect.Size = new System.Drawing.Size(0, 13);
-            this.lblTpoLect.TabIndex = 18;
+            this.pnlInf.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlInf.Location = new System.Drawing.Point(0, 443);
+            this.pnlInf.Name = "pnlInf";
+            this.pnlInf.Size = new System.Drawing.Size(1020, 100);
+            this.pnlInf.TabIndex = 33;
             // 
-            // lblTpoEsc
+            // pnlComs
             // 
-            this.lblTpoEsc.AutoSize = true;
-            this.lblTpoEsc.Location = new System.Drawing.Point(796, 21);
-            this.lblTpoEsc.Name = "lblTpoEsc";
-            this.lblTpoEsc.Size = new System.Drawing.Size(0, 13);
-            this.lblTpoEsc.TabIndex = 19;
+            this.pnlComs.Controls.Add(this.lblCom);
+            this.pnlComs.Controls.Add(this.txtVarLeer);
+            this.pnlComs.Controls.Add(this.txtValLeer);
+            this.pnlComs.Controls.Add(this.btnLectura);
+            this.pnlComs.Controls.Add(this.btnEscritura);
+            this.pnlComs.Controls.Add(this.txtCom);
+            this.pnlComs.Controls.Add(this.lblVarLectura);
+            this.pnlComs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlComs.Location = new System.Drawing.Point(0, 0);
+            this.pnlComs.Name = "pnlComs";
+            this.pnlComs.Size = new System.Drawing.Size(1000, 58);
+            this.pnlComs.TabIndex = 20;
             // 
             // OClienteComs
             // 
@@ -354,6 +374,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbDispositivo);
             this.Controls.Add(this.gbConfig);
+            this.Controls.Add(this.pnlInf);
             this.Name = "OClienteComs";
             this.Size = new System.Drawing.Size(1020, 543);
             this.Load += new System.EventHandler(this.OClienteComs_Load);
@@ -368,6 +389,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscrituras)).EndInit();
             this.gbConfig.ResumeLayout(false);
             this.gbConfig.PerformLayout();
+            this.pnlComs.ResumeLayout(false);
+            this.pnlComs.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -402,5 +425,7 @@
         public System.Windows.Forms.TextBox txtPuertoRemoting;
         private System.Windows.Forms.Label lblTpoEsc;
         private System.Windows.Forms.Label lblTpoLect;
+        public System.Windows.Forms.Panel pnlInf;
+        private System.Windows.Forms.Panel pnlComs;
     }
 }

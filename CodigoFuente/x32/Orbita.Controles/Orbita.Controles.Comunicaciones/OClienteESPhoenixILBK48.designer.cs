@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlOutput = new System.Windows.Forms.Panel();
-            this.lblOutput = new System.Windows.Forms.Label();
-            this.S14 = new System.Windows.Forms.TextBox();
-            this.S13 = new System.Windows.Forms.TextBox();
-            this.S12 = new System.Windows.Forms.TextBox();
-            this.S11 = new System.Windows.Forms.TextBox();
             this.pnlInput2 = new System.Windows.Forms.Panel();
             this.lblInput2 = new System.Windows.Forms.Label();
             this.E24 = new System.Windows.Forms.TextBox();
@@ -48,49 +46,81 @@
             this.E13 = new System.Windows.Forms.TextBox();
             this.E12 = new System.Windows.Forms.TextBox();
             this.E11 = new System.Windows.Forms.TextBox();
+            this.pnlOutput = new System.Windows.Forms.Panel();
+            this.lblOutput = new System.Windows.Forms.Label();
+            this.S14 = new System.Windows.Forms.TextBox();
+            this.S13 = new System.Windows.Forms.TextBox();
+            this.S12 = new System.Windows.Forms.TextBox();
+            this.S11 = new System.Windows.Forms.TextBox();
             this.gbDispositivo.SuspendLayout();
+            this.gbConfig.SuspendLayout();
             this.pnlDispSup.SuspendLayout();
-            this.pnlOutput.SuspendLayout();
+            this.pnlInf.SuspendLayout();
             this.pnlInput2.SuspendLayout();
             this.pnlInput1.SuspendLayout();
+            this.pnlOutput.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDispositivo
             // 
-            this.gbDispositivo.Size = new System.Drawing.Size(989, 478);
+            this.gbDispositivo.Location = new System.Drawing.Point(0, 59);
+            this.gbDispositivo.Size = new System.Drawing.Size(989, 538);
             this.gbDispositivo.Text = "Dispositivo Phoenix";
             // 
             // gbConfig
             // 
-            this.gbConfig.Size = new System.Drawing.Size(989, 65);
+            this.gbConfig.Size = new System.Drawing.Size(989, 59);
             // 
             // pnlDispSup
             // 
-            this.pnlDispSup.Controls.Add(this.pnlInput2);
-            this.pnlDispSup.Controls.Add(this.pnlInput1);
-            this.pnlDispSup.Controls.Add(this.pnlOutput);
-            this.pnlDispSup.Size = new System.Drawing.Size(969, 176);
-            this.pnlDispSup.Controls.SetChildIndex(this.gbEscrituras, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.lblCom, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.pnlOutput, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.pnlInput1, 0);
-            this.pnlDispSup.Controls.SetChildIndex(this.pnlInput2, 0);
+            this.pnlDispSup.Size = new System.Drawing.Size(969, 141);
             // 
             // gbVariables
             // 
-            this.gbVariables.Location = new System.Drawing.Point(10, 199);
-            this.gbVariables.Size = new System.Drawing.Size(969, 161);
+            this.gbVariables.Location = new System.Drawing.Point(10, 164);
+            this.gbVariables.Size = new System.Drawing.Size(969, 170);
             // 
             // gbCDato
             // 
-            this.gbCDato.Size = new System.Drawing.Size(969, 108);
+            this.gbCDato.Location = new System.Drawing.Point(10, 334);
+            this.gbCDato.Size = new System.Drawing.Size(969, 194);
             // 
             // gbEscrituras
             // 
-            this.gbEscrituras.Location = new System.Drawing.Point(0, 76);
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 41);
             this.gbEscrituras.Size = new System.Drawing.Size(969, 100);
+            // 
+            // pnlInf
+            // 
+            this.pnlInf.Controls.Add(this.pnlInput2);
+            this.pnlInf.Controls.Add(this.pnlInput1);
+            this.pnlInf.Controls.Add(this.pnlOutput);
+            this.pnlInf.Location = new System.Drawing.Point(0, 597);
+            this.pnlInf.Size = new System.Drawing.Size(989, 100);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Variable";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Variable";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Valor";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -104,73 +134,6 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Valor";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // pnlOutput
-            // 
-            this.pnlOutput.BackColor = System.Drawing.Color.MistyRose;
-            this.pnlOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlOutput.Controls.Add(this.lblOutput);
-            this.pnlOutput.Controls.Add(this.S14);
-            this.pnlOutput.Controls.Add(this.S13);
-            this.pnlOutput.Controls.Add(this.S12);
-            this.pnlOutput.Controls.Add(this.S11);
-            this.pnlOutput.Location = new System.Drawing.Point(639, 12);
-            this.pnlOutput.Name = "pnlOutput";
-            this.pnlOutput.Size = new System.Drawing.Size(94, 58);
-            this.pnlOutput.TabIndex = 48;
-            // 
-            // lblOutput
-            // 
-            this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(5, 6);
-            this.lblOutput.Name = "lblOutput";
-            this.lblOutput.Size = new System.Drawing.Size(21, 13);
-            this.lblOutput.TabIndex = 39;
-            this.lblOutput.Text = "O1";
-            // 
-            // S14
-            // 
-            this.S14.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.S14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.S14.Location = new System.Drawing.Point(50, 30);
-            this.S14.Name = "S14";
-            this.S14.Size = new System.Drawing.Size(12, 20);
-            this.S14.TabIndex = 42;
-            this.S14.Tag = "4";
-            this.S14.Text = "4";
-            // 
-            // S13
-            // 
-            this.S13.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.S13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.S13.Location = new System.Drawing.Point(32, 30);
-            this.S13.Name = "S13";
-            this.S13.Size = new System.Drawing.Size(12, 20);
-            this.S13.TabIndex = 41;
-            this.S13.Tag = "3";
-            this.S13.Text = "3";
-            // 
-            // S12
-            // 
-            this.S12.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.S12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.S12.Location = new System.Drawing.Point(50, 4);
-            this.S12.Name = "S12";
-            this.S12.Size = new System.Drawing.Size(12, 20);
-            this.S12.TabIndex = 40;
-            this.S12.Tag = "2";
-            this.S12.Text = "2";
-            // 
-            // S11
-            // 
-            this.S11.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.S11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.S11.Location = new System.Drawing.Point(32, 4);
-            this.S11.Name = "S11";
-            this.S11.Size = new System.Drawing.Size(12, 20);
-            this.S11.TabIndex = 39;
-            this.S11.Tag = "1";
-            this.S11.Text = "1";
-            // 
             // pnlInput2
             // 
             this.pnlInput2.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -180,10 +143,10 @@
             this.pnlInput2.Controls.Add(this.E23);
             this.pnlInput2.Controls.Add(this.E22);
             this.pnlInput2.Controls.Add(this.E21);
-            this.pnlInput2.Location = new System.Drawing.Point(853, 12);
+            this.pnlInput2.Location = new System.Drawing.Point(266, 21);
             this.pnlInput2.Name = "pnlInput2";
             this.pnlInput2.Size = new System.Drawing.Size(94, 58);
-            this.pnlInput2.TabIndex = 50;
+            this.pnlInput2.TabIndex = 53;
             // 
             // lblInput2
             // 
@@ -247,10 +210,10 @@
             this.pnlInput1.Controls.Add(this.E13);
             this.pnlInput1.Controls.Add(this.E12);
             this.pnlInput1.Controls.Add(this.E11);
-            this.pnlInput1.Location = new System.Drawing.Point(753, 12);
+            this.pnlInput1.Location = new System.Drawing.Point(149, 21);
             this.pnlInput1.Name = "pnlInput1";
             this.pnlInput1.Size = new System.Drawing.Size(94, 58);
-            this.pnlInput1.TabIndex = 51;
+            this.pnlInput1.TabIndex = 54;
             // 
             // lblInput1
             // 
@@ -305,33 +268,101 @@
             this.E11.Tag = "1";
             this.E11.Text = "1";
             // 
+            // pnlOutput
+            // 
+            this.pnlOutput.BackColor = System.Drawing.Color.MistyRose;
+            this.pnlOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlOutput.Controls.Add(this.lblOutput);
+            this.pnlOutput.Controls.Add(this.S14);
+            this.pnlOutput.Controls.Add(this.S13);
+            this.pnlOutput.Controls.Add(this.S12);
+            this.pnlOutput.Controls.Add(this.S11);
+            this.pnlOutput.Location = new System.Drawing.Point(35, 21);
+            this.pnlOutput.Name = "pnlOutput";
+            this.pnlOutput.Size = new System.Drawing.Size(94, 58);
+            this.pnlOutput.TabIndex = 52;
+            // 
+            // lblOutput
+            // 
+            this.lblOutput.AutoSize = true;
+            this.lblOutput.Location = new System.Drawing.Point(5, 6);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(21, 13);
+            this.lblOutput.TabIndex = 39;
+            this.lblOutput.Text = "O1";
+            // 
+            // S14
+            // 
+            this.S14.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.S14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.S14.Location = new System.Drawing.Point(50, 30);
+            this.S14.Name = "S14";
+            this.S14.Size = new System.Drawing.Size(12, 20);
+            this.S14.TabIndex = 42;
+            this.S14.Tag = "4";
+            this.S14.Text = "4";
+            // 
+            // S13
+            // 
+            this.S13.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.S13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.S13.Location = new System.Drawing.Point(32, 30);
+            this.S13.Name = "S13";
+            this.S13.Size = new System.Drawing.Size(12, 20);
+            this.S13.TabIndex = 41;
+            this.S13.Tag = "3";
+            this.S13.Text = "3";
+            // 
+            // S12
+            // 
+            this.S12.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.S12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.S12.Location = new System.Drawing.Point(50, 4);
+            this.S12.Name = "S12";
+            this.S12.Size = new System.Drawing.Size(12, 20);
+            this.S12.TabIndex = 40;
+            this.S12.Tag = "2";
+            this.S12.Text = "2";
+            // 
+            // S11
+            // 
+            this.S11.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.S11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.S11.Location = new System.Drawing.Point(32, 4);
+            this.S11.Name = "S11";
+            this.S11.Size = new System.Drawing.Size(12, 20);
+            this.S11.TabIndex = 39;
+            this.S11.Tag = "1";
+            this.S11.Text = "1";
+            // 
             // OClienteESPhoenixILBK48
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteESPhoenixILBK48";
-            this.Size = new System.Drawing.Size(989, 543);
+            this.Size = new System.Drawing.Size(989, 697);
             this.gbDispositivo.ResumeLayout(false);
+            this.gbConfig.ResumeLayout(false);
+            this.gbConfig.PerformLayout();
             this.pnlDispSup.ResumeLayout(false);
             this.pnlDispSup.PerformLayout();
-            this.pnlOutput.ResumeLayout(false);
-            this.pnlOutput.PerformLayout();
+            this.pnlInf.ResumeLayout(false);
             this.pnlInput2.ResumeLayout(false);
             this.pnlInput2.PerformLayout();
             this.pnlInput1.ResumeLayout(false);
             this.pnlInput1.PerformLayout();
+            this.pnlOutput.ResumeLayout(false);
+            this.pnlOutput.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlOutput;
-        private System.Windows.Forms.Label lblOutput;
-        private System.Windows.Forms.TextBox S14;
-        private System.Windows.Forms.TextBox S13;
-        private System.Windows.Forms.TextBox S12;
-        private System.Windows.Forms.TextBox S11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Panel pnlInput2;
         private System.Windows.Forms.Label lblInput2;
         private System.Windows.Forms.TextBox E24;
@@ -344,7 +375,13 @@
         private System.Windows.Forms.TextBox E13;
         private System.Windows.Forms.TextBox E12;
         private System.Windows.Forms.TextBox E11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Panel pnlOutput;
+        private System.Windows.Forms.Label lblOutput;
+        private System.Windows.Forms.TextBox S14;
+        private System.Windows.Forms.TextBox S13;
+        private System.Windows.Forms.TextBox S12;
+        private System.Windows.Forms.TextBox S11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
