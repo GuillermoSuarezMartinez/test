@@ -71,7 +71,7 @@
             // gbDispositivo
             // 
             this.gbDispositivo.Location = new System.Drawing.Point(0, 60);
-            this.gbDispositivo.Size = new System.Drawing.Size(819, 628);
+            this.gbDispositivo.Size = new System.Drawing.Size(1146, 628);
             this.gbDispositivo.Text = "Dispositivo MCC USB";
             // 
             // lblCom
@@ -82,7 +82,7 @@
             // 
             // gbConfig
             // 
-            this.gbConfig.Size = new System.Drawing.Size(819, 60);
+            this.gbConfig.Size = new System.Drawing.Size(1146, 60);
             // 
             // pnlDispSup
             // 
@@ -90,7 +90,8 @@
             this.pnlDispSup.Controls.Add(this.pnlCanalCL);
             this.pnlDispSup.Controls.Add(this.pnlCanalB);
             this.pnlDispSup.Controls.Add(this.pnlCanalA);
-            this.pnlDispSup.Size = new System.Drawing.Size(799, 119);
+            this.pnlDispSup.Size = new System.Drawing.Size(1126, 247);
+            this.pnlDispSup.Controls.SetChildIndex(this.gbEscrituras, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtVarLeer, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtVarEscribir, 0);
             this.pnlDispSup.Controls.SetChildIndex(this.txtCom, 0);
@@ -102,8 +103,18 @@
             // 
             // gbVariables
             // 
-            this.gbVariables.Location = new System.Drawing.Point(10, 142);
-            this.gbVariables.Size = new System.Drawing.Size(799, 330);
+            this.gbVariables.Location = new System.Drawing.Point(10, 270);
+            this.gbVariables.Size = new System.Drawing.Size(1126, 250);
+            // 
+            // gbCDato
+            // 
+            this.gbCDato.Location = new System.Drawing.Point(10, 520);
+            this.gbCDato.Size = new System.Drawing.Size(1126, 98);
+            // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 124);
+            this.gbEscrituras.Size = new System.Drawing.Size(1126, 123);
             // 
             // pnlCanalA
             // 
@@ -474,7 +485,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteMCUSB";
-            this.Size = new System.Drawing.Size(819, 688);
+            this.Size = new System.Drawing.Size(1146, 688);
             this.gbDispositivo.ResumeLayout(false);
             this.pnlDispSup.ResumeLayout(false);
             this.pnlDispSup.PerformLayout();

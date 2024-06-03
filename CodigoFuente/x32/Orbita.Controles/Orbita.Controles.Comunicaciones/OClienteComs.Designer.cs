@@ -55,6 +55,8 @@
             this.btnConectar = new System.Windows.Forms.Button();
             this.txtPuertoRemoting = new System.Windows.Forms.TextBox();
             this.lblPuertoRemoting = new System.Windows.Forms.Label();
+            this.gbEscrituras = new System.Windows.Forms.GroupBox();
+            this.dataGridViewEscrituras = new System.Windows.Forms.DataGridView();
             this.gbDispositivo.SuspendLayout();
             this.gbVariables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLecturas)).BeginInit();
@@ -62,6 +64,8 @@
             this.gbCDato.SuspendLayout();
             this.pnlDispSup.SuspendLayout();
             this.gbConfig.SuspendLayout();
+            this.gbEscrituras.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscrituras)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDispositivo
@@ -73,7 +77,7 @@
             this.gbDispositivo.Location = new System.Drawing.Point(0, 65);
             this.gbDispositivo.Name = "gbDispositivo";
             this.gbDispositivo.Padding = new System.Windows.Forms.Padding(10);
-            this.gbDispositivo.Size = new System.Drawing.Size(807, 478);
+            this.gbDispositivo.Size = new System.Drawing.Size(1020, 478);
             this.gbDispositivo.TabIndex = 32;
             this.gbDispositivo.TabStop = false;
             this.gbDispositivo.Text = "Dispositivo";
@@ -83,10 +87,10 @@
             this.gbVariables.Controls.Add(this.dataGridViewLecturas);
             this.gbVariables.Controls.Add(this.pnlLecturas);
             this.gbVariables.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbVariables.Location = new System.Drawing.Point(10, 100);
+            this.gbVariables.Location = new System.Drawing.Point(10, 216);
             this.gbVariables.Name = "gbVariables";
             this.gbVariables.Padding = new System.Windows.Forms.Padding(10);
-            this.gbVariables.Size = new System.Drawing.Size(787, 222);
+            this.gbVariables.Size = new System.Drawing.Size(1000, 144);
             this.gbVariables.TabIndex = 27;
             this.gbVariables.TabStop = false;
             this.gbVariables.Text = "Lecturas";
@@ -97,7 +101,7 @@
             this.dataGridViewLecturas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewLecturas.Location = new System.Drawing.Point(10, 68);
             this.dataGridViewLecturas.Name = "dataGridViewLecturas";
-            this.dataGridViewLecturas.Size = new System.Drawing.Size(767, 144);
+            this.dataGridViewLecturas.Size = new System.Drawing.Size(980, 66);
             this.dataGridViewLecturas.TabIndex = 12;
             // 
             // pnlLecturas
@@ -107,7 +111,7 @@
             this.pnlLecturas.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLecturas.Location = new System.Drawing.Point(10, 23);
             this.pnlLecturas.Name = "pnlLecturas";
-            this.pnlLecturas.Size = new System.Drawing.Size(767, 45);
+            this.pnlLecturas.Size = new System.Drawing.Size(980, 45);
             this.pnlLecturas.TabIndex = 28;
             // 
             // btnLeerVariables
@@ -134,10 +138,10 @@
             // 
             this.gbCDato.Controls.Add(this.listViewCDato);
             this.gbCDato.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbCDato.Location = new System.Drawing.Point(10, 322);
+            this.gbCDato.Location = new System.Drawing.Point(10, 360);
             this.gbCDato.Name = "gbCDato";
             this.gbCDato.Padding = new System.Windows.Forms.Padding(10);
-            this.gbCDato.Size = new System.Drawing.Size(787, 146);
+            this.gbCDato.Size = new System.Drawing.Size(1000, 108);
             this.gbCDato.TabIndex = 28;
             this.gbCDato.TabStop = false;
             this.gbCDato.Text = "Cambio Dato";
@@ -149,13 +153,14 @@
             this.listViewCDato.Location = new System.Drawing.Point(10, 23);
             this.listViewCDato.MultiSelect = false;
             this.listViewCDato.Name = "listViewCDato";
-            this.listViewCDato.Size = new System.Drawing.Size(767, 113);
+            this.listViewCDato.Size = new System.Drawing.Size(980, 75);
             this.listViewCDato.TabIndex = 13;
             this.listViewCDato.UseCompatibleStateImageBehavior = false;
             this.listViewCDato.View = System.Windows.Forms.View.List;
             // 
             // pnlDispSup
             // 
+            this.pnlDispSup.Controls.Add(this.gbEscrituras);
             this.pnlDispSup.Controls.Add(this.lblCom);
             this.pnlDispSup.Controls.Add(this.lblVarEscritura);
             this.pnlDispSup.Controls.Add(this.txtValEscribir);
@@ -169,7 +174,7 @@
             this.pnlDispSup.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDispSup.Location = new System.Drawing.Point(10, 23);
             this.pnlDispSup.Name = "pnlDispSup";
-            this.pnlDispSup.Size = new System.Drawing.Size(787, 77);
+            this.pnlDispSup.Size = new System.Drawing.Size(1000, 193);
             this.pnlDispSup.TabIndex = 26;
             // 
             // lblCom
@@ -266,7 +271,7 @@
             this.gbConfig.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbConfig.Location = new System.Drawing.Point(0, 0);
             this.gbConfig.Name = "gbConfig";
-            this.gbConfig.Size = new System.Drawing.Size(807, 65);
+            this.gbConfig.Size = new System.Drawing.Size(1020, 65);
             this.gbConfig.TabIndex = 31;
             this.gbConfig.TabStop = false;
             this.gbConfig.Text = "Configuración";
@@ -332,6 +337,26 @@
             this.lblPuertoRemoting.TabIndex = 0;
             this.lblPuertoRemoting.Text = "Puerto Remoting:";
             // 
+            // gbEscrituras
+            // 
+            this.gbEscrituras.Controls.Add(this.dataGridViewEscrituras);
+            this.gbEscrituras.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbEscrituras.Location = new System.Drawing.Point(0, 155);
+            this.gbEscrituras.Name = "gbEscrituras";
+            this.gbEscrituras.Size = new System.Drawing.Size(1000, 38);
+            this.gbEscrituras.TabIndex = 17;
+            this.gbEscrituras.TabStop = false;
+            this.gbEscrituras.Text = "Escrituras";
+            // 
+            // dataGridViewEscrituras
+            // 
+            this.dataGridViewEscrituras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEscrituras.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewEscrituras.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewEscrituras.Name = "dataGridViewEscrituras";
+            this.dataGridViewEscrituras.Size = new System.Drawing.Size(994, 19);
+            this.dataGridViewEscrituras.TabIndex = 0;
+            // 
             // OClienteComs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +364,8 @@
             this.Controls.Add(this.gbDispositivo);
             this.Controls.Add(this.gbConfig);
             this.Name = "OClienteComs";
-            this.Size = new System.Drawing.Size(807, 543);
+            this.Size = new System.Drawing.Size(1020, 543);
+            this.Load += new System.EventHandler(this.OClienteComs_Load);
             this.gbDispositivo.ResumeLayout(false);
             this.gbVariables.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLecturas)).EndInit();
@@ -349,6 +375,8 @@
             this.pnlDispSup.PerformLayout();
             this.gbConfig.ResumeLayout(false);
             this.gbConfig.PerformLayout();
+            this.gbEscrituras.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscrituras)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,5 +410,7 @@
         public System.Windows.Forms.Panel pnlDispSup;
         public System.Windows.Forms.GroupBox gbVariables;
         public System.Windows.Forms.GroupBox gbCDato;
+        private System.Windows.Forms.DataGridView dataGridViewEscrituras;
+        public System.Windows.Forms.GroupBox gbEscrituras;
     }
 }

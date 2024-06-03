@@ -184,7 +184,27 @@ namespace Orbita.Controles.Comunicaciones
                 lvi.Tag = texto;
                 this.listViewCDato.Items.Add(lvi);
             }
-        }        
+        }
+
+        private void configurarDataGridEscrituras()
+        {
+
+            DataTable dtc = new DataTable();
+
+            DataColumn column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "Variable";
+            dtc.Columns.Add(column);
+
+            DataColumn column2 = new DataColumn();
+            column2.DataType = System.Type.GetType("System.Object");
+            column2.ColumnName = "Valor";
+            dtc.Columns.Add(column2);
+
+
+            this.dataGridViewEscrituras.DataSource = dtc;
+
+        }
         #endregion
 
         #region Eventos
@@ -289,11 +309,17 @@ namespace Orbita.Controles.Comunicaciones
         {
             try
             {
-                string[] variable = new string[1];
-                variable[0] = this.txtVarEscribir.Text;
-                object[] valor = new object[1];
-                valor[0] = this.txtValEscribir.Text;
-                //valor[0] = dt;
+                DataTable dt = (DataTable)this.dataGridViewEscrituras.DataSource;
+
+                string[] variable = new string[dt.Rows.Count];
+                object[] valor = new object[dt.Rows.Count];
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    variable[i] = dt.Rows[i][0].ToString();
+                    valor[i] = dt.Rows[i][1];
+                }
+                
                 bool resp = this._servidor.OrbitaEscribir(this._idDispositivo, variable, valor);
             }
             catch (System.Exception ex)
@@ -397,6 +423,17 @@ namespace Orbita.Controles.Comunicaciones
 
             this.dataGridViewLecturas.DataSource = dt;
         }
+        /// <summary>
+        /// Carga del formulario principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OClienteComs_Load(object sender, EventArgs e)
+        {
+            this.configurarDataGridEscrituras();
+        }
+
         #endregion   
+                
     }
 }
