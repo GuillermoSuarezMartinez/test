@@ -28,14 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
+            this.gbConfig.SuspendLayout();
+            this.SuspendLayout();            
+            // 
+            // gbOPC
+            // 
+            this.gbDispositivo.Location = new System.Drawing.Point(0, 60);
+            this.gbDispositivo.Size = new System.Drawing.Size(918, 535);
+            this.gbDispositivo.Text = "Dispositivo MCC USB";
+            // 
+            // lblOPC
+            // 
+            this.lblCom.Size = new System.Drawing.Size(30, 13);
+            this.lblCom.Text = "MCC";
+            // 
+            // gbConfig
+            // 
+            this.gbConfig.Size = new System.Drawing.Size(918, 60);
             // 
             // OClienteMCUSB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "OClienteMCUSB";
-            this.Size = new System.Drawing.Size(400, 321);
+            this.Size = new System.Drawing.Size(918, 595);
+            this.gbConfig.ResumeLayout(false);
+            this.gbConfig.PerformLayout();
             this.ResumeLayout(false);
 
         }

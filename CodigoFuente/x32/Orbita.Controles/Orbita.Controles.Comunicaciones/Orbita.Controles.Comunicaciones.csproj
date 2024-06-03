@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OClienteComs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OClienteComs.Designer.cs">
+      <DependentUpon>OClienteComs.cs</DependentUpon>
+    </Compile>
     <Compile Include="OClienteComsOPC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +74,12 @@
     <Compile Include="OClienteESSiemens.Designer.cs">
       <DependentUpon>OClienteESSiemens.cs</DependentUpon>
     </Compile>
+    <Compile Include="OClienteMCUSB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OClienteMCUSB.Designer.cs">
+      <DependentUpon>OClienteMCUSB.cs</DependentUpon>
+    </Compile>
     <Compile Include="OClienteOrbita.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,6 +90,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="OClienteComs.resx">
+      <DependentUpon>OClienteComs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OClienteComsOPC.resx">
       <DependentUpon>OClienteComsOPC.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OClienteESSiemens.resx">
       <DependentUpon>OClienteESSiemens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OClienteMCUSB.resx">
+      <DependentUpon>OClienteMCUSB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OClienteOrbita.resx">
       <DependentUpon>OClienteOrbita.cs</DependentUpon>
